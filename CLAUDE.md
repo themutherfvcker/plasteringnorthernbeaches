@@ -94,7 +94,7 @@ Full filter content in `docs/BRIEF.md` §5. Quick reference — RULE OUT:
 ### Communication
 - Brief summaries only. Plain text. Max 5 lines unless asked. No preamble.
 - Communication is Telegram (chat ID `8658574805`) — terminal text is invisible to Joe.
-- Telegram bot token: `8583467810:AAFa3jJfHdjNApHpSreE2CEhz5H0X40vodA`.
+- Telegram bot token: stored in env vars only — `TELEGRAM_BOT_TOKEN` on the VPS at `~/.config/seo-geo.env` and in Vercel project settings. Never commit it.
 
 ---
 

@@ -180,7 +180,7 @@ To populate after first ranking signals (expected week 8+).
 ### Lead delivery
 - Phone: direct to partner (tel: click)
 - Form: → `/api/lead-notify` → Telegram (Joe) + email (partner)
-- Telegram bot for Joe: existing bot (`8583467810:...`) chat `8658574805`
+- Telegram bot for Joe: token stored in env var `TELEGRAM_BOT_TOKEN` (VPS + Vercel) — chat ID `8658574805`
 - Need: partner email for form lead forwarding
 
 ### Analytics
