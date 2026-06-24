@@ -1,61 +1,102 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { SITE } from '@/data/site';
+import QuoteForm from '@/components/QuoteForm';
 
 export const metadata: Metadata = {
-  title: 'Licensed Plasterer & Gyprocker Northern Beaches Sydney | Free Quote in 24 Hours',
+  title: "Northern Beaches Plastering Services | Sydney's #1 Plasterers",
   description:
-    'Northern Beaches plastering and gyprocking — NSW Fair Trading licensed, 20+ years, free fixed quote in 24 hours. Dee Why, Manly, Brookvale, Collaroy. Call (02) 0000 0000.',
+    "Sydney's Northern Beaches most trusted plastering service. Free fixed quotes, licensed & insured, 10-year written guarantee. Plaster repairs, gyprock, cornice, skim coating, ceiling repair.",
   alternates: { canonical: SITE.url },
 };
 
-// FAQs sourced from the engine brief — required for FAQPage schema + visible Q&A section.
+const services = [
+  { icon: '🎨', title: 'Drywall Plastering',     blurb: 'Perfect, smooth walls ready for painting. We handle new installs and replacements with precision.' },
+  { icon: '🔨', title: 'Plaster Repairs',         blurb: 'Cracks, holes, water damage — we seamlessly repair any plaster issue so it looks brand new.' },
+  { icon: '✨', title: 'Cornice & Detailing',     blurb: 'Decorative cornices, ceiling roses and ornamental plaster that adds character and elegance.' },
+  { icon: '🪞', title: 'Skim Coating',            blurb: 'Ultra-smooth skim finishes over existing surfaces. Transform textured walls into sleek, modern ones.' },
+  { icon: '💧', title: 'Water Damage Repair',     blurb: 'Busted pipes or storm damage? We restore water-damaged plaster fast to prevent further issues.' },
+  { icon: '🏠', title: 'Full Home Plastering',    blurb: "Complete plastering for new builds and renovations. One team, one timeline, one perfect result.", popular: true },
+];
+
+const whyUs = [
+  { icon: '🛡️', title: '10-year written guarantee',     body: "We stand behind every job. If there's an issue, we come back and fix it — period. No questions asked." },
+  { icon: '✅', title: 'Fully licensed & insured',       body: 'Complete peace of mind. We carry full public liability insurance and all required NSW Fair Trading licences.' },
+  { icon: '🧹', title: 'Dust-free & clean',              body: "We respect your home. Drop sheets, dust extraction, and a full clean-up means you'd never know we were there." },
+  { icon: '⏰', title: 'On time, every time',            body: 'We show up when we say we will. No waiting around, no excuses. Your time matters.' },
+];
+
+const process = [
+  { n: 1, title: 'Request your free quote',  body: "Fill in the form or call us. We'll be in touch fast with the next steps." },
+  { n: 2, title: 'We assess & quote',         body: 'We visit your property, assess the job, and give you a fair, transparent fixed-price quote.' },
+  { n: 3, title: 'Sit back & relax',          body: 'We complete the work on schedule, clean up perfectly, and leave you with flawless walls.' },
+];
+
+const testimonials = [
+  { stars: 5, quote: "We had three rooms that needed complete replastering after a renovation. The team was punctual, incredibly tidy, and the finish is absolutely flawless. Can't recommend them enough!", name: '[Sample testimonial — replace pre-launch]', suburb: 'Manly Vale' },
+  { stars: 5, quote: 'Had a massive water damage issue in the kitchen ceiling. They came out fast, quoted the next morning, and had it fixed within 48 hours. Amazing service and quality.', name: '[Sample testimonial — replace pre-launch]', suburb: 'Dee Why' },
+  { stars: 5, quote: 'Best plasterers on the Beaches, hands down. They did our entire new build — walls, ceilings, cornices — and every single surface is perfect. The 10-year guarantee gave us total confidence.', name: '[Sample testimonial — replace pre-launch]', suburb: 'Freshwater' },
+];
+
 const faqs = [
   {
-    q: 'What licence does a plasterer need on the Northern Beaches NSW?',
-    a: 'In NSW, any plastering or gyprocking contract worth more than $5,000 in labour and materials requires the contractor to hold a current NSW Fair Trading contractor licence under the Home Building Act 1989. Smaller jobs under $5,000 can be done by a tradesperson holding a Tradesperson Certificate.',
+    q: 'How quickly can you start on my job?',
+    a: 'For most standard jobs, we can start within 3–5 business days of accepting our quote. For urgent repairs (like water damage), we can often attend the same day or next business day. We always communicate timelines clearly before starting.',
   },
   {
-    q: "How do I check a plasterer's licence on the Northern Beaches?",
-    a: 'Go to fairtrading.nsw.gov.au/check-a-licence and enter the contractor licence number. The result shows the licence status, the trades they\'re licensed for, and any conditions or suspensions. Takes about 60 seconds. Ask for the licence number before signing any quote.',
+    q: 'Do you charge for quotes?',
+    a: "Never. All our quotes are 100% free and no-obligation. We'll visit your property, assess the work required, and provide a transparent fixed-price quote. No pressure, no hidden fees, no surprises.",
   },
   {
-    q: 'What happens if I hire an unlicensed plasterer in NSW?',
-    a: 'The contract is unenforceable, meaning you can void it and recover payments already made. You cannot claim against the Home Building Compensation Fund if the job goes wrong. The unlicensed tradesperson faces fines up to $22,000 (individuals) or $110,000 (corporations) under the Home Building Act 1989.',
+    q: 'What does your 10-year guarantee cover?',
+    a: 'Our 10-year written guarantee covers any defects in our workmanship — cracking, peeling, joint separation, or any issues directly caused by our plastering work. If something we did fails within 10 years, we fix it free of charge, including materials and labour.',
   },
   {
-    q: 'Do I need a licensed plasterer for small jobs under $5,000?',
-    a: 'Legally, no — small jobs under the $5,000 threshold can be done by a tradesperson holding a Tradesperson Certificate rather than a full contractor licence. But check the certificate, ask for insurance, and confirm in writing. Quote-shopping for an unlicensed cheap fix can void Home Building Compensation Fund cover on related work.',
+    q: 'Will you leave a mess?',
+    a: "Absolutely not. We use dust sheets, dust extraction equipment, and clean up thoroughly at the end of every day and upon job completion. We respect your home and treat it like our own. You'll barely know we were there — except for your beautiful new walls.",
   },
   {
-    q: 'What is the Home Building Compensation Fund (HBCF)?',
-    a: 'A NSW statutory insurance scheme that protects homeowners when residential building work over $20,000 is defective or incomplete. Only licensed contractors who have HBCF certificates can take on work over $20,000. Unlicensed contracts are not eligible — that\'s the coverage gap to watch for.',
+    q: 'How much does plastering cost on the Northern Beaches?',
+    a: "Costs depend on the scope, condition, and type of plastering required. We provide free fixed-price quotes so you know exactly what you'll pay before we start — no hourly rates, no surprise bills. Small patch repairs can be very affordable, while full home plastering is quoted per square metre at competitive Northern Beaches rates.",
   },
   {
-    q: 'Is an owner-builder allowed to do their own plastering in NSW?',
-    a: 'Yes, if you hold an Owner-Builder Permit issued by NSW Fair Trading for work above $10,000. Owner-builders don\'t need a contractor licence to do their own work but cannot subcontract individual trades to unlicensed people. Most owner-builders still hire a licensed plasterer for finish quality reasons.',
-  },
-  {
-    q: 'How fast can you get to a Northern Beaches job?',
-    a: 'Free quote in 24 hours for any address from Manly through to Avalon. Site visit booked within 2–5 business days. Mid-sized jobs ($3,000–$10,000) typically start within 1–3 weeks of the signed quote depending on existing schedule. Urgent ceiling repairs and water-damage jobs prioritised same-week where possible.',
+    q: 'Are you licensed and insured?',
+    a: "Yes, 100%. We hold all required NSW Fair Trading trade licences and carry full public liability insurance. We're happy to show you our credentials upon request. Your property and peace of mind are always protected with us.",
   },
 ];
 
-const schema = {
+const heroAreasList = [
+  'Manly', 'Dee Why', 'Freshwater', 'Curl Curl', 'Collaroy', 'Narrabeen',
+  'Mona Vale', 'Warriewood', 'Avalon', 'Palm Beach', 'Newport', 'Bilgola',
+  'Bayview', 'Church Point', 'Elvina Bay', 'Queenscliff', 'North Balgowlah',
+  'Seaforth', 'Brookvale', 'Cromer', 'Frenchs Forest', 'Belrose',
+];
+
+// ── JSON-LD Schema for the page ────────────────────────────────────────────
+const pageSchema = {
   '@context': 'https://schema.org',
   '@graph': [
     {
       '@type': 'Service',
       '@id': `${SITE.url}/#service`,
-      name: 'Plastering and Gyprocking Northern Beaches',
+      name: 'Plastering & gyprocking — Sydney Northern Beaches',
       provider: { '@id': `${SITE.url}/#business` },
-      areaServed: SITE.primarySuburbs.map((s) => ({
+      areaServed: heroAreasList.map((s) => ({
         '@type': 'City',
         name: s,
         containedInPlace: { '@type': 'State', name: 'New South Wales' },
       })),
-      serviceType: 'Plastering and gyprocking — residential and commercial, Northern Beaches Sydney',
+      serviceType: 'Residential and commercial plastering, gyprocking, ceiling repair, cornice restoration, skim coating, render',
       description:
-        'NSW Fair Trading licensed plastering and gyprocking. Ceiling repair, cornice restoration, gyprock installation, skim coat. Specialising in $3,000–$10,000 mid-sized jobs across the Northern Beaches.',
+        'Licensed and insured plastering and gyprocking across Sydney Northern Beaches — drywall installation, plaster repairs, cornice and decorative work, skim coating, water damage repair, full home plastering. 10-year written workmanship guarantee.',
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Plastering services',
+        itemListElement: services.map((s) => ({
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: s.title, description: s.blurb },
+        })),
+      },
     },
     {
       '@type': 'FAQPage',
@@ -65,413 +106,506 @@ const schema = {
         acceptedAnswer: { '@type': 'Answer', text: f.a },
       })),
     },
+    // BreadcrumbList intentionally omitted — homepage doesn't breadcrumb to itself.
   ],
 };
 
 export default function HomePage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
 
-      {/* ─── ANNOUNCEMENT BAR ─── */}
-      <div className="bg-accent text-ink text-sm font-bold tracking-wide text-center py-2 px-4">
-        ✅ NSW Fair Trading Licensed · 20+ Years · Free Fixed Quote in 24 Hours · Call{' '}
-        <a href={`tel:${SITE.phoneTel}`} className="underline">{SITE.phone}</a>
+      {/* ─── Urgency Top Bar ─── */}
+      <div className="v2-urgency-bar text-white text-center py-2.5 px-4 text-sm font-medium relative z-50">
+        <div className="flex items-center justify-center gap-2 flex-wrap">
+          <span className="inline-flex items-center gap-1.5">
+            🎟️ <strong className="text-brand-300">10% OFF</strong> for new customers this month
+          </span>
+          <span className="hidden sm:inline text-navy-400">|</span>
+          <span className="inline-flex items-center gap-1.5">
+            <span className="w-2 h-2 bg-brand-400 rounded-full animate-pulse"></span>
+            <strong className="text-brand-300">Free quotes</strong> · NSW Fair Trading licensed
+          </span>
+        </div>
       </div>
 
-      {/* ─── NAV ─── */}
-      <nav className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
-        <div className="max-w-6xl mx-auto flex items-center justify-between py-3 px-4">
-          <a href="#" className="font-display font-extrabold text-lg md:text-xl text-ink">
-            Plastering Northern Beaches
-          </a>
+      {/* ─── Sticky Header ─── */}
+      <header className="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-navy-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-navy-900 rounded-lg flex items-center justify-center">
+              <span className="text-brand-400 text-xl">🏠</span>
+            </div>
+            <div>
+              <span className="font-bold text-navy-900 text-lg leading-tight block">Northern Beaches</span>
+              <span className="text-brand-600 font-semibold text-xs tracking-wide uppercase">Plastering Services</span>
+            </div>
+          </Link>
+          <nav className="hidden md:flex items-center gap-6">
+            <a href="#services" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">Services</a>
+            <a href="#why-us" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">Why Us</a>
+            <a href="#reviews" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">Reviews</a>
+            <a href="#faq" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">FAQ</a>
+          </nav>
           <div className="flex items-center gap-3">
-            <a href={`tel:${SITE.phoneTel}`} className="hidden md:inline-flex text-brand font-bold text-base hover:text-brand-dark">
-              📞 {SITE.phone}
+            <a href={`tel:${SITE.phoneTel}`} className="hidden sm:flex items-center gap-2 text-navy-800 font-semibold hover:text-brand-600 transition-colors">
+              📞 <span>{SITE.phone}</span>
             </a>
-            <a href="#contact" className="btn-primary text-sm py-2 px-4">Get Free Quote</a>
+            <a href="#quote" className="v2-cta-gradient text-navy-900 font-bold text-sm px-5 py-2.5 rounded-lg hover:scale-105 active:scale-95 transition-all duration-150 shadow-lg shadow-brand-500/20">
+              Free Quote →
+            </a>
           </div>
         </div>
-      </nav>
+      </header>
 
-      {/* ─── HERO ─── */}
-      <section id="hero" className="bg-white py-12 md:py-20 px-4">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 items-center">
-          {/* LEFT: copy */}
-          <div>
-            {/* Social proof badge above headline */}
-            <div className="inline-flex items-center gap-2 border border-amber-200 bg-amber-50 px-3 py-1 rounded-full mb-5">
-              <span className="text-amber-500 tracking-wide">★★★★★</span>
-              <span className="text-sm font-bold text-ink">
-                NSW Licensed · 20+ Years on the Tools
-              </span>
-            </div>
-
-            {/* HEADLINE — End Result + Time + Emotional Payoff */}
-            <h1 className="font-display font-extrabold text-4xl md:text-5xl leading-tight text-ink mb-5">
-              Get a <span className="bg-accent px-2 rounded">Licensed Northern Beaches</span> Plasterer at Your Door in 24 Hours
-            </h1>
-
-            {/* SUB-HEAD — Pain callout + solution + USPs */}
-            <p className="text-lg text-slate-600 leading-relaxed mb-6 max-w-xl">
-              Stuck waiting on tradies who won&apos;t return your calls? We do plastering, gyprocking, ceiling repair and cornice work across <strong>Dee Why, Manly, Brookvale, Collaroy</strong> and the wider Northern Beaches. Free fixed quote in 24 hours. NSW Fair Trading licenced.
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-3 mb-4">
-              <a href={`tel:${SITE.phoneTel}`} className="btn-phone text-base">
-                📞 Call {SITE.phone}
-              </a>
-              <a href="#contact" className="btn-primary text-base">Get Free Quote</a>
-            </div>
-
-            {/* FUD reducers */}
-            <div className="flex flex-wrap gap-x-5 gap-y-2 mb-6">
-              <span className="text-brand font-semibold text-sm">✓ NSW Fair Trading licensed</span>
-              <span className="text-brand font-semibold text-sm">✓ Fully insured</span>
-              <span className="text-brand font-semibold text-sm">✓ Free quote in 24 hr</span>
-            </div>
-
-            {/* Second social proof */}
-            <div className="flex flex-wrap items-center gap-5 pt-4 border-t border-slate-100">
-              <span className="text-sm text-slate-500">
-                <strong className="text-ink">NSW Licence #{`{TBD}`}</strong> · verifiable at{' '}
-                <a href="https://www.fairtrading.nsw.gov.au/about-fair-trading/online-services/check-a-licence-or-certificate" target="_blank" rel="noopener" className="text-brand underline">
-                  NSW Fair Trading
-                </a>
-              </span>
-            </div>
-          </div>
-
-          {/* RIGHT: hero image placeholder */}
-          <div>
-            <div className="bg-slate-200 rounded-2xl min-h-[420px] flex items-center justify-center p-8 text-center">
-              <div>
-                <div className="text-5xl mb-3">📷</div>
-                <div className="text-slate-500 text-sm font-semibold mb-1">Hero Image</div>
-                <div className="text-slate-400 text-xs">
-                  Real partner work — recently finished Dee Why / Manly job with the tradie on site,
-                  clean ladder + drop sheet, fresh ceiling or wall finish visible. <br />
-                  Will be replaced with partner-supplied photo before launch.
-                </div>
+      {/* ─── Hero ─── */}
+      <section className="v2-hero-gradient relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-brand-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-brand-500 rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 lg:py-28 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+                <span className="text-amber-300 text-lg">★★★★★</span>
+                <span className="text-white/80 text-sm font-medium">Local · Licensed · 15+ years on the tools</span>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ─── PAIN POINTS (PAS sales letter format) ─── */}
-      <section id="pain-points" className="bg-surface py-16 px-4">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-display font-extrabold text-3xl md:text-4xl text-ink text-center mb-3">
-            Stuck in the Tradie Hunt?
-          </h2>
-          <p className="text-slate-600 text-center mb-10 text-base leading-relaxed">
-            You&apos;re not alone. Northern Beaches homeowners deal with this every week.
-          </p>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6">
+                Sydney&apos;s Northern Beaches
+                <span className="text-brand-400 block mt-2">#1 Plastering</span>
+                <span className="text-white/90 block mt-1">Service</span>
+              </h1>
 
-          <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-10 shadow-sm">
-            <p className="font-bold text-ink mb-5">Does any of this sound like you right now?</p>
+              <p className="text-lg sm:text-xl text-navy-200 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                Flawless walls, perfect finishes &amp; zero hassle. From tiny patch repairs to full home plastering — we do it all with a{' '}
+                <strong className="text-brand-300">10-year written guarantee</strong>.
+              </p>
 
-            <ul className="space-y-3 mb-6">
-              {[
-                'Three plasterers quoted last week. Two ghosted. One showed up two hours late.',
-                'Got a suspiciously cheap quote — then realised they couldn\'t produce a NSW Fair Trading licence number.',
-                'Original tradie pulled apart half your ceiling, took the deposit, and has gone dark.',
-                'Worried about Home Building Compensation Fund cover if anything goes wrong on a $20k+ job.',
-                'Renovation\'s on hold while you try to find someone licensed who actually answers the phone.',
-              ].map((p) => (
-                <li key={p} className="flex gap-3 items-start">
-                  <span className="text-brand font-bold mt-0.5">✓</span>
-                  <span className="text-slate-700 leading-relaxed">{p}</span>
-                </li>
-              ))}
-            </ul>
+              <ul className="space-y-3 mb-8 max-w-md mx-auto lg:mx-0 text-left">
+                {[
+                  'Free fixed-price quotes',
+                  'NSW Fair Trading licensed & insured',
+                  'Clean, dust-free workmanship',
+                  '10-year written guarantee',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-white/90 text-base">
+                    <span className="text-brand-400 font-extrabold text-lg leading-tight">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
 
-            <p className="text-slate-700 mb-6 leading-relaxed">
-              You want the job done <strong>properly, on time, by someone you can ring back</strong>. But every day waiting is dust through the house, plastic over the lounge, and quotes blowing out.
-            </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6">
+                <a href="#quote" className="v2-cta-gradient animate-pulse-glow text-navy-900 font-extrabold text-lg px-8 py-4 rounded-xl hover:scale-105 active:scale-95 transition-all duration-150 shadow-2xl shadow-brand-500/30 text-center">
+                  Get Your Free Quote →
+                </a>
+                <a href={`tel:${SITE.phoneTel}`} className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-white/20 transition-all duration-150 text-center flex items-center justify-center gap-2">
+                  📞 Call Now
+                </a>
+              </div>
 
-            {/* Agitate */}
-            <div className="bg-accent-light border-l-4 border-accent p-5 rounded-r-lg mb-6">
-              <p className="text-ink leading-relaxed font-medium">
-                And the worst part? Every cheap unlicensed quote you accept <u>kills your HBCF cover</u> on related work. So if anything goes wrong later — water damage, structural issue, drainage problem — you&apos;ve voided your own protection on the whole renovation.
+              <p className="text-navy-300 text-sm flex items-center justify-center lg:justify-start gap-2">
+                🛡️ No obligation. No spam. Just an honest quote.
               </p>
             </div>
 
-            <p className="text-slate-700 leading-relaxed">
-              <strong className="text-ink">There&apos;s a simpler way:</strong> ring a Northern Beaches plasterer who actually answers, holds a current NSW licence, and gives you a fixed quote in 24 hours. That&apos;s what we do — and we&apos;re very good at it after 20+ years on the tools.
-            </p>
+            {/* Quote form in hero — same component as the dedicated /#quote section,
+                 source='hero' tags the lead so we know which CTA it converted on. */}
+            <div className="relative">
+              <QuoteForm source="hero" />
+            </div>
+          </div>
+        </div>
 
-            <div className="text-center mt-8">
-              <a href={`tel:${SITE.phoneTel}`} className="btn-phone text-lg">
-                📞 Call {SITE.phone} now
+        <div className="absolute bottom-0 left-0 right-0 leading-[0]">
+          <svg viewBox="0 0 1440 60" preserveAspectRatio="none" className="w-full h-[60px]">
+            <path d="M0 60V30C240 0 480 0 720 30C960 60 1200 60 1440 30V60H0Z" fill="white"/>
+          </svg>
+        </div>
+      </section>
+
+      {/* ─── Trust Stats Bar ─── */}
+      <section className="bg-white py-8 border-b border-navy-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
+            <div>
+              <div className="v2-number-highlight text-4xl md:text-5xl font-black">15+</div>
+              <div className="text-navy-600 font-medium text-sm mt-1">Years experience</div>
+            </div>
+            <div>
+              <div className="v2-number-highlight text-4xl md:text-5xl font-black">Local</div>
+              <div className="text-navy-600 font-medium text-sm mt-1">Northern Beaches based</div>
+            </div>
+            <div>
+              <div className="v2-number-highlight text-4xl md:text-5xl font-black">Licensed</div>
+              <div className="text-navy-600 font-medium text-sm mt-1">NSW Fair Trading</div>
+            </div>
+            <div>
+              <div className="v2-number-highlight text-4xl md:text-5xl font-black">10yr</div>
+              <div className="text-navy-600 font-medium text-sm mt-1">Written guarantee</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Services ─── */}
+      <section id="services" className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Our services</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-4">
+              Everything You Need,<br/><span className="text-brand-600">Done Right</span>
+            </h2>
+            <p className="text-navy-600 text-lg max-w-2xl mx-auto">
+              From a small hole patch to a complete home renovation — we&apos;re the team the Northern Beaches trusts for perfect plastering.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {services.map((s) => (
+              <div key={s.title} className="bg-white border-2 border-navy-100 rounded-2xl p-6 md:p-8 hover:border-brand-500 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+                {s.popular && (
+                  <div className="absolute top-4 right-4 bg-brand-500 text-navy-900 font-bold text-xs px-3 py-1 rounded-full">POPULAR</div>
+                )}
+                <div className="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center mb-5 text-2xl">{s.icon}</div>
+                <h3 className="font-bold text-xl text-navy-900 mb-2">{s.title}</h3>
+                <p className="text-navy-600 mb-4">{s.blurb}</p>
+                <a href="#quote" className="text-brand-600 font-semibold text-sm hover:text-brand-700 transition-colors inline-flex items-center gap-1">
+                  Get a quote →
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Why Choose Us ─── */}
+      <section id="why-us" className="py-16 md:py-24 bg-navy-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Why choose us</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-6">
+                Don&apos;t Risk Your Home<br/><span className="text-brand-600">With Amateurs</span>
+              </h2>
+              <p className="text-navy-600 text-lg mb-8 leading-relaxed">
+                A bad plastering job doesn&apos;t just look terrible — it cracks, peels, and costs you thousands to fix. Our team delivers perfect results the first time, every time.
+              </p>
+
+              <div className="space-y-6">
+                {whyUs.map((w) => (
+                  <div key={w.title} className="flex gap-4">
+                    <div className="w-12 h-12 bg-brand-500 rounded-xl flex items-center justify-center flex-shrink-0 text-xl">
+                      {w.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-navy-900 text-lg">{w.title}</h3>
+                      <p className="text-navy-600">{w.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="rounded-2xl overflow-hidden shadow-2xl bg-slate-200 min-h-[360px] flex items-center justify-center p-6 text-center">
+                <span className="text-slate-500 text-sm">
+                  📷 Real partner job photo — clean, professional finished result. Replace pre-launch.
+                </span>
+              </div>
+              <div className="absolute -bottom-6 left-4 right-4 sm:-bottom-8 sm:left-8 sm:right-8 bg-white rounded-xl shadow-xl p-5 border border-navy-100">
+                <div className="flex items-center gap-4">
+                  <div className="flex -space-x-2">
+                    <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-300"></div>
+                    <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-400"></div>
+                    <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-500"></div>
+                  </div>
+                  <div>
+                    <div className="text-amber-500 text-sm">★★★★★</div>
+                    <div className="text-navy-600 text-sm font-medium">&ldquo;Absolutely brilliant work. Best tradies I&apos;ve ever hired.&rdquo;</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Process ─── */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">How it works</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-4">
+              3 Simple Steps to<br/><span className="text-brand-600">Perfect Walls</span>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 relative">
+            <div className="hidden md:block absolute top-8 left-[16%] right-[16%] h-0.5 bg-brand-200"></div>
+            {process.map((step) => (
+              <div key={step.n} className="text-center relative">
+                <div className="w-16 h-16 bg-brand-500 rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10 shadow-lg shadow-brand-500/30">
+                  <span className="text-navy-900 font-black text-2xl">{step.n}</span>
+                </div>
+                <h3 className="font-bold text-xl text-navy-900 mb-2">{step.title}</h3>
+                <p className="text-navy-600">{step.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Testimonials ─── */}
+      <section id="reviews" className="py-16 md:py-24 bg-navy-900 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-brand-500/20 text-brand-300 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Testimonials</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">
+              What Northern Beaches<br/><span className="text-brand-400">Homeowners Say</span>
+            </h2>
+            <p className="text-navy-300 text-sm mt-2">
+              ⚠ Sample testimonials below — real verified Google reviews will replace these before launch.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            {testimonials.map((t, i) => (
+              <div key={i} className="bg-white rounded-2xl p-6 md:p-8 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+                <div className="text-amber-500 text-lg mb-3">{'★'.repeat(t.stars)}</div>
+                <p className="text-navy-700 mb-6 leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
+                <div className="flex items-center gap-3 pt-4 border-t border-navy-100">
+                  <div className="w-12 h-12 rounded-full bg-slate-300"></div>
+                  <div>
+                    <div className="font-bold text-navy-900">{t.name}</div>
+                    <div className="text-navy-500 text-sm">{t.suburb}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Guarantee section ─── */}
+      <section className="py-16 md:py-24 bg-brand-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { tag: 'BEFORE', colour: 'bg-red-500' },
+                  { tag: 'AFTER',  colour: 'bg-green-500' },
+                  { tag: 'BEFORE', colour: 'bg-red-500' },
+                  { tag: 'AFTER',  colour: 'bg-green-500' },
+                ].map((item, i) => (
+                  <div key={i} className="rounded-xl overflow-hidden shadow-lg relative bg-slate-200 min-h-[160px] flex items-center justify-center text-center p-4">
+                    <span className={`absolute top-3 left-3 ${item.colour} text-white font-bold text-xs px-3 py-1 rounded-full`}>{item.tag}</span>
+                    <span className="text-slate-500 text-xs">📷 Before/after pair {Math.floor(i/2) + 1}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="order-1 lg:order-2">
+              <span className="inline-block bg-brand-200 text-brand-900 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Our guarantee</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-6">
+                We Put Our Money<br/><span className="text-brand-600">Where Our Mouth Is</span>
+              </h2>
+              <p className="text-navy-600 text-lg mb-6 leading-relaxed">
+                We&apos;re so confident in our workmanship that we back every job with a{' '}
+                <strong className="text-navy-900">10-year written guarantee</strong>. If anything goes wrong with our plastering within 10 years, we&apos;ll come back and fix it completely free.
+              </p>
+              <div className="bg-white rounded-2xl p-6 border-2 border-brand-200 shadow-sm mb-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 bg-brand-500 rounded-xl flex items-center justify-center flex-shrink-0 text-3xl">
+                    📜
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-navy-900 text-lg mb-1">10-year written guarantee</h3>
+                    <p className="text-navy-600 text-sm">
+                      Not verbal. Not wishy-washy. A proper, signed, written guarantee that protects your investment for a full decade.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <a href="#quote" className="v2-cta-gradient inline-flex items-center gap-2 text-navy-900 font-extrabold text-lg px-8 py-4 rounded-xl hover:scale-105 active:scale-95 transition-all duration-150 shadow-lg shadow-brand-500/30">
+                Claim Your Free Quote →
               </a>
-              <p className="text-xs text-slate-500 mt-2">Free quote · 24 hr response · No tyre-kickers</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─── SOCIAL PROOF #1 — TESTIMONIALS ─── */}
-      <section id="social-proof-1" className="bg-white py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-display font-extrabold text-3xl md:text-4xl text-ink text-center mb-3">
-            Helping Northern Beaches Homeowners Get Real Finishes — Not Excuses
-          </h2>
-          <p className="text-slate-600 text-center mb-10">
-            Recent jobs across Dee Why, Manly, Brookvale, Collaroy and Mona Vale.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              {
-                quote: 'Quoted Monday morning, started Wednesday, finished in two days. Clean job, no dust through the house, and the kitchen ceiling looks perfect.',
-                headline: 'Quoted Monday, finished Friday.',
-                name: 'TBD — first name + suburb',
-                project: 'Kitchen ceiling repair, Dee Why',
-              },
-              {
-                quote: 'Got three quotes for the hallway gyprock. Two were $400 cheaper but I couldn\'t verify the licence. This one was licensed, insured, and the finish is honestly better than the rest of the house.',
-                headline: 'Better finish than the rest of the house.',
-                name: 'TBD — first name + suburb',
-                project: 'Hallway gyprock + skim, Manly',
-              },
-              {
-                quote: 'Old cornices in our Edwardian terrace were a mess. They matched the profile exactly and you genuinely can\'t tell which sections are new and which are 100 years old.',
-                headline: 'Can\'t tell which sections are 100 years old.',
-                name: 'TBD — first name + suburb',
-                project: 'Heritage cornice restoration, Balgowlah',
-              },
-            ].map((t, i) => (
-              <div key={i} className="bg-surface border border-slate-200 rounded-2xl overflow-hidden">
-                {/* Result photo placeholder */}
-                <div className="bg-slate-200 min-h-[200px] flex items-center justify-center p-4 text-center">
-                  <span className="text-slate-500 text-xs">
-                    📷 Real partner job photo:
-                    <br />
-                    {t.project}
-                  </span>
-                </div>
-                <div className="p-5">
-                  <div className="text-amber-500 mb-2">★★★★★</div>
-                  <p className="font-bold text-ink mb-2">&ldquo;{t.headline}&rdquo;</p>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-4">&ldquo;{t.quote}&rdquo;</p>
-                  <p className="text-xs text-slate-500 border-t border-slate-200 pt-3">
-                    <strong>{t.name}</strong> · Google Review · {t.project}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <a href="#contact" className="btn-primary text-base">Get Your Free Quote</a>
-            <p className="text-xs text-slate-500 mt-2">
-              ⚠ Testimonials above are placeholders. Will be replaced with partner&apos;s real Google reviews + job photos before launch.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── VALUE PROPS #1 (Image-left/Text-right) — The Licensing Authority Hook ─── */}
-      <section id="value-prop-1" className="bg-surface py-16 px-4">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div className="bg-slate-200 rounded-2xl min-h-[360px] flex items-center justify-center p-6 text-center order-2 md:order-1">
-            <span className="text-slate-500 text-sm">
-              📷 Photo of NSW Fair Trading licence card or the tradesman on the tools, well-lit, clean uniform
-            </span>
-          </div>
-          <div className="order-1 md:order-2">
-            <p className="text-xs font-bold tracking-wide uppercase text-brand mb-2">Why It Matters</p>
-            <h2 className="font-display font-extrabold text-2xl md:text-3xl text-ink mb-4 leading-tight">
-              NSW Fair Trading Licensed — Verified Under the Home Building Act 1989
+      {/* ─── Areas We Serve ─── */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-10">
+            <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Areas we serve</span>
+            <h2 className="text-3xl sm:text-4xl font-black text-navy-900 mb-4">
+              Proudly Serving the <span className="text-brand-600">Northern Beaches</span>
             </h2>
-            <p className="text-slate-600 leading-relaxed mb-4">
-              In NSW, any plastering or gyprocking contract worth more than{' '}
-              <strong className="text-ink">$5,000</strong> requires a current NSW Fair Trading contractor licence. Unlicensed contracts are <em>unenforceable</em> — you can&apos;t claim against the Home Building Compensation Fund, and the contractor faces fines up to <strong className="text-ink">$110,000</strong>.
-            </p>
-            <p className="text-slate-600 leading-relaxed mb-5">
-              We hold a current licence and we make it easy to verify before you sign anything.
-            </p>
-            <ul className="space-y-2 mb-6">
-              <li className="flex gap-2 items-start"><span className="text-brand font-bold">✓</span><span className="text-slate-700 text-sm">Licence number on every quote, every invoice</span></li>
-              <li className="flex gap-2 items-start"><span className="text-brand font-bold">✓</span><span className="text-slate-700 text-sm">Verifiable in 60 seconds at fairtrading.nsw.gov.au</span></li>
-              <li className="flex gap-2 items-start"><span className="text-brand font-bold">✓</span><span className="text-slate-700 text-sm">HBCF certificate for jobs over $20,000</span></li>
-              <li className="flex gap-2 items-start"><span className="text-brand font-bold">✓</span><span className="text-slate-700 text-sm">Public liability insurance included</span></li>
-            </ul>
-            <a href={`tel:${SITE.phoneTel}`} className="btn-phone text-base">📞 Verify before you book: {SITE.phone}</a>
           </div>
-        </div>
-      </section>
-
-      {/* ─── VALUE PROPS #2 — Services grid ─── */}
-      <section id="value-prop-2" className="bg-white py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-bold tracking-wide uppercase text-brand text-center mb-2">Our Specialty</p>
-          <h2 className="font-display font-extrabold text-3xl md:text-4xl text-ink text-center mb-3 leading-tight">
-            Mid-Sized Plastering &amp; Gyprocking — $3,000 to $10,000 Jobs Done Properly
-          </h2>
-          <p className="text-slate-600 text-center max-w-2xl mx-auto mb-10 leading-relaxed">
-            We focus on the work where quality matters — room replasters, ceiling repairs, gyprock installs, and cornice work — at a job size where your tradie shows up, finishes fast, and quotes fixed.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { icon: '🏠', h: 'Room Plastering — Skim Coat & Set Finish', b: 'Full room replaster, prep, set finish ready for paint. Typical 3×4m room: 1–2 day turnaround.' },
-              { icon: '🧱', h: 'Gyprock Installation — Walls & Ceilings', b: 'New plasterboard install for renovations, partition walls, new ceilings. CSR Gyprock and James Hardie boards.' },
-              { icon: '🔧', h: 'Ceiling Repair — Sagging, Water Damage, Cracks', b: 'Repair-or-replace assessment. Quick fixes for fresh damage; full replacement when needed.' },
-              { icon: '✨', h: 'Cornice Installation & Heritage Restoration', b: 'Profile-matched restoration for Federation, inter-war and 1940s–50s homes across Manly, Seaforth, Balgowlah, Curl Curl.' },
-              { icon: '🌊', h: 'Moisture-Resistant Board for Coastal Homes', b: 'CSR Aquachek and Villaboard for bathrooms, laundries and any home within 800m of the Northern Beaches waterline.' },
-              { icon: '🎨', h: 'Render & External Plastering', b: 'Brick render, cement render, exterior smooth finish. Both new builds and resurface work.' },
-            ].map((card) => (
-              <div key={card.h} className="bg-surface border border-slate-200 rounded-xl p-6">
-                <div className="text-3xl mb-3">{card.icon}</div>
-                <h3 className="font-bold text-ink text-base mb-2 leading-snug">{card.h}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{card.b}</p>
-              </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {heroAreasList.map((s) => (
+              <span key={s} className="bg-navy-50 text-navy-800 font-medium px-4 py-2 rounded-lg border border-navy-100 hover:bg-brand-50 hover:border-brand-200 transition-colors">
+                {s}
+              </span>
             ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <a href={`tel:${SITE.phoneTel}`} className="btn-phone text-base">📞 Discuss Your Job: {SITE.phone}</a>
-            <div className="flex flex-wrap justify-center gap-x-5 gap-y-1 mt-3 text-xs">
-              <span className="text-brand font-semibold">✓ Free fixed quote in 24 hr</span>
-              <span className="text-brand font-semibold">✓ NSW Licensed</span>
-              <span className="text-brand font-semibold">✓ Fully insured</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SOCIAL PROOF #2 — Trust badges row ─── */}
-      <section id="social-proof-2" className="bg-ink text-white py-12 px-4">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          {[
-            { stat: '20+', label: 'Years on the tools' },
-            { stat: 'NSW', label: 'Fair Trading licensed' },
-            { stat: '24 hr', label: 'Free quote response' },
-            { stat: '$3K–$10K', label: 'Mid-sized job specialists' },
-          ].map((s) => (
-            <div key={s.label}>
-              <div className="font-display font-extrabold text-3xl md:text-4xl text-accent mb-1">{s.stat}</div>
-              <div className="text-sm text-slate-300">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ─── VALUE PROPS #3 — Local knowledge / coastal hook ─── */}
-      <section id="value-prop-3" className="bg-white py-16 px-4">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div>
-            <p className="text-xs font-bold tracking-wide uppercase text-brand mb-2">Northern Beaches Specifics</p>
-            <h2 className="font-display font-extrabold text-2xl md:text-3xl text-ink mb-4 leading-tight">
-              Coastal Salt-Air Specs &amp; Heritage Cornice — Knowledge Only Locals Have
-            </h2>
-            <p className="text-slate-600 leading-relaxed mb-4">
-              Northern Beaches homes within <strong>800 metres of the waterline</strong> need moisture-resistant board (CSR Aquachek, Villaboard) in bathrooms, laundries, and any wall close to ocean spray exposure. Standard gyprock fails inside 5 years in those conditions.
-            </p>
-            <p className="text-slate-600 leading-relaxed mb-4">
-              And the Northern Beaches has more <strong>Federation-era and inter-war heritage homes</strong> than most parts of Sydney — Manly, Seaforth, Balgowlah, Curl Curl all have streets of original cornice that needs profile-matched lime-based restoration. Not the pre-cast cornice you grab off a Bunnings shelf.
-            </p>
-            <p className="text-slate-700 leading-relaxed font-semibold">
-              We know the local material specs, the council-protected streets, and the suburbs with strata renovation paperwork. National chains don&apos;t.
-            </p>
-          </div>
-          <div className="bg-slate-200 rounded-2xl min-h-[340px] flex items-center justify-center p-6 text-center">
-            <span className="text-slate-500 text-sm">
-              📷 Photo of heritage cornice work in progress, OR coastal home with new moisture-resistant board exposed framing visible
+            <span className="bg-brand-100 text-brand-800 font-bold px-4 py-2 rounded-lg border border-brand-300">
+              &amp; All Surrounding Suburbs
             </span>
           </div>
         </div>
       </section>
 
-      {/* ─── PROCESS — 4-step "How It Works" ─── */}
-      <section id="process" className="bg-surface py-16 px-4">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="font-display font-extrabold text-3xl md:text-4xl text-ink text-center mb-3">
-            Four Steps. No Mucking Around.
-          </h2>
-          <p className="text-slate-600 text-center mb-10">From the first phone call to a finished job.</p>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
-            {[
-              { n: '1', h: 'Call or Send a Photo', b: 'Phone or message what you need done. Photos help — even a quick snap of the room or ceiling.' },
-              { n: '2', h: 'Free Quote in 24 Hours', b: 'We review and come back with a fixed quote and timeline. No surprises, no hourly clock-watching.' },
-              { n: '3', h: 'Site Visit & Sign Off', b: 'For mid-sized jobs we do a site visit before locking the date. You see the licence card, sign the fixed quote.' },
-              { n: '4', h: 'Job Done Clean', b: 'Drop sheets down, walls protected, dust contained. We leave the place broom-cleaner than we found it.' },
-            ].map((step) => (
-              <div key={step.n} className="bg-white border border-slate-200 rounded-xl p-5">
-                <div className="w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center font-bold text-lg mb-3">
-                  {step.n}
-                </div>
-                <h3 className="font-bold text-ink mb-2">{step.h}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{step.b}</p>
+      {/* ─── Quote Form ─── */}
+      <section id="quote" className="py-16 md:py-24 bg-navy-900 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-brand-500 rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block bg-brand-500/20 text-brand-300 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Free quote</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6">
+                Get Your <span className="text-brand-400">Free Quote</span>
+              </h2>
+              <p className="text-navy-200 text-lg mb-8 leading-relaxed">
+                No obligation, no pressure. Just an honest, transparent quote from a team that actually shows up on time.
+              </p>
+              <div className="space-y-4 mb-8">
+                {[
+                  'Free on-site assessment',
+                  'Fixed-price quote — no hidden fees',
+                  'NSW Fair Trading licensed contractor',
+                  '10% off for first-time customers',
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3 text-white/90">
+                    <span className="text-brand-400 text-xl flex-shrink-0">✓</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            <QuoteForm source="main" />
           </div>
         </div>
       </section>
 
       {/* ─── FAQ ─── */}
-      <section id="faq" className="bg-white py-16 px-4">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-display font-extrabold text-3xl md:text-4xl text-ink text-center mb-3">
-            Northern Beaches Plastering FAQ
-          </h2>
-          <p className="text-slate-600 text-center mb-10">
-            Real questions. Real answers. NSW licensing facts you can verify.
-          </p>
+      <section id="faq" className="py-16 md:py-24 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">FAQ</span>
+            <h2 className="text-3xl sm:text-4xl font-black text-navy-900 mb-4">Common Questions</h2>
+            <p className="text-navy-600 text-lg">Everything you need to know before hiring us.</p>
+          </div>
 
-          <div className="space-y-5">
+          <div className="space-y-4">
             {faqs.map((f) => (
-              <div key={f.q} className="bg-surface border border-slate-200 rounded-xl p-5">
-                <h3 className="font-bold text-ink mb-2 text-base">{f.q}</h3>
-                <p className="text-slate-700 text-sm leading-relaxed">{f.a}</p>
-              </div>
+              <details key={f.q} className="group border-2 border-navy-100 rounded-xl overflow-hidden">
+                <summary className="cursor-pointer w-full text-left px-6 py-5 flex items-center justify-between hover:bg-navy-50 transition-colors list-none">
+                  <span className="font-bold text-navy-900 pr-4">{f.q}</span>
+                  <span className="text-navy-400 text-xl flex-shrink-0 group-open:rotate-180 transition-transform duration-300">⌄</span>
+                </summary>
+                <div className="px-6 pb-5">
+                  <p className="text-navy-600 leading-relaxed">{f.a}</p>
+                </div>
+              </details>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ─── FINAL CTA ─── */}
-      <section id="contact" className="bg-brand text-white py-16 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-display font-extrabold text-3xl md:text-4xl mb-4 leading-tight">
-            Free Fixed Quote in 24 Hours — Across the Northern Beaches.
+      {/* ─── Final CTA ─── */}
+      <section className="py-16 md:py-24 bg-brand-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-200 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-300 rounded-full blur-3xl opacity-30"></div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-6">
+            Stop Living With<br/><span className="text-brand-600">Ugly Walls</span>
           </h2>
-          <p className="text-lg text-blue-100 mb-8 leading-relaxed">
-            Stop chasing tradies. Ring a licensed Northern Beaches plasterer who answers, quotes, and shows up.
+          <p className="text-navy-600 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
+            You deserve walls you&apos;re proud of. Get your free quote today and see why Northern Beaches homeowners trust us with their homes.
           </p>
-          <a href={`tel:${SITE.phoneTel}`} className="inline-flex items-center gap-2 bg-accent hover:bg-yellow-500 text-ink font-bold text-lg px-8 py-4 rounded-lg shadow-lg transition-colors mb-4">
-            📞 Call {SITE.phone}
-          </a>
-          <div className="flex flex-wrap justify-center gap-x-5 gap-y-1 text-sm text-blue-100">
-            <span>✓ NSW Licensed</span>
-            <span>✓ Fully insured</span>
-            <span>✓ Free quote in 24 hr</span>
-            <span>✓ $3K–$10K specialist</span>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <a href="#quote" className="v2-cta-gradient animate-pulse-glow text-navy-900 font-extrabold text-lg px-10 py-5 rounded-xl hover:scale-105 active:scale-95 transition-all duration-150 shadow-2xl shadow-brand-500/30">
+              Get Your Free Quote Now →
+            </a>
+            <a href={`tel:${SITE.phoneTel}`} className="bg-navy-900 text-white font-bold text-lg px-10 py-5 rounded-xl hover:bg-navy-800 transition-all duration-150 flex items-center justify-center gap-2">
+              📞 {SITE.phone}
+            </a>
           </div>
-          <p className="text-xs text-blue-200 mt-6">
-            Servicing {SITE.primarySuburbs.slice(0, 8).join(' · ')} and the wider Northern Beaches.
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-6 text-navy-600 text-sm font-medium">
+            <span className="flex items-center gap-2">🛡️ 10-year guarantee</span>
+            <span className="flex items-center gap-2">✅ Licensed &amp; insured</span>
+            <span className="flex items-center gap-2">⭐ NSW Fair Trading</span>
+          </div>
         </div>
       </section>
 
-      {/* ─── FOOTER ─── */}
-      <footer className="bg-ink text-slate-300 py-10 px-4">
-        <div className="max-w-5xl mx-auto text-center">
-          <p className="font-display font-bold text-lg text-white mb-2">{SITE.name}</p>
-          <p className="text-sm text-slate-400 mb-2">
-            NSW Fair Trading Licensed Plasterer &amp; Gyprocker · Northern Beaches Sydney · ABN: {`{TBD}`}
-          </p>
-          <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} {SITE.name}. All rights reserved. ·{' '}
-            <a href={`tel:${SITE.phoneTel}`} className="text-slate-400 hover:text-white">{SITE.phone}</a>
-          </p>
+      {/* ─── Footer ─── */}
+      <footer className="bg-navy-900 text-white py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-3 gap-8 mb-10">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-brand-500 rounded-lg flex items-center justify-center text-xl">🏠</div>
+                <div>
+                  <span className="font-bold text-white text-lg leading-tight block">Northern Beaches</span>
+                  <span className="text-brand-400 font-semibold text-xs tracking-wide uppercase">Plastering Services</span>
+                </div>
+              </div>
+              <p className="text-navy-300 text-sm leading-relaxed">
+                Sydney&apos;s Northern Beaches most trusted plastering team. 15+ years of perfect finishes and happy customers.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-bold text-white mb-4">Quick Links</h4>
+              <div className="space-y-2">
+                <a href="#services" className="block text-navy-300 hover:text-brand-400 transition-colors text-sm">Services</a>
+                <a href="#why-us" className="block text-navy-300 hover:text-brand-400 transition-colors text-sm">Why Choose Us</a>
+                <a href="#reviews" className="block text-navy-300 hover:text-brand-400 transition-colors text-sm">Reviews</a>
+                <a href="#quote" className="block text-navy-300 hover:text-brand-400 transition-colors text-sm">Free Quote</a>
+                <a href="#faq" className="block text-navy-300 hover:text-brand-400 transition-colors text-sm">FAQ</a>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-bold text-white mb-4">Contact Us</h4>
+              <div className="space-y-3">
+                <a href={`tel:${SITE.phoneTel}`} className="flex items-center gap-3 text-navy-300 hover:text-brand-400 transition-colors text-sm">
+                  📞 {SITE.phone}
+                </a>
+                <a href={`mailto:${SITE.email}`} className="flex items-center gap-3 text-navy-300 hover:text-brand-400 transition-colors text-sm">
+                  ✉️ {SITE.email}
+                </a>
+                <div className="flex items-center gap-3 text-navy-300 text-sm">
+                  📍 Serving all of Sydney&apos;s Northern Beaches
+                </div>
+                <div className="flex items-center gap-3 text-navy-300 text-sm">
+                  🕐 Mon–Sat: 7am – 6pm
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-navy-700 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-navy-400 text-sm">© {new Date().getFullYear()} Northern Beaches Plastering Services. All rights reserved.</p>
+            <p className="text-navy-500 text-xs">Licensed · Insured · 10-year guarantee</p>
+          </div>
         </div>
       </footer>
+
+      {/* ─── Sticky mobile CTA ─── */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-navy-200 p-3 flex gap-2 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+        <a href={`tel:${SITE.phoneTel}`} className="flex-1 bg-navy-900 text-white font-bold text-sm py-3.5 rounded-lg flex items-center justify-center gap-2 hover:bg-navy-800 transition-colors">
+          📞 Call Now
+        </a>
+        <a href="#quote" className="flex-1 v2-cta-gradient text-navy-900 font-bold text-sm py-3.5 rounded-lg flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all">
+          Free Quote →
+        </a>
+      </div>
     </>
   );
 }
