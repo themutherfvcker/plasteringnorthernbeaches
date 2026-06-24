@@ -217,27 +217,10 @@ export default function V2Page() {
               </p>
             </div>
 
-            {/* Hero photo placeholder */}
-            <div className="relative hidden lg:block">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-slate-200 min-h-[360px] flex items-center justify-center p-8 text-center">
-                <span className="text-slate-500 text-sm">
-                  📷 Real partner hero photo — recent finished Northern Beaches job, clean drop sheets, fresh wall or ceiling finish.
-                  Will be replaced with partner-supplied image before launch.
-                </span>
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 animate-float-subtle">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-2xl">✓</div>
-                  <div>
-                    <div className="font-bold text-navy-900 text-sm">Hundreds of jobs</div>
-                    <div className="text-navy-500 text-xs">Completed across Northern Beaches</div>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute -top-4 -right-4 bg-brand-500 rounded-xl shadow-xl p-4 text-center">
-                <div className="font-black text-navy-900 text-2xl">10yr</div>
-                <div className="font-bold text-navy-800 text-xs uppercase">Guarantee</div>
-              </div>
+            {/* Quote form in hero — same component as the dedicated /#quote section,
+                 source='hero' tags the lead so we know which CTA it converted on. */}
+            <div className="relative">
+              <QuoteForm source="hero" />
             </div>
           </div>
         </div>
@@ -512,7 +495,7 @@ export default function V2Page() {
               </div>
             </div>
 
-            <QuoteForm />
+            <QuoteForm source="main" />
           </div>
         </div>
       </section>

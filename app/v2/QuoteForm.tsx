@@ -19,7 +19,7 @@ export const SERVICE_OPTIONS = [
   'Other / Not sure',
 ];
 
-export default function QuoteForm() {
+export default function QuoteForm({ source = 'main' }: { source?: string }) {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
@@ -32,6 +32,7 @@ export default function QuoteForm() {
 
     const payload = {
       ...form,
+      source,
       page_url: typeof window !== 'undefined' ? window.location.href : '',
     };
 
