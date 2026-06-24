@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter, Manrope } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import { SITE } from '@/data/site';
+
+const GA_ID = 'G-8JJN2PZFY8';
 
 const sans = Inter({
   subsets: ['latin'],
@@ -81,6 +84,46 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="bg-white text-ink font-sans antialiased">
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+        <Script id="ga4-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}');
+        `}</Script>
+        {/* GA4 conversion event tracking: phone clicks + form submits */}
+        <Script id="ga4-conversions" strategy="afterInteractive">{`
+          (function () {
+            function fire(name, params) {
+              if (typeof window.gtag === 'function') {
+                window.gtag('event', name, params || {});
+              }
+            }
+            document.addEventListener('click', function (e) {
+              var t = e.target;
+              while (t && t !== document.body) {
+                if (t.tagName === 'A' && t.href && t.href.indexOf('tel:') === 0) {
+                  fire('phone_call_click', {
+                    phone_number: t.href.replace('tel:', ''),
+                    page_path: window.location.pathname,
+                    link_text: (t.textContent || '').trim().slice(0, 100),
+                  });
+                  break;
+                }
+                t = t.parentElement;
+              }
+            }, true);
+            document.addEventListener('submit', function (e) {
+              var form = e.target;
+              if (form && form.tagName === 'FORM') {
+                fire('lead_form_submit', {
+                  page_path: window.location.pathname,
+                  form_id: form.id || form.getAttribute('name') || 'unnamed',
+                });
+              }
+            }, true);
+          })();
+        `}</Script>
         <main>{children}</main>
       </body>
     </html>
