@@ -3,13 +3,35 @@
 @tailwind utilities;
 
 @layer components {
+  /* Legacy Lombardo build buttons (existing / page) */
   .btn-phone {
     @apply inline-flex items-center gap-2 bg-accent hover:bg-yellow-500 text-ink font-bold px-6 py-3 rounded-lg shadow-md transition-colors;
   }
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold px-5 py-3 rounded-md transition-colors;
+    @apply inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-white font-semibold px-5 py-3 rounded-md transition-colors;
   }
   .btn-outline {
     @apply inline-flex items-center gap-2 border-2 border-white/30 hover:border-white text-white font-semibold px-5 py-3 rounded-md transition-colors;
+  }
+
+  /* v2 build utilities (ported from website1.txt mockup) */
+  .v2-urgency-bar {
+    background: linear-gradient(90deg, #102a43 0%, #243b53 50%, #102a43 100%);
+  }
+  .v2-hero-gradient {
+    background: linear-gradient(135deg, #102a43 0%, #243b53 40%, #334e68 100%);
+  }
+  .v2-cta-gradient {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    transition: background 0.2s ease;
+  }
+  .v2-cta-gradient:hover {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  }
+  .v2-number-highlight {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }
