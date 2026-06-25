@@ -45,7 +45,10 @@ export default function Page() {
       {/* Header */}
       <header className="bg-white border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="font-extrabold text-slate-900 text-lg">Plastering Northern Beaches</Link>
+          <Link href="/" className="flex flex-col leading-tight">
+            <span className="font-extrabold text-slate-900 text-lg">Jacks Plastering Northern Beaches</span>
+            <span className="text-slate-500 text-xs font-medium">Sydney-wide Service</span>
+          </Link>
           <a
             href={`tel:${phoneTel}`}
             className="hidden md:inline-flex items-center gap-2 bg-lime-500 hover:bg-lime-400 text-slate-900 font-bold px-5 py-2.5 rounded-lg shadow-md transition-colors"
@@ -57,18 +60,18 @@ export default function Page() {
 
       {/* HERO — clean white + lime accent · Jack's photo as background */}
       <section className="relative bg-white pt-12 md:pt-20 pb-12 md:pb-20 px-4 overflow-hidden">
-        {/* Background image — real Jack in lime polo (matches the brand colour). Shows on every screen. */}
+        {/* Background image — real Jack in lime polo. Desktop only; mobile gets a
+            clean text-and-form hero so the photo doesn't compete for attention. */}
         <Image
           src="/jack.webp"
           alt="Jack — NSW Fair Trading licensed plasterer servicing the Northern Beaches and Sydney"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-right opacity-95 z-0"
+          className="hidden md:block object-cover object-right opacity-95 z-0"
         />
-        {/* Light overlay — diagonal fade so the top-left (where headline sits) stays readable
-            and the bottom-right (where Jack stands) shows clear. */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-br from-white/80 via-white/35 to-transparent md:bg-gradient-to-r md:from-white/95 md:via-white/70 md:to-transparent" aria-hidden="true" />
+        {/* Desktop overlay — left-to-right fade so Jack stays clear on the right */}
+        <div className="hidden md:block absolute inset-0 z-10 bg-gradient-to-r from-white/95 via-white/70 to-transparent" aria-hidden="true" />
         <div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6 text-slate-900">
@@ -108,6 +111,9 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Meet Jack — moved up under the hero (Joe: powerful section that keeps scrolling) */}
+      <LimeMeetJack />
 
       {/* Trust strip */}
       <section className="bg-slate-50 border-y border-slate-200 px-4 py-6">
@@ -170,9 +176,6 @@ export default function Page() {
           </p>
         </div>
       </section>
-
-      {/* Meet Jack — personal trust anchor */}
-      <LimeMeetJack />
 
       {/* How it works */}
       <section className="bg-slate-50 px-4 py-16 md:py-20">
