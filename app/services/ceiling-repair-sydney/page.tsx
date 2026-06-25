@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE } from '@/data/site';
 import LeanQuoteForm from '@/components/LeanQuoteForm';
+import TrustBar from '@/components/TrustBar';
 
 export const metadata: Metadata = {
   title: 'Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours | Plastering Northern Beaches',
@@ -129,6 +130,9 @@ export default function CeilingRepairSydneyPage() {
       >
         📞 Call Jack now — {phoneDisplay}
       </a>
+
+      {/* Trust bar (Vista-pattern, above the header) */}
+      <TrustBar />
 
       {/* Slim header */}
       <header className="bg-white border-b border-navy-100">

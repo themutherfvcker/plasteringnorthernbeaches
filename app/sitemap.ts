@@ -13,6 +13,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    {
+      url: `${base}/services/water-damage-ceiling-repair`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${base}/services/plaster-hole-patch`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${base}/services/cornice-repair-sydney`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${base}/services/end-of-lease-plaster-repair`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${base}/services/storm-damage-ceiling-repair`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
     // Service × suburb sub-pages will be added here as they ship.
   ];
 }
