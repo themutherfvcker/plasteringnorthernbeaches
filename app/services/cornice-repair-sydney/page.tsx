@@ -237,7 +237,7 @@ export default function Page() {
             <div className="space-y-3 mb-8">
               <a href={`tel:${phoneTel}`} className="block bg-white/10 border-2 border-white/30 hover:bg-white/15 rounded-xl p-5 transition-colors">
                 <div className="font-bold text-lg">📞 Call Jack now</div>
-                <div className="text-navy-200 text-sm">{phoneDisplay} · Often answered on the first ring</div>
+                <div className="text-navy-200 text-sm">{phoneDisplay} · Answered first ring · 15-min callback if missed</div>
               </a>
               <div className="bg-white/10 border-2 border-white/30 rounded-xl p-5">
                 <div className="font-bold text-lg">📝 Or use the 3-field form →</div>

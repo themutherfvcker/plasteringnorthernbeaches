@@ -82,7 +82,7 @@ export default function Page() {
               <li className="flex items-start gap-3"><span className="text-brand-400 mt-0.5">✓</span><span><strong className="text-white">Bundle multiple rooms</strong> — every additional hole only $180.</span></li>
               <li className="flex items-start gap-3"><span className="text-brand-400 mt-0.5">✓</span><span><strong className="text-white">All repairs done in one visit</strong>.</span></li>
               <li className="flex items-start gap-3"><span className="text-brand-400 mt-0.5">✓</span><span>Backed by our <strong className="text-white">2-year written workmanship guarantee</strong>.</span></li>
-              <li className="flex items-start gap-3"><span className="text-brand-400 mt-0.5">✓</span><span><strong className="text-white">Call Jack now</strong> — most calls answered first ring.</span></li>
+              <li className="flex items-start gap-3"><span className="text-brand-400 mt-0.5">✓</span><span><strong className="text-white">Call Jack now</strong> — first-ring answer, or 15-min callback.</span></li>
             </ul>
             <div className="flex flex-col sm:flex-row gap-3">
               <a href={`tel:${phoneTel}`} className="inline-flex items-center justify-center gap-2 v2-cta-gradient text-navy-900 font-extrabold text-lg px-6 py-4 rounded-xl shadow-xl shadow-brand-500/30 hover:scale-[1.02] transition-transform">
@@ -262,7 +262,7 @@ export default function Page() {
             <div className="space-y-3 mb-8">
               <a href={`tel:${phoneTel}`} className="block bg-white/10 border-2 border-white/30 hover:bg-white/15 rounded-xl p-5 transition-colors">
                 <div className="font-bold text-lg">📞 Call Jack now</div>
-                <div className="text-navy-200 text-sm">{phoneDisplay} · Often answered on the first ring</div>
+                <div className="text-navy-200 text-sm">{phoneDisplay} · Answered first ring · 15-min callback if missed</div>
               </a>
               <div className="bg-white/10 border-2 border-white/30 rounded-xl p-5">
                 <div className="font-bold text-lg">📝 Or use the 3-field form →</div>

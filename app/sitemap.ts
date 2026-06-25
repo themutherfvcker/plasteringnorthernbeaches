@@ -8,6 +8,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: base, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
     {
+      url: `${base}/plasterer-northern-beaches`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
       url: `${base}/services/ceiling-repair-sydney`,
       lastModified: now,
       changeFrequency: 'weekly',

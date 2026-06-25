@@ -174,7 +174,7 @@ export default function CeilingRepairSydneyPage() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-brand-400 mt-0.5">✓</span>
-                <span><strong className="text-white">Call now</strong> for a fast quote — Jack answers most calls on the first ring.</span>
+                <span><strong className="text-white">Call now</strong> — first-ring answer, or <strong className="text-white">15-minute callback</strong>.</span>
               </li>
             </ul>
 
@@ -290,7 +290,7 @@ export default function CeilingRepairSydneyPage() {
               {
                 n: '1',
                 title: 'Call Jack — or fill in the 3-field form',
-                body: 'Pick up the phone or send us your name, mobile and suburb. Jack answers most calls on the first ring, or rings you back within 24 hours.',
+                body: 'Pick up the phone or send us your name, mobile and suburb. Jack answers most calls on the first ring. Miss him? 15-minute callback during business hours.',
               },
               {
                 n: '2',
@@ -480,7 +480,7 @@ export default function CeilingRepairSydneyPage() {
                 className="block bg-white/10 border-2 border-white/30 hover:bg-white/15 rounded-xl p-5 transition-colors"
               >
                 <div className="font-bold text-lg">📞 Call Jack now</div>
-                <div className="text-navy-200 text-sm">{phoneDisplay} · Often answered on the first ring</div>
+                <div className="text-navy-200 text-sm">{phoneDisplay} · Answered first ring · 15-min callback if missed</div>
               </a>
               <div className="bg-white/10 border-2 border-white/30 rounded-xl p-5">
                 <div className="font-bold text-lg">📝 Or use the 3-field form →</div>
