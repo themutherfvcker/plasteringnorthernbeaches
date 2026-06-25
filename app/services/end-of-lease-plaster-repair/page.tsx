@@ -4,9 +4,10 @@ import { SITE } from '@/data/site';
 import LeanQuoteForm from '@/components/LeanQuoteForm';
 import TrustBar from '@/components/TrustBar';
 import TrustBadges from '@/components/TrustBadges';
+import TrustStrip from '@/components/TrustStrip';
 
 export const metadata: Metadata = {
-  title: 'End of Lease Plaster Repair Sydney — Fixed Price From $290 | Plastering Sydney-Wide and The Northern Beaches',
+  title: 'End of Lease Plaster Repair Sydney — Fixed Price From $290 | Plastering Northern Beaches',
   description:
     'Tenant moving out? Multiple wall holes before the inspection? Get a fixed-price end-of-lease plaster repair quote within 24 hours. All repairs done in one visit, paint-ready same day. GST invoice for property manager. Call Jack now.',
   alternates: { canonical: `${SITE.url}/services/end-of-lease-plaster-repair` },
@@ -65,7 +66,7 @@ export default function Page() {
 
       <header className="bg-white border-b border-navy-100">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="font-extrabold text-navy-900 text-lg">Plastering Sydney-Wide and The Northern Beaches</Link>
+          <Link href="/" className="flex flex-col leading-tight"><span className="font-extrabold text-navy-900 text-lg">{SITE.name}</span><span className="text-navy-500 text-xs font-medium">{SITE.tagline}</span></Link>
           <a href={`tel:${phoneTel}`} className="hidden md:inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-2.5 rounded-lg shadow-md transition-colors">📞 {phoneDisplay}</a>
         </div>
       </header>
@@ -97,6 +98,10 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <TrustStrip items={['From $290 fixed price', 'Paint-ready same day', 'GST invoice for PM', '2-year written guarantee']} />
+
+
 
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-4xl mx-auto">
@@ -196,7 +201,7 @@ export default function Page() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-500 text-navy-900 font-extrabold text-2xl mb-6 shadow-lg">2yr</div>
           <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-4">Inspection-ready — for 2 full years.</h2>
-          <p className="text-navy-100 text-lg leading-relaxed mb-6">Every patch we do is backed in writing for 2 full years. If the work cracks, lifts or fails — Jack comes back and fixes it free. No paperwork hassle. No excuses. Backed by Plastering Sydney-Wide and The Northern Beaches.</p>
+          <p className="text-navy-100 text-lg leading-relaxed mb-6">Every patch we do is backed in writing for 2 full years. If the work cracks, lifts or fails — Jack comes back and fixes it free. No paperwork hassle. No excuses. Backed by Plastering Northern Beaches.</p>
           <p className="text-navy-300 text-sm">Guarantee terms supplied with your written quote.</p>
         </div>
       </section>
@@ -248,7 +253,7 @@ export default function Page() {
       <footer className="bg-navy-900 text-navy-300 px-4 py-10">
         <div className="max-w-6xl mx-auto text-center text-sm">
           <div className="font-bold text-white mb-2">{SITE.name}</div>
-          <p className="mb-3">NSW Fair Trading licensed plasterer · Serving Sydney and The Northern Beaches</p>
+          <p className="mb-3">NSW Fair Trading licensed plasterer · Serving Sydney and the Northern Beaches</p>
           <p className="mb-4"><a href={`tel:${phoneTel}`} className="text-brand-400 font-semibold hover:underline">{phoneDisplay}</a></p>
           <p className="text-navy-500 text-xs">© {new Date().getFullYear()} {SITE.legalName}. All rights reserved. <Link href="/" className="hover:underline">Home</Link></p>
         </div>

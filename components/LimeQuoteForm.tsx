@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { SUBURBS_FULL } from '@/data/suburbs';
 
 // Lime-palette version of the 3-field form. Identical logic to
 // LeanQuoteForm; just recoloured for the palette A/B test.
@@ -93,11 +94,16 @@ export default function LimeQuoteForm({
         <div>
           <label className="block text-slate-800 font-semibold text-sm mb-1.5">Suburb *</label>
           <input
-            type="text" name="suburb" required placeholder="e.g. Manly, Bondi, Surry Hills"
+            type="text" name="suburb" required placeholder="Start typing your suburb…"
+            list="suburb-options-lime"
+            autoComplete="off"
             value={form.suburb}
             onChange={(e) => setForm({ ...form, suburb: e.target.value })}
             className="w-full border-2 border-slate-200 rounded-lg px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-lime-500 focus:ring-2 focus:ring-lime-500/15 outline-none transition-all"
           />
+          <datalist id="suburb-options-lime">
+            {SUBURBS_FULL.map((s) => <option key={s} value={s} />)}
+          </datalist>
         </div>
         <button
           type="submit"

@@ -4,6 +4,7 @@ import { SITE } from '@/data/site';
 import LeanQuoteForm from '@/components/LeanQuoteForm';
 import TrustBar from '@/components/TrustBar';
 import TrustBadges from '@/components/TrustBadges';
+import TrustStrip from '@/components/TrustStrip';
 
 export const metadata: Metadata = {
   title: 'Plasterer Northern Beaches — Fixed-Price Quote in 24 Hours | Plastering Northern Beaches',
@@ -95,7 +96,7 @@ export default function Page() {
 
       <header className="bg-white border-b border-navy-100">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="font-extrabold text-navy-900 text-lg">Plastering Northern Beaches</Link>
+          <Link href="/" className="flex flex-col leading-tight"><span className="font-extrabold text-navy-900 text-lg">{SITE.name}</span><span className="text-navy-500 text-xs font-medium">{SITE.tagline}</span></Link>
           <a href={`tel:${phoneTel}`} className="hidden md:inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-2.5 rounded-lg shadow-md transition-colors">
             📞 {phoneDisplay}
           </a>
@@ -130,6 +131,8 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <TrustStrip items={['Fixed-price quote in 24 hours', 'Most jobs in one visit', '2-year written guarantee', 'NSW Fair Trading licensed']} />
 
       {/* What we do — internal-link hub to 6 service pages */}
       <section className="bg-white px-4 py-16 md:py-20">

@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { SUBURBS_FULL } from '@/data/suburbs';
 
 // Lean 3-field form for paid-traffic service landing pages.
 // Strips submission down to first name + mobile + suburb. Anything else
@@ -96,11 +97,16 @@ export default function LeanQuoteForm({
         <div>
           <label className="block text-navy-800 font-semibold text-sm mb-1.5">Suburb *</label>
           <input
-            type="text" name="suburb" required placeholder="e.g. Manly, Bondi, Surry Hills"
+            type="text" name="suburb" required placeholder="Start typing your suburb…"
+            list="suburb-options"
+            autoComplete="off"
             value={form.suburb}
             onChange={(e) => setForm({ ...form, suburb: e.target.value })}
             className="w-full border-2 border-navy-200 rounded-lg px-4 py-3 text-navy-900 placeholder-navy-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/15 outline-none transition-all"
           />
+          <datalist id="suburb-options">
+            {SUBURBS_FULL.map((s) => <option key={s} value={s} />)}
+          </datalist>
         </div>
         <button
           type="submit"

@@ -4,9 +4,10 @@ import { SITE } from '@/data/site';
 import LeanQuoteForm from '@/components/LeanQuoteForm';
 import TrustBar from '@/components/TrustBar';
 import TrustBadges from '@/components/TrustBadges';
+import TrustStrip from '@/components/TrustStrip';
 
 export const metadata: Metadata = {
-  title: 'Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours | Plastering Sydney-Wide and The Northern Beaches',
+  title: 'Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours | Plastering Northern Beaches',
   description:
     'Cracked ceiling, sagging plaster, water stain on the ceiling? Get a fixed-price ceiling repair quote within 24 hours. Most repairs done in one visit. Backed by our 2-year written workmanship guarantee. Call now or text us a photo.',
   alternates: { canonical: `${SITE.url}/services/ceiling-repair-sydney` },
@@ -138,8 +139,9 @@ export default function CeilingRepairSydneyPage() {
       {/* Slim header */}
       <header className="bg-white border-b border-navy-100">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="font-extrabold text-navy-900 text-lg">
-            {SITE.name}
+          <Link href="/" className="flex flex-col leading-tight">
+            <span className="font-extrabold text-navy-900 text-lg">{SITE.name}</span>
+            <span className="text-navy-500 text-xs font-medium">{SITE.tagline}</span>
           </Link>
           <a
             href={`tel:${phoneTel}`}
@@ -220,6 +222,8 @@ export default function CeilingRepairSydneyPage() {
           </div>
         </div>
       </section>
+
+      <TrustStrip items={['Fixed-price quote in 24 hours', 'Most jobs in one visit', '2-year written guarantee', 'NSW Fair Trading licensed']} />
 
       {/* Problem agitation — Sound familiar? */}
       <section className="bg-white px-4 py-16 md:py-20">
@@ -433,7 +437,7 @@ export default function CeilingRepairSydneyPage() {
             Every ceiling repair we do is backed in writing for 2 full years.
             If the work cracks, sags or fails because of our craftsmanship,
             Jack comes back and fixes it free. No paperwork hassle. No excuses.
-            Backed by Plastering Sydney-Wide and The Northern Beaches.
+            Backed by Plastering Northern Beaches.
           </p>
           <p className="text-navy-300 text-sm">
             Guarantee terms supplied with your written quote.
@@ -510,7 +514,7 @@ export default function CeilingRepairSydneyPage() {
         <div className="max-w-6xl mx-auto text-center text-sm">
           <div className="font-bold text-white mb-2">{SITE.name}</div>
           <p className="mb-3">
-            NSW Fair Trading licensed plasterer · Serving Sydney and The Northern Beaches
+            NSW Fair Trading licensed plasterer · Serving Sydney and the Northern Beaches
           </p>
           <p className="mb-4">
             <a href={`tel:${phoneTel}`} className="text-brand-400 font-semibold hover:underline">
