@@ -163,7 +163,7 @@ export default function CeilingRepairSydneyPage() {
           playsInline
           preload="metadata"
           poster="https://images.pexels.com/videos/6474074/free-video-6474074.jpg?auto=compress&cs=tinysrgb&w=1280"
-          className="hidden md:block absolute inset-0 w-full h-full object-cover z-0 opacity-70"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover z-0 opacity-95"
           aria-hidden="true"
         >
           <source
@@ -172,7 +172,7 @@ export default function CeilingRepairSydneyPage() {
           />
         </video>
         {/* Dark overlay — keep hero text readable over the video */}
-        <div className="hidden md:block absolute inset-0 z-10 bg-gradient-to-r from-navy-900/90 via-navy-900/75 to-navy-900/50" aria-hidden="true" />
+        <div className="hidden md:block absolute inset-0 z-10 bg-gradient-to-r from-navy-900/55 via-navy-900/20 to-transparent" aria-hidden="true" />
         <div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
