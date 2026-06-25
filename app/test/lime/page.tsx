@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { SITE } from '@/data/site';
 import LimeQuoteForm from '@/components/LimeQuoteForm';
 import LimeTrustBar from '@/components/LimeTrustBar';
+import LimeMeetJack from '@/components/LimeMeetJack';
 
 // PALETTE TEST PAGE — ceiling-repair content + fresh lime/slate/white palette.
 // Robots noindex so this doesn't compete with the live /services/ceiling-repair-sydney
@@ -65,9 +66,9 @@ export default function Page() {
           sizes="100vw"
           className="object-cover object-right opacity-95 z-0"
         />
-        {/* Light overlay — mobile gets a strong top-down white wash so the dark hero text stays
-            readable over the photo; desktop fades left-to-right so Jack stays clear on the right. */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-white/95 via-white/85 to-white/65 md:bg-gradient-to-r md:from-white/95 md:via-white/70 md:to-transparent" aria-hidden="true" />
+        {/* Light overlay — diagonal fade so the top-left (where headline sits) stays readable
+            and the bottom-right (where Jack stands) shows clear. */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-br from-white/80 via-white/35 to-transparent md:bg-gradient-to-r md:from-white/95 md:via-white/70 md:to-transparent" aria-hidden="true" />
         <div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6 text-slate-900">
@@ -169,6 +170,9 @@ export default function Page() {
           </p>
         </div>
       </section>
+
+      {/* Meet Jack — personal trust anchor */}
+      <LimeMeetJack />
 
       {/* How it works */}
       <section className="bg-slate-50 px-4 py-16 md:py-20">
