@@ -33,16 +33,16 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/jack.png',
-        width: 1280,
-        height: 1280,
+        url: '/jack-og.jpg',
+        width: 1284,
+        height: 1225,
         alt: `Jack — NSW Fair Trading licensed plasterer at ${SITE.name}, Northern Beaches and Sydney-wide`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/jack.png'],
+    images: ['/jack-og.jpg'],
   },
 };
 

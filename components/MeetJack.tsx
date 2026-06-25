@@ -13,7 +13,7 @@ export default function MeetJack() {
         <div className="relative">
           <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl ring-1 ring-navy-100">
             <Image
-              src="/jack.png"
+              src="/jack.webp"
               alt="Jack — NSW Fair Trading licensed plasterer servicing the Northern Beaches and Sydney"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"

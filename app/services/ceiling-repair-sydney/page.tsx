@@ -159,7 +159,7 @@ export default function CeilingRepairSydneyPage() {
         {/* Background image — real Jack in branded polo + ute on the Beaches.
             Beats stock every time; smaller payload + better LCP than the video. */}
         <Image
-          src="/jack.png"
+          src="/jack.webp"
           alt="Jack — NSW Fair Trading licensed plasterer servicing the Northern Beaches and Sydney"
           fill
           priority
