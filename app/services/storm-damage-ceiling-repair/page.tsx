@@ -7,7 +7,7 @@ import TrustBadges from '@/components/TrustBadges';
 import TrustStrip from '@/components/TrustStrip';
 
 export const metadata: Metadata = {
-  title: 'Storm Damage Ceiling Repair Sydney — 1-Hour Emergency Response | Plastering Northern Beaches',
+  title: "Storm Damage Ceiling Repair Sydney — 1-Hour Emergency Response | Jack's Plastering Northern Beaches",
   description:
     'Storm damaged your ceiling? Sagging? Water coming through? We respond within 1 hour across Sydney. Same-day emergency assessment. Fixed-price quote within 24 hours. We deal with your insurer. 2-year written guarantee. Call Jack now.',
   alternates: { canonical: `${SITE.url}/services/storm-damage-ceiling-repair` },
@@ -201,7 +201,7 @@ export default function Page() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-500 text-navy-900 font-extrabold text-2xl mb-6 shadow-lg">2yr</div>
           <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-4">Safe again — for 2 full years.</h2>
-          <p className="text-navy-100 text-lg leading-relaxed mb-6">Every storm-damage repair is backed in writing for 2 full years. If the work cracks, sags or fails — Jack comes back and fixes it free. No paperwork hassle. No excuses. Backed by Plastering Northern Beaches.</p>
+          <p className="text-navy-100 text-lg leading-relaxed mb-6">Every storm-damage repair is backed in writing for 2 full years. If the work cracks, sags or fails — Jack comes back and fixes it free. No paperwork hassle. No excuses. Backed by Jack's Plastering Northern Beaches.</p>
           <p className="text-navy-300 text-sm">Guarantee terms supplied with your written quote.</p>
         </div>
       </section>

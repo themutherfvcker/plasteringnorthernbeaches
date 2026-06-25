@@ -9,11 +9,11 @@
 // - Replace email with operating email.
 
 export const SITE = {
-  name: 'Plastering Northern Beaches',
-  legalName: 'Plastering Northern Beaches',
+  name: "Jack's Plastering Northern Beaches",
+  legalName: "Jack's Plastering Northern Beaches",
   // Tagline shown beneath the brand mark in headers — signals the broader
   // service area while keeping the brand name short and memorable.
-  tagline: 'Sydney-Wide Service',
+  tagline: 'Sydney-wide',
   phone: '(02) 0000 0000',       // TODO: real partner phone, format AU
   phoneTel: '0200000000',        // For tel: links
   email: 'info@plasteringnorthernbeaches.com.au',

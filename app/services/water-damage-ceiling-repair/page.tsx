@@ -7,7 +7,7 @@ import TrustBadges from '@/components/TrustBadges';
 import TrustStrip from '@/components/TrustStrip';
 
 export const metadata: Metadata = {
-  title: 'Water Damage Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours | Plastering Northern Beaches',
+  title: "Water Damage Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours | Jack's Plastering Northern Beaches",
   description:
     'Brown stain on the ceiling? Sagging plaster after a leak? Get a fixed-price water-damage ceiling repair quote within 24 hours. We deal directly with your insurance company. Backed by our 2-year written workmanship guarantee. Call Jack now.',
   alternates: { canonical: `${SITE.url}/services/water-damage-ceiling-repair` },
@@ -288,7 +288,7 @@ export default function Page() {
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-500 text-navy-900 font-extrabold text-2xl mb-6 shadow-lg">2yr</div>
           <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-4">Your ceiling. Safe again. For 2 full years.</h2>
           <p className="text-navy-100 text-lg leading-relaxed mb-6">
-            Every water-damage repair is backed in writing for 2 full years. If the work cracks, sags or fails because of our craftsmanship — Jack comes back and fixes it free. No paperwork hassle. No excuses. Backed by Plastering Northern Beaches.
+            Every water-damage repair is backed in writing for 2 full years. If the work cracks, sags or fails because of our craftsmanship — Jack comes back and fixes it free. No paperwork hassle. No excuses. Backed by Jack's Plastering Northern Beaches.
           </p>
           <p className="text-navy-300 text-sm">Guarantee terms supplied with your written quote.</p>
         </div>

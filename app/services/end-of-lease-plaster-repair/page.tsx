@@ -7,7 +7,7 @@ import TrustBadges from '@/components/TrustBadges';
 import TrustStrip from '@/components/TrustStrip';
 
 export const metadata: Metadata = {
-  title: 'End of Lease Plaster Repair Sydney — Fixed Price From $290 | Plastering Northern Beaches',
+  title: "End of Lease Plaster Repair Sydney — Fixed Price From $290 | Jack's Plastering Northern Beaches",
   description:
     'Tenant moving out? Multiple wall holes before the inspection? Get a fixed-price end-of-lease plaster repair quote within 24 hours. All repairs done in one visit, paint-ready same day. GST invoice for property manager. Call Jack now.',
   alternates: { canonical: `${SITE.url}/services/end-of-lease-plaster-repair` },
@@ -201,7 +201,7 @@ export default function Page() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-500 text-navy-900 font-extrabold text-2xl mb-6 shadow-lg">2yr</div>
           <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-4">Inspection-ready — for 2 full years.</h2>
-          <p className="text-navy-100 text-lg leading-relaxed mb-6">Every patch we do is backed in writing for 2 full years. If the work cracks, lifts or fails — Jack comes back and fixes it free. No paperwork hassle. No excuses. Backed by Plastering Northern Beaches.</p>
+          <p className="text-navy-100 text-lg leading-relaxed mb-6">Every patch we do is backed in writing for 2 full years. If the work cracks, lifts or fails — Jack comes back and fixes it free. No paperwork hassle. No excuses. Backed by Jack's Plastering Northern Beaches.</p>
           <p className="text-navy-300 text-sm">Guarantee terms supplied with your written quote.</p>
         </div>
       </section>

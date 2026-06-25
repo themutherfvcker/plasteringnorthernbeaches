@@ -7,7 +7,7 @@ import TrustBadges from '@/components/TrustBadges';
 import TrustStrip from '@/components/TrustStrip';
 
 export const metadata: Metadata = {
-  title: 'Plasterer Northern Beaches — Fixed-Price Quote in 24 Hours | Plastering Northern Beaches',
+  title: "Plasterer Northern Beaches — Fixed-Price Quote in 24 Hours | Jack's Plastering Northern Beaches",
   description:
     'Looking for a Northern Beaches plasterer? Jack arrives within 24 hours with a fixed-price written quote. Ceiling repairs, water-damage, gyprock patches, cornice work. Most jobs done in one visit. 2-year written workmanship guarantee. Call now.',
   alternates: { canonical: `${SITE.url}/plasterer-northern-beaches` },
@@ -38,7 +38,7 @@ const faqs = [
   { q: 'Do you cover my suburb on the Northern Beaches?', a: 'We cover the full Northern Beaches — Manly, Dee Why, Brookvale, Collaroy, Narrabeen, Mona Vale, Newport, Avalon, Palm Beach, Cromer, Frenchs Forest, Belrose, Allambie Heights, Forestville, Beacon Hill, Bayview, Church Point, and everything in between. If you&apos;re on the Beaches, we&apos;re your plasterer.' },
   { q: 'What plastering work do you do?', a: 'Ceiling repairs, water-damage restoration, plaster hole patches, cornice repair and replacement (including heritage Federation profiles), gyprock installation, skim coating, full home plastering, end-of-lease wall repairs, and storm-damage emergency restoration. If it&apos;s internal plaster work, we do it.' },
   { q: 'Do you deal with my insurance company?', a: 'Yes — for water-damage and storm-damage repairs we provide quotes formatted for insurance assessors and coordinate directly with your insurer.' },
-  { q: 'What if the work cracks or fails later?', a: 'Our 2-year written workmanship guarantee covers any cracking, sagging or finish failure caused by our work. If anything fails inside two years, Jack comes back and fixes it free. Backed by Plastering Northern Beaches — if Jack&apos;s unable to honour it, we send another plasterer at no cost to you.' },
+  { q: 'What if the work cracks or fails later?', a: 'Our 2-year written workmanship guarantee covers any cracking, sagging or finish failure caused by our work. If anything fails inside two years, Jack comes back and fixes it free. Backed by Jack\'s Plastering Northern Beaches — if Jack&apos;s unable to honour it, we send another plasterer at no cost to you.' },
   { q: 'Do I have to pay a deposit?', a: 'No deposit until materials arrive on site. We confirm your booking date in writing and turn up when we say.' },
   { q: 'What&apos;s the difference between a plasterer, a gyprocker and a renderer?', a: 'Render is exterior wall finish (cement-based). Gyprock is the brand of plasterboard sheet that goes on internal walls and ceilings. Plaster is the finish applied to gyprock or solid walls — skim, cornice, set. We do internal plaster work — cornice, ceilings, skim, water damage repair, hole patches, gyprock installation. Not exterior render.' },
 ];
@@ -301,7 +301,7 @@ export default function Page() {
             Every job backed in writing — for 2 full years.
           </h2>
           <p className="text-navy-100 text-lg leading-relaxed mb-6">
-            Every plastering job we do is backed in writing for 2 full years. If the work cracks, sags or fails because of our craftsmanship — Jack comes back and fixes it free. No paperwork hassle. No excuses. Backed by Plastering Northern Beaches — if Jack&apos;s unable to honour it, we arrange another plasterer at no cost to you.
+            Every plastering job we do is backed in writing for 2 full years. If the work cracks, sags or fails because of our craftsmanship — Jack comes back and fixes it free. No paperwork hassle. No excuses. Backed by Jack's Plastering Northern Beaches — if Jack&apos;s unable to honour it, we arrange another plasterer at no cost to you.
           </p>
           <p className="text-navy-300 text-sm">Guarantee terms supplied with your written quote.</p>
         </div>

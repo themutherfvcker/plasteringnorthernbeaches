@@ -7,7 +7,7 @@ import TrustBadges from '@/components/TrustBadges';
 import TrustStrip from '@/components/TrustStrip';
 
 export const metadata: Metadata = {
-  title: 'Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours | Plastering Northern Beaches',
+  title: "Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours | Jack's Plastering Northern Beaches",
   description:
     'Cracked ceiling, sagging plaster, water stain on the ceiling? Get a fixed-price ceiling repair quote within 24 hours. Most repairs done in one visit. Backed by our 2-year written workmanship guarantee. Call now or text us a photo.',
   alternates: { canonical: `${SITE.url}/services/ceiling-repair-sydney` },
@@ -437,7 +437,7 @@ export default function CeilingRepairSydneyPage() {
             Every ceiling repair we do is backed in writing for 2 full years.
             If the work cracks, sags or fails because of our craftsmanship,
             Jack comes back and fixes it free. No paperwork hassle. No excuses.
-            Backed by Plastering Northern Beaches.
+            Backed by Jack's Plastering Northern Beaches.
           </p>
           <p className="text-navy-300 text-sm">
             Guarantee terms supplied with your written quote.
