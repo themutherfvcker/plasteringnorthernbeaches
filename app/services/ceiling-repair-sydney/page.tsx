@@ -146,12 +146,18 @@ export default function CeilingRepairSydneyPage() {
         </div>
       </header>
 
-      {/* HERO — Joe's pattern */}
+      {/* HERO — dream outcome + symptom-match */}
       <section className="v2-hero-gradient text-white pt-12 md:pt-20 pb-12 md:pb-20 px-4">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
+            <div className="inline-block bg-brand-500/15 border border-brand-500/30 text-brand-300 px-4 py-1.5 rounded-full text-sm font-semibold mb-5">
+              Northern Beaches plasterer · Jack
+            </div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
-              Cracked Ceiling? Sagging? Water Stain?
+              Cracked Ceiling? Water Stain? Sagging Plaster?
+              <span className="block mt-3 text-brand-400">
+                Make it look like it never happened.
+              </span>
             </h1>
             <ul className="space-y-3 text-lg md:text-xl text-navy-100 mb-8">
               <li className="flex items-start gap-3">
@@ -253,6 +259,29 @@ export default function CeilingRepairSydneyPage() {
         </div>
       </section>
 
+      {/* The after-state — dream outcome painted vividly */}
+      <section className="bg-navy-900 text-white px-4 py-16 md:py-20">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-brand-400 font-bold text-sm uppercase tracking-wider mb-4">
+            The after state
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-8 leading-tight">
+            Picture your ceiling, ten days from now.
+          </h2>
+          <div className="text-navy-100 text-lg md:text-xl leading-relaxed space-y-3 mb-8">
+            <p>The crack — <span className="text-brand-400 font-semibold">gone</span>.</p>
+            <p>The brown water stain — <span className="text-brand-400 font-semibold">gone</span>.</p>
+            <p>That bit you&apos;ve been avoiding looking at every morning — <span className="text-brand-400 font-semibold">gone</span>.</p>
+            <p className="font-extrabold text-white text-xl md:text-2xl pt-3 leading-snug">
+              Just a clean ceiling. Like the damage never happened.
+            </p>
+          </div>
+          <p className="text-navy-300 text-base max-w-xl mx-auto">
+            That&apos;s what we build for you. Fixed price, one visit, 2-year written guarantee — and we&apos;re out of your hair before you notice we were there.
+          </p>
+        </div>
+      </section>
+
       {/* How it works — 3 steps */}
       <section className="bg-navy-50 px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
@@ -329,10 +358,10 @@ export default function CeilingRepairSydneyPage() {
       <section className="v2-hero-gradient text-white px-4 py-12">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-display text-2xl md:text-3xl font-extrabold mb-3">
-            Get your fixed-price ceiling repair quote within 24 hours
+            One short call. Your ceiling looking like the damage never happened.
           </h2>
           <p className="text-navy-200 mb-6">
-            Call Jack now, or text a photo for a fast quote.
+            Fixed-price quote in 24 hours. Most repairs done in one visit. Call Jack now, or text a photo.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
@@ -405,11 +434,11 @@ export default function CeilingRepairSydneyPage() {
             2yr
           </div>
           <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-4">
-            2-Year Written Workmanship Guarantee
+            Looks like the damage never happened — for 2 full years.
           </h2>
           <p className="text-navy-100 text-lg leading-relaxed mb-6">
             Every ceiling repair we do is backed in writing for 2 full years.
-            If the work cracks, sags or fails because of our craftsmanship —
+            If the work cracks, sags or fails because of our craftsmanship,
             Jack comes back and fixes it free. No paperwork hassle. No excuses.
             Backed by Plastering Northern Beaches.
           </p>
@@ -452,10 +481,10 @@ export default function CeilingRepairSydneyPage() {
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-start">
           <div>
             <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-4">
-              Ready to get your ceiling sorted?
+              Ready for a ceiling that looks like the damage never happened?
             </h2>
             <p className="text-navy-100 text-lg mb-6">
-              Three ways to reach Jack. Pick whichever&apos;s easiest.
+              Three ways to reach Jack. Pick whichever&apos;s easiest. Fixed-price quote at your door within 24 hours.
             </p>
             <div className="space-y-3 mb-8">
               <a
