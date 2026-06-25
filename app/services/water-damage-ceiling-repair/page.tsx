@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { SITE } from '@/data/site';
 import LeanQuoteForm from '@/components/LeanQuoteForm';
 import TrustBar from '@/components/TrustBar';
 import TrustBadges from '@/components/TrustBadges';
 import TrustStrip from '@/components/TrustStrip';
+import MeetJack from '@/components/MeetJack';
 
 export const metadata: Metadata = {
   title: "Water Damage Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours | Jack's Plastering Northern Beaches",
@@ -114,8 +116,10 @@ export default function Page() {
       </header>
 
       {/* HERO */}
-      <section className="v2-hero-gradient text-white pt-12 md:pt-20 pb-12 md:pb-20 px-4">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
+      <section className="relative v2-hero-gradient text-white pt-12 md:pt-20 pb-12 md:pb-20 px-4 overflow-hidden">
+        <Image src="/jack.png" alt="Jack — NSW Fair Trading licensed plasterer servicing the Northern Beaches and Sydney" fill priority sizes="100vw" className="hidden md:block object-cover object-right opacity-95 z-0" />
+        <div className="hidden md:block absolute inset-0 z-10 bg-gradient-to-r from-navy-900/70 via-navy-900/30 to-transparent" aria-hidden="true" />
+        <div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
               Brown Stain? Sagging Ceiling? Storm Damage?
@@ -195,6 +199,8 @@ export default function Page() {
       </section>
 
       {/* How it works */}
+      <MeetJack />
+
       <section className="bg-navy-50 px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">How it works</h2>

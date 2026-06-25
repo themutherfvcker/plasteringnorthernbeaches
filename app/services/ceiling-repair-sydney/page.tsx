@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { SITE } from '@/data/site';
 import LeanQuoteForm from '@/components/LeanQuoteForm';
 import TrustBar from '@/components/TrustBar';
 import TrustBadges from '@/components/TrustBadges';
 import TrustStrip from '@/components/TrustStrip';
+import MeetJack from '@/components/MeetJack';
 
 export const metadata: Metadata = {
   title: "Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours | Jack's Plastering Northern Beaches",
@@ -152,30 +154,20 @@ export default function CeilingRepairSydneyPage() {
         </div>
       </header>
 
-      {/* HERO — dream outcome + symptom-match · background video */}
+      {/* HERO — dream outcome + symptom-match · Jack's photo as background */}
       <section className="relative v2-hero-gradient text-white pt-12 md:pt-20 pb-12 md:pb-20 px-4 overflow-hidden">
-        {/* Background video — Pexels 'Worker Plastering a Wall' by Tima Miroshnichenko.
-            Free for commercial use under Pexels licence.
-            TODO: download to /public/video/hero-plastering.mp4 to remove the CDN
-            dependency and improve cache-headers / LCP. Stock placeholder for now;
-            swap to Jack-recorded footage when available. */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="https://images.pexels.com/videos/6474074/free-video-6474074.jpg?auto=compress&cs=tinysrgb&w=1280"
-          className="hidden md:block absolute inset-0 w-full h-full object-cover z-0 opacity-95"
-          aria-hidden="true"
-        >
-          <source
-            src="https://videos.pexels.com/video-files/6474074/6474074-hd_1920_1080_25fps.mp4"
-            type="video/mp4"
-          />
-        </video>
-        {/* Dark overlay — keep hero text readable over the video */}
-        <div className="hidden md:block absolute inset-0 z-10 bg-gradient-to-r from-navy-900/55 via-navy-900/20 to-transparent" aria-hidden="true" />
+        {/* Background image — real Jack in branded polo + ute on the Beaches.
+            Beats stock every time; smaller payload + better LCP than the video. */}
+        <Image
+          src="/jack.png"
+          alt="Jack — NSW Fair Trading licensed plasterer servicing the Northern Beaches and Sydney"
+          fill
+          priority
+          sizes="100vw"
+          className="hidden md:block object-cover object-right opacity-95 z-0"
+        />
+        {/* Dark overlay — keeps hero text readable, fades to transparent over Jack's face */}
+        <div className="hidden md:block absolute inset-0 z-10 bg-gradient-to-r from-navy-900/70 via-navy-900/30 to-transparent" aria-hidden="true" />
         <div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
@@ -284,6 +276,9 @@ export default function CeilingRepairSydneyPage() {
           </p>
         </div>
       </section>
+
+      {/* Meet Jack — personal trust anchor */}
+      <MeetJack />
 
       {/* How it works — 3 steps */}
       <section className="bg-navy-50 px-4 py-16 md:py-20">
