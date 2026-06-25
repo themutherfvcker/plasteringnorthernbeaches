@@ -6,7 +6,7 @@ import TrustBar from '@/components/TrustBar';
 import TrustBadges from '@/components/TrustBadges';
 
 export const metadata: Metadata = {
-  title: 'Water Damage Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours | Plastering Northern Beaches',
+  title: 'Water Damage Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours | Plastering Sydney-Wide and The Northern Beaches',
   description:
     'Brown stain on the ceiling? Sagging plaster after a leak? Get a fixed-price water-damage ceiling repair quote within 24 hours. We deal directly with your insurance company. Backed by our 2-year written workmanship guarantee. Call Jack now.',
   alternates: { canonical: `${SITE.url}/services/water-damage-ceiling-repair` },
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     q: 'My ceiling is sagging — is that dangerous?',
-    a: 'A sagging or bubbling ceiling holding water is a real safety risk — it can collapse without warning. Evacuate the room, don’t poke or touch it, and call us. We respond to sagging-ceiling emergencies within 1 hour on the Northern Beaches.',
+    a: 'A sagging or bubbling ceiling holding water is a real safety risk — it can collapse without warning. Evacuate the room, don’t poke or touch it, and call us. We respond to sagging-ceiling emergencies within 1 hour across Sydney.',
   },
   {
     q: 'How long does water-damage repair take?',
@@ -52,7 +52,7 @@ const faqs = [
   },
   {
     q: 'How quickly can you come and quote?',
-    a: 'For water damage and sagging ceilings we target same-day inspection on the Northern Beaches. Standard fixed-price quote is at your door within 24 hours of your call.',
+    a: 'For water damage and sagging ceilings we target same-day inspection across Sydney. Standard fixed-price quote is at your door within 24 hours of your call.',
   },
 ];
 
@@ -73,7 +73,7 @@ const serviceSchema = {
     '@type': 'City', name: s, containedInPlace: { '@type': 'State', name: 'New South Wales' },
   })),
   description:
-    'Fixed-price water-damage ceiling repair across Sydney Northern Beaches. Brown stains, sagging plaster, storm leaks, burst-pipe damage. Insurance liaison included. Backed by our 2-year written workmanship guarantee.',
+    'Fixed-price water-damage ceiling repair across Sydney. Brown stains, sagging plaster, storm leaks, burst-pipe damage. Insurance liaison included. Backed by our 2-year written workmanship guarantee.',
   offers: {
     '@type': 'Offer', availability: 'https://schema.org/InStock', priceCurrency: 'AUD',
     priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'AUD', minPrice: 290, maxPrice: 3500 },
@@ -105,7 +105,7 @@ export default function Page() {
 
       <header className="bg-white border-b border-navy-100">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="font-extrabold text-navy-900 text-lg">Plastering Northern Beaches</Link>
+          <Link href="/" className="font-extrabold text-navy-900 text-lg">Plastering Sydney-Wide and The Northern Beaches</Link>
           <a href={`tel:${phoneTel}`} className="hidden md:inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-2.5 rounded-lg shadow-md transition-colors">
             📞 {phoneDisplay}
           </a>
@@ -141,21 +141,12 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Trust strip */}
-      <section className="bg-navy-50 border-y border-navy-100 px-4 py-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-sm text-navy-800">
-          {['Fixed-price written quote', 'Insurance company liaison', '1-hour emergency response', '2-year written guarantee', 'NSW Fair Trading licensed', 'Fully invoiced, GST'].map((t) => (
-            <div key={t} className="flex items-start gap-2"><span className="text-green-600 font-bold mt-0.5">✓</span><span className="font-medium leading-tight">{t}</span></div>
-          ))}
-        </div>
-      </section>
-
       {/* Sound familiar */}
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">Sound familiar?</h2>
           <p className="text-navy-600 text-center text-lg mb-10 max-w-2xl mx-auto">
-            If any of this is you, you&apos;re not alone. Here&apos;s what we hear every week from panicked Northern Beaches homeowners:
+            If any of this is you, you&apos;re not alone. Here&apos;s what we hear every week from panicked Sydney homeowners:
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             <blockquote className="bg-navy-50 border-l-4 border-brand-500 rounded-r-xl p-6">
@@ -207,7 +198,7 @@ export default function Page() {
           <p className="text-navy-600 text-center text-lg mb-12">Three steps. We handle the insurer. You stop worrying.</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { n: '1', title: 'Call Jack — or fill in the 3-field form', body: 'For sagging or actively-leaking ceilings, call straight away — we respond within 1 hour on the Northern Beaches. For everything else, fill the form and Jack rings you back within 24 hours.' },
+              { n: '1', title: 'Call Jack — or fill in the 3-field form', body: 'For sagging or actively-leaking ceilings, call straight away — we respond within 1 hour across Sydney. For everything else, fill the form and Jack rings you back within 24 hours.' },
               { n: '2', title: 'Same-day or 24-hour quote at your door', body: 'Jack inspects the damage, documents it for your insurer (photos + measurements), and gives you a fixed-price written quote on the spot.' },
               { n: '3', title: 'We do the repair AND deal with your insurer', body: 'Most water-damage repairs are completed in one visit. We co-ordinate timing with your assessor and send them everything they need. You don&apos;t chase anyone.' },
             ].map((s) => (
@@ -225,7 +216,7 @@ export default function Page() {
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">Recent water-damage repairs</h2>
-          <p className="text-navy-600 text-center text-lg mb-10">A few of Jack&apos;s recent insurance and direct-pay jobs across the Northern Beaches.</p>
+          <p className="text-navy-600 text-center text-lg mb-10">A few of Jack&apos;s recent insurance and direct-pay jobs across Sydney.</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { suburb: 'Manly', job: 'Burst-pipe ceiling section + cornice', time: 'Insurance job — restored in 2 visits' },
@@ -267,7 +258,7 @@ export default function Page() {
       {/* Testimonials */}
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">What Northern Beaches homeowners say</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">What Sydney homeowners say</h2>
           <p className="text-navy-600 text-center text-lg mb-10">Real reviews from real Jack jobs. (Replace placeholders pre-launch with verified Google reviews.)</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -294,7 +285,7 @@ export default function Page() {
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-500 text-navy-900 font-extrabold text-2xl mb-6 shadow-lg">2yr</div>
           <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-4">Your ceiling. Safe again. For 2 full years.</h2>
           <p className="text-navy-100 text-lg leading-relaxed mb-6">
-            Every water-damage repair is backed in writing for 2 full years. If the work cracks, sags or fails because of our craftsmanship — Jack comes back and fixes it free. No paperwork hassle. No excuses. Backed by Plastering Northern Beaches.
+            Every water-damage repair is backed in writing for 2 full years. If the work cracks, sags or fails because of our craftsmanship — Jack comes back and fixes it free. No paperwork hassle. No excuses. Backed by Plastering Sydney-Wide and The Northern Beaches.
           </p>
           <p className="text-navy-300 text-sm">Guarantee terms supplied with your written quote.</p>
         </div>
@@ -351,7 +342,7 @@ export default function Page() {
       <footer className="bg-navy-900 text-navy-300 px-4 py-10">
         <div className="max-w-6xl mx-auto text-center text-sm">
           <div className="font-bold text-white mb-2">{SITE.name}</div>
-          <p className="mb-3">NSW Fair Trading licensed plasterer · Serving Northern Beaches and Sydney</p>
+          <p className="mb-3">NSW Fair Trading licensed plasterer · Serving Sydney and The Northern Beaches</p>
           <p className="mb-4"><a href={`tel:${phoneTel}`} className="text-brand-400 font-semibold hover:underline">{phoneDisplay}</a></p>
           <p className="text-navy-500 text-xs">© {new Date().getFullYear()} {SITE.legalName}. All rights reserved. <Link href="/" className="hover:underline">Home</Link></p>
         </div>

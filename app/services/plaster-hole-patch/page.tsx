@@ -6,7 +6,7 @@ import TrustBar from '@/components/TrustBar';
 import TrustBadges from '@/components/TrustBadges';
 
 export const metadata: Metadata = {
-  title: 'Plaster Hole Repair Sydney — Fixed Price From $290 | Plastering Northern Beaches',
+  title: 'Plaster Hole Repair Sydney — Fixed Price From $290 | Plastering Sydney-Wide and The Northern Beaches',
   description:
     'Holes in your walls? TV bracket damage? Doorknob dents? DIY patch gone wrong? Fixed-price plaster hole repair from $290. All repairs done in one visit, paint-ready finish. Backed by our 2-year written workmanship guarantee. Call Jack now.',
   alternates: { canonical: `${SITE.url}/services/plaster-hole-patch` },
@@ -39,7 +39,7 @@ const serviceSchema = {
   name: 'Plaster Hole Repair Sydney', serviceType: 'Plaster Hole Repair',
   provider: { '@id': `${SITE.url}/#business` },
   areaServed: SITE.primarySuburbs.map((s) => ({ '@type': 'City', name: s, containedInPlace: { '@type': 'State', name: 'New South Wales' } })),
-  description: 'Fixed-price plaster and gyprock hole repair across Sydney Northern Beaches. TV bracket damage, doorknob dents, DIY patches gone wrong, multi-hole bundle pricing. From $290 fixed price. Backed by our 2-year written workmanship guarantee.',
+  description: 'Fixed-price plaster and gyprock hole repair across Sydney. TV bracket damage, doorknob dents, DIY patches gone wrong, multi-hole bundle pricing. From $290 fixed price. Backed by our 2-year written workmanship guarantee.',
   offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', priceCurrency: 'AUD', priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'AUD', minPrice: 290, maxPrice: 1500 }, url: `${SITE.url}/services/plaster-hole-patch` },
 };
 
@@ -66,7 +66,7 @@ export default function Page() {
 
       <header className="bg-white border-b border-navy-100">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="font-extrabold text-navy-900 text-lg">Plastering Northern Beaches</Link>
+          <Link href="/" className="font-extrabold text-navy-900 text-lg">Plastering Sydney-Wide and The Northern Beaches</Link>
           <a href={`tel:${phoneTel}`} className="hidden md:inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-2.5 rounded-lg shadow-md transition-colors">📞 {phoneDisplay}</a>
         </div>
       </header>
@@ -99,19 +99,11 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-navy-50 border-y border-navy-100 px-4 py-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-sm text-navy-800">
-          {['From $290 fixed price', 'Bundle pricing — save', 'Paint-ready finish', 'All done in one visit', '2-year written guarantee', 'NSW Fair Trading licensed'].map((t) => (
-            <div key={t} className="flex items-start gap-2"><span className="text-green-600 font-bold mt-0.5">✓</span><span className="font-medium leading-tight">{t}</span></div>
-          ))}
-        </div>
-      </section>
-
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">Sound familiar?</h2>
           <p className="text-navy-600 text-center text-lg mb-10 max-w-2xl mx-auto">
-            If any of this is you, you&apos;re not alone. Here&apos;s what we hear every week from Northern Beaches homeowners and landlords:
+            If any of this is you, you&apos;re not alone. Here&apos;s what we hear every week from Sydney homeowners and landlords:
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             <blockquote className="bg-navy-50 border-l-4 border-brand-500 rounded-r-xl p-6">
@@ -172,7 +164,7 @@ export default function Page() {
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">Recent plaster hole repairs</h2>
-          <p className="text-navy-600 text-center text-lg mb-10">A few of Jack&apos;s recent hole-patch jobs across the Northern Beaches.</p>
+          <p className="text-navy-600 text-center text-lg mb-10">A few of Jack&apos;s recent hole-patch jobs across Sydney.</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { suburb: 'Manly', job: 'End-of-lease — 8 holes across 3 rooms', time: 'One visit, paint-ready, $1,560 bundle' },
@@ -208,7 +200,7 @@ export default function Page() {
 
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">What Northern Beaches homeowners say</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">What Sydney homeowners say</h2>
           <p className="text-navy-600 text-center text-lg mb-10">Real reviews from real Jack jobs. (Replace placeholders pre-launch with verified Google reviews.)</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -234,7 +226,7 @@ export default function Page() {
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-500 text-navy-900 font-extrabold text-2xl mb-6 shadow-lg">2yr</div>
           <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-4">Like the holes were never there — for 2 full years.</h2>
           <p className="text-navy-100 text-lg leading-relaxed mb-6">
-            Every patch we do is backed in writing for 2 full years. If the work cracks, lifts or fails — Jack comes back and fixes it free. No paperwork hassle. No excuses. Backed by Plastering Northern Beaches.
+            Every patch we do is backed in writing for 2 full years. If the work cracks, lifts or fails — Jack comes back and fixes it free. No paperwork hassle. No excuses. Backed by Plastering Sydney-Wide and The Northern Beaches.
           </p>
           <p className="text-navy-300 text-sm">Guarantee terms supplied with your written quote.</p>
         </div>
@@ -287,7 +279,7 @@ export default function Page() {
       <footer className="bg-navy-900 text-navy-300 px-4 py-10">
         <div className="max-w-6xl mx-auto text-center text-sm">
           <div className="font-bold text-white mb-2">{SITE.name}</div>
-          <p className="mb-3">NSW Fair Trading licensed plasterer · Serving Northern Beaches and Sydney</p>
+          <p className="mb-3">NSW Fair Trading licensed plasterer · Serving Sydney and The Northern Beaches</p>
           <p className="mb-4"><a href={`tel:${phoneTel}`} className="text-brand-400 font-semibold hover:underline">{phoneDisplay}</a></p>
           <p className="text-navy-500 text-xs">© {new Date().getFullYear()} {SITE.legalName}. All rights reserved. <Link href="/" className="hover:underline">Home</Link></p>
         </div>

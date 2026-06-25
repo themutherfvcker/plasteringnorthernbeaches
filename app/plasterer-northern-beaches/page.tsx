@@ -131,15 +131,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Trust strip */}
-      <section className="bg-navy-50 border-y border-navy-100 px-4 py-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-sm text-navy-800">
-          {['Fixed-price written quote', '24-hour on-site quote', '15-min callback if missed', '2-year written guarantee', 'NSW Fair Trading licensed', 'No deposit until materials'].map((t) => (
-            <div key={t} className="flex items-start gap-2"><span className="text-green-600 font-bold mt-0.5">✓</span><span className="font-medium leading-tight">{t}</span></div>
-          ))}
-        </div>
-      </section>
-
       {/* What we do — internal-link hub to 6 service pages */}
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">

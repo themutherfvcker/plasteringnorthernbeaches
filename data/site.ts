@@ -9,8 +9,8 @@
 // - Replace email with operating email.
 
 export const SITE = {
-  name: 'Plastering Northern Beaches',
-  legalName: 'Plastering Northern Beaches',
+  name: 'Plastering Sydney-Wide and The Northern Beaches',
+  legalName: 'Plastering Sydney-Wide and The Northern Beaches',
   phone: '(02) 0000 0000',       // TODO: real partner phone, format AU
   phoneTel: '0200000000',        // For tel: links
   email: 'info@plasteringnorthernbeaches.com.au',

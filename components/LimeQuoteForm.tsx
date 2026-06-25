@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import { SUBURBS } from './QuoteForm';
 
 // Lime-palette version of the 3-field form. Identical logic to
 // LeanQuoteForm; just recoloured for the palette A/B test.
@@ -93,15 +92,12 @@ export default function LimeQuoteForm({
         </div>
         <div>
           <label className="block text-slate-800 font-semibold text-sm mb-1.5">Suburb *</label>
-          <select
-            name="suburb" required
+          <input
+            type="text" name="suburb" required placeholder="e.g. Manly, Bondi, Surry Hills"
             value={form.suburb}
             onChange={(e) => setForm({ ...form, suburb: e.target.value })}
-            className="w-full border-2 border-slate-200 rounded-lg px-4 py-3 text-slate-900 bg-white focus:border-lime-500 focus:ring-2 focus:ring-lime-500/15 outline-none transition-all"
-          >
-            <option value="">Select your suburb</option>
-            {SUBURBS.map((s) => <option key={s}>{s}</option>)}
-          </select>
+            className="w-full border-2 border-slate-200 rounded-lg px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-lime-500 focus:ring-2 focus:ring-lime-500/15 outline-none transition-all"
+          />
         </div>
         <button
           type="submit"

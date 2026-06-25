@@ -6,9 +6,9 @@ import TrustBar from '@/components/TrustBar';
 import TrustBadges from '@/components/TrustBadges';
 
 export const metadata: Metadata = {
-  title: 'Storm Damage Ceiling Repair Sydney — 1-Hour Emergency Response | Plastering Northern Beaches',
+  title: 'Storm Damage Ceiling Repair Sydney — 1-Hour Emergency Response | Plastering Sydney-Wide and The Northern Beaches',
   description:
-    'Storm damaged your ceiling? Sagging? Water coming through? We respond within 1 hour on the Northern Beaches. Same-day emergency assessment. Fixed-price quote within 24 hours. We deal with your insurer. 2-year written guarantee. Call Jack now.',
+    'Storm damaged your ceiling? Sagging? Water coming through? We respond within 1 hour across Sydney. Same-day emergency assessment. Fixed-price quote within 24 hours. We deal with your insurer. 2-year written guarantee. Call Jack now.',
   alternates: { canonical: `${SITE.url}/services/storm-damage-ceiling-repair` },
   openGraph: {
     title: 'Storm Damage Ceiling Repair Sydney — 1-Hour Emergency Response',
@@ -21,8 +21,8 @@ const phoneTel = SITE.phoneTel;
 const phoneDisplay = SITE.phone;
 
 const faqs = [
-  { q: 'I think my ceiling is about to collapse — what do I do?', a: 'Evacuate the room immediately. Don&apos;t poke or touch the sagging area. Move furniture only if safe. Call us — we respond to imminent-collapse jobs within 1 hour on the Northern Beaches. We&apos;ll talk you through making it safe while we&apos;re on the way.' },
-  { q: 'How fast can you arrive after a storm?', a: 'For active emergencies (sagging ceiling, water actively coming through, ceiling collapse risk) we target 1-hour response on the Northern Beaches. For non-urgent storm aftermath (water stain, small section to replace) we&apos;re at your door for a fixed-price quote within 24 hours.' },
+  { q: 'I think my ceiling is about to collapse — what do I do?', a: 'Evacuate the room immediately. Don&apos;t poke or touch the sagging area. Move furniture only if safe. Call us — we respond to imminent-collapse jobs within 1 hour across Sydney. We&apos;ll talk you through making it safe while we&apos;re on the way.' },
+  { q: 'How fast can you arrive after a storm?', a: 'For active emergencies (sagging ceiling, water actively coming through, ceiling collapse risk) we target 1-hour response across Sydney. For non-urgent storm aftermath (water stain, small section to replace) we&apos;re at your door for a fixed-price quote within 24 hours.' },
   { q: 'Do you deal directly with my insurer?', a: 'Yes. We document the storm damage with photos and measurements, format the quote for insurance assessors, and coordinate timing with your insurer. Just tell us at the call stage it&apos;s an insurance claim.' },
   { q: 'How much does storm damage ceiling repair cost?', a: 'Small section repairs (1m² ceiling patch + skim) typically $600–$1,500. Larger jobs (full ceiling replacement after partial collapse) start around $2,200. Insurance jobs invoiced directly to insurer where preferred. Every quote is fixed-price and written before we start.' },
   { q: 'My roof tile blew off — should I get the roof fixed before you come?', a: 'For an emergency stabilisation: yes, get a roofer to seal the tile gap or tarp the section so no more water comes in. Then we restore the ceiling once the source is sealed. We can recommend a roofer if you need one — most we work with respond within hours of a storm.' },
@@ -38,7 +38,7 @@ const serviceSchema = {
   name: 'Storm Damage Ceiling Repair Sydney', serviceType: 'Storm Damage Ceiling Repair',
   provider: { '@id': `${SITE.url}/#business` },
   areaServed: SITE.primarySuburbs.map((s) => ({ '@type': 'City', name: s, containedInPlace: { '@type': 'State', name: 'New South Wales' } })),
-  description: 'Emergency storm-damage ceiling repair across Sydney Northern Beaches. 1-hour response, insurance liaison, full restoration. Backed by our 2-year written workmanship guarantee.',
+  description: 'Emergency storm-damage ceiling repair across Sydney. 1-hour response, insurance liaison, full restoration. Backed by our 2-year written workmanship guarantee.',
   offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', priceCurrency: 'AUD', priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'AUD', minPrice: 290, maxPrice: 4500 }, url: `${SITE.url}/services/storm-damage-ceiling-repair` },
 };
 
@@ -65,7 +65,7 @@ export default function Page() {
 
       <header className="bg-white border-b border-navy-100">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="font-extrabold text-navy-900 text-lg">Plastering Northern Beaches</Link>
+          <Link href="/" className="font-extrabold text-navy-900 text-lg">Plastering Sydney-Wide and The Northern Beaches</Link>
           <a href={`tel:${phoneTel}`} className="hidden md:inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-2.5 rounded-lg shadow-md transition-colors">📞 {phoneDisplay}</a>
         </div>
       </header>
@@ -98,18 +98,10 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-navy-50 border-y border-navy-100 px-4 py-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-sm text-navy-800">
-          {['1-hour emergency response', 'Same-day assessment', 'Insurance liaison', '2-year written guarantee', 'NSW Fair Trading licensed', 'Fully invoiced, GST'].map((t) => (
-            <div key={t} className="flex items-start gap-2"><span className="text-green-600 font-bold mt-0.5">✓</span><span className="font-medium leading-tight">{t}</span></div>
-          ))}
-        </div>
-      </section>
-
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">Sound familiar?</h2>
-          <p className="text-navy-600 text-center text-lg mb-10 max-w-2xl mx-auto">If you&apos;re reading this after a storm, you&apos;re not alone. Here&apos;s what we hear from Northern Beaches homeowners every storm season:</p>
+          <p className="text-navy-600 text-center text-lg mb-10 max-w-2xl mx-auto">If you&apos;re reading this after a storm, you&apos;re not alone. Here&apos;s what we hear from Sydney homeowners every storm season:</p>
           <div className="grid md:grid-cols-3 gap-6">
             <blockquote className="bg-navy-50 border-l-4 border-brand-500 rounded-r-xl p-6"><p className="text-navy-800 italic leading-relaxed mb-3">&ldquo;Part of the ceiling fell off during the storm. Kids&apos; bedroom. We slept in the lounge that night.&rdquo;</p><p className="text-navy-500 text-sm font-semibold">— Active collapse</p></blockquote>
             <blockquote className="bg-navy-50 border-l-4 border-brand-500 rounded-r-xl p-6"><p className="text-navy-800 italic leading-relaxed mb-3">&ldquo;Ceiling&apos;s sagging in the hallway. Bubbling. Can&apos;t tell if it&apos;s going to hold or come down on someone.&rdquo;</p><p className="text-navy-500 text-sm font-semibold">— Collapse risk</p></blockquote>
@@ -139,7 +131,7 @@ export default function Page() {
           <p className="text-navy-600 text-center text-lg mb-12">Three steps. We stabilise. We restore. We handle the insurer.</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { n: '1', title: 'Call Jack — we respond within 1 hour', body: 'For active emergencies (sagging, leaking, collapse risk) call immediately — we&apos;re on the way within 1 hour on the Northern Beaches. For non-urgent storm aftermath, fill the form and Jack calls back within 24 hours.' },
+              { n: '1', title: 'Call Jack — we respond within 1 hour', body: 'For active emergencies (sagging, leaking, collapse risk) call immediately — we&apos;re on the way within 1 hour across Sydney. For non-urgent storm aftermath, fill the form and Jack calls back within 24 hours.' },
               { n: '2', title: 'Same-day inspection, fixed-price quote', body: 'Jack inspects, photographs the damage for your insurer, and gives you a fixed-price written quote on the spot. Insurance-formatted documentation included.' },
               { n: '3', title: 'Restored — most jobs within the week', body: 'Smaller storm damage usually done in one visit. Larger jobs (full ceiling replacement) typically within the week. We co-ordinate timing with your assessor so you&apos;re not chasing.' },
             ].map((s) => (
@@ -156,7 +148,7 @@ export default function Page() {
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">Recent storm damage repairs</h2>
-          <p className="text-navy-600 text-center text-lg mb-10">A few of Jack&apos;s recent storm-aftermath jobs across the Northern Beaches.</p>
+          <p className="text-navy-600 text-center text-lg mb-10">A few of Jack&apos;s recent storm-aftermath jobs across Sydney.</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { suburb: 'Manly', job: 'Partial ceiling collapse, kids&apos; bedroom', time: '1-hour response, stabilised same day, restored in 5 days' },
@@ -182,7 +174,7 @@ export default function Page() {
 
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">What Northern Beaches homeowners say</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">What Sydney homeowners say</h2>
           <p className="text-navy-600 text-center text-lg mb-10">Real reviews from real Jack jobs. (Replace placeholders pre-launch with verified Google reviews.)</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -204,7 +196,7 @@ export default function Page() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-500 text-navy-900 font-extrabold text-2xl mb-6 shadow-lg">2yr</div>
           <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-4">Safe again — for 2 full years.</h2>
-          <p className="text-navy-100 text-lg leading-relaxed mb-6">Every storm-damage repair is backed in writing for 2 full years. If the work cracks, sags or fails — Jack comes back and fixes it free. No paperwork hassle. No excuses. Backed by Plastering Northern Beaches.</p>
+          <p className="text-navy-100 text-lg leading-relaxed mb-6">Every storm-damage repair is backed in writing for 2 full years. If the work cracks, sags or fails — Jack comes back and fixes it free. No paperwork hassle. No excuses. Backed by Plastering Sydney-Wide and The Northern Beaches.</p>
           <p className="text-navy-300 text-sm">Guarantee terms supplied with your written quote.</p>
         </div>
       </section>
@@ -256,7 +248,7 @@ export default function Page() {
       <footer className="bg-navy-900 text-navy-300 px-4 py-10">
         <div className="max-w-6xl mx-auto text-center text-sm">
           <div className="font-bold text-white mb-2">{SITE.name}</div>
-          <p className="mb-3">NSW Fair Trading licensed plasterer · Serving Northern Beaches and Sydney</p>
+          <p className="mb-3">NSW Fair Trading licensed plasterer · Serving Sydney and The Northern Beaches</p>
           <p className="mb-4"><a href={`tel:${phoneTel}`} className="text-brand-400 font-semibold hover:underline">{phoneDisplay}</a></p>
           <p className="text-navy-500 text-xs">© {new Date().getFullYear()} {SITE.legalName}. All rights reserved. <Link href="/" className="hover:underline">Home</Link></p>
         </div>

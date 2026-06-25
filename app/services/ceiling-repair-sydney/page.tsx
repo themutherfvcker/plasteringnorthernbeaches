@@ -6,7 +6,7 @@ import TrustBar from '@/components/TrustBar';
 import TrustBadges from '@/components/TrustBadges';
 
 export const metadata: Metadata = {
-  title: 'Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours | Plastering Northern Beaches',
+  title: 'Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours | Plastering Sydney-Wide and The Northern Beaches',
   description:
     'Cracked ceiling, sagging plaster, water stain on the ceiling? Get a fixed-price ceiling repair quote within 24 hours. Most repairs done in one visit. Backed by our 2-year written workmanship guarantee. Call now or text us a photo.',
   alternates: { canonical: `${SITE.url}/services/ceiling-repair-sydney` },
@@ -24,7 +24,7 @@ const phoneDisplay = SITE.phone;
 const faqs = [
   {
     q: 'How much does ceiling repair cost in Sydney?',
-    a: 'Most ceiling crack repairs on the Northern Beaches sit between $290 and $800 depending on size and access. Water-damage repairs (replacing a 1m² section + skim coat + paint-ready finish) are usually $600–$1,500. A full ceiling replacement starts around $2,200. Every quote is fixed-price and written — no hourly rates and no surprise extras after we start.',
+    a: 'Most ceiling crack repairs across Sydney sit between $290 and $800 depending on size and access. Water-damage repairs (replacing a 1m² section + skim coat + paint-ready finish) are usually $600–$1,500. A full ceiling replacement starts around $2,200. Every quote is fixed-price and written — no hourly rates and no surprise extras after we start.',
   },
   {
     q: 'How long does a ceiling repair take?',
@@ -79,7 +79,7 @@ const serviceSchema = {
     containedInPlace: { '@type': 'State', name: 'New South Wales' },
   })),
   description:
-    'Fixed-price ceiling repair across Sydney Northern Beaches. Cracked ceilings, sagging plaster, water-damage ceiling repair, ceiling holes, cornice repair. Most jobs completed in one visit. Backed by a 2-year written workmanship guarantee.',
+    'Fixed-price ceiling repair across Sydney. Cracked ceilings, sagging plaster, water-damage ceiling repair, ceiling holes, cornice repair. Most jobs completed in one visit. Backed by a 2-year written workmanship guarantee.',
   offers: {
     '@type': 'Offer',
     availability: 'https://schema.org/InStock',
@@ -139,7 +139,7 @@ export default function CeilingRepairSydneyPage() {
       <header className="bg-white border-b border-navy-100">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="font-extrabold text-navy-900 text-lg">
-            Plastering Northern Beaches
+            {SITE.name}
           </Link>
           <a
             href={`tel:${phoneTel}`}
@@ -218,25 +218,6 @@ export default function CeilingRepairSydneyPage() {
             <LeanQuoteForm source="ceiling-repair-sydney" problem="Ceiling Repair" />
             <TrustBadges />
           </div>
-        </div>
-      </section>
-
-      {/* Trust strip */}
-      <section className="bg-navy-50 border-y border-navy-100 px-4 py-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-sm text-navy-800">
-          {[
-            'Fixed-price written quote',
-            '24-hour on-site quote',
-            'Most repairs in one visit',
-            '2-year written guarantee',
-            'NSW Fair Trading licensed',
-            'Fully invoiced, GST',
-          ].map((t) => (
-            <div key={t} className="flex items-start gap-2">
-              <span className="text-green-600 font-bold mt-0.5">✓</span>
-              <span className="font-medium leading-tight">{t}</span>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -343,7 +324,7 @@ export default function CeilingRepairSydneyPage() {
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">
-            Recent Northern Beaches ceiling repairs
+            Recent ceiling repairs across Sydney
           </h2>
           <p className="text-navy-600 text-center text-lg mb-10">
             A few of Jack&apos;s recent jobs. Same-day quote, fixed price, one-visit finish.
@@ -396,7 +377,7 @@ export default function CeilingRepairSydneyPage() {
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">
-            What Northern Beaches homeowners say
+            What Sydney homeowners say
           </h2>
           <p className="text-navy-600 text-center text-lg mb-10">
             Real reviews from real Jack jobs. (Replace placeholders pre-launch with verified Google reviews.)
@@ -452,7 +433,7 @@ export default function CeilingRepairSydneyPage() {
             Every ceiling repair we do is backed in writing for 2 full years.
             If the work cracks, sags or fails because of our craftsmanship,
             Jack comes back and fixes it free. No paperwork hassle. No excuses.
-            Backed by Plastering Northern Beaches.
+            Backed by Plastering Sydney-Wide and The Northern Beaches.
           </p>
           <p className="text-navy-300 text-sm">
             Guarantee terms supplied with your written quote.
@@ -529,7 +510,7 @@ export default function CeilingRepairSydneyPage() {
         <div className="max-w-6xl mx-auto text-center text-sm">
           <div className="font-bold text-white mb-2">{SITE.name}</div>
           <p className="mb-3">
-            NSW Fair Trading licensed plasterer · Serving Northern Beaches and Sydney
+            NSW Fair Trading licensed plasterer · Serving Sydney and The Northern Beaches
           </p>
           <p className="mb-4">
             <a href={`tel:${phoneTel}`} className="text-brand-400 font-semibold hover:underline">
