@@ -56,17 +56,18 @@ export default function Page() {
 
       {/* HERO — clean white + lime accent · Jack's photo as background */}
       <section className="relative bg-white pt-12 md:pt-20 pb-12 md:pb-20 px-4 overflow-hidden">
-        {/* Background image — real Jack in lime polo (matches the brand colour) */}
+        {/* Background image — real Jack in lime polo (matches the brand colour). Shows on every screen. */}
         <Image
           src="/jack.webp"
           alt="Jack — NSW Fair Trading licensed plasterer servicing the Northern Beaches and Sydney"
           fill
           priority
           sizes="100vw"
-          className="hidden md:block object-cover object-right opacity-95 z-0"
+          className="object-cover object-right opacity-95 z-0"
         />
-        {/* Light overlay — keeps hero text readable on white-ish theme, fades over Jack */}
-        <div className="hidden md:block absolute inset-0 z-10 bg-gradient-to-r from-white/95 via-white/70 to-transparent" aria-hidden="true" />
+        {/* Light overlay — mobile gets a strong top-down white wash so the dark hero text stays
+            readable over the photo; desktop fades left-to-right so Jack stays clear on the right. */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-white/95 via-white/85 to-white/65 md:bg-gradient-to-r md:from-white/95 md:via-white/70 md:to-transparent" aria-hidden="true" />
         <div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6 text-slate-900">
