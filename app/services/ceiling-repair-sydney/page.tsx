@@ -18,7 +18,6 @@ export const metadata: Metadata = {
 
 const phoneTel = SITE.phoneTel;
 const phoneDisplay = SITE.phone;
-const smsHref = `sms:${phoneTel}?&body=${encodeURIComponent('Hi Jack, attaching a photo of my ceiling — can you send me a fixed-price quote?')}`;
 
 const faqs = [
   {
@@ -150,9 +149,6 @@ export default function CeilingRepairSydneyPage() {
       <section className="v2-hero-gradient text-white pt-12 md:pt-20 pb-12 md:pb-20 px-4">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
-            <div className="inline-block bg-brand-500/15 border border-brand-500/30 text-brand-300 px-4 py-1.5 rounded-full text-sm font-semibold mb-5">
-              Northern Beaches plasterer · Jack
-            </div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
               Cracked Ceiling? Water Stain? Sagging Plaster?
               <span className="block mt-3 text-brand-400">
@@ -174,7 +170,7 @@ export default function CeilingRepairSydneyPage() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-brand-400 mt-0.5">✓</span>
-                <span><strong className="text-white">Call now or send photos</strong> for a fast quote.</span>
+                <span><strong className="text-white">Call now</strong> for a fast quote — Jack answers most calls on the first ring.</span>
               </li>
             </ul>
 
@@ -183,17 +179,11 @@ export default function CeilingRepairSydneyPage() {
                 href={`tel:${phoneTel}`}
                 className="inline-flex items-center justify-center gap-2 v2-cta-gradient text-navy-900 font-extrabold text-lg px-6 py-4 rounded-xl shadow-xl shadow-brand-500/30 hover:scale-[1.02] transition-transform"
               >
-                📞 Call Jack now
-              </a>
-              <a
-                href={smsHref}
-                className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/30 hover:bg-white/15 text-white font-bold text-lg px-6 py-4 rounded-xl backdrop-blur-sm transition-colors"
-              >
-                💬 Text us a photo
+                📞 Call Jack — {phoneDisplay}
               </a>
             </div>
             <p className="text-navy-200 text-sm mt-4">
-              Or use the 3-field form → No deposit. Quote at your door within 24 hours.
+              Or use the 3-field form → Quote at your door within 24 hours.
             </p>
           </div>
 
@@ -295,8 +285,8 @@ export default function CeilingRepairSydneyPage() {
             {[
               {
                 n: '1',
-                title: 'Send photos or call Jack',
-                body: 'Snap a photo of your ceiling and text it to us, or pick up the phone. Either way — we take a look and give you a rough quote range straight away.',
+                title: 'Call Jack — or fill in the 3-field form',
+                body: 'Pick up the phone or send us your name, mobile and suburb. Jack answers most calls on the first ring, or rings you back within 24 hours.',
               },
               {
                 n: '2',
@@ -363,18 +353,12 @@ export default function CeilingRepairSydneyPage() {
           <p className="text-navy-200 mb-6">
             Fixed-price quote in 24 hours. Most repairs done in one visit. Call Jack now, or text a photo.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="flex justify-center">
             <a
               href={`tel:${phoneTel}`}
-              className="inline-flex items-center justify-center gap-2 v2-cta-gradient text-navy-900 font-extrabold text-lg px-6 py-4 rounded-xl shadow-xl shadow-brand-500/30"
+              className="inline-flex items-center justify-center gap-2 v2-cta-gradient text-navy-900 font-extrabold text-lg px-8 py-4 rounded-xl shadow-xl shadow-brand-500/30"
             >
               📞 Call Jack — {phoneDisplay}
-            </a>
-            <a
-              href={smsHref}
-              className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/30 hover:bg-white/15 text-white font-bold text-lg px-6 py-4 rounded-xl backdrop-blur-sm"
-            >
-              💬 Text a photo
             </a>
           </div>
         </div>
@@ -484,7 +468,7 @@ export default function CeilingRepairSydneyPage() {
               Ready for a ceiling that looks like the damage never happened?
             </h2>
             <p className="text-navy-100 text-lg mb-6">
-              Three ways to reach Jack. Pick whichever&apos;s easiest. Fixed-price quote at your door within 24 hours.
+              Two ways to reach Jack. Pick whichever&apos;s easiest. Fixed-price quote at your door within 24 hours.
             </p>
             <div className="space-y-3 mb-8">
               <a
@@ -493,13 +477,6 @@ export default function CeilingRepairSydneyPage() {
               >
                 <div className="font-bold text-lg">📞 Call Jack now</div>
                 <div className="text-navy-200 text-sm">{phoneDisplay} · Often answered on the first ring</div>
-              </a>
-              <a
-                href={smsHref}
-                className="block bg-white/10 border-2 border-white/30 hover:bg-white/15 rounded-xl p-5 transition-colors"
-              >
-                <div className="font-bold text-lg">💬 Text us a photo</div>
-                <div className="text-navy-200 text-sm">Snap your ceiling — we&apos;ll send a rough quote range straight back</div>
               </a>
               <div className="bg-white/10 border-2 border-white/30 rounded-xl p-5">
                 <div className="font-bold text-lg">📝 Or use the 3-field form →</div>
