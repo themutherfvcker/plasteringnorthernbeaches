@@ -46,8 +46,8 @@ export default function Page() {
       <header className="bg-white border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="flex flex-col leading-tight">
-            <span className="font-extrabold text-slate-900 text-lg">Jacks Plastering Northern Beaches</span>
-            <span className="text-slate-500 text-xs font-medium">Sydney-wide Service</span>
+            <span className="font-extrabold text-slate-900 text-lg">Jack&apos;s Plastering Northern Beaches</span>
+            <span className="font-extrabold text-lime-600 text-lg">Sydney-wide Service</span>
           </Link>
           <a
             href={`tel:${phoneTel}`}
