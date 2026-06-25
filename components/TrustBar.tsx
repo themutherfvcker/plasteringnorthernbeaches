@@ -6,7 +6,7 @@ import { SITE } from '@/data/site';
 export default function TrustBar() {
   return (
     <div className="bg-navy-900 text-navy-100 text-xs md:text-sm border-b border-navy-800">
-      <div className="max-w-6xl mx-auto px-4 py-2 flex flex-wrap items-center justify-center md:justify-between gap-x-5 gap-y-1.5">
+      <div className="max-w-[1728px] mx-auto px-4 py-2 flex flex-wrap items-center justify-center md:justify-between gap-x-5 gap-y-1.5">
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1.5">
           <span className="flex items-center gap-1.5">
             <span className="text-brand-400">📍</span>
