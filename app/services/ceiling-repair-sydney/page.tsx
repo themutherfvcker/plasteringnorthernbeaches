@@ -149,9 +149,31 @@ export default function CeilingRepairSydneyPage() {
         </div>
       </header>
 
-      {/* HERO — dream outcome + symptom-match */}
-      <section className="v2-hero-gradient text-white pt-12 md:pt-20 pb-12 md:pb-20 px-4">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
+      {/* HERO — dream outcome + symptom-match · background video */}
+      <section className="relative v2-hero-gradient text-white pt-12 md:pt-20 pb-12 md:pb-20 px-4 overflow-hidden">
+        {/* Background video — Pexels 'Worker Plastering a Wall' by Tima Miroshnichenko.
+            Free for commercial use under Pexels licence.
+            TODO: download to /public/video/hero-plastering.mp4 to remove the CDN
+            dependency and improve cache-headers / LCP. Stock placeholder for now;
+            swap to Jack-recorded footage when available. */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="https://images.pexels.com/videos/6474074/free-video-6474074.jpg?auto=compress&cs=tinysrgb&w=1280"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover z-0 opacity-70"
+          aria-hidden="true"
+        >
+          <source
+            src="https://videos.pexels.com/video-files/6474074/6474074-hd_1920_1080_25fps.mp4"
+            type="video/mp4"
+          />
+        </video>
+        {/* Dark overlay — keep hero text readable over the video */}
+        <div className="hidden md:block absolute inset-0 z-10 bg-gradient-to-r from-navy-900/90 via-navy-900/75 to-navy-900/50" aria-hidden="true" />
+        <div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
               Cracked Ceiling? Water Stain? Sagging Plaster?
