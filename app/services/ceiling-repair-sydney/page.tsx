@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { SITE } from '@/data/site';
 import LeanQuoteForm from '@/components/LeanQuoteForm';
 import TrustBar from '@/components/TrustBar';
+import TrustBadges from '@/components/TrustBadges';
 
 export const metadata: Metadata = {
   title: 'Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours | Plastering Northern Beaches',
@@ -215,6 +216,7 @@ export default function CeilingRepairSydneyPage() {
 
           <div className="md:sticky md:top-6">
             <LeanQuoteForm source="ceiling-repair-sydney" problem="Ceiling Repair" />
+            <TrustBadges />
           </div>
         </div>
       </section>

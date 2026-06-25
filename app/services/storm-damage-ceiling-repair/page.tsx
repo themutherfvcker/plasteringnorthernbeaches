@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { SITE } from '@/data/site';
 import LeanQuoteForm from '@/components/LeanQuoteForm';
 import TrustBar from '@/components/TrustBar';
+import TrustBadges from '@/components/TrustBadges';
 
 export const metadata: Metadata = {
   title: 'Storm Damage Ceiling Repair Sydney — 1-Hour Emergency Response | Plastering Northern Beaches',
@@ -90,7 +91,10 @@ export default function Page() {
             </div>
             <p className="text-navy-200 text-sm mt-4">Sagging ceiling = evacuate the room first. Call us on the way out.</p>
           </div>
-          <div className="md:sticky md:top-6"><LeanQuoteForm source="storm-damage-ceiling-repair" problem="Storm Damage Ceiling Repair" submitLabel="Call me back urgently →" /></div>
+          <div className="md:sticky md:top-6">
+            <LeanQuoteForm source="storm-damage-ceiling-repair" problem="Storm Damage Ceiling Repair" submitLabel="Call me back urgently →" />
+            <TrustBadges />
+          </div>
         </div>
       </section>
 

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { SITE } from '@/data/site';
 import LeanQuoteForm from '@/components/LeanQuoteForm';
 import TrustBar from '@/components/TrustBar';
+import TrustBadges from '@/components/TrustBadges';
 
 export const metadata: Metadata = {
   title: 'Cornice Repair Sydney — Fixed-Price Quote in 24 Hours | Plastering Northern Beaches',
@@ -90,7 +91,10 @@ export default function Page() {
             </div>
             <p className="text-navy-200 text-sm mt-4">Or use the 3-field form → Quote at your door within 24 hours.</p>
           </div>
-          <div className="md:sticky md:top-6"><LeanQuoteForm source="cornice-repair-sydney" problem="Cornice Repair" /></div>
+          <div className="md:sticky md:top-6">
+            <LeanQuoteForm source="cornice-repair-sydney" problem="Cornice Repair" />
+            <TrustBadges />
+          </div>
         </div>
       </section>
 
