@@ -246,6 +246,7 @@ export default function Page() {
         <div className="max-w-6xl mx-auto text-center text-sm">
           <div className="font-bold text-white mb-2">{SITE.name}</div>
           <p className="mb-3">NSW Fair Trading licensed plasterer · Serving Sydney and the Northern Beaches</p>
+          <address className="mb-3 not-italic text-sm text-navy-300"><a href="https://www.google.com/maps/search/?api=1&query=14%2F39-41+Pacific+Parade+Dee+Why+NSW+2099" target="_blank" rel="noopener noreferrer" className="hover:text-brand-400 hover:underline">14/39-41 Pacific Parade, Dee Why NSW 2099</a></address>
           <p className="mb-4"><a href={`tel:${phoneTel}`} className="text-brand-400 font-semibold hover:underline">{phoneDisplay}</a></p>
           <p className="text-navy-500 text-xs">© {new Date().getFullYear()} {SITE.legalName}. All rights reserved. <Link href="/" className="hover:underline">Home</Link></p>
         </div>

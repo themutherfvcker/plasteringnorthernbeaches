@@ -22,7 +22,7 @@ export const SITE = {
 
   // Business details — NAP must match GBP exactly
   address: {
-    street: 'TBD',
+    street: '14/39-41 Pacific Parade',
     suburb: 'Dee Why',
     state: 'NSW',
     postcode: '2099',
