@@ -13,7 +13,7 @@ export const SITE = {
   legalName: "Jack's Plastering Northern Beaches",
   // Tagline shown beneath the brand mark in headers — signals the broader
   // service area while keeping the brand name short and memorable.
-  tagline: 'Sydney-wide',
+  tagline: 'Sydney-Wide Service',
   phone: '(02) 0000 0000',       // TODO: real partner phone, format AU
   phoneTel: '0200000000',        // For tel: links
   email: 'info@plasteringnorthernbeaches.com.au',

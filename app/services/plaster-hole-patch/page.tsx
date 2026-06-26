@@ -57,10 +57,6 @@ const breadcrumbSchema = {
 export default function Page() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-
       <a href={`tel:${phoneTel}`} className="md:hidden fixed bottom-0 left-0 right-0 z-50 v2-cta-gradient text-navy-900 font-extrabold text-center py-4 shadow-2xl">
         📞 Call Jack now — {phoneDisplay}
       </a>
@@ -69,7 +65,7 @@ export default function Page() {
 
       <header className="bg-white border-b border-navy-100">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex flex-col leading-tight"><span className="font-extrabold text-navy-900 text-lg">{SITE.name}</span><span className="text-navy-500 text-xs font-medium">{SITE.tagline}</span></Link>
+          <Link href="/" className="flex flex-col leading-tight"><span className="font-extrabold text-navy-900 text-lg">{SITE.name}</span><span className="font-extrabold text-brand-600 text-lg">{SITE.tagline}</span></Link>
           <a href={`tel:${phoneTel}`} className="hidden md:inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-2.5 rounded-lg shadow-md transition-colors">📞 {phoneDisplay}</a>
         </div>
       </header>
@@ -106,52 +102,7 @@ export default function Page() {
 
       <TrustStrip items={['From $290 fixed price', 'Bundle pricing — save', 'Paint-ready finish', '2-year written guarantee']} />
 
-
-
-      <section className="bg-white px-4 py-16 md:py-20">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">Sound familiar?</h2>
-          <p className="text-navy-600 text-center text-lg mb-10 max-w-2xl mx-auto">
-            If any of this is you, you&apos;re not alone. Here&apos;s what we hear every week from Sydney homeowners and landlords:
-          </p>
-          <div className="grid md:grid-cols-3 gap-6">
-            <blockquote className="bg-navy-50 border-l-4 border-brand-500 rounded-r-xl p-6">
-              <p className="text-navy-800 italic leading-relaxed mb-3">&ldquo;Six TV-bracket holes the tenant left behind. Inspection&apos;s on Friday. Bond&apos;s on the line.&rdquo;</p>
-              <p className="text-navy-500 text-sm font-semibold">— Pre-bond panic</p>
-            </blockquote>
-            <blockquote className="bg-navy-50 border-l-4 border-brand-500 rounded-r-xl p-6">
-              <p className="text-navy-800 italic leading-relaxed mb-3">&ldquo;Tried to patch it myself with Polyfilla. Now it looks worse than the hole. Painter refused to paint over it.&rdquo;</p>
-              <p className="text-navy-500 text-sm font-semibold">— DIY gone wrong</p>
-            </blockquote>
-            <blockquote className="bg-navy-50 border-l-4 border-brand-500 rounded-r-xl p-6">
-              <p className="text-navy-800 italic leading-relaxed mb-3">&ldquo;Kids put a doorknob through the bedroom wall. Selling the house in six weeks.&rdquo;</p>
-              <p className="text-navy-500 text-sm font-semibold">— Pre-sale urgency</p>
-            </blockquote>
-          </div>
-          <div className="text-center mt-10">
-            <p className="text-navy-800 text-lg md:text-xl font-semibold max-w-2xl mx-auto">
-              We hear you. Here&apos;s exactly how it works — fixed price, paint-ready, one visit.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-navy-900 text-white px-4 py-16 md:py-20">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-brand-400 font-bold text-sm uppercase tracking-wider mb-4">The after state</p>
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-8 leading-tight">Picture your walls, one week from now.</h2>
-          <div className="text-navy-100 text-lg md:text-xl leading-relaxed space-y-3 mb-8">
-            <p>The TV bracket hole — <span className="text-brand-400 font-semibold">gone</span>.</p>
-            <p>The doorknob dent — <span className="text-brand-400 font-semibold">gone</span>.</p>
-            <p>The lumpy DIY patch you stare at every morning — <span className="text-brand-400 font-semibold">gone</span>.</p>
-            <p className="font-extrabold text-white text-xl md:text-2xl pt-3 leading-snug">Just clean walls. Like the holes were never there.</p>
-          </div>
-          <p className="text-navy-300 text-base max-w-xl mx-auto">From $290. Paint-ready. One visit. 2-year written guarantee.</p>
-        </div>
-      </section>
-
       <MeetJack />
-
 
       <section className="bg-navy-50 px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
@@ -198,15 +149,17 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="v2-hero-gradient text-white px-4 py-12">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-display text-2xl md:text-3xl font-extrabold mb-3">One short call. Holes patched. Walls paint-ready. Same week.</h2>
-          <p className="text-navy-200 mb-6">From $290 fixed price. Bundle multiple rooms and save.</p>
-          <div className="flex justify-center">
-            <a href={`tel:${phoneTel}`} className="inline-flex items-center justify-center gap-2 v2-cta-gradient text-navy-900 font-extrabold text-lg px-8 py-4 rounded-xl shadow-xl shadow-brand-500/30">
-              📞 Call Jack — {phoneDisplay}
-            </a>
+      <section className="bg-navy-900 text-white px-4 py-16 md:py-20">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-brand-400 font-bold text-sm uppercase tracking-wider mb-4">The after state</p>
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-8 leading-tight">Picture your walls, one week from now.</h2>
+          <div className="text-navy-100 text-lg md:text-xl leading-relaxed space-y-3 mb-8">
+            <p>The TV bracket hole — <span className="text-brand-400 font-semibold">gone</span>.</p>
+            <p>The doorknob dent — <span className="text-brand-400 font-semibold">gone</span>.</p>
+            <p>The lumpy DIY patch you stare at every morning — <span className="text-brand-400 font-semibold">gone</span>.</p>
+            <p className="font-extrabold text-white text-xl md:text-2xl pt-3 leading-snug">Just clean walls. Like the holes were never there.</p>
           </div>
+          <p className="text-navy-300 text-base max-w-xl mx-auto">From $290. Paint-ready. One visit. 2-year written guarantee.</p>
         </div>
       </section>
 
@@ -244,19 +197,30 @@ export default function Page() {
         </div>
       </section>
 
+      <section className="v2-hero-gradient text-white px-4 py-12">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="font-display text-2xl md:text-3xl font-extrabold mb-3">One short call. Holes patched. Walls paint-ready. Same week.</h2>
+          <p className="text-navy-200 mb-6">From $290 fixed price. Bundle multiple rooms and save.</p>
+          <div className="flex justify-center">
+            <a href={`tel:${phoneTel}`} className="inline-flex items-center justify-center gap-2 v2-cta-gradient text-navy-900 font-extrabold text-lg px-8 py-4 rounded-xl shadow-xl shadow-brand-500/30">
+              📞 Call Jack — {phoneDisplay}
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">Plaster hole repair — your questions</h2>
           <p className="text-navy-600 text-center text-lg mb-10">The questions we get most often before quoting a hole-patch job.</p>
           <div className="space-y-4">
             {faqs.map((f, i) => (
-              <details key={i} className="group bg-navy-50 rounded-xl border border-navy-100 overflow-hidden">
-                <summary className="cursor-pointer px-5 py-4 font-bold text-navy-900 text-base md:text-lg flex justify-between items-start gap-3 list-none">
-                  <span>{f.q}</span>
-                  <span className="text-brand-500 text-2xl leading-none group-open:rotate-45 transition-transform">+</span>
-                </summary>
-                <div className="px-5 pb-5 text-navy-700 leading-relaxed">{f.a}</div>
-              </details>
+              <article key={i} itemScope itemType="https://schema.org/Question" className="bg-navy-50 rounded-xl border border-navy-100 p-5 md:p-6">
+                <h3 itemProp="name" className="font-bold text-navy-900 text-base md:text-lg mb-3">{f.q}</h3>
+                <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                  <p itemProp="text" className="text-navy-700 leading-relaxed">{f.a}</p>
+                </div>
+              </article>
             ))}
           </div>
         </div>
@@ -298,6 +262,13 @@ export default function Page() {
       </footer>
 
       <div className="h-16 md:hidden" aria-hidden="true" />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
     </>
   );
 }

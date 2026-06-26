@@ -35,6 +35,7 @@ export default function MeetJack() {
             The plasterer who actually shows up.
           </h2>
           <p className="text-navy-700 text-lg leading-relaxed mb-6">
+            <strong className="text-navy-900">If three plasterers have ghosted you this week, I get it.</strong>{' '}
             G&apos;day — I&apos;m Jack. I run {SITE.name}. I&apos;m a NSW Fair Trading licensed
             plasterer based on the Northern Beaches, serving homeowners and landlords
             Sydney-wide. Fixed-price quotes, no hidden extras, most jobs finished in
