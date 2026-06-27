@@ -61,7 +61,7 @@ export default function LimeQuoteForm({
         <h3 className="font-bold text-xl text-slate-900 mb-1">Got it — Jack will call you within 24 hours</h3>
         <p className="text-slate-600 text-sm">
           Keep your phone handy. If it&apos;s urgent, call us now on{' '}
-          <a className="font-bold text-lime-600 underline" href="tel:0200000000">(02) 0000 0000</a>.
+          <a className="font-bold text-lime-600 underline" href="tel:0424264928">0424 264 928</a>.
         </p>
       </div>
     );
