@@ -270,7 +270,7 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Our services</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-4">
-              Everything You Need,<br/><span className="text-brand-600">Done Right</span>
+              Everything Plastering,<br/><span className="text-brand-600">Done Right</span>
             </h2>
             <p className="text-navy-600 text-lg max-w-2xl mx-auto">
               From a small hole patch to a complete home renovation — we&apos;re the team the Northern Beaches trusts for perfect plastering.
