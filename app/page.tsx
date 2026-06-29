@@ -355,10 +355,14 @@ export default function HomePage() {
             </div>
 
             <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl bg-slate-200 min-h-[360px] flex items-center justify-center p-6 text-center">
-                <span className="text-slate-500 text-sm">
-                  📷 Real partner job photo — clean, professional finished result. Replace pre-launch.
-                </span>
+              <div className="rounded-2xl overflow-hidden shadow-2xl relative aspect-[4/5] min-h-[360px]">
+                <Image
+                  src="/gallery/gyprock-ceiling-installation-northern-beaches.webp"
+                  alt="Jack installing gyprock ceiling on the Northern Beaches — NSW Fair Trading licensed plasterer at work"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
               </div>
               <div className="absolute -bottom-6 left-4 right-4 sm:-bottom-8 sm:left-8 sm:right-8 bg-white rounded-xl shadow-xl p-5 border border-navy-100">
                 <div className="flex items-center gap-4">
@@ -443,14 +447,38 @@ export default function HomePage() {
             <div className="order-2 lg:order-1">
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { tag: 'BEFORE', colour: 'bg-red-500' },
-                  { tag: 'AFTER',  colour: 'bg-green-500' },
-                  { tag: 'BEFORE', colour: 'bg-red-500' },
-                  { tag: 'AFTER',  colour: 'bg-green-500' },
+                  {
+                    image: 'decorative-dome-ceiling-detail-sydney.webp',
+                    alt: 'Decorative dome cornice feature, Manly — paint-ready finish backed by 2-year written guarantee',
+                    suburb: 'Manly',
+                  },
+                  {
+                    image: 'luxury-bathroom-marble-plastering-sydney.webp',
+                    alt: 'Luxury bathroom plastering with marble feature wall and integrated LED, Mosman — backed by 2-year guarantee',
+                    suburb: 'Mosman',
+                  },
+                  {
+                    image: 'built-in-tv-fireplace-plastering-northern-beaches.webp',
+                    alt: 'Custom built-in TV cabinet and electric fireplace wall, Avalon — backed by 2-year guarantee',
+                    suburb: 'Avalon',
+                  },
+                  {
+                    image: 'kitchen-ceiling-plastering-northern-beaches.webp',
+                    alt: 'Kitchen suspended ceiling with recessed downlights, Brookvale — backed by 2-year guarantee',
+                    suburb: 'Brookvale',
+                  },
                 ].map((item, i) => (
-                  <div key={i} className="rounded-xl overflow-hidden shadow-lg relative bg-slate-200 min-h-[160px] flex items-center justify-center text-center p-4">
-                    <span className={`absolute top-3 left-3 ${item.colour} text-white font-bold text-xs px-3 py-1 rounded-full`}>{item.tag}</span>
-                    <span className="text-slate-500 text-xs">📷 Before/after pair {Math.floor(i/2) + 1}</span>
+                  <div key={i} className="rounded-xl overflow-hidden shadow-lg relative aspect-[4/5]">
+                    <Image
+                      src={`/gallery/${item.image}`}
+                      alt={item.alt}
+                      fill
+                      sizes="(max-width: 1024px) 50vw, 25vw"
+                      className="object-cover"
+                    />
+                    <span className="absolute bottom-3 left-3 bg-navy-900/85 backdrop-blur-sm text-white font-bold text-xs px-3 py-1.5 rounded-full">
+                      {item.suburb}
+                    </span>
                   </div>
                 ))}
               </div>
