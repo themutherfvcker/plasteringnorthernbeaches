@@ -14,8 +14,8 @@ export const SITE = {
   // Tagline shown beneath the brand mark in headers — signals the broader
   // service area while keeping the brand name short and memorable.
   tagline: 'Sydney-Wide Service',
-  phone: '0424 264 928',         // Joe's mobile until tracking number is set up (NAP-consistent with GBP)
-  phoneTel: '0424264928',        // For tel: links
+  phone: '(02) 5500 1608',       // Dedicated AI-answering number — every call captured 24/7. Must stay NAP-consistent with GBP + directory listings.
+  phoneTel: '+61255001608',      // International format for tel: links
   email: 'info@plasteringnorthernbeaches.com.au',
   url: 'https://www.plasteringnorthernbeaches.com.au',
   domain: 'plasteringnorthernbeaches.com.au',
