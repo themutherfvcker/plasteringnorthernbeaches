@@ -120,9 +120,14 @@ export default function CeilingRepairSydneyPage() {
       {/* Slim header */}
       <header className="bg-white border-b border-navy-100">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex flex-col leading-tight">
-            <span className="font-extrabold text-navy-900 text-lg">{SITE.name}</span>
-            <span className="font-extrabold text-brand-600 text-lg">{SITE.tagline}</span>
+          <Link href="/" className="flex items-center gap-3" aria-label={`${SITE.name} home`}>
+            <div className="w-10 h-10 md:w-11 md:h-11 rounded-lg overflow-hidden shrink-0 shadow-sm relative">
+              <Image src="/logo.webp" alt={`${SITE.name} logo`} fill sizes="44px" priority className="object-cover" />
+            </div>
+            <div className="flex flex-col leading-tight">
+              <span className="font-extrabold text-navy-900 text-lg">{SITE.name}</span>
+              <span className="font-extrabold text-brand-600 text-lg">{SITE.tagline}</span>
+            </div>
           </Link>
           <a
             href={`tel:${phoneTel}`}

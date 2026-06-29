@@ -134,9 +134,9 @@ export default function HomePage() {
       {/* ─── Sticky Header ─── */}
       <header className="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-navy-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-navy-900 rounded-lg flex items-center justify-center shrink-0">
-              <span className="text-brand-400 text-xl">🏠</span>
+          <Link href="/" className="flex items-center gap-3" aria-label={`${SITE.name} home`}>
+            <div className="w-11 h-11 md:w-12 md:h-12 rounded-lg overflow-hidden shrink-0 shadow-sm relative">
+              <Image src="/logo.webp" alt={`${SITE.name} logo`} fill sizes="48px" priority className="object-cover" />
             </div>
             <div className="leading-tight">
               <span className="font-extrabold text-navy-900 text-base md:text-lg block">{SITE.name}</span>
