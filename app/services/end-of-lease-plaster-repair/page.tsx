@@ -129,12 +129,13 @@ export default function Page() {
           <p className="text-navy-600 text-center text-lg mb-10">A few of Jack&apos;s recent end-of-lease and tenant-turnover jobs across Sydney.</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { suburb: 'Brookvale', job: '5 TV bracket holes, 2-bed apartment', time: 'Quote Wed, fixed Fri before inspection. $1,010' },
-              { suburb: 'Dee Why', job: '8 holes across 3 rooms, turnover', time: 'One-day job, paint-ready, $1,560' },
-              { suburb: 'Manly', job: 'Doorknob + skim, single room', time: 'Two hours, paint-ready, $390' },
-            ].map((j) => (
-              <figure key={j.suburb} className="bg-navy-50 rounded-2xl overflow-hidden shadow-sm">
-                <div className="aspect-[4/3] bg-gradient-to-br from-navy-200 to-navy-300 flex items-center justify-center"><span className="text-navy-600 font-semibold text-sm">[ {j.suburb} before/after photo ]</span></div>
+              { suburb: 'Brookvale', job: '5 TV bracket holes, 2-bed apartment', time: 'Quote Wed, fixed Fri before inspection. $1,010', image: 'commercial-ceiling-plastering-sydney.webp', alt: 'End-of-lease ceiling patch and skim finish ready for paint — Sydney apartment' },
+              { suburb: 'Dee Why', job: '8 holes across 3 rooms, turnover', time: 'One-day job, paint-ready, $1,560', image: 'full-home-plastering-northern-beaches.webp', alt: 'End-of-lease whole-home plaster patch — paint-ready hallway, Northern Beaches' },
+              { suburb: 'Manly', job: 'Doorknob + skim, single room', time: 'Two hours, paint-ready, $390', image: 'large-room-ceiling-plastering-northern-beaches.webp', alt: 'End-of-lease multi-room patch and skim, paint-ready — Northern Beaches' },
+].map((j) => (
+              <figure key={j.suburb} className="bg-navy-50 rounded-2xl overflow-hidden shadow-sm">                <div className="aspect-[4/3] relative">
+                  <Image src={`/gallery/${j.image}`} alt={j.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                </div>
                 <figcaption className="p-5"><div className="font-bold text-navy-900 mb-1">{j.suburb}</div><div className="text-navy-700 text-sm mb-2">{j.job}</div><div className="text-navy-500 text-xs font-semibold">{j.time}</div></figcaption>
               </figure>
             ))}

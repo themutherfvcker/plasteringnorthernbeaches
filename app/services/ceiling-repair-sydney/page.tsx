@@ -249,16 +249,12 @@ export default function CeilingRepairSydneyPage() {
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { suburb: 'Dee Why', job: 'Water-damaged ceiling section', time: 'Quoted 9am, finished by 4pm' },
-              { suburb: 'Manly', job: 'Sagging plaster repair + skim', time: 'One visit, paint-ready' },
-              { suburb: 'Mona Vale', job: 'Storm-damaged ceiling + cornice', time: 'Quote within 24 hours, fixed in 2 days' },
-            ].map((j) => (
-              <figure key={j.suburb} className="bg-navy-50 rounded-2xl overflow-hidden shadow-sm">
-                {/* Image placeholder — replace with real before/after for Jack's job */}
-                <div className="aspect-[4/3] bg-gradient-to-br from-navy-200 to-navy-300 flex items-center justify-center">
-                  <span className="text-navy-600 font-semibold text-sm">
-                    [ {j.suburb} before/after photo ]
-                  </span>
+              { suburb: 'Dee Why', job: 'Water-damaged ceiling section', time: 'Quoted 9am, finished by 4pm', image: 'ceiling-repair-in-progress-northern-beaches.webp', alt: 'Ceiling repair in progress on the Northern Beaches — large oval section cut out for plasterboard replacement and skim coating' },
+              { suburb: 'Manly', job: 'Sagging plaster repair + skim', time: 'One visit, paint-ready', image: 'commercial-ceiling-plastering-sydney.webp', alt: 'Commercial ceiling plastering set and joint-finished, ready for paint — Sydney installation' },
+              { suburb: 'Mona Vale', job: 'Storm-damaged ceiling + cornice', time: 'Quote within 24 hours, fixed in 2 days', image: 'large-room-ceiling-plastering-northern-beaches.webp', alt: 'Large open-plan room with fully plastered gyprock ceiling — Northern Beaches installation' },
+].map((j) => (
+              <figure key={j.suburb} className="bg-navy-50 rounded-2xl overflow-hidden shadow-sm">                <div className="aspect-[4/3] relative">
+                  <Image src={`/gallery/${j.image}`} alt={j.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
                 <figcaption className="p-5">
                   <div className="font-bold text-navy-900 mb-1">{j.suburb}</div>

@@ -129,12 +129,13 @@ export default function Page() {
           <p className="text-navy-600 text-center text-lg mb-10">A few of Jack&apos;s recent storm-aftermath jobs across Sydney.</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { suburb: 'Manly', job: 'Partial ceiling collapse, kids&apos; bedroom', time: '1-hour response, stabilised same day, restored in 5 days' },
-              { suburb: 'Dee Why', job: 'Sagging hallway ceiling, insurance job', time: 'Same-day assessment, restored in 3 days' },
-              { suburb: 'Mona Vale', job: '1m² section + skim coat, post-storm', time: 'One visit, paint-ready, $890' },
-            ].map((j) => (
-              <figure key={j.suburb} className="bg-navy-50 rounded-2xl overflow-hidden shadow-sm">
-                <div className="aspect-[4/3] bg-gradient-to-br from-navy-200 to-navy-300 flex items-center justify-center"><span className="text-navy-600 font-semibold text-sm">[ {j.suburb} before/after photo ]</span></div>
+              { suburb: 'Manly', job: 'Partial ceiling collapse, kids&apos; bedroom', time: '1-hour response, stabilised same day, restored in 5 days', image: 'ceiling-repair-in-progress-northern-beaches.webp', alt: 'Storm-damaged ceiling rebuild in progress — Northern Beaches emergency repair after roof leak' },
+              { suburb: 'Dee Why', job: 'Sagging hallway ceiling, insurance job', time: 'Same-day assessment, restored in 3 days', image: 'outdoor-patio-ceiling-plastering-sydney.webp', alt: 'Outdoor patio storm-damage ceiling repair, Sydney — gyprock reinstalled and finished' },
+              { suburb: 'Mona Vale', job: '1m² section + skim coat, post-storm', time: 'One visit, paint-ready, $890', image: 'commercial-ceiling-plastering-sydney.webp', alt: 'Storm-damage ceiling restored and joint-finished, ready for paint — Sydney installation' },
+].map((j) => (
+              <figure key={j.suburb} className="bg-navy-50 rounded-2xl overflow-hidden shadow-sm">                <div className="aspect-[4/3] relative">
+                  <Image src={`/gallery/${j.image}`} alt={j.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                </div>
                 <figcaption className="p-5"><div className="font-bold text-navy-900 mb-1">{j.suburb}</div><div className="text-navy-700 text-sm mb-2">{j.job}</div><div className="text-navy-500 text-xs font-semibold">{j.time}</div></figcaption>
               </figure>
             ))}

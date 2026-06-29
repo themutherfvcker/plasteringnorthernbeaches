@@ -129,12 +129,13 @@ export default function Page() {
           <p className="text-navy-600 text-center text-lg mb-10">A few of Jack&apos;s recent cornice jobs across Sydney.</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { suburb: 'Manly', job: 'Federation cornice repair, hallway', time: 'Profile matched, one visit, $880' },
-              { suburb: 'Balgowlah', job: 'Full cornice replacement, master bedroom', time: 'Single day, $1,150' },
-              { suburb: 'Mona Vale', job: 'Corner cracking repair, two rooms', time: 'Two-room bundle, $580' },
-            ].map((j) => (
-              <figure key={j.suburb} className="bg-navy-50 rounded-2xl overflow-hidden shadow-sm">
-                <div className="aspect-[4/3] bg-gradient-to-br from-navy-200 to-navy-300 flex items-center justify-center"><span className="text-navy-600 font-semibold text-sm">[ {j.suburb} before/after photo ]</span></div>
+              { suburb: 'Manly', job: 'Federation cornice repair, hallway', time: 'Profile matched, one visit, $880', image: 'decorative-dome-ceiling-installation-sydney.webp', alt: 'Decorative dome ceiling and cornice installation with recessed step lighting, Sydney' },
+              { suburb: 'Balgowlah', job: 'Full cornice replacement, master bedroom', time: 'Single day, $1,150', image: 'decorative-dome-ceiling-detail-sydney.webp', alt: 'Close-up of a decorative dome cornice feature by Jack\'s Plastering Northern Beaches' },
+              { suburb: 'Mona Vale', job: 'Corner cracking repair, two rooms', time: 'Two-room bundle, $580', image: 'built-in-tv-fireplace-plastering-northern-beaches.webp', alt: 'Custom built-in TV cabinet and recessed ceiling cornice plastering, Northern Beaches' },
+].map((j) => (
+              <figure key={j.suburb} className="bg-navy-50 rounded-2xl overflow-hidden shadow-sm">                <div className="aspect-[4/3] relative">
+                  <Image src={`/gallery/${j.image}`} alt={j.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                </div>
                 <figcaption className="p-5">
                   <div className="font-bold text-navy-900 mb-1">{j.suburb}</div>
                   <div className="text-navy-700 text-sm mb-2">{j.job}</div>

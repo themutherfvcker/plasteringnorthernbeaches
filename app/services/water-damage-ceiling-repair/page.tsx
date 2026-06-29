@@ -174,13 +174,12 @@ export default function Page() {
           <p className="text-navy-600 text-center text-lg mb-10">A few of Jack&apos;s recent insurance and direct-pay jobs across Sydney.</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { suburb: 'Manly', job: 'Burst-pipe ceiling section + cornice', time: 'Insurance job — restored in 2 visits' },
-              { suburb: 'Dee Why', job: 'Storm-damaged ceiling, sagging plaster', time: 'Same-day inspection, fixed in 3 days' },
-              { suburb: 'Mona Vale', job: 'Brown stain + skim coat, paint-ready', time: 'One visit, 4 hours, done' },
-            ].map((j) => (
-              <figure key={j.suburb} className="bg-navy-50 rounded-2xl overflow-hidden shadow-sm">
-                <div className="aspect-[4/3] bg-gradient-to-br from-navy-200 to-navy-300 flex items-center justify-center">
-                  <span className="text-navy-600 font-semibold text-sm">[ {j.suburb} before/after photo ]</span>
+              { suburb: 'Manly', job: 'Burst-pipe ceiling section + cornice', time: 'Insurance job — restored in 2 visits', image: 'ceiling-repair-in-progress-northern-beaches.webp', alt: 'Water-damaged ceiling section being rebuilt by Jack\'s Plastering Northern Beaches — large oval area cut out for replacement' },
+              { suburb: 'Dee Why', job: 'Storm-damaged ceiling, sagging plaster', time: 'Same-day inspection, fixed in 3 days', image: 'commercial-ceiling-plastering-sydney.webp', alt: 'Water-damage ceiling repair joint-finished and ready for paint — Sydney installation' },
+              { suburb: 'Mona Vale', job: 'Brown stain + skim coat, paint-ready', time: 'One visit, 4 hours, done', image: 'outdoor-patio-ceiling-plastering-sydney.webp', alt: 'Outdoor patio ceiling water-damage repair in Sydney — gyprock reinstalled under timber framing' },
+].map((j) => (
+              <figure key={j.suburb} className="bg-navy-50 rounded-2xl overflow-hidden shadow-sm">                <div className="aspect-[4/3] relative">
+                  <Image src={`/gallery/${j.image}`} alt={j.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
                 <figcaption className="p-5">
                   <div className="font-bold text-navy-900 mb-1">{j.suburb}</div>

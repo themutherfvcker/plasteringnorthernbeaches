@@ -130,13 +130,12 @@ export default function Page() {
           <p className="text-navy-600 text-center text-lg mb-10">A few of Jack&apos;s recent hole-patch jobs across Sydney.</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { suburb: 'Manly', job: 'End-of-lease — 8 holes across 3 rooms', time: 'One visit, paint-ready, $1,560 bundle' },
-              { suburb: 'Brookvale', job: 'TV bracket + doorknob in kids&apos; bedroom', time: '90 minutes, $390' },
-              { suburb: 'Dee Why', job: 'DIY patch re-do, hallway wall', time: 'Half-day, $480' },
-            ].map((j) => (
-              <figure key={j.suburb} className="bg-navy-50 rounded-2xl overflow-hidden shadow-sm">
-                <div className="aspect-[4/3] bg-gradient-to-br from-navy-200 to-navy-300 flex items-center justify-center">
-                  <span className="text-navy-600 font-semibold text-sm">[ {j.suburb} before/after photo ]</span>
+              { suburb: 'Manly', job: 'End-of-lease — 8 holes across 3 rooms', time: 'One visit, paint-ready, $1,560 bundle', image: 'large-room-ceiling-plastering-northern-beaches.webp', alt: 'Multi-hole patch finished and ready for paint — large open-plan room, Northern Beaches' },
+              { suburb: 'Brookvale', job: 'TV bracket + doorknob in kids&apos; bedroom', time: '90 minutes, $390', image: 'full-home-plastering-northern-beaches.webp', alt: 'Full home plaster patch and finish — paint-ready hallway, Northern Beaches' },
+              { suburb: 'Dee Why', job: 'DIY patch re-do, hallway wall', time: 'Half-day, $480', image: 'commercial-ceiling-plastering-sydney.webp', alt: 'Multi-room plaster patching joint-finished, ready for paint — Sydney installation' },
+].map((j) => (
+              <figure key={j.suburb} className="bg-navy-50 rounded-2xl overflow-hidden shadow-sm">                <div className="aspect-[4/3] relative">
+                  <Image src={`/gallery/${j.image}`} alt={j.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
                 <figcaption className="p-5">
                   <div className="font-bold text-navy-900 mb-1">{j.suburb}</div>
