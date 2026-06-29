@@ -193,28 +193,19 @@ export default function HomePage() {
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6">
                 Sydney&apos;s Northern Beaches
-                <span className="text-brand-400 block mt-2">#1 Plastering</span>
-                <span className="text-white/90 block mt-1">Service</span>
+                <span className="text-brand-400 block mt-2">#1 Plasterer</span>
+                <span className="text-white/90 block mt-1">&amp; Sydney-Wide Service</span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-navy-200 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-lg sm:text-xl text-navy-200 mb-6 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 Flawless walls, perfect finishes &amp; zero hassle. From tiny patch repairs to full home plastering — we do it all with a{' '}
-                <strong className="text-brand-300">10-year written guarantee</strong>.
+                <strong className="text-brand-300">2-year written guarantee</strong>.
               </p>
 
-              <ul className="space-y-3 mb-8 max-w-md mx-auto lg:mx-0 text-left">
-                {[
-                  'Free fixed-price quotes',
-                  'NSW Fair Trading licensed & insured',
-                  'Clean, dust-free workmanship',
-                  '10-year written guarantee',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-white/90 text-base">
-                    <span className="text-brand-400 font-extrabold text-lg leading-tight">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <p className="flex items-center justify-center lg:justify-start gap-2 text-white/90 text-base font-semibold mb-8">
+                <span className="text-brand-400 font-extrabold text-lg leading-tight">✓</span>
+                Clean, dust-free workmanship
+              </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6">
                 <a href="#quote" className="v2-cta-gradient animate-pulse-glow text-navy-900 font-extrabold text-lg px-8 py-4 rounded-xl hover:scale-105 active:scale-95 transition-all duration-150 shadow-2xl shadow-brand-500/30 text-center">
