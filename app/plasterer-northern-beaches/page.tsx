@@ -181,6 +181,36 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Showcase gallery — premium work that hits on the head-term page */}
+      <section className="bg-white px-4 py-16 md:py-20">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">
+            See Jack&apos;s recent work
+          </h2>
+          <p className="text-navy-600 text-center text-lg mb-10">
+            A few finished jobs across the Northern Beaches and Sydney-wide. Same plasterer, same 2-year guarantee, every time.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { suburb: 'Manly', job: 'Decorative dome ceiling + cornice feature', time: 'Heritage profile match · paint-ready', image: 'decorative-dome-ceiling-detail-sydney.webp', alt: 'Close-up of a decorative dome cornice feature by Jack\'s Plastering Northern Beaches — Manly heritage home' },
+              { suburb: 'Mosman', job: 'Luxury bathroom with agate feature wall', time: 'Integrated LED ceiling · premium finish', image: 'luxury-bathroom-plastering-sydney.webp', alt: 'Luxury bathroom plastering with agate feature wall and integrated LED ceiling lighting, Mosman' },
+              { suburb: 'Avalon', job: 'Full luxury bathroom plaster + marble feature', time: 'Integrated LED strip ceiling · paint-ready', image: 'luxury-bathroom-marble-plastering-sydney.webp', alt: 'Luxury bathroom plastering with marble feature wall and integrated LED strip lighting, Avalon' },
+            ].map((j) => (
+              <figure key={j.suburb} className="bg-navy-50 rounded-2xl overflow-hidden shadow-sm">
+                <div className="aspect-[4/3] relative">
+                  <Image src={`/gallery/${j.image}`} alt={j.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                </div>
+                <figcaption className="p-5">
+                  <div className="font-bold text-navy-900 mb-1">{j.suburb}</div>
+                  <div className="text-navy-700 text-sm mb-2">{j.job}</div>
+                  <div className="text-navy-500 text-xs font-semibold">{j.time}</div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Suburb coverage */}
       <section className="bg-navy-50 px-4 py-16 md:py-20">
         <div className="max-w-5xl mx-auto">
