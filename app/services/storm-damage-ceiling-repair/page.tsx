@@ -157,20 +157,36 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-white px-4 py-16 md:py-20">
+      <section className="bg-navy-900 px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">What Sydney homeowners say</h2>
-          <p className="text-navy-600 text-center text-lg mb-10">Real reviews from real Jack jobs. (Replace placeholders pre-launch with verified Google reviews.)</p>
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-white mb-3 text-center">What Sydney homeowners say</h2>
+          <p className="text-navy-300 text-center text-lg mb-10">Real reviews from real Jack jobs. (Replace placeholders pre-launch with verified Google reviews.)</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { stars: 5, quote: 'Half the ceiling came down at 2am in the storm. Called at 7am, Jack was here by 8. Stabilised it that day, restored over the week. Insurance dealt with directly.', name: 'Sarah M.', suburb: 'Manly' },
               { stars: 5, quote: 'Sagging hallway ceiling after the storm. Could&apos;ve come down on the kids. Jack responded in 45 minutes. We slept easier the same night.', name: 'David K.', suburb: 'Dee Why' },
               { stars: 5, quote: 'Roof tile blew off, water trashed a 1m² section of ceiling. Jack quoted, fixed, invoiced — all within four days. Easiest insurance claim we&apos;ve ever made.', name: 'Priya R.', suburb: 'Mona Vale' },
             ].map((t, i) => (
-              <div key={i} className="bg-navy-50 rounded-2xl p-6 shadow-sm">
-                <div className="text-brand-500 text-lg mb-3">{'★'.repeat(t.stars)}</div>
-                <p className="text-navy-800 leading-relaxed mb-4 italic">&ldquo;{t.quote}&rdquo;</p>
-                <div className="border-t border-navy-200 pt-3"><div className="font-bold text-navy-900">{t.name}</div><div className="text-navy-500 text-sm">{t.suburb} · Google review</div></div>
+              <div key={i} className="bg-navy-800 border border-navy-700 rounded-2xl p-6 md:p-8 shadow-lg">
+
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-brand-500 text-navy-900 font-extrabold text-xl md:text-2xl flex items-center justify-center mb-5 shadow-md">
+
+                  {t.name.split(' ').map((s) => s[0]).join('').slice(0, 2)}
+
+                </div>
+
+                <div className="text-brand-400 text-lg mb-4">{'★'.repeat(t.stars)}</div>
+
+                <p className="text-navy-100 leading-relaxed mb-6">&ldquo;{t.quote}&rdquo;</p>
+
+                <div>
+
+                  <div className="font-bold text-white">{t.name}</div>
+
+                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Google review</div>
+
+                </div>
+
               </div>
             ))}
           </div>

@@ -256,23 +256,36 @@ export default function Page() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-white px-4 py-16 md:py-20">
+      <section className="bg-navy-900 px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">What Northern Beaches homeowners say</h2>
-          <p className="text-navy-600 text-center text-lg mb-10">Real reviews from real Jack jobs. (Replace placeholders pre-launch with verified Google reviews.)</p>
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-white mb-3 text-center">What Northern Beaches homeowners say</h2>
+          <p className="text-navy-300 text-center text-lg mb-10">Real reviews from real Jack jobs. (Replace placeholders pre-launch with verified Google reviews.)</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { stars: 5, quote: 'Three plasterers I&apos;d called before Jack never even rang back. Jack picked up first ring, was at the door the next morning, fixed-price quote, done in one visit. Pure gold.', name: 'Sarah M.', suburb: 'Manly' },
               { stars: 5, quote: 'Heritage cornice in our Federation home. Jack matched the profile perfectly. The painter literally couldn&apos;t find which section we&apos;d replaced.', name: 'David K.', suburb: 'Balgowlah' },
               { stars: 5, quote: 'Insurance job after a storm leak. Jack dealt with the assessor directly. We didn&apos;t chase anything. Easiest plaster experience we&apos;ve ever had.', name: 'Priya R.', suburb: 'Mona Vale' },
             ].map((t, i) => (
-              <div key={i} className="bg-navy-50 rounded-2xl p-6 shadow-sm">
-                <div className="text-brand-500 text-lg mb-3">{'★'.repeat(t.stars)}</div>
-                <p className="text-navy-800 leading-relaxed mb-4 italic">&ldquo;{t.quote}&rdquo;</p>
-                <div className="border-t border-navy-200 pt-3">
-                  <div className="font-bold text-navy-900">{t.name}</div>
-                  <div className="text-navy-500 text-sm">{t.suburb} · Google review</div>
+              <div key={i} className="bg-navy-800 border border-navy-700 rounded-2xl p-6 md:p-8 shadow-lg">
+
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-brand-500 text-navy-900 font-extrabold text-xl md:text-2xl flex items-center justify-center mb-5 shadow-md">
+
+                  {t.name.split(' ').map((s) => s[0]).join('').slice(0, 2)}
+
                 </div>
+
+                <div className="text-brand-400 text-lg mb-4">{'★'.repeat(t.stars)}</div>
+
+                <p className="text-navy-100 leading-relaxed mb-6">&ldquo;{t.quote}&rdquo;</p>
+
+                <div>
+
+                  <div className="font-bold text-white">{t.name}</div>
+
+                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Google review</div>
+
+                </div>
+
               </div>
             ))}
           </div>
