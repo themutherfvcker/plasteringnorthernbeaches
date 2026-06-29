@@ -2,11 +2,13 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE } from '@/data/site';
 import QuoteForm from '@/components/QuoteForm';
+import TrustBar from '@/components/TrustBar';
+import MeetJack from '@/components/MeetJack';
 
 export const metadata: Metadata = {
-  title: "Northern Beaches Plastering Services | Sydney's #1 Plasterers",
+  title: "Jack's Plastering Northern Beaches | Sydney-Wide Plastering Service",
   description:
-    "Sydney's Northern Beaches most trusted plastering service. Free fixed quotes, licensed & insured, 10-year written guarantee. Plaster repairs, gyprock, cornice, skim coating, ceiling repair.",
+    "NSW Fair Trading licensed plasterer based in Dee Why, servicing the Northern Beaches and Sydney-wide. Free fixed-price quotes, 2-year written workmanship guarantee. Plaster repairs, gyprock, cornice, skim coating, ceiling repair.",
   alternates: { canonical: SITE.url },
 };
 
@@ -20,7 +22,7 @@ const services = [
 ];
 
 const whyUs = [
-  { icon: '🛡️', title: '10-year written guarantee',     body: "We stand behind every job. If there's an issue, we come back and fix it — period. No questions asked." },
+  { icon: '🛡️', title: '2-year written guarantee',      body: "We stand behind every job. If there's an issue, we come back and fix it — period. No questions asked." },
   { icon: '✅', title: 'Fully licensed & insured',       body: 'Complete peace of mind. We carry full public liability insurance and all required NSW Fair Trading licences.' },
   { icon: '🧹', title: 'Dust-free & clean',              body: "We respect your home. Drop sheets, dust extraction, and a full clean-up means you'd never know we were there." },
   { icon: '⏰', title: 'On time, every time',            body: 'We show up when we say we will. No waiting around, no excuses. Your time matters.' },
@@ -35,7 +37,7 @@ const process = [
 const testimonials = [
   { stars: 5, quote: "We had three rooms that needed complete replastering after a renovation. The team was punctual, incredibly tidy, and the finish is absolutely flawless. Can't recommend them enough!", name: '[Sample testimonial — replace pre-launch]', suburb: 'Manly Vale' },
   { stars: 5, quote: 'Had a massive water damage issue in the kitchen ceiling. They came out fast, quoted the next morning, and had it fixed within 48 hours. Amazing service and quality.', name: '[Sample testimonial — replace pre-launch]', suburb: 'Dee Why' },
-  { stars: 5, quote: 'Best plasterers on the Beaches, hands down. They did our entire new build — walls, ceilings, cornices — and every single surface is perfect. The 10-year guarantee gave us total confidence.', name: '[Sample testimonial — replace pre-launch]', suburb: 'Freshwater' },
+  { stars: 5, quote: 'Best plasterers on the Beaches, hands down. They did our entire new build — walls, ceilings, cornices — and every single surface is perfect. The 2-year guarantee gave us total confidence.', name: '[Sample testimonial — replace pre-launch]', suburb: 'Freshwater' },
 ];
 
 const faqs = [
@@ -48,8 +50,8 @@ const faqs = [
     a: "Never. All our quotes are 100% free and no-obligation. We'll visit your property, assess the work required, and provide a transparent fixed-price quote. No pressure, no hidden fees, no surprises.",
   },
   {
-    q: 'What does your 10-year guarantee cover?',
-    a: 'Our 10-year written guarantee covers any defects in our workmanship — cracking, peeling, joint separation, or any issues directly caused by our plastering work. If something we did fails within 10 years, we fix it free of charge, including materials and labour.',
+    q: 'What does your 2-year guarantee cover?',
+    a: 'Our 2-year written workmanship guarantee covers any defects in our work — cracking, sagging, joint separation, or any failure directly caused by our plastering. If something we did fails within 2 years, we fix it free of charge, including materials and labour. Backed by Jack&apos;s Plastering Northern Beaches.',
   },
   {
     q: 'Will you leave a mess?',
@@ -88,7 +90,7 @@ const pageSchema = {
       })),
       serviceType: 'Residential and commercial plastering, gyprocking, ceiling repair, cornice restoration, skim coating, render',
       description:
-        'Licensed and insured plastering and gyprocking across Sydney Northern Beaches — drywall installation, plaster repairs, cornice and decorative work, skim coating, water damage repair, full home plastering. 10-year written workmanship guarantee.',
+        'NSW Fair Trading licensed plastering and gyprocking across the Northern Beaches and Sydney-wide — drywall installation, plaster repairs, cornice and decorative work, skim coating, water damage repair, full home plastering. 2-year written workmanship guarantee, brand-backed.',
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'Plastering services',
@@ -115,6 +117,9 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
 
+      {/* ─── Trust bar (Vista-pattern, very top) ─── */}
+      <TrustBar />
+
       {/* ─── Urgency Top Bar ─── */}
       <div className="v2-urgency-bar text-white text-center py-2.5 px-4 text-sm font-medium relative z-50">
         <div className="flex items-center justify-center gap-2 flex-wrap">
@@ -133,12 +138,12 @@ export default function HomePage() {
       <header className="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-navy-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-navy-900 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-navy-900 rounded-lg flex items-center justify-center shrink-0">
               <span className="text-brand-400 text-xl">🏠</span>
             </div>
-            <div>
-              <span className="font-bold text-navy-900 text-lg leading-tight block">Northern Beaches</span>
-              <span className="text-brand-600 font-semibold text-xs tracking-wide uppercase">Plastering Services</span>
+            <div className="leading-tight">
+              <span className="font-extrabold text-navy-900 text-base md:text-lg block">{SITE.name}</span>
+              <span className="font-extrabold text-brand-600 text-sm md:text-base block">{SITE.tagline}</span>
             </div>
           </Link>
           <nav className="hidden md:flex items-center gap-6">
@@ -357,6 +362,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── Meet Jack ─── */}
+      <MeetJack />
+
       {/* ─── Testimonials ─── */}
       <section id="reviews" className="py-16 md:py-24 bg-navy-900 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
@@ -372,15 +380,15 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((t, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 md:p-8 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
-                <div className="text-amber-500 text-lg mb-3">{'★'.repeat(t.stars)}</div>
-                <p className="text-navy-700 mb-6 leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
-                <div className="flex items-center gap-3 pt-4 border-t border-navy-100">
-                  <div className="w-12 h-12 rounded-full bg-slate-300"></div>
-                  <div>
-                    <div className="font-bold text-navy-900">{t.name}</div>
-                    <div className="text-navy-500 text-sm">{t.suburb}</div>
-                  </div>
+              <div key={i} className="bg-navy-800 border border-navy-700 rounded-2xl p-6 md:p-8 shadow-lg hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-brand-500 text-navy-900 font-extrabold text-xl md:text-2xl flex items-center justify-center mb-5 shadow-md">
+                  {t.name.split(' ').map((s) => s[0]).join('').slice(0, 2)}
+                </div>
+                <div className="text-brand-400 text-lg mb-4">{'★'.repeat(t.stars)}</div>
+                <p className="text-navy-100 mb-6 leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
+                <div>
+                  <div className="font-bold text-white">{t.name}</div>
+                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Google review</div>
                 </div>
               </div>
             ))}
@@ -414,7 +422,7 @@ export default function HomePage() {
               </h2>
               <p className="text-navy-600 text-lg mb-6 leading-relaxed">
                 We&apos;re so confident in our workmanship that we back every job with a{' '}
-                <strong className="text-navy-900">10-year written guarantee</strong>. If anything goes wrong with our plastering within 10 years, we&apos;ll come back and fix it completely free.
+                <strong className="text-navy-900">2-year written guarantee</strong>. If anything goes wrong with our plastering within 2 years, we&apos;ll come back and fix it completely free — backed by {SITE.name}.
               </p>
               <div className="bg-white rounded-2xl p-6 border-2 border-brand-200 shadow-sm mb-6">
                 <div className="flex items-start gap-4">
@@ -422,9 +430,9 @@ export default function HomePage() {
                     📜
                   </div>
                   <div>
-                    <h3 className="font-bold text-navy-900 text-lg mb-1">10-year written guarantee</h3>
+                    <h3 className="font-bold text-navy-900 text-lg mb-1">2-year written workmanship guarantee</h3>
                     <p className="text-navy-600 text-sm">
-                      Not verbal. Not wishy-washy. A proper, signed, written guarantee that protects your investment for a full decade.
+                      Not verbal. Not wishy-washy. A proper, signed, written guarantee. Backed by {SITE.name} — if your plasterer can&apos;t honour it, we arrange another at no cost to you.
                     </p>
                   </div>
                 </div>
@@ -539,7 +547,7 @@ export default function HomePage() {
             </a>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-6 text-navy-600 text-sm font-medium">
-            <span className="flex items-center gap-2">🛡️ 10-year guarantee</span>
+            <span className="flex items-center gap-2">🛡️ 2-year guarantee</span>
             <span className="flex items-center gap-2">✅ Licensed &amp; insured</span>
             <span className="flex items-center gap-2">⭐ NSW Fair Trading</span>
           </div>
@@ -581,9 +589,15 @@ export default function HomePage() {
                 <a href={`mailto:${SITE.email}`} className="flex items-center gap-3 text-navy-300 hover:text-brand-400 transition-colors text-sm">
                   ✉️ {SITE.email}
                 </a>
-                <div className="flex items-center gap-3 text-navy-300 text-sm">
-                  📍 Serving all of Sydney&apos;s Northern Beaches
-                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=14%2F39-41+Pacific+Parade+Dee+Why+NSW+2099"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 text-navy-300 hover:text-brand-400 transition-colors text-sm not-italic"
+                >
+                  <span className="leading-none">📍</span>
+                  <span>14/39-41 Pacific Parade,<br/>Dee Why NSW 2099</span>
+                </a>
                 <div className="flex items-center gap-3 text-navy-300 text-sm">
                   🕐 Mon–Sat: 7am – 6pm
                 </div>
@@ -591,8 +605,8 @@ export default function HomePage() {
             </div>
           </div>
           <div className="border-t border-navy-700 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-navy-400 text-sm">© {new Date().getFullYear()} Northern Beaches Plastering Services. All rights reserved.</p>
-            <p className="text-navy-500 text-xs">Licensed · Insured · 10-year guarantee</p>
+            <p className="text-navy-400 text-sm">© {new Date().getFullYear()} {SITE.legalName}. All rights reserved.</p>
+            <p className="text-navy-500 text-xs">Licensed · Insured · 2-year written guarantee</p>
           </div>
         </div>
       </footer>
