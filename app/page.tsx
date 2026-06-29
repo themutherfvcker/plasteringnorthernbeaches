@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { SITE } from '@/data/site';
 import QuoteForm from '@/components/QuoteForm';
 import TrustBar from '@/components/TrustBar';
@@ -165,7 +166,20 @@ export default function HomePage() {
 
       {/* ─── Hero ─── */}
       <section className="v2-hero-gradient relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+        {/* Background image — real Jack on the Northern Beaches. Desktop only;
+            mobile gets the gradient + form so the photo doesn't compete with stacked layout. */}
+        <Image
+          src="/jack.webp"
+          alt="Jack — NSW Fair Trading licensed plasterer servicing the Northern Beaches and Sydney"
+          fill
+          priority
+          sizes="100vw"
+          className="hidden md:block object-cover object-right opacity-95 z-0"
+        />
+        {/* Desktop overlay — fades to transparent over Jack's face on the right */}
+        <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-r from-navy-900/85 via-navy-900/55 to-transparent" aria-hidden="true" />
+        {/* Decorative brand glows — sit above the overlay but below content */}
+        <div className="absolute inset-0 opacity-10 z-[2]">
           <div className="absolute top-20 left-10 w-64 h-64 bg-brand-400 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-brand-500 rounded-full blur-3xl"></div>
         </div>
@@ -281,6 +295,47 @@ export default function HomePage() {
                   Get a quote →
                 </a>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Recent work gallery ─── */}
+      <section className="py-16 md:py-24 bg-white border-t border-navy-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Recent Work</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-4">
+              See Jack&apos;s recent jobs
+            </h2>
+            <p className="text-navy-600 text-lg max-w-2xl mx-auto">
+              Across the Northern Beaches and Sydney-wide. Same plasterer, same 2-year written guarantee on every job.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { image: 'decorative-dome-ceiling-installation-sydney.webp', alt: 'Decorative dome ceiling installation with recessed step lighting, Northern Beaches', suburb: 'Manly', job: 'Decorative dome ceiling + cornice feature' },
+              { image: 'luxury-bathroom-marble-plastering-sydney.webp', alt: 'Luxury bathroom plastering with marble feature wall and integrated LED strip lighting, Sydney', suburb: 'Mosman', job: 'Luxury bathroom with marble feature wall' },
+              { image: 'built-in-tv-fireplace-plastering-northern-beaches.webp', alt: 'Custom built-in TV cabinet and electric fireplace with suspended ceiling plastering, Northern Beaches', suburb: 'Avalon', job: 'Custom built-in TV + electric fireplace wall' },
+              { image: 'ceiling-repair-in-progress-northern-beaches.webp', alt: 'Ceiling repair in progress on the Northern Beaches — large oval section cut out for plasterboard replacement and skim coating', suburb: 'Dee Why', job: 'Water-damage ceiling rebuild' },
+              { image: 'kitchen-ceiling-plastering-northern-beaches.webp', alt: 'Kitchen suspended ceiling plastering with recessed downlights, Northern Beaches home', suburb: 'Brookvale', job: 'Kitchen suspended ceiling + downlights' },
+              { image: 'full-home-plastering-northern-beaches.webp', alt: 'Full home plastering finish — high-ceiling hallway with dark hardwood floor, Northern Beaches build', suburb: 'Mona Vale', job: 'Full home plastering — paint-ready' },
+            ].map((j, i) => (
+              <figure key={i} className="bg-navy-50 rounded-2xl overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                <div className="aspect-[4/3] relative">
+                  <Image
+                    src={`/gallery/${j.image}`}
+                    alt={j.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <figcaption className="p-5">
+                  <div className="font-bold text-navy-900 mb-1">{j.suburb}</div>
+                  <div className="text-navy-700 text-sm">{j.job}</div>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
