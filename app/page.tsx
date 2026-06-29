@@ -69,10 +69,20 @@ const faqs = [
 ];
 
 const heroAreasList = [
-  'Manly', 'Dee Why', 'Freshwater', 'Curl Curl', 'Collaroy', 'Narrabeen',
-  'Mona Vale', 'Warriewood', 'Avalon', 'Palm Beach', 'Newport', 'Bilgola',
-  'Bayview', 'Church Point', 'Elvina Bay', 'Queenscliff', 'North Balgowlah',
-  'Seaforth', 'Brookvale', 'Cromer', 'Frenchs Forest', 'Belrose',
+  // Northern Beaches
+  'Manly', 'Dee Why', 'Freshwater', 'Curl Curl', 'Brookvale', 'Cromer',
+  'Beacon Hill', 'Collaroy', 'Narrabeen', 'Mona Vale', 'Warriewood',
+  'Newport', 'Bilgola', 'Avalon', 'Palm Beach', 'Bayview', 'Church Point',
+  'Frenchs Forest', 'Belrose', 'Forestville', 'Queenscliff',
+  'North Balgowlah', 'Seaforth',
+  // Lower North Shore
+  'Mosman', 'Neutral Bay', 'Cremorne', 'North Sydney', 'Lane Cove',
+  'Chatswood', 'Crows Nest',
+  // Upper North Shore
+  'Roseville', 'Lindfield', 'Killara', 'Gordon', 'Pymble', 'Turramurra',
+  'St Ives', 'Wahroonga', 'Hornsby',
+  // Hills / Northern districts
+  'Pennant Hills', 'Cherrybrook', 'Epping', 'Eastwood', 'Castle Hill',
 ];
 
 // ── JSON-LD Schema for the page ────────────────────────────────────────────
@@ -519,7 +529,7 @@ export default function HomePage() {
           <div className="text-center mb-10">
             <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Areas we serve</span>
             <h2 className="text-3xl sm:text-4xl font-black text-navy-900 mb-4">
-              Proudly Serving the <span className="text-brand-600">Northern Beaches</span>
+              Proudly Plastering the <span className="text-brand-600">Northern Beaches &amp; Sydney</span>
             </h2>
           </div>
           <div className="flex flex-wrap justify-center gap-3">
