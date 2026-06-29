@@ -185,7 +185,7 @@ export default function Page() {
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">
-            See Jack&apos;s recent work
+            See Jack&apos;s Recent Plastering Work
           </h2>
           <p className="text-navy-600 text-center text-lg mb-10">
             A few finished jobs across the Northern Beaches and Sydney-wide. Same plasterer, same 2-year guarantee, every time.

@@ -301,7 +301,7 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Recent Work</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-4">
-              See Jack&apos;s recent jobs
+              See Jack&apos;s Recent Plastering Jobs
             </h2>
             <p className="text-navy-600 text-lg max-w-2xl mx-auto">
               Across the Northern Beaches and Sydney-wide. Same plasterer, same 2-year written guarantee on every job.
