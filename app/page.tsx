@@ -651,23 +651,15 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {/* ─── Sticky bottom CTA (all screen sizes) ─── */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-navy-200 p-3 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
-        <div className="max-w-3xl mx-auto flex gap-2">
-          <a
-            href={`tel:${SITE.phoneTel}`}
-            className="flex-1 bg-navy-900 text-white font-bold text-sm md:text-base py-3.5 rounded-lg flex items-center justify-center gap-2 hover:bg-navy-800 transition-colors"
-          >
-            📞 <span className="font-extrabold">{SITE.phone}</span>
-          </a>
-          <a
-            href="#quote"
-            className="flex-1 v2-cta-gradient text-navy-900 font-bold text-sm md:text-base py-3.5 rounded-lg flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all"
-          >
-            Free Quote →
-          </a>
-        </div>
-      </div>
+      {/* ─── Sticky bottom CALL CTA (all screen sizes) ─── */}
+      <a
+        href={`tel:${SITE.phoneTel}`}
+        className="fixed bottom-0 left-0 right-0 z-50 bg-lime-500 hover:bg-lime-400 text-slate-900 font-extrabold text-center py-4 md:py-5 shadow-[0_-4px_20px_rgba(0,0,0,0.15)] transition-colors flex items-center justify-center gap-3 text-base md:text-xl"
+      >
+        <span className="text-2xl">📞</span>
+        <span className="uppercase tracking-wide">Call Now</span>
+        <span className="font-black">{SITE.phone}</span>
+      </a>
     </>
   );
 }
