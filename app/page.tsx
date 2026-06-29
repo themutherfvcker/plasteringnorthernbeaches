@@ -206,7 +206,7 @@ export default function HomePage() {
                   Get Your Free Quote →
                 </a>
                 <a href={`tel:${SITE.phoneTel}`} className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-white/20 transition-all duration-150 text-center flex items-center justify-center gap-2">
-                  📞 Call Now
+                  📞 {SITE.phone}
                 </a>
               </div>
 
@@ -651,14 +651,22 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {/* ─── Sticky mobile CTA ─── */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-navy-200 p-3 flex gap-2 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
-        <a href={`tel:${SITE.phoneTel}`} className="flex-1 bg-navy-900 text-white font-bold text-sm py-3.5 rounded-lg flex items-center justify-center gap-2 hover:bg-navy-800 transition-colors">
-          📞 Call Now
-        </a>
-        <a href="#quote" className="flex-1 v2-cta-gradient text-navy-900 font-bold text-sm py-3.5 rounded-lg flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all">
-          Free Quote →
-        </a>
+      {/* ─── Sticky bottom CTA (all screen sizes) ─── */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-navy-200 p-3 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+        <div className="max-w-3xl mx-auto flex gap-2">
+          <a
+            href={`tel:${SITE.phoneTel}`}
+            className="flex-1 bg-navy-900 text-white font-bold text-sm md:text-base py-3.5 rounded-lg flex items-center justify-center gap-2 hover:bg-navy-800 transition-colors"
+          >
+            📞 <span className="font-extrabold">{SITE.phone}</span>
+          </a>
+          <a
+            href="#quote"
+            className="flex-1 v2-cta-gradient text-navy-900 font-bold text-sm md:text-base py-3.5 rounded-lg flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all"
+          >
+            Free Quote →
+          </a>
+        </div>
       </div>
     </>
   );
