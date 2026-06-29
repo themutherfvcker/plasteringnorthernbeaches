@@ -121,20 +121,6 @@ export default function HomePage() {
       {/* ─── Trust bar (Vista-pattern, very top) ─── */}
       <TrustBar />
 
-      {/* ─── Urgency Top Bar ─── */}
-      <div className="v2-urgency-bar text-white text-center py-2.5 px-4 text-sm font-medium relative z-50">
-        <div className="flex items-center justify-center gap-2 flex-wrap">
-          <span className="inline-flex items-center gap-1.5">
-            🎟️ <strong className="text-brand-300">10% OFF</strong> for new customers this month
-          </span>
-          <span className="hidden sm:inline text-navy-400">|</span>
-          <span className="inline-flex items-center gap-1.5">
-            <span className="w-2 h-2 bg-brand-400 rounded-full animate-pulse"></span>
-            <strong className="text-brand-300">Free quotes</strong> · NSW Fair Trading licensed
-          </span>
-        </div>
-      </div>
-
       {/* ─── Sticky Header ─── */}
       <header className="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-navy-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
