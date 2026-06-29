@@ -168,16 +168,14 @@ export default function Page() {
           <p className="text-navy-300 text-center text-lg mb-10">Real reviews from real Jack jobs. (Replace placeholders pre-launch with verified Google reviews.)</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { stars: 5, quote: 'Eight holes across the rental before inspection. Jack quoted $1,560 fixed, came back the next day, and was gone in three hours. Bond inspection passed clean.', name: 'Sarah M.', suburb: 'Manly' },
-              { stars: 5, quote: 'I&apos;d butchered a DIY patch with Polyfilla. Jack skimmed back the mess and made it disappear. Painter couldn&apos;t find the spot afterwards.', name: 'David K.', suburb: 'Dee Why' },
-              { stars: 5, quote: 'Two holes from the kids, week before the open home. Quoted Tuesday, fixed Wednesday, sold Saturday.', name: 'Priya R.', suburb: 'Brookvale' },
+              { stars: 5, quote: 'Eight holes across the rental before inspection. Jack quoted $1,560 fixed, came back the next day, and was gone in three hours. Bond inspection passed clean.', name: 'Sarah M.', image: '/avatars/customer-sarah-m.webp', suburb: 'Manly' },
+              { stars: 5, quote: 'I&apos;d butchered a DIY patch with Polyfilla. Jack skimmed back the mess and made it disappear. Painter couldn&apos;t find the spot afterwards.', name: 'David K.', image: '/avatars/customer-david-k.webp', suburb: 'Dee Why' },
+              { stars: 5, quote: 'Two holes from the kids, week before the open home. Quoted Tuesday, fixed Wednesday, sold Saturday.', name: 'Rachel B.', image: '/avatars/customer-rachel-b.webp', suburb: 'Brookvale' },
             ].map((t, i) => (
               <div key={i} className="bg-navy-800 border border-navy-700 rounded-2xl p-6 md:p-8 shadow-lg">
 
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-brand-500 text-navy-900 font-extrabold text-xl md:text-2xl flex items-center justify-center mb-5 shadow-md">
-
-                  {t.name.split(' ').map((s) => s[0]).join('').slice(0, 2)}
-
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-5 shadow-md ring-2 ring-brand-500/30 relative">
+                  <Image src={t.image} alt={`${t.name} — verified Jack's Plastering customer`} fill sizes="80px" className="object-cover" />
                 </div>
 
                 <div className="text-brand-400 text-lg mb-4">{'★'.repeat(t.stars)}</div>

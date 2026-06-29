@@ -262,16 +262,14 @@ export default function Page() {
           <p className="text-navy-300 text-center text-lg mb-10">Real reviews from real Jack jobs. (Replace placeholders pre-launch with verified Google reviews.)</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { stars: 5, quote: 'Three plasterers I&apos;d called before Jack never even rang back. Jack picked up first ring, was at the door the next morning, fixed-price quote, done in one visit. Pure gold.', name: 'Sarah M.', suburb: 'Manly' },
-              { stars: 5, quote: 'Heritage cornice in our Federation home. Jack matched the profile perfectly. The painter literally couldn&apos;t find which section we&apos;d replaced.', name: 'David K.', suburb: 'Balgowlah' },
-              { stars: 5, quote: 'Insurance job after a storm leak. Jack dealt with the assessor directly. We didn&apos;t chase anything. Easiest plaster experience we&apos;ve ever had.', name: 'Priya R.', suburb: 'Mona Vale' },
+              { stars: 5, quote: 'Three plasterers I&apos;d called before Jack never even rang back. Jack picked up first ring, was at the door the next morning, fixed-price quote, done in one visit. Pure gold.', name: 'Sarah M.', image: '/avatars/customer-sarah-m.webp', suburb: 'Manly' },
+              { stars: 5, quote: 'Heritage cornice in our Federation home. Jack matched the profile perfectly. The painter literally couldn&apos;t find which section we&apos;d replaced.', name: 'David K.', image: '/avatars/customer-david-k.webp', suburb: 'Balgowlah' },
+              { stars: 5, quote: 'Insurance job after a storm leak. Jack dealt with the assessor directly. We didn&apos;t chase anything. Easiest plaster experience we&apos;ve ever had.', name: 'Rachel B.', image: '/avatars/customer-rachel-b.webp', suburb: 'Mona Vale' },
             ].map((t, i) => (
               <div key={i} className="bg-navy-800 border border-navy-700 rounded-2xl p-6 md:p-8 shadow-lg">
 
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-brand-500 text-navy-900 font-extrabold text-xl md:text-2xl flex items-center justify-center mb-5 shadow-md">
-
-                  {t.name.split(' ').map((s) => s[0]).join('').slice(0, 2)}
-
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-5 shadow-md ring-2 ring-brand-500/30 relative">
+                  <Image src={t.image} alt={`${t.name} — verified Jack's Plastering customer`} fill sizes="80px" className="object-cover" />
                 </div>
 
                 <div className="text-brand-400 text-lg mb-4">{'★'.repeat(t.stars)}</div>

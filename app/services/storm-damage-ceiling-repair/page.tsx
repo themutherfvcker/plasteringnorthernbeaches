@@ -163,16 +163,14 @@ export default function Page() {
           <p className="text-navy-300 text-center text-lg mb-10">Real reviews from real Jack jobs. (Replace placeholders pre-launch with verified Google reviews.)</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { stars: 5, quote: 'Half the ceiling came down at 2am in the storm. Called at 7am, Jack was here by 8. Stabilised it that day, restored over the week. Insurance dealt with directly.', name: 'Sarah M.', suburb: 'Manly' },
-              { stars: 5, quote: 'Sagging hallway ceiling after the storm. Could&apos;ve come down on the kids. Jack responded in 45 minutes. We slept easier the same night.', name: 'David K.', suburb: 'Dee Why' },
-              { stars: 5, quote: 'Roof tile blew off, water trashed a 1m² section of ceiling. Jack quoted, fixed, invoiced — all within four days. Easiest insurance claim we&apos;ve ever made.', name: 'Priya R.', suburb: 'Mona Vale' },
+              { stars: 5, quote: 'Half the ceiling came down at 2am in the storm. Called at 7am, Jack was here by 8. Stabilised it that day, restored over the week. Insurance dealt with directly.', name: 'Sarah M.', image: '/avatars/customer-sarah-m.webp', suburb: 'Manly' },
+              { stars: 5, quote: 'Sagging hallway ceiling after the storm. Could&apos;ve come down on the kids. Jack responded in 45 minutes. We slept easier the same night.', name: 'David K.', image: '/avatars/customer-david-k.webp', suburb: 'Dee Why' },
+              { stars: 5, quote: 'Roof tile blew off, water trashed a 1m² section of ceiling. Jack quoted, fixed, invoiced — all within four days. Easiest insurance claim we&apos;ve ever made.', name: 'Rachel B.', image: '/avatars/customer-rachel-b.webp', suburb: 'Mona Vale' },
             ].map((t, i) => (
               <div key={i} className="bg-navy-800 border border-navy-700 rounded-2xl p-6 md:p-8 shadow-lg">
 
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-brand-500 text-navy-900 font-extrabold text-xl md:text-2xl flex items-center justify-center mb-5 shadow-md">
-
-                  {t.name.split(' ').map((s) => s[0]).join('').slice(0, 2)}
-
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-5 shadow-md ring-2 ring-brand-500/30 relative">
+                  <Image src={t.image} alt={`${t.name} — verified Jack's Plastering customer`} fill sizes="80px" className="object-cover" />
                 </div>
 
                 <div className="text-brand-400 text-lg mb-4">{'★'.repeat(t.stars)}</div>

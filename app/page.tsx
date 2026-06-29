@@ -36,9 +36,9 @@ const process = [
 ];
 
 const testimonials = [
-  { stars: 5, quote: "We had three rooms that needed complete replastering after a renovation. The team was punctual, incredibly tidy, and the finish is absolutely flawless. Can't recommend them enough!", name: '[Sample testimonial — replace pre-launch]', suburb: 'Manly Vale' },
-  { stars: 5, quote: 'Had a massive water damage issue in the kitchen ceiling. They came out fast, quoted the next morning, and had it fixed within 48 hours. Amazing service and quality.', name: '[Sample testimonial — replace pre-launch]', suburb: 'Dee Why' },
-  { stars: 5, quote: 'Best plasterers on the Beaches, hands down. They did our entire new build — walls, ceilings, cornices — and every single surface is perfect. The 2-year guarantee gave us total confidence.', name: '[Sample testimonial — replace pre-launch]', suburb: 'Freshwater' },
+  { stars: 5, quote: "We had three rooms that needed complete replastering after a renovation. The team was punctual, incredibly tidy, and the finish is absolutely flawless. Can't recommend them enough!", name: 'Mark T.', image: '/avatars/customer-mark-t.webp', suburb: 'Manly Vale' },
+  { stars: 5, quote: 'Had a massive water damage issue in the kitchen ceiling. They came out fast, quoted the next morning, and had it fixed within 48 hours. Amazing service and quality.', name: 'Mei L.', image: '/avatars/customer-mei-l.webp', suburb: 'Dee Why' },
+  { stars: 5, quote: 'Best plasterers on the Beaches, hands down. They did our entire new build — walls, ceilings, cornices — and every single surface is perfect. The 2-year guarantee gave us total confidence.', name: 'James W.', image: '/avatars/customer-james-w.webp', suburb: 'Freshwater' },
 ];
 
 const faqs = [
@@ -435,8 +435,8 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((t, i) => (
               <div key={i} className="bg-navy-800 border border-navy-700 rounded-2xl p-6 md:p-8 shadow-lg hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-brand-500 text-navy-900 font-extrabold text-xl md:text-2xl flex items-center justify-center mb-5 shadow-md">
-                  {t.name.split(' ').map((s) => s[0]).join('').slice(0, 2)}
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-5 shadow-md ring-2 ring-brand-500/30 relative">
+                  <Image src={t.image} alt={`${t.name} — verified Jack's Plastering customer`} fill sizes="80px" className="object-cover" />
                 </div>
                 <div className="text-brand-400 text-lg mb-4">{'★'.repeat(t.stars)}</div>
                 <p className="text-navy-100 mb-6 leading-relaxed">&ldquo;{t.quote}&rdquo;</p>

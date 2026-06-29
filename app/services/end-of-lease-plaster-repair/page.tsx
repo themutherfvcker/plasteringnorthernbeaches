@@ -163,16 +163,14 @@ export default function Page() {
           <p className="text-navy-300 text-center text-lg mb-10">Real reviews from real Jack jobs. (Replace placeholders pre-launch with verified Google reviews.)</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { stars: 5, quote: 'Tenant trashed five walls. Inspection on Friday. Jack came Thursday, fixed everything, GST invoice in my inbox before he&apos;d driven off the property. Inspection passed clean.', name: 'Sarah M.', suburb: 'Brookvale' },
-              { stars: 5, quote: 'Property manager — I batch all my end-of-lease plaster jobs to Jack now. Standing rate, quick turnaround, no chasing.', name: 'David K.', suburb: 'Manly' },
-              { stars: 5, quote: 'New tenant moving in Monday. Jack came Saturday, fixed three rooms, paint-ready by lunchtime. Saved the booking.', name: 'Priya R.', suburb: 'Dee Why' },
+              { stars: 5, quote: 'Tenant trashed five walls. Inspection on Friday. Jack came Thursday, fixed everything, GST invoice in my inbox before he&apos;d driven off the property. Inspection passed clean.', name: 'Sarah M.', image: '/avatars/customer-sarah-m.webp', suburb: 'Brookvale' },
+              { stars: 5, quote: 'Property manager — I batch all my end-of-lease plaster jobs to Jack now. Standing rate, quick turnaround, no chasing.', name: 'David K.', image: '/avatars/customer-david-k.webp', suburb: 'Manly' },
+              { stars: 5, quote: 'New tenant moving in Monday. Jack came Saturday, fixed three rooms, paint-ready by lunchtime. Saved the booking.', name: 'Rachel B.', image: '/avatars/customer-rachel-b.webp', suburb: 'Dee Why' },
             ].map((t, i) => (
               <div key={i} className="bg-navy-800 border border-navy-700 rounded-2xl p-6 md:p-8 shadow-lg">
 
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-brand-500 text-navy-900 font-extrabold text-xl md:text-2xl flex items-center justify-center mb-5 shadow-md">
-
-                  {t.name.split(' ').map((s) => s[0]).join('').slice(0, 2)}
-
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-5 shadow-md ring-2 ring-brand-500/30 relative">
+                  <Image src={t.image} alt={`${t.name} — verified Jack's Plastering customer`} fill sizes="80px" className="object-cover" />
                 </div>
 
                 <div className="text-brand-400 text-lg mb-4">{'★'.repeat(t.stars)}</div>

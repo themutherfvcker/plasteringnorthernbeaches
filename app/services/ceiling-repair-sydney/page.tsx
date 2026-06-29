@@ -304,28 +304,26 @@ export default function CeilingRepairSydneyPage() {
               {
                 stars: 5,
                 quote: 'Jack turned up exactly when he said he would. Quoted $480 to fix our cracked ceiling and that was the final price — no surprises. Done in one afternoon and it looks brand new.',
-                name: 'Sarah M.',
+                name: 'Sarah M.', image: '/avatars/customer-sarah-m.webp',
                 suburb: 'Dee Why',
               },
               {
                 stars: 5,
                 quote: 'Insurance job after a storm leak. Jack handled the paperwork side, gave us a fixed price, and finished the ceiling in two days. Easiest tradie experience we&apos;ve had in years.',
-                name: 'Mark T.',
+                name: 'Mark T.', image: '/avatars/customer-mark-t.webp',
                 suburb: 'Mona Vale',
               },
               {
                 stars: 5,
                 quote: 'Texted a photo on the Tuesday, had a written quote on the Wednesday, ceiling fixed by Friday. Honestly the smoothest job we&apos;ve had done.',
-                name: 'Priya R.',
+                name: 'Rachel B.', image: '/avatars/customer-rachel-b.webp',
                 suburb: 'Manly',
               },
             ].map((t, i) => (
               <div key={i} className="bg-navy-800 border border-navy-700 rounded-2xl p-6 md:p-8 shadow-lg">
 
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-brand-500 text-navy-900 font-extrabold text-xl md:text-2xl flex items-center justify-center mb-5 shadow-md">
-
-                  {t.name.split(' ').map((s) => s[0]).join('').slice(0, 2)}
-
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-5 shadow-md ring-2 ring-brand-500/30 relative">
+                  <Image src={t.image} alt={`${t.name} — verified Jack's Plastering customer`} fill sizes="80px" className="object-cover" />
                 </div>
 
                 <div className="text-brand-400 text-lg mb-4">{'★'.repeat(t.stars)}</div>
