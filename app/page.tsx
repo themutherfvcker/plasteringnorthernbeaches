@@ -427,30 +427,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── Process ─── */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">How it works</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-4">
-              3 Simple Steps to<br/><span className="text-brand-600">Perfect Walls</span>
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8 relative">
-            <div className="hidden md:block absolute top-8 left-[16%] right-[16%] h-0.5 bg-brand-200"></div>
-            {process.map((step) => (
-              <div key={step.n} className="text-center relative">
-                <div className="w-16 h-16 bg-brand-500 rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10 shadow-lg shadow-brand-500/30">
-                  <span className="text-navy-900 font-black text-2xl">{step.n}</span>
-                </div>
-                <h3 className="font-bold text-xl text-navy-900 mb-2">{step.title}</h3>
-                <p className="text-navy-600">{step.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ─── Guarantee section ─── */}
       <section className="py-16 md:py-24 bg-brand-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -546,9 +522,48 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── Process ─── */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">How it works</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-4">
+              3 Simple Steps to<br/><span className="text-brand-600">Perfect Walls</span>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 relative">
+            <div className="hidden md:block absolute top-8 left-[16%] right-[16%] h-0.5 bg-brand-200"></div>
+            {process.map((step) => (
+              <div key={step.n} className="text-center relative">
+                <div className="w-16 h-16 bg-brand-500 rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10 shadow-lg shadow-brand-500/30">
+                  <span className="text-navy-900 font-black text-2xl">{step.n}</span>
+                </div>
+                <h3 className="font-bold text-xl text-navy-900 mb-2">{step.title}</h3>
+                <p className="text-navy-600">{step.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── Quote Form ─── */}
       <section id="quote" className="py-16 md:py-24 bg-navy-900 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+        {/* Background image — Jack on-site. Desktop only; mobile keeps a clean
+            navy background so the stacked form has zero competition. Mirrors
+            the hero treatment but flipped left so Jack sits behind the copy
+            column and the form column stays fully readable. */}
+        <Image
+          src="/jack.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="hidden md:block object-cover object-left opacity-70 z-0"
+          aria-hidden="true"
+        />
+        {/* Desktop overlay — transparent on the left so Jack reads through,
+            heavy on the right so the form card has solid contrast. */}
+        <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-r from-navy-900/40 via-navy-900/70 to-navy-900/95" aria-hidden="true" />
+        <div className="absolute inset-0 opacity-10 z-[2]">
           <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-brand-500 rounded-full blur-3xl"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
