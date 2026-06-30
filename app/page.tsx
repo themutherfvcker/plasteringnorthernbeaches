@@ -340,6 +340,37 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── Testimonials ─── */}
+      <section id="reviews" className="py-16 md:py-24 bg-navy-900 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-brand-500/20 text-brand-300 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Testimonials</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">
+              What Northern Beaches<br/><span className="text-brand-400">Homeowners Say</span>
+            </h2>
+            <p className="text-navy-300 text-sm mt-2">
+              ⚠ Sample testimonials below — real verified Google reviews will replace these before launch.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            {testimonials.map((t, i) => (
+              <div key={i} className="bg-navy-800 border border-navy-700 rounded-2xl p-6 md:p-8 shadow-lg hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-5 shadow-md ring-2 ring-brand-500/30 relative">
+                  <Image src={t.image} alt={`${t.name} — verified Jack's Plastering customer`} fill sizes="80px" className="object-cover" />
+                </div>
+                <div className="text-brand-400 text-lg mb-4">{'★'.repeat(t.stars)}</div>
+                <p className="text-navy-100 mb-6 leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
+                <div>
+                  <div className="font-bold text-white">{t.name}</div>
+                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Google review</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── Why Choose Us ─── */}
       <section id="why-us" className="py-16 md:py-24 bg-navy-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -414,37 +445,6 @@ export default function HomePage() {
                 </div>
                 <h3 className="font-bold text-xl text-navy-900 mb-2">{step.title}</h3>
                 <p className="text-navy-600">{step.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Testimonials ─── */}
-      <section id="reviews" className="py-16 md:py-24 bg-navy-900 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="text-center mb-12">
-            <span className="inline-block bg-brand-500/20 text-brand-300 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Testimonials</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">
-              What Northern Beaches<br/><span className="text-brand-400">Homeowners Say</span>
-            </h2>
-            <p className="text-navy-300 text-sm mt-2">
-              ⚠ Sample testimonials below — real verified Google reviews will replace these before launch.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            {testimonials.map((t, i) => (
-              <div key={i} className="bg-navy-800 border border-navy-700 rounded-2xl p-6 md:p-8 shadow-lg hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-5 shadow-md ring-2 ring-brand-500/30 relative">
-                  <Image src={t.image} alt={`${t.name} — verified Jack's Plastering customer`} fill sizes="80px" className="object-cover" />
-                </div>
-                <div className="text-brand-400 text-lg mb-4">{'★'.repeat(t.stars)}</div>
-                <p className="text-navy-100 mb-6 leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
-                <div>
-                  <div className="font-bold text-white">{t.name}</div>
-                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Google review</div>
-                </div>
               </div>
             ))}
           </div>
