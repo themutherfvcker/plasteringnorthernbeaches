@@ -9,14 +9,14 @@ import TrustStrip from '@/components/TrustStrip';
 import MeetJack from '@/components/MeetJack';
 
 export const metadata: Metadata = {
-  title: "Plasterer Northern Beaches — Fixed-Price Quote in 24 Hours | Jack's Plastering Northern Beaches",
+  title: "Plasterer Northern Beaches — 24hr Quote | Jack's Plastering",
   description:
-    'Looking for a Northern Beaches plasterer? Jack arrives within 24 hours with a fixed-price written quote. Ceiling repairs, water-damage, gyprock patches, cornice work. Most jobs done in one visit. 2-year written workmanship guarantee. Call now.',
+    'Northern Beaches plasterer at your door within 24 hours with a fixed-price quote. Most jobs one visit. 2-year written guarantee. Call Jack now.',
   alternates: { canonical: `${SITE.url}/plasterer-northern-beaches` },
   openGraph: {
-    title: 'Plasterer Northern Beaches — Fixed-Price Quote in 24 Hours',
+    title: "Plasterer Northern Beaches — 24hr Quote | Jack's Plastering",
     description:
-      'NB-local plasterer. Fixed-price quote at your door within 24 hours. Most jobs one visit. 2-year written guarantee. Call now — first-ring answer or 15-min callback.',
+      'Northern Beaches plasterer at your door within 24 hours with a fixed-price quote. Most jobs one visit. 2-year written guarantee. Call Jack now.',
     url: `${SITE.url}/plasterer-northern-beaches`,
   },
 };
@@ -108,8 +108,10 @@ export default function Page() {
         <div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
-              Need a plasterer on the Northern Beaches?
-              <span className="block mt-3 text-brand-400">Jack arrives within 24 hours.</span>
+              Plasterer Northern Beaches
+              <span className="block mt-3 text-brand-400">
+                Fixed-price quote at your door within 24 hours.
+              </span>
             </h1>
             <ul className="space-y-3 text-lg md:text-xl text-navy-100 mb-8">
               <li className="flex items-start gap-3"><span className="text-brand-400 mt-0.5">✓</span><span><strong className="text-white">Fixed-price written quote at your door within 24 hours.</strong></span></li>
@@ -280,7 +282,7 @@ export default function Page() {
 
                   <div className="font-bold text-white">{t.name}</div>
 
-                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Google review</div>
+                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Verified customer</div>
 
                 </div>
 

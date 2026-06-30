@@ -9,14 +9,14 @@ import TrustStrip from '@/components/TrustStrip';
 import MeetJack from '@/components/MeetJack';
 
 export const metadata: Metadata = {
-  title: "Water Damage Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours | Jack's Plastering Northern Beaches",
+  title: "Water Damage Ceiling Repair Sydney | Jack's Plastering",
   description:
-    'Brown stain on the ceiling? Sagging plaster after a leak? Get a fixed-price water-damage ceiling repair quote within 24 hours. We deal directly with your insurance company. Backed by our 2-year written workmanship guarantee. Call Jack now.',
+    'Brown stain or sagging ceiling after a leak? Fixed-price water-damage ceiling repair. We deal with your insurer. 2-yr guarantee. Call Jack now.',
   alternates: { canonical: `${SITE.url}/services/water-damage-ceiling-repair` },
   openGraph: {
-    title: 'Water Damage Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours',
+    title: "Water Damage Ceiling Repair Sydney | Jack's Plastering",
     description:
-      'Brown stain spreading? Sagging ceiling after a leak? We restore your ceiling AND deal with your insurer directly. 2-year written guarantee.',
+      'Brown stain or sagging ceiling after a leak? Fixed-price water-damage ceiling repair. We deal with your insurer. 2-yr guarantee. Call Jack now.',
     url: `${SITE.url}/services/water-damage-ceiling-repair`,
   },
 };
@@ -118,8 +118,10 @@ export default function Page() {
         <div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
-              Brown Stain? Sagging Ceiling? Storm Damage?
-              <span className="block mt-3 text-brand-400">Your home, safe again.</span>
+              Water Damage Ceiling Repair, Sydney
+              <span className="block mt-3 text-brand-400">
+                Brown stain, sagging plaster, storm leak — your home safe again.
+              </span>
             </h1>
             <ul className="space-y-3 text-lg md:text-xl text-navy-100 mb-8">
               <li className="flex items-start gap-3"><span className="text-brand-400 mt-0.5">✓</span><span>Get a <strong className="text-white">fixed-price quote within 24 hours</strong>.</span></li>
@@ -238,7 +240,7 @@ export default function Page() {
 
                   <div className="font-bold text-white">{t.name}</div>
 
-                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Google review</div>
+                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Verified customer</div>
 
                 </div>
 

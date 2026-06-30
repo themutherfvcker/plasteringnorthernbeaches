@@ -9,14 +9,14 @@ import TrustStrip from '@/components/TrustStrip';
 import MeetJack from '@/components/MeetJack';
 
 export const metadata: Metadata = {
-  title: "Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours | Jack's Plastering Northern Beaches",
+  title: "Ceiling Repair Sydney — 24hr Quote | Jack's Plastering",
   description:
-    'Cracked ceiling, sagging plaster, water stain on the ceiling? Get a fixed-price ceiling repair quote within 24 hours. Most repairs done in one visit. Backed by our 2-year written workmanship guarantee. Call now or text us a photo.',
+    'Cracked ceiling, sagging plaster, water stain? Fixed-price ceiling repair quote in 24 hours. Most repairs one visit. 2-yr guarantee. Call Jack.',
   alternates: { canonical: `${SITE.url}/services/ceiling-repair-sydney` },
   openGraph: {
-    title: 'Ceiling Repair Sydney — Fixed-Price Quote in 24 Hours',
+    title: "Ceiling Repair Sydney — 24hr Quote | Jack's Plastering",
     description:
-      'Cracked ceiling, sagging plaster, water stain? Fixed-price quote in 24 hours. Most repairs done in one visit. 2-year written guarantee.',
+      'Cracked ceiling, sagging plaster, water stain? Fixed-price ceiling repair quote in 24 hours. Most repairs one visit. 2-yr guarantee. Call Jack.',
     url: `${SITE.url}/services/ceiling-repair-sydney`,
   },
 };
@@ -155,9 +155,9 @@ export default function CeilingRepairSydneyPage() {
         <div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
-              Cracked Ceiling? Water Stain? Sagging Plaster?
+              Ceiling Repair, Sydney
               <span className="block mt-3 text-brand-400">
-                Make it look like it never happened.
+                Cracked ceiling, sagging plaster, water stain — make it look like it never happened.
               </span>
             </h1>
             <ul className="space-y-3 text-lg md:text-xl text-navy-100 mb-8">
@@ -339,7 +339,7 @@ export default function CeilingRepairSydneyPage() {
 
                   <div className="font-bold text-white">{t.name}</div>
 
-                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Google review</div>
+                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Verified customer</div>
 
                 </div>
 

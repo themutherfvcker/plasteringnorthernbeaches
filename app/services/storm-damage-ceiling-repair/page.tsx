@@ -9,13 +9,13 @@ import TrustStrip from '@/components/TrustStrip';
 import MeetJack from '@/components/MeetJack';
 
 export const metadata: Metadata = {
-  title: "Storm Damage Ceiling Repair Sydney — 1-Hour Emergency Response | Jack's Plastering Northern Beaches",
+  title: "Storm Damage Ceiling Repair Sydney — 1hr Response | Jack's",
   description:
-    'Storm damaged your ceiling? Sagging? Water coming through? We respond within 1 hour across Sydney. Same-day emergency assessment. Fixed-price quote within 24 hours. We deal with your insurer. 2-year written guarantee. Call Jack now.',
+    'Storm-damaged ceiling, sagging, water through? 1-hour emergency response across Sydney. Fixed-price quote in 24hrs. Insurer handled. Call now.',
   alternates: { canonical: `${SITE.url}/services/storm-damage-ceiling-repair` },
   openGraph: {
-    title: 'Storm Damage Ceiling Repair Sydney — 1-Hour Emergency Response',
-    description: 'Storm-damaged ceiling, sagging plaster, water coming through. 1-hour response. Insurance liaison. From damaged to safe again, same week.',
+    title: "Storm Damage Ceiling Repair Sydney — 1hr Response | Jack's",
+    description: 'Storm-damaged ceiling, sagging, water through? 1-hour emergency response across Sydney. Fixed-price quote in 24hrs. Insurer handled. Call now.',
     url: `${SITE.url}/services/storm-damage-ceiling-repair`,
   },
 };
@@ -75,8 +75,10 @@ export default function Page() {
         <div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
-              Storm Damaged Your Ceiling? Sagging? Water Coming Through?
-              <span className="block mt-3 text-brand-400">From damaged to safe again — same week.</span>
+              Storm Damage Ceiling Repair, Sydney
+              <span className="block mt-3 text-brand-400">
+                1-hour emergency response. From damaged to safe again — same week.
+              </span>
             </h1>
             <ul className="space-y-3 text-lg md:text-xl text-navy-100 mb-8">
               <li className="flex items-start gap-3"><span className="text-brand-400 mt-0.5">✓</span><span><strong className="text-white">1-hour emergency response</strong> for sagging or actively-leaking ceilings.</span></li>
@@ -181,7 +183,7 @@ export default function Page() {
 
                   <div className="font-bold text-white">{t.name}</div>
 
-                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Google review</div>
+                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Verified customer</div>
 
                 </div>
 

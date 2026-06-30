@@ -9,13 +9,13 @@ import TrustStrip from '@/components/TrustStrip';
 import MeetJack from '@/components/MeetJack';
 
 export const metadata: Metadata = {
-  title: "Cornice Repair Sydney — Fixed-Price Quote in 24 Hours | Jack's Plastering Northern Beaches",
+  title: "Cornice Repair Sydney — 24hr Quote | Jack's Plastering",
   description:
-    'Cracked cornices? Sagging detail? Damaged plasterwork? Get a fixed-price cornice repair quote within 24 hours. Heritage profile matching available. Backed by our 2-year written workmanship guarantee. Call Jack now.',
+    'Cracked or sagging cornices? Fixed-price cornice repair quote in 24 hours. Heritage Federation profile matching. 2-yr guarantee. Call Jack now.',
   alternates: { canonical: `${SITE.url}/services/cornice-repair-sydney` },
   openGraph: {
-    title: 'Cornice Repair Sydney — Fixed-Price Quote in 24 Hours',
-    description: 'Cracked or sagging cornices restored. Heritage profile matching. Most jobs done in one visit. 2-year written guarantee.',
+    title: "Cornice Repair Sydney — 24hr Quote | Jack's Plastering",
+    description: 'Cracked or sagging cornices? Fixed-price cornice repair quote in 24 hours. Heritage Federation profile matching. 2-yr guarantee. Call Jack now.',
     url: `${SITE.url}/services/cornice-repair-sydney`,
   },
 };
@@ -75,8 +75,10 @@ export default function Page() {
         <div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
-              Cracked Cornices? Sagging Detail? Damaged Plasterwork?
-              <span className="block mt-3 text-brand-400">Restore your home&apos;s character.</span>
+              Cornice Repair, Sydney
+              <span className="block mt-3 text-brand-400">
+                Cracked cornices, sagging detail, heritage profile matching — restore your home's character.
+              </span>
             </h1>
             <ul className="space-y-3 text-lg md:text-xl text-navy-100 mb-8">
               <li className="flex items-start gap-3"><span className="text-brand-400 mt-0.5">✓</span><span>Get a <strong className="text-white">fixed-price quote within 24 hours</strong>.</span></li>
@@ -185,7 +187,7 @@ export default function Page() {
 
                   <div className="font-bold text-white">{t.name}</div>
 
-                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Google review</div>
+                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Verified customer</div>
 
                 </div>
 

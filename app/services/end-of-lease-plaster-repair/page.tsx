@@ -9,13 +9,13 @@ import TrustStrip from '@/components/TrustStrip';
 import MeetJack from '@/components/MeetJack';
 
 export const metadata: Metadata = {
-  title: "End of Lease Plaster Repair Sydney — Fixed Price From $290 | Jack's Plastering Northern Beaches",
+  title: "End of Lease Plaster Repair Sydney | Jack's Plastering",
   description:
-    'Tenant moving out? Multiple wall holes before the inspection? Get a fixed-price end-of-lease plaster repair quote within 24 hours. All repairs done in one visit, paint-ready same day. GST invoice for property manager. Call Jack now.',
+    'Tenant moving out, holes before inspection? Fixed-price end-of-lease plaster repair from $290. Paint-ready same day. GST invoice. Call Jack now.',
   alternates: { canonical: `${SITE.url}/services/end-of-lease-plaster-repair` },
   openGraph: {
-    title: 'End of Lease Plaster Repair Sydney — Fixed Price From $290',
-    description: 'Multiple wall holes before inspection? Fixed price, paint-ready same day, GST invoice for property manager. Bond-ready in one visit.',
+    title: "End of Lease Plaster Repair Sydney | Jack's Plastering",
+    description: 'Tenant moving out, holes before inspection? Fixed-price end-of-lease plaster repair from $290. Paint-ready same day. GST invoice. Call Jack now.',
     url: `${SITE.url}/services/end-of-lease-plaster-repair`,
   },
 };
@@ -75,8 +75,10 @@ export default function Page() {
         <div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
-              Tenant Moving Out? Wall Holes Before Inspection?
-              <span className="block mt-3 text-brand-400">One less thing to worry about.</span>
+              End of Lease Plaster Repair, Sydney
+              <span className="block mt-3 text-brand-400">
+                Wall holes before inspection? Paint-ready same day. GST invoice for your property manager.
+              </span>
             </h1>
             <ul className="space-y-3 text-lg md:text-xl text-navy-100 mb-8">
               <li className="flex items-start gap-3"><span className="text-brand-400 mt-0.5">✓</span><span><strong className="text-white">From $290 fixed price</strong> — bundle pricing on multiple holes.</span></li>
@@ -181,7 +183,7 @@ export default function Page() {
 
                   <div className="font-bold text-white">{t.name}</div>
 
-                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Google review</div>
+                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Verified customer</div>
 
                 </div>
 

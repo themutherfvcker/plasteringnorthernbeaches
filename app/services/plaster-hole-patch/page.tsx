@@ -9,14 +9,14 @@ import TrustStrip from '@/components/TrustStrip';
 import MeetJack from '@/components/MeetJack';
 
 export const metadata: Metadata = {
-  title: "Plaster Hole Repair Sydney — Fixed Price From $290 | Jack's Plastering Northern Beaches",
+  title: "Plaster Hole Repair Sydney from $290 | Jack's Plastering",
   description:
-    'Holes in your walls? TV bracket damage? Doorknob dents? DIY patch gone wrong? Fixed-price plaster hole repair from $290. All repairs done in one visit, paint-ready finish. Backed by our 2-year written workmanship guarantee. Call Jack now.',
+    'TV bracket holes, doorknob dents, DIY gone wrong? Fixed-price plaster hole repair from $290. Paint-ready, one visit. 2-yr guarantee. Call Jack.',
   alternates: { canonical: `${SITE.url}/services/plaster-hole-patch` },
   openGraph: {
-    title: 'Plaster Hole Repair Sydney — Fixed Price From $290',
+    title: "Plaster Hole Repair Sydney from $290 | Jack's Plastering",
     description:
-      'TV bracket holes? Doorknob dents? DIY patch gone wrong? Fixed price from $290 per hole. Bundle multiple rooms and save. Paint-ready finish, one visit.',
+      'TV bracket holes, doorknob dents, DIY gone wrong? Fixed-price plaster hole repair from $290. Paint-ready, one visit. 2-yr guarantee. Call Jack.',
     url: `${SITE.url}/services/plaster-hole-patch`,
   },
 };
@@ -76,8 +76,10 @@ export default function Page() {
         <div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
-              TV Bracket Holes? Doorknob Dents? DIY Patch Gone Wrong?
-              <span className="block mt-3 text-brand-400">Like the holes were never there.</span>
+              Plaster Hole Patch, Sydney
+              <span className="block mt-3 text-brand-400">
+                TV bracket holes, doorknob dents, DIY gone wrong — like the holes were never there.
+              </span>
             </h1>
             <ul className="space-y-3 text-lg md:text-xl text-navy-100 mb-8">
               <li className="flex items-start gap-3"><span className="text-brand-400 mt-0.5">✓</span><span><strong className="text-white">From $290 fixed price</strong> — patched, skimmed, paint-ready.</span></li>
@@ -186,7 +188,7 @@ export default function Page() {
 
                   <div className="font-bold text-white">{t.name}</div>
 
-                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Google review</div>
+                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Verified customer</div>
 
                 </div>
 

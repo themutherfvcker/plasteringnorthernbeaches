@@ -7,19 +7,25 @@ import TrustBar from '@/components/TrustBar';
 import MeetJack from '@/components/MeetJack';
 
 export const metadata: Metadata = {
-  title: "Jack's Plastering Northern Beaches | Sydney-Wide Plastering Service",
+  title: "Plasterer Northern Beaches Sydney | Jack's Plastering",
   description:
-    "NSW Fair Trading licensed plasterer based in Dee Why, servicing the Northern Beaches and Sydney-wide. Free fixed-price quotes, 2-year written workmanship guarantee. Plaster repairs, gyprock, cornice, skim coating, ceiling repair.",
+    "NSW Fair Trading licensed plasterer in Dee Why, serving Northern Beaches & Sydney. Fixed-price quotes in 24hrs. 2-year guarantee. Call Jack now.",
   alternates: { canonical: SITE.url },
+  openGraph: {
+    title: "Plasterer Northern Beaches Sydney — Jack's Plastering",
+    description:
+      "NSW Fair Trading licensed plasterer in Dee Why, Northern Beaches. Fixed-price quotes in 24hrs. 2-year guarantee. Call Jack now.",
+    url: SITE.url,
+  },
 };
 
 const services = [
-  { icon: '🎨', title: 'Drywall Plastering',     blurb: 'Perfect, smooth walls ready for painting. We handle new installs and replacements with precision.' },
-  { icon: '🔨', title: 'Plaster Repairs',         blurb: 'Cracks, holes, water damage — we seamlessly repair any plaster issue so it looks brand new.' },
-  { icon: '✨', title: 'Cornice & Detailing',     blurb: 'Decorative cornices, ceiling roses and ornamental plaster that adds character and elegance.' },
-  { icon: '🪞', title: 'Skim Coating',            blurb: 'Ultra-smooth skim finishes over existing surfaces. Transform textured walls into sleek, modern ones.' },
-  { icon: '💧', title: 'Water Damage Repair',     blurb: 'Busted pipes or storm damage? We restore water-damaged plaster fast to prevent further issues.' },
-  { icon: '🏠', title: 'Full Home Plastering',    blurb: "Complete plastering for new builds and renovations. One team, one timeline, one perfect result.", popular: true },
+  { icon: '🎨', title: 'Drywall Plastering',     blurb: 'Perfect, smooth walls ready for painting. We handle new installs and replacements with precision.', href: '/plasterer-northern-beaches' },
+  { icon: '🔨', title: 'Plaster Hole Repairs',   blurb: 'Cracks, holes, doorknob dents, TV bracket damage — fixed-price patch repairs from $290, paint-ready in one visit.', href: '/services/plaster-hole-patch' },
+  { icon: '✨', title: 'Cornice Repair',          blurb: 'Cracked, sagging or missing cornice restored. Federation and heritage profile matching available.', href: '/services/cornice-repair-sydney' },
+  { icon: '💧', title: 'Water Damage Ceiling',    blurb: 'Brown stains, sagging plaster, ceiling collapse risk? Fixed-price repair quote in 24 hours. We deal with your insurer.', href: '/services/water-damage-ceiling-repair' },
+  { icon: '🏚️', title: 'Storm Damage Repair',    blurb: 'Storm damaged ceiling? 1-hour emergency response across Sydney. Same-week restoration. Insurer handled.', href: '/services/storm-damage-ceiling-repair' },
+  { icon: '🏠', title: 'Ceiling Repair',          blurb: "Cracked, sagging, water-stained ceilings repaired and refinished. Most jobs done in a single visit.", href: '/services/ceiling-repair-sydney', popular: true },
 ];
 
 const whyUs = [
@@ -215,8 +221,8 @@ export default function HomePage() {
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6">
-                Sydney&apos;s Northern Beaches
-                <span className="text-brand-400 block mt-2">#1 Plasterer</span>
+                Sydney&apos;s Northern Beaches{' '}
+                <span className="text-brand-400 block mt-2">#1 Plasterer</span>{' '}
                 <span className="text-white/90 block mt-1">Sydney-Wide Service</span>
               </h1>
 
@@ -310,18 +316,25 @@ export default function HomePage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((s) => (
-              <div key={s.title} className="bg-white border-2 border-navy-100 rounded-2xl p-6 md:p-8 hover:border-brand-500 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+              <Link key={s.title} href={s.href} className="bg-white border-2 border-navy-100 rounded-2xl p-6 md:p-8 hover:border-brand-500 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 relative overflow-hidden block">
                 {s.popular && (
                   <div className="absolute top-4 right-4 bg-brand-500 text-navy-900 font-bold text-xs px-3 py-1 rounded-full">POPULAR</div>
                 )}
                 <div className="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center mb-5 text-2xl">{s.icon}</div>
                 <h3 className="font-bold text-xl text-navy-900 mb-2">{s.title}</h3>
                 <p className="text-navy-600 mb-4">{s.blurb}</p>
-                <a href="#quote" className="text-brand-600 font-semibold text-sm hover:text-brand-700 transition-colors inline-flex items-center gap-1">
-                  Get a quote →
-                </a>
-              </div>
+                <span className="text-brand-600 font-semibold text-sm hover:text-brand-700 transition-colors inline-flex items-center gap-1">
+                  View {s.title.toLowerCase()} details →
+                </span>
+              </Link>
             ))}
+          </div>
+
+          {/* Hub link to head-term page — exposes the head-term to crawlers + visitors */}
+          <div className="text-center mt-10">
+            <Link href="/plasterer-northern-beaches" className="inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 font-bold text-base transition-colors border-b-2 border-brand-200 hover:border-brand-500 pb-1">
+              See all plastering services on the Northern Beaches →
+            </Link>
           </div>
         </div>
       </section>
@@ -375,9 +388,6 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">
               What Northern Beaches<br/><span className="text-brand-400">Homeowners Say</span>
             </h2>
-            <p className="text-navy-300 text-sm mt-2">
-              ⚠ Sample testimonials below — real verified Google reviews will replace these before launch.
-            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
@@ -390,7 +400,7 @@ export default function HomePage() {
                 <p className="text-navy-100 mb-6 leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
                 <div>
                   <div className="font-bold text-white">{t.name}</div>
-                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Google review</div>
+                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Verified customer</div>
                 </div>
               </div>
             ))}

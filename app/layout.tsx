@@ -63,7 +63,7 @@ const businessSchema = {
       name: SITE.name,
       description: 'Plastering and gyprocking services for residential and commercial properties across Sydney Northern Beaches.',
       url: SITE.url,
-      telephone: `+61${SITE.phoneTel.replace(/^0/, '')}`,
+      telephone: SITE.phoneTel,
       email: SITE.email,
       address: {
         '@type': 'PostalAddress',
