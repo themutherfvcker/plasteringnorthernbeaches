@@ -653,6 +653,11 @@ export default function HomePage() {
             <p className="text-navy-600 text-lg">Cost, materials, drying time, and what to expect — everything Sydney homeowners ask before hiring a plasterer.</p>
           </div>
 
+          <p className="text-navy-500 text-sm mt-2 text-center md:text-left">
+            <time dateTime={SITE.dateModified}>
+              {`Last updated: ${new Date(SITE.dateModified).toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" })}`}
+            </time>
+          </p>
           <div className="space-y-4">
             {faqs.map((f, i) => (
               <article

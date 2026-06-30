@@ -7,6 +7,7 @@ import TrustBar from '@/components/TrustBar';
 import TrustBadges from '@/components/TrustBadges';
 import TrustStrip from '@/components/TrustStrip';
 import MeetJack from '@/components/MeetJack';
+import RelatedServices from '@/components/RelatedServices';
 
 export const metadata: Metadata = {
   title: "Water Damage Ceiling Repair Sydney | Jack's Plastering",
@@ -296,6 +297,11 @@ export default function Page() {
         <div className="max-w-3xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">Water-damage ceiling repair — your questions</h2>
           <p className="text-navy-600 text-center text-lg mb-10">The questions we get most often before quoting a water-damage job.</p>
+          <p className="text-navy-500 text-sm mt-2 text-center md:text-left">
+            <time dateTime={SITE.dateModified}>
+              {`Last updated: ${new Date(SITE.dateModified).toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" })}`}
+            </time>
+          </p>
           <div className="space-y-4">
             {faqs.map((f, i) => (
               <article key={i} itemScope itemType="https://schema.org/Question" className="bg-navy-50 rounded-xl border border-navy-100 p-5 md:p-6">
@@ -308,6 +314,8 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <RelatedServices currentSlug="water-damage-ceiling-repair" />
 
       {/* Final CTA */}
       <section id="quote" className="v2-hero-gradient text-white px-4 py-16 md:py-20">
