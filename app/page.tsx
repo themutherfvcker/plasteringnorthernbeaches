@@ -257,12 +257,16 @@ export default function HomePage() {
               <div className="text-navy-600 font-medium text-sm mt-1">NSW Fair Trading</div>
             </div>
             <div>
-              <div className="v2-number-highlight text-4xl md:text-5xl font-black">10yr</div>
+              <div className="v2-number-highlight text-4xl md:text-5xl font-black">2yr</div>
               <div className="text-navy-600 font-medium text-sm mt-1">Written guarantee</div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ─── Meet Jack (moved up — runs straight after the trust stats so the
+          first thing past the hero is the human, not the service grid) ─── */}
+      <MeetJack />
 
       {/* ─── Services ─── */}
       <section id="services" className="py-16 md:py-24 bg-white">
@@ -415,9 +419,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ─── Meet Jack ─── */}
-      <MeetJack />
 
       {/* ─── Testimonials ─── */}
       <section id="reviews" className="py-16 md:py-24 bg-navy-900 relative overflow-hidden">
