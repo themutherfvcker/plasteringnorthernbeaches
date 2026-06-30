@@ -34,15 +34,29 @@ const faqs = [
   { q: 'Tenant has moved out — do I need to be there for the quote?', a: 'No — you can give us access via the property manager or leave keys at reception. Send photos at the booking stage and we&apos;ll quote within 24 hours.' },
 ];
 
-const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', datePublished: SITE.datePublished, dateModified: SITE.dateModified, mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 
 const serviceSchema = {
   '@context': 'https://schema.org', '@type': 'Service', '@id': `${SITE.url}/services/end-of-lease-plaster-repair#service`,
+  datePublished: SITE.datePublished,
+  dateModified: SITE.dateModified,
   name: 'End of Lease Plaster Repair Sydney', serviceType: 'End of Lease Plaster Repair',
+  image: [
+    `${SITE.url}/jack.webp`,
+    `${SITE.url}/gallery/full-home-plastering-northern-beaches.webp`,
+  ],
   provider: { '@id': `${SITE.url}/#business` },
   areaServed: SITE.primarySuburbs.map((s) => ({ '@type': 'City', name: s, containedInPlace: { '@type': 'State', name: 'New South Wales' } })),
   description: 'Fast end-of-lease plaster and gyprock hole repair across Sydney. Multi-hole bundle pricing, GST invoice for property managers, paint-ready same day. Backed by our 2-year written workmanship guarantee.',
-  offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', priceCurrency: 'AUD', priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'AUD', minPrice: 290, maxPrice: 2500 }, url: `${SITE.url}/services/end-of-lease-plaster-repair` },
+  offers: {
+    '@type': 'AggregateOffer',
+    availability: 'https://schema.org/InStock',
+    priceCurrency: 'AUD',
+    lowPrice: 290,
+    highPrice: 2500,
+    offerCount: 1,
+    url: `${SITE.url}/services/end-of-lease-plaster-repair`,
+  },
 };
 
 const breadcrumbSchema = {

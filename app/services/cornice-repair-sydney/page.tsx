@@ -34,15 +34,29 @@ const faqs = [
   { q: 'My painter says the cornice needs to be removed before painting — can you advise?', a: 'Yes — we look at the cornice and tell you straight whether it needs replacement, just a patch, or whether the painter is being overly cautious. No-cost honest opinion at the quote stage.' },
 ];
 
-const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', datePublished: SITE.datePublished, dateModified: SITE.dateModified, mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 
 const serviceSchema = {
   '@context': 'https://schema.org', '@type': 'Service', '@id': `${SITE.url}/services/cornice-repair-sydney#service`,
+  datePublished: SITE.datePublished,
+  dateModified: SITE.dateModified,
   name: 'Cornice Repair Sydney', serviceType: 'Cornice Repair',
+  image: [
+    `${SITE.url}/jack.webp`,
+    `${SITE.url}/gallery/decorative-dome-ceiling-detail-sydney.webp`,
+  ],
   provider: { '@id': `${SITE.url}/#business` },
   areaServed: SITE.primarySuburbs.map((s) => ({ '@type': 'City', name: s, containedInPlace: { '@type': 'State', name: 'New South Wales' } })),
   description: 'Fixed-price cornice repair and replacement across Sydney. Cracks, sagging, heritage profile matching, full replacement. Backed by our 2-year written workmanship guarantee.',
-  offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', priceCurrency: 'AUD', priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'AUD', minPrice: 290, maxPrice: 3500 }, url: `${SITE.url}/services/cornice-repair-sydney` },
+  offers: {
+    '@type': 'AggregateOffer',
+    availability: 'https://schema.org/InStock',
+    priceCurrency: 'AUD',
+    lowPrice: 290,
+    highPrice: 3500,
+    offerCount: 1,
+    url: `${SITE.url}/services/cornice-repair-sydney`,
+  },
 };
 
 const breadcrumbSchema = {

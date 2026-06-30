@@ -38,6 +38,13 @@ export const SITE = {
     sunday: 'Closed (emergencies by phone)',
   },
 
+  // Last-updated stamps — referenced in JSON-LD schema + visible "Last updated"
+  // line on key pages. Bump dateModified whenever site content meaningfully
+  // changes so Perplexity / Bing Copilot / AI Overviews see fresh-content
+  // signals.
+  datePublished: '2026-06-15',
+  dateModified: '2026-06-30',
+
   // Service area
   primarySuburbs: [
     'Dee Why', 'Manly', 'Brookvale', 'Collaroy', 'Narrabeen',

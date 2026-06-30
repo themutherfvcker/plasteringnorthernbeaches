@@ -1,4 +1,62 @@
+# Jack's Plastering Northern Beaches — robots policy
+# Updated 2026-06-30
+
+# Default: all crawlers welcome
 User-agent: *
+Allow: /
+
+# Test/staging routes
+Disallow: /test/
+
+# ── AI / LLM crawlers — explicit allowlist ──
+# We want our content surfaced in AI Overviews, ChatGPT, Perplexity,
+# Gemini, Bing Copilot etc. Each crawler must be named explicitly —
+# the wildcard above doesn't authorise AI training/citation use under
+# most policies.
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: BingPreview
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://www.plasteringnorthernbeaches.com.au/sitemap.xml

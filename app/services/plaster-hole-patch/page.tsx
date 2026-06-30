@@ -35,15 +35,29 @@ const faqs = [
   { q: 'Are you NSW Fair Trading licensed?', a: 'Yes — Jack is a NSW Fair Trading licensed plasterer. Licence number is provided in writing with every quote, verifiable at service.nsw.gov.au.' },
 ];
 
-const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', datePublished: SITE.datePublished, dateModified: SITE.dateModified, mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 
 const serviceSchema = {
   '@context': 'https://schema.org', '@type': 'Service', '@id': `${SITE.url}/services/plaster-hole-patch#service`,
+  datePublished: SITE.datePublished,
+  dateModified: SITE.dateModified,
   name: 'Plaster Hole Repair Sydney', serviceType: 'Plaster Hole Repair',
+  image: [
+    `${SITE.url}/jack.webp`,
+    `${SITE.url}/gallery/gyprock-ceiling-installation-northern-beaches.webp`,
+  ],
   provider: { '@id': `${SITE.url}/#business` },
   areaServed: SITE.primarySuburbs.map((s) => ({ '@type': 'City', name: s, containedInPlace: { '@type': 'State', name: 'New South Wales' } })),
   description: 'Fixed-price plaster and gyprock hole repair across Sydney. TV bracket damage, doorknob dents, DIY patches gone wrong, multi-hole bundle pricing. From $290 fixed price. Backed by our 2-year written workmanship guarantee.',
-  offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', priceCurrency: 'AUD', priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'AUD', minPrice: 290, maxPrice: 1500 }, url: `${SITE.url}/services/plaster-hole-patch` },
+  offers: {
+    '@type': 'AggregateOffer',
+    availability: 'https://schema.org/InStock',
+    priceCurrency: 'AUD',
+    lowPrice: 290,
+    highPrice: 1500,
+    offerCount: 1,
+    url: `${SITE.url}/services/plaster-hole-patch`,
+  },
 };
 
 const breadcrumbSchema = {

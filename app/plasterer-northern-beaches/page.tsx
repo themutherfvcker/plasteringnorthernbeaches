@@ -48,15 +48,23 @@ const faqs = [
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
+  datePublished: SITE.datePublished,
+  dateModified: SITE.dateModified,
   mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
 };
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
+  datePublished: SITE.datePublished,
+  dateModified: SITE.dateModified,
   '@id': `${SITE.url}/plasterer-northern-beaches#service`,
   name: 'Plasterer Northern Beaches',
   serviceType: 'Plastering',
+  image: [
+    `${SITE.url}/jack.webp`,
+    `${SITE.url}/gallery/luxury-bathroom-plastering-sydney.webp`,
+  ],
   provider: { '@id': `${SITE.url}/#business` },
   areaServed: [...SITE.primarySuburbs, ...SITE.secondarySuburbs].map((s) => ({
     '@type': 'City',
@@ -66,10 +74,12 @@ const serviceSchema = {
   description:
     'Northern Beaches plasterer. Fixed-price quote at your door within 24 hours. Ceiling repair, water-damage restoration, hole patches, cornice repair, gyprock installation. Most jobs in one visit. Backed by our 2-year written workmanship guarantee.',
   offers: {
-    '@type': 'Offer',
+    '@type': 'AggregateOffer',
     availability: 'https://schema.org/InStock',
     priceCurrency: 'AUD',
-    priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'AUD', minPrice: 290, maxPrice: 15000 },
+    lowPrice: 290,
+    highPrice: 15000,
+    offerCount: 1,
     url: `${SITE.url}/plasterer-northern-beaches`,
   },
 };

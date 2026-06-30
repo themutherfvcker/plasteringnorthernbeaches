@@ -17,6 +17,12 @@ export const metadata: Metadata = {
       "NSW Fair Trading licensed plasterer in Dee Why, Northern Beaches. Fixed-price quotes in 24hrs. 2-year guarantee. Call Jack now.",
     url: SITE.url,
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Plasterer Northern Beaches Sydney — Jack's Plastering",
+    description:
+      "Fixed-price plastering quotes within 24 hours. 2-year written guarantee. Northern Beaches & Sydney-wide. Call Jack now.",
+  },
 };
 
 const services = [
@@ -125,6 +131,8 @@ const pageSchema = {
     {
       '@type': 'Service',
       '@id': `${SITE.url}/#service`,
+      datePublished: SITE.datePublished,
+      dateModified: SITE.dateModified,
       name: 'Plastering & gyprocking — Sydney Northern Beaches',
       provider: { '@id': `${SITE.url}/#business` },
       areaServed: heroAreasList.map((s) => ({

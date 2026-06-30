@@ -58,13 +58,18 @@ const businessSchema = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'LocalBusiness',
+      // HomeAndConstructionBusiness is a subclass of LocalBusiness, more specific
+      // for trade businesses → stronger entity signal for Google + AI engines.
+      '@type': 'HomeAndConstructionBusiness',
       '@id': `${SITE.url}/#business`,
       name: SITE.name,
+      legalName: SITE.legalName,
       description: 'Plastering and gyprocking services for residential and commercial properties across Sydney Northern Beaches.',
       url: SITE.url,
       telephone: SITE.phoneTel,
       email: SITE.email,
+      image: `${SITE.url}/logo.png`,
+      logo: `${SITE.url}/logo.png`,
       address: {
         '@type': 'PostalAddress',
         addressLocality: SITE.address.suburb,
@@ -72,11 +77,33 @@ const businessSchema = {
         postalCode: SITE.address.postcode,
         addressCountry: SITE.address.country,
       },
+      // Dee Why suburb centroid — gives Google a geo-location signal without
+      // pinpointing Jack's home unit. Stays accurate after the street-address
+      // hide flips per task #22.
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: -33.7510,
+        longitude: 151.2890,
+      },
       areaServed: SITE.primarySuburbs.map((s) => ({
         '@type': 'City',
         name: s,
         containedInPlace: { '@type': 'State', name: 'New South Wales' },
       })),
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '07:00',
+          closes: '17:00',
+        },
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: 'Saturday',
+          opens: '08:00',
+          closes: '14:00',
+        },
+      ],
       knowsAbout: [
         'Plastering',
         'Gyprock installation',
@@ -89,6 +116,40 @@ const businessSchema = {
         'Heritage cornice',
       ],
       priceRange: '$$',
+      // TODO populate sameAs once social profiles + GBP listing are live
+      sameAs: [],
+      founder: { '@id': `${SITE.url}/#jack` },
+      employee: { '@id': `${SITE.url}/#jack` },
+    },
+    {
+      // Person schema for Jack — entity-graph + E-E-A-T signal. AI engines
+      // (ChatGPT in particular) weight authored / human-attributed content
+      // higher than anonymous corporate copy.
+      '@type': 'Person',
+      '@id': `${SITE.url}/#jack`,
+      name: 'Jack',
+      jobTitle: 'Licensed Plasterer',
+      description: 'NSW Fair Trading licensed plasterer with 15+ years of experience, operating across the Northern Beaches and Sydney-wide.',
+      image: `${SITE.url}/jack.webp`,
+      worksFor: { '@id': `${SITE.url}/#business` },
+      knowsAbout: [
+        'Plastering',
+        'Gyprock installation',
+        'Ceiling repair',
+        'Water damage ceiling repair',
+        'Cornice repair and restoration',
+        'Heritage cornice',
+        'Skim coating',
+      ],
+      hasOccupation: {
+        '@type': 'Occupation',
+        name: 'Plasterer',
+        occupationLocation: {
+          '@type': 'City',
+          name: 'Dee Why',
+          containedInPlace: { '@type': 'State', name: 'New South Wales' },
+        },
+      },
     },
   ],
 };

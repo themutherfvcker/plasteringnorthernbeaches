@@ -62,15 +62,23 @@ const faqs = [
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
+  datePublished: SITE.datePublished,
+  dateModified: SITE.dateModified,
   mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
 };
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
+  datePublished: SITE.datePublished,
+  dateModified: SITE.dateModified,
   '@id': `${SITE.url}/services/water-damage-ceiling-repair#service`,
   name: 'Water Damage Ceiling Repair Sydney',
   serviceType: 'Water Damage Ceiling Repair',
+  image: [
+    `${SITE.url}/jack.webp`,
+    `${SITE.url}/gallery/kitchen-ceiling-plastering-northern-beaches.webp`,
+  ],
   provider: { '@id': `${SITE.url}/#business` },
   areaServed: SITE.primarySuburbs.map((s) => ({
     '@type': 'City', name: s, containedInPlace: { '@type': 'State', name: 'New South Wales' },
@@ -78,8 +86,12 @@ const serviceSchema = {
   description:
     'Fixed-price water-damage ceiling repair across Sydney. Brown stains, sagging plaster, storm leaks, burst-pipe damage. Insurance liaison included. Backed by our 2-year written workmanship guarantee.',
   offers: {
-    '@type': 'Offer', availability: 'https://schema.org/InStock', priceCurrency: 'AUD',
-    priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'AUD', minPrice: 290, maxPrice: 3500 },
+    '@type': 'AggregateOffer',
+    availability: 'https://schema.org/InStock',
+    priceCurrency: 'AUD',
+    lowPrice: 290,
+    highPrice: 3500,
+    offerCount: 1,
     url: `${SITE.url}/services/water-damage-ceiling-repair`,
   },
 };
