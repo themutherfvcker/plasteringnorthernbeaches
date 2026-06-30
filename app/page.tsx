@@ -41,30 +41,57 @@ const testimonials = [
   { stars: 5, quote: 'Best plasterers on the Beaches, hands down. They did our entire new build — walls, ceilings, cornices — and every single surface is perfect. The 2-year guarantee gave us total confidence.', name: 'James W.', image: '/avatars/customer-james-w.webp', suburb: 'Freshwater' },
 ];
 
+// FAQ — informational questions first (PAA-mined, written for LLM extraction
+// with specific numbers + named entities + clear direct opening sentences),
+// then transactional questions for visitors closer to converting.
 const faqs = [
   {
+    q: 'How much does plastering cost per square metre in Sydney?',
+    a: "Plastering in Sydney typically runs $25 to $45 per square metre for fresh wall and ceiling plastering, with the Northern Beaches and Lower North Shore sitting at the upper end due to demand and access. Hourly repair work usually runs $60 to $90 per hour. Most jobs are quoted as a fixed price after an on-site inspection rather than by the hour. Typical job-level prices at Jack's Plastering Northern Beaches: small plaster hole patches from $290 fixed, water-damage ceiling repair $600 to $2,500, full home plastering quoted per square metre after measurement. Every quote is in writing and locked in before work begins — no hourly surprises.",
+  },
+  {
+    q: 'What is the difference between plastering, gyprocking, and rendering?',
+    a: "All three apply a finish to a wall, but they're different products and different applications. Gyprock (a Boral plasterboard brand, also called drywall in the US) is the sheet material screwed to internal wall and ceiling framing. Plastering is the act of finishing those gyprock sheets — joint compound over the screws and seams, followed by a smooth skim coat ready for paint. Rendering is exterior — a cement-and-sand mixture applied to outside brick or block walls. Rule of thumb: internal walls and ceilings get plastered or gyprocked, external walls get rendered. We work on internal plaster, gyprock and cornice only.",
+  },
+  {
+    q: 'How long does plaster take to dry before you can paint?',
+    a: "Standard topping compound (the white skim-finish layer used on most Sydney jobs) takes 24 to 48 hours to dry through before painting. Thicker patch repairs and full skim coats need 2 to 3 days. Sydney humidity matters — a hot dry summer day will paint-ready a wall faster than a cool June morning. We give you the exact paint-ready window in writing on every quote so you can schedule your painter or move-back-in date with confidence. Painting over plaster that hasn't fully cured causes the finish to blister or peel.",
+  },
+  {
+    q: 'Why does a ceiling crack?',
+    a: "Sydney ceilings crack for four main reasons. (1) House movement — soil expands and contracts between wet and dry months, especially on the Northern Beaches sandstone-and-clay sites, and the timber framing shifts with it. (2) Water damage — a roof leak, burst pipe or upstairs bathroom leak softens the plaster from above, leaving sagging cracks usually with brown staining. (3) Cornice failure — old plaster cornices lose their bond to the ceiling over 30 to 50 years and pull away, creating a horizontal crack along the wall-ceiling junction. (4) Vibration — bus routes, nearby construction or upstairs renovation can crack older Federation plaster. Hairline cracks under 1mm are usually cosmetic. Any crack wider than 2mm, growing, or accompanied by sagging needs a plasterer to inspect.",
+  },
+  {
+    q: 'Can you plaster over painted walls?',
+    a: "Yes — most painted walls can be skim-coated over without stripping the paint, as long as the existing paint is sound (not peeling, flaking, or chalky). We scuff the painted surface with 80-grit sandpaper, apply a bonding primer like Wattyl Plaster Bond or USG Tuff-Hide, then trowel on a skim coat of joint compound for a glass-smooth finish. The exception: gloss paint, oil-based paint, or any surface where the existing paint is failing — those need stripping back to the original plaster or gyprock first. We test-scrape every painted wall during the site visit before committing to a skim quote, so you don't get a nasty surprise mid-job.",
+  },
+  {
+    q: 'Do I need a licensed plasterer in NSW?',
+    a: "Yes — under NSW Fair Trading rules, any residential plastering work valued over $5,000 (combined labour and materials) must be performed by a contractor holding a General Building or Specialist Trade Licence. Smaller jobs are technically permitted unlicensed, but most Sydney homeowners still prefer a licensed plasterer because the licence proves formal trade training, mandates public liability insurance, and gives access to Home Building Compensation Fund cover on jobs over $20,000. Jack's Plastering Northern Beaches is fully NSW Fair Trading licensed — the licence number is provided in writing on every quote and can be independently verified at service.nsw.gov.au.",
+  },
+  {
     q: 'How quickly can you start on my job?',
-    a: 'For most standard jobs, we can start within 3–5 business days of accepting our quote. For urgent repairs (like water damage), we can often attend the same day or next business day. We always communicate timelines clearly before starting.',
+    a: "For most standard jobs we can start within 3 to 5 business days of you accepting the quote. For urgent jobs — active water damage, sagging plaster, or anything with collapse risk — we target same-day or next-business-day attendance across the Northern Beaches. We confirm the start date in writing when you accept the quote, and we don't take a deposit until materials arrive on site.",
   },
   {
     q: 'Do you charge for quotes?',
-    a: "Never. All our quotes are 100% free and no-obligation. We'll visit your property, assess the work required, and provide a transparent fixed-price quote. No pressure, no hidden fees, no surprises.",
+    a: "No. All quotes are 100% free and no-obligation. We visit your property, assess the work, and email a transparent fixed-price written quote within 24 hours. No pressure, no hidden fees, no surprise costs once the job starts. If we can't quote on the spot, we'll always tell you what the price range is likely to be before we leave.",
   },
   {
     q: 'What does your 2-year guarantee cover?',
-    a: 'Our 2-year written workmanship guarantee covers any defects in our work — cracking, sagging, joint separation, or any failure directly caused by our plastering. If something we did fails within 2 years, we fix it free of charge, including materials and labour. Backed by Jack&apos;s Plastering Northern Beaches.',
+    a: "Our 2-year written workmanship guarantee covers any defect caused by our plastering — cracking, sagging, joint separation, lifted cornice, or any finish failure attributable to our work. If something we did fails within 2 years, Jack returns and fixes it free of charge, including all materials and labour. Backed by Jack's Plastering Northern Beaches as a business — if Jack is personally unable to honour the callback we send another licensed plasterer at no cost to you. The guarantee does not cover damage caused by ongoing water leaks (those need fixing at the source first) or normal house settlement cracks in walls we didn't work on.",
   },
   {
     q: 'Will you leave a mess?',
-    a: "Absolutely not. We use dust sheets, dust extraction equipment, and clean up thoroughly at the end of every day and upon job completion. We respect your home and treat it like our own. You'll barely know we were there — except for your beautiful new walls.",
+    a: "No. Plastering generates dust, so we lay dust sheets across floors and furniture, mask off doorways with plastic sheeting, and use HEPA-filter dust extractors during sanding. We clean up at the end of every working day and do a full tidy on job completion. You will not have a layer of plaster dust on every surface in the house after we leave — that's something Sydney homeowners commonly mention in reviews of cheaper operators.",
   },
   {
-    q: 'How much does plastering cost on the Northern Beaches?',
-    a: "Costs depend on the scope, condition, and type of plastering required. We provide free fixed-price quotes so you know exactly what you'll pay before we start — no hourly rates, no surprise bills. Small patch repairs can be very affordable, while full home plastering is quoted per square metre at competitive Northern Beaches rates.",
+    q: 'How long does it take to plaster a whole house?',
+    a: "A standard Sydney 3-bedroom house (around 150m² of wall and ceiling surface) takes 5 to 7 working days to fully plaster — first coat, drying, sanding, then the final skim finish. Larger 4 to 5 bedroom homes typically run 8 to 12 days. Full new-build plastering also has to fit between the carpenter, the painter and the tiler, so the actual on-site window is usually around two calendar weeks including drying breaks. We commit to your start and finish dates in writing before work begins and give you a daily progress update by text.",
   },
   {
-    q: 'Are you licensed and insured?',
-    a: "Yes, 100%. We hold all required NSW Fair Trading trade licences and carry full public liability insurance. We're happy to show you our credentials upon request. Your property and peace of mind are always protected with us.",
+    q: 'How much does water damage ceiling repair cost in Sydney?',
+    a: "Repairing a water-damaged ceiling in Sydney typically costs between $600 and $2,500 depending on the size of the damaged area, whether sagging plasterboard needs cutting out and replacing, whether mould treatment is required, and how much cornice or decorative detail needs matching. Small stains and pinhole leaks under 1m² sit at the lower end. Full sagging plaster cut-outs, mould-affected gyprock, or insurance-claim ceiling restorations sit at the upper end. We provide free on-site assessments and a fixed-price written quote within 24 hours, and we coordinate directly with your insurance company on insurance-claim jobs so you don't have to chase paperwork.",
   },
 ];
 
@@ -596,26 +623,31 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── FAQ ─── */}
+      {/* ─── FAQ — flat layout (every answer in the DOM at page load) with
+          Schema.org Question/Answer microdata so Google + LLMs can extract
+          all answers without needing to expand an accordion. Matches the
+          pattern already shipping on the 6 service pages and head-term page. ─── */}
       <section id="faq" className="py-16 md:py-24 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
             <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">FAQ</span>
-            <h2 className="text-3xl sm:text-4xl font-black text-navy-900 mb-4">Common Questions</h2>
-            <p className="text-navy-600 text-lg">Everything you need to know before hiring us.</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-navy-900 mb-4">Plastering — Your Questions Answered</h2>
+            <p className="text-navy-600 text-lg">Cost, materials, drying time, and what to expect — everything Sydney homeowners ask before hiring a plasterer.</p>
           </div>
 
           <div className="space-y-4">
-            {faqs.map((f) => (
-              <details key={f.q} className="group border-2 border-navy-100 rounded-xl overflow-hidden">
-                <summary className="cursor-pointer w-full text-left px-6 py-5 flex items-center justify-between hover:bg-navy-50 transition-colors list-none">
-                  <span className="font-bold text-navy-900 pr-4">{f.q}</span>
-                  <span className="text-navy-400 text-xl flex-shrink-0 group-open:rotate-180 transition-transform duration-300">⌄</span>
-                </summary>
-                <div className="px-6 pb-5">
-                  <p className="text-navy-600 leading-relaxed">{f.a}</p>
+            {faqs.map((f, i) => (
+              <article
+                key={i}
+                itemScope
+                itemType="https://schema.org/Question"
+                className="bg-navy-50 rounded-xl border border-navy-100 p-5 md:p-6"
+              >
+                <h3 itemProp="name" className="font-bold text-navy-900 text-base md:text-lg mb-3">{f.q}</h3>
+                <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                  <p itemProp="text" className="text-navy-700 leading-relaxed">{f.a}</p>
                 </div>
-              </details>
+              </article>
             ))}
           </div>
         </div>
