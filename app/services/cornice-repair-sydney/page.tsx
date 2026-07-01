@@ -7,6 +7,8 @@ import TrustBar from '@/components/TrustBar';
 import TrustBadges from '@/components/TrustBadges';
 import TrustStrip from '@/components/TrustStrip';
 import MeetJack from '@/components/MeetJack';
+import SiteFooter from '@/components/SiteFooter';
+import StickyCallCTA from '@/components/StickyCallCTA';
 import RelatedServices from '@/components/RelatedServices';
 
 export const metadata: Metadata = {
@@ -71,10 +73,6 @@ const breadcrumbSchema = {
 export default function Page() {
   return (
     <>
-      <a href={`tel:${phoneTel}`} className="md:hidden fixed bottom-0 left-0 right-0 z-50 v2-cta-gradient text-navy-900 font-extrabold text-center py-4 shadow-2xl">
-        📞 Call Jack now — {phoneDisplay}
-      </a>
-
       <TrustBar />
 
       <header className="bg-white border-b border-navy-100">
@@ -142,13 +140,14 @@ export default function Page() {
 
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">Recent cornice work</h2>
-          <p className="text-navy-600 text-center text-lg mb-10">A few of Jack&apos;s recent cornice jobs across Sydney.</p>
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">Recent decorative plasterwork</h2>
+          <p className="text-navy-600 text-center text-lg mb-3">Cornice, dome + decorative ceiling detail from Jack&apos;s recent Sydney jobs.</p>
+          <p className="text-navy-500 text-center text-sm mb-10 italic">More cornice-specific before/after shots coming from Jack&apos;s next heritage job.</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { suburb: 'Manly', job: 'Federation cornice repair, hallway', time: 'Profile matched, one visit, $880', image: 'decorative-dome-ceiling-installation-sydney.webp', alt: 'Decorative dome ceiling and cornice installation with recessed step lighting, Sydney' },
-              { suburb: 'Balgowlah', job: 'Full cornice replacement, master bedroom', time: 'Single day, $1,150', image: 'decorative-dome-ceiling-detail-sydney.webp', alt: 'Close-up of a decorative dome cornice feature by Jack\'s Plastering Northern Beaches' },
-              { suburb: 'Mona Vale', job: 'Corner cracking repair, two rooms', time: 'Two-room bundle, $580', image: 'built-in-tv-fireplace-plastering-northern-beaches.webp', alt: 'Custom built-in TV cabinet and recessed ceiling cornice plastering, Northern Beaches' },
+              { suburb: 'Manly', job: 'Decorative dome + cornice install, hallway', time: 'One visit, integrated ceiling detail', image: 'decorative-dome-ceiling-installation-sydney.webp', alt: 'Decorative dome ceiling with cornice and recessed step lighting by Jack\'s Plastering, Manly Sydney' },
+              { suburb: 'Balgowlah', job: 'Heritage dome cornice detail, master bedroom', time: 'Profile matched, single day', image: 'decorative-dome-ceiling-detail-sydney.webp', alt: 'Close-up of a heritage decorative dome cornice feature by Jack\'s Plastering Northern Beaches' },
+              { suburb: 'Mona Vale', job: 'Recessed ceiling cornice + TV cabinet', time: 'Custom cornice integration', image: 'built-in-tv-fireplace-plastering-northern-beaches.webp', alt: 'Custom built-in TV cabinet with recessed ceiling cornice plastering by Jack\'s Plastering, Mona Vale Northern Beaches' },
 ].map((j) => (
               <figure key={j.suburb} className="bg-navy-50 rounded-2xl overflow-hidden shadow-sm">                <div className="aspect-[4/3] relative">
                   <Image src={`/gallery/${j.image}`} alt={j.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
@@ -281,17 +280,9 @@ export default function Page() {
         </div>
       </section>
 
-      <footer className="bg-navy-900 text-navy-300 px-4 py-10">
-        <div className="max-w-6xl mx-auto text-center text-sm">
-          <div className="font-bold text-white mb-2">{SITE.name}</div>
-          <p className="mb-3">NSW Fair Trading licensed plasterer · Serving Sydney and the Northern Beaches</p>
-          <address className="mb-3 not-italic text-sm text-navy-300"><a href="https://www.google.com/maps/search/?api=1&query=14%2F39-41+Pacific+Parade+Dee+Why+NSW+2099" target="_blank" rel="noopener noreferrer" className="hover:text-brand-400 hover:underline">14/39-41 Pacific Parade, Dee Why NSW 2099</a></address>
-          <p className="mb-4"><a href={`tel:${phoneTel}`} className="text-brand-400 font-semibold hover:underline">{phoneDisplay}</a></p>
-          <p className="text-navy-500 text-xs">© {new Date().getFullYear()} {SITE.legalName}. All rights reserved. <Link href="/" className="hover:underline">Home</Link></p>
-        </div>
-      </footer>
+      <SiteFooter />
 
-      <div className="h-16 md:hidden" aria-hidden="true" />
+      <StickyCallCTA />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 

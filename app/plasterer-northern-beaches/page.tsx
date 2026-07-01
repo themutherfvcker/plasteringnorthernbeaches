@@ -7,6 +7,8 @@ import TrustBar from '@/components/TrustBar';
 import TrustBadges from '@/components/TrustBadges';
 import TrustStrip from '@/components/TrustStrip';
 import MeetJack from '@/components/MeetJack';
+import SiteFooter from '@/components/SiteFooter';
+import StickyCallCTA from '@/components/StickyCallCTA';
 
 export const metadata: Metadata = {
   title: "Plasterer Northern Beaches — 24hr Quote | Jack's Plastering",
@@ -96,10 +98,6 @@ const breadcrumbSchema = {
 export default function Page() {
   return (
     <>
-      <a href={`tel:${phoneTel}`} className="md:hidden fixed bottom-0 left-0 right-0 z-50 v2-cta-gradient text-navy-900 font-extrabold text-center py-4 shadow-2xl">
-        📞 Call Jack now — {phoneDisplay}
-      </a>
-
       <TrustBar />
 
       <header className="bg-white border-b border-navy-100">
@@ -388,17 +386,9 @@ export default function Page() {
         </div>
       </section>
 
-      <footer className="bg-navy-900 text-navy-300 px-4 py-10">
-        <div className="max-w-6xl mx-auto text-center text-sm">
-          <div className="font-bold text-white mb-2">{SITE.name}</div>
-          <p className="mb-3">NSW Fair Trading licensed plasterer · Serving Northern Beaches and Sydney</p>
-          <address className="mb-3 not-italic text-sm text-navy-300"><a href="https://www.google.com/maps/search/?api=1&query=14%2F39-41+Pacific+Parade+Dee+Why+NSW+2099" target="_blank" rel="noopener noreferrer" className="hover:text-brand-400 hover:underline">14/39-41 Pacific Parade, Dee Why NSW 2099</a></address>
-          <p className="mb-4"><a href={`tel:${phoneTel}`} className="text-brand-400 font-semibold hover:underline">{phoneDisplay}</a></p>
-          <p className="text-navy-500 text-xs">© {new Date().getFullYear()} {SITE.legalName}. All rights reserved. <Link href="/" className="hover:underline">Home</Link></p>
-        </div>
-      </footer>
+      <SiteFooter />
 
-      <div className="h-16 md:hidden" aria-hidden="true" />
+      <StickyCallCTA />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 

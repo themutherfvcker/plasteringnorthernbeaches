@@ -5,6 +5,8 @@ import { SITE } from '@/data/site';
 import QuoteForm from '@/components/QuoteForm';
 import TrustBar from '@/components/TrustBar';
 import MeetJack from '@/components/MeetJack';
+import SiteFooter from '@/components/SiteFooter';
+import StickyCallCTA from '@/components/StickyCallCTA';
 
 export const metadata: Metadata = {
   title: "Plasterer Northern Beaches Sydney | Jack's Plastering",
@@ -703,76 +705,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── Footer ─── */}
-      <footer className="bg-navy-900 text-white py-12 md:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid md:grid-cols-3 gap-8 mb-10">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-brand-500 rounded-lg flex items-center justify-center text-xl">🏠</div>
-                <div>
-                  <span className="font-bold text-white text-lg leading-tight block">Northern Beaches</span>
-                  <span className="text-brand-400 font-semibold text-xs tracking-wide uppercase">Plastering Services</span>
-                </div>
-              </div>
-              <p className="text-navy-300 text-sm leading-relaxed">
-                Sydney&apos;s Northern Beaches most trusted plastering team. 15+ years of perfect finishes and happy customers.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-bold text-white mb-4">Quick Links</h4>
-              <div className="space-y-2">
-                <a href="#services" className="block text-navy-300 hover:text-brand-400 transition-colors text-sm">Services</a>
-                <a href="#why-us" className="block text-navy-300 hover:text-brand-400 transition-colors text-sm">Why Choose Us</a>
-                <a href="#reviews" className="block text-navy-300 hover:text-brand-400 transition-colors text-sm">Reviews</a>
-                <a href="#quote" className="block text-navy-300 hover:text-brand-400 transition-colors text-sm">Free Quote</a>
-                <a href="#faq" className="block text-navy-300 hover:text-brand-400 transition-colors text-sm">FAQ</a>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-bold text-white mb-4">Contact Us</h4>
-              <div className="space-y-3">
-                <a href={`tel:${SITE.phoneTel}`} className="flex items-center gap-3 text-navy-300 hover:text-brand-400 transition-colors text-sm">
-                  📞 {SITE.phone}
-                </a>
-                <a href={`mailto:${SITE.email}`} className="flex items-center gap-3 text-navy-300 hover:text-brand-400 transition-colors text-sm">
-                  ✉️ {SITE.email}
-                </a>
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=14%2F39-41+Pacific+Parade+Dee+Why+NSW+2099"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 text-navy-300 hover:text-brand-400 transition-colors text-sm not-italic"
-                >
-                  <span className="leading-none">📍</span>
-                  <span>14/39-41 Pacific Parade,<br/>Dee Why NSW 2099</span>
-                </a>
-                <div className="flex items-center gap-3 text-navy-300 text-sm">
-                  🕐 Mon–Sat: 7am – 6pm
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-navy-700 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-navy-400 text-sm">© {new Date().getFullYear()} {SITE.legalName}. All rights reserved.</p>
-            <p className="text-navy-500 text-xs">Licensed · Insured · 2-year written guarantee</p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
 
-      {/* ─── Sticky bottom CALL CTA (all screen sizes) ─── */}
-      <a
-        href={`tel:${SITE.phoneTel}`}
-        className="fixed bottom-0 left-0 right-0 z-50 bg-lime-500 hover:bg-lime-400 text-slate-900 font-extrabold text-center py-3 md:py-4 shadow-[0_-4px_20px_rgba(0,0,0,0.15)] transition-colors"
-      >
-        <div className="text-base md:text-xl uppercase tracking-wide leading-tight">
-          <span className="text-xl md:text-2xl mr-1">📞</span>
-          CALL JACK NOW ON <span className="font-black">{SITE.phone}</span>
-        </div>
-        <div className="text-xs md:text-sm uppercase tracking-wider font-bold mt-1 opacity-90 leading-tight">
-          For your FREE plastering quote
-        </div>
-      </a>
+      <StickyCallCTA />
     </>
   );
 }

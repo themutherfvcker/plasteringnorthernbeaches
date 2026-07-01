@@ -7,6 +7,8 @@ import TrustBar from '@/components/TrustBar';
 import TrustBadges from '@/components/TrustBadges';
 import TrustStrip from '@/components/TrustStrip';
 import MeetJack from '@/components/MeetJack';
+import SiteFooter from '@/components/SiteFooter';
+import StickyCallCTA from '@/components/StickyCallCTA';
 import RelatedServices from '@/components/RelatedServices';
 
 export const metadata: Metadata = {
@@ -466,37 +468,7 @@ export default function CeilingRepairSydneyPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-navy-900 text-navy-300 px-4 py-10">
-        <div className="max-w-6xl mx-auto text-center text-sm">
-          <div className="font-bold text-white mb-2">{SITE.name}</div>
-          <p className="mb-3">
-            NSW Fair Trading licensed plasterer · Serving Sydney and the Northern Beaches
-          </p>
-          <address className="mb-3 not-italic text-sm text-navy-300">
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=14%2F39-41+Pacific+Parade+Dee+Why+NSW+2099"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-brand-400 hover:underline"
-            >
-              14/39-41 Pacific Parade, Dee Why NSW 2099
-            </a>
-          </address>
-          <p className="mb-4">
-            <a href={`tel:${phoneTel}`} className="text-brand-400 font-semibold hover:underline">
-              {phoneDisplay}
-            </a>
-          </p>
-          <p className="text-navy-500 text-xs">
-            © {new Date().getFullYear()} {SITE.legalName}. All rights reserved.
-            {' '}<Link href="/" className="hover:underline">Home</Link>
-          </p>
-        </div>
-      </footer>
-
-      {/* Bottom padding so sticky mobile call bar doesn't cover content */}
-      <div className="h-16 md:hidden" aria-hidden="true" />
+      <SiteFooter />
 
       <script
 
@@ -522,19 +494,7 @@ export default function CeilingRepairSydneyPage() {
 
       />
 
-      {/* Click-to-call sticky bar (mobile) */}
-
-      <a
-
-        href={`tel:${phoneTel}`}
-
-        className="md:hidden fixed bottom-0 left-0 right-0 z-50 v2-cta-gradient text-navy-900 font-extrabold text-center py-4 shadow-2xl"
-
-      >
-
-        📞 Call Jack now — {phoneDisplay}
-
-      </a>
+      <StickyCallCTA />
 
     </>
   );
