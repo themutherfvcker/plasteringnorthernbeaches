@@ -7,6 +7,7 @@ import TrustBar from '@/components/TrustBar';
 import TrustBadges from '@/components/TrustBadges';
 import TrustStrip from '@/components/TrustStrip';
 import MeetJack from '@/components/MeetJack';
+import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import StickyCallCTA from '@/components/StickyCallCTA';
 import RelatedServices from '@/components/RelatedServices';
@@ -76,12 +77,7 @@ export default function Page() {
     <>
       <TrustBar />
 
-      <header className="bg-white border-b border-navy-100">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3" aria-label={`${SITE.name} home`}><div className="w-10 h-10 md:w-11 md:h-11 rounded-lg overflow-hidden shrink-0 shadow-sm relative"><Image src="/logo.webp" alt={`${SITE.name} logo`} fill sizes="44px" priority className="object-cover" /></div><div className="flex flex-col leading-tight"><span className="font-extrabold text-navy-900 text-lg">{SITE.name}</span><span className="font-extrabold text-brand-600 text-lg">{SITE.tagline}</span></div></Link>
-          <a href={`tel:${phoneTel}`} className="hidden md:inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-2.5 rounded-lg shadow-md transition-colors">📞 {phoneDisplay}</a>
-        </div>
-      </header>
+      <SiteHeader />
 
       <section className="relative v2-hero-gradient text-white pt-12 md:pt-20 pb-12 md:pb-20 px-4 overflow-hidden">
         <Image src="/jack.webp" alt="Jack — NSW Fair Trading licensed plasterer servicing the Northern Beaches and Sydney" fill priority sizes="100vw" className="hidden md:block object-cover object-right opacity-95 z-0" />

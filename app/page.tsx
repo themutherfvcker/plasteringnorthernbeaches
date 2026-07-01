@@ -5,6 +5,7 @@ import { SITE } from '@/data/site';
 import QuoteForm from '@/components/QuoteForm';
 import TrustBar from '@/components/TrustBar';
 import MeetJack from '@/components/MeetJack';
+import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import StickyCallCTA from '@/components/StickyCallCTA';
 
@@ -174,34 +175,7 @@ export default function HomePage() {
       {/* ─── Trust bar (Vista-pattern, very top) ─── */}
       <TrustBar />
 
-      {/* ─── Sticky Header ─── */}
-      <header className="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-navy-100 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3" aria-label={`${SITE.name} home`}>
-            <div className="w-11 h-11 md:w-12 md:h-12 rounded-lg overflow-hidden shrink-0 shadow-sm relative">
-              <Image src="/logo.webp" alt={`${SITE.name} logo`} fill sizes="48px" priority className="object-cover" />
-            </div>
-            <div className="leading-tight">
-              <span className="font-extrabold text-navy-900 text-base md:text-lg block">{SITE.name}</span>
-              <span className="font-extrabold text-brand-600 text-sm md:text-base block">{SITE.tagline}</span>
-            </div>
-          </Link>
-          <nav className="hidden md:flex items-center gap-6">
-            <a href="#services" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">Services</a>
-            <a href="#why-us" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">Why Us</a>
-            <a href="#reviews" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">Reviews</a>
-            <a href="#faq" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">FAQ</a>
-          </nav>
-          <div className="flex items-center gap-3">
-            <a href={`tel:${SITE.phoneTel}`} className="hidden sm:flex items-center gap-2 text-navy-800 font-semibold hover:text-brand-600 transition-colors">
-              📞 <span>{SITE.phone}</span>
-            </a>
-            <a href="#quote" className="v2-cta-gradient text-navy-900 font-bold text-sm px-5 py-2.5 rounded-lg hover:scale-105 active:scale-95 transition-all duration-150 shadow-lg shadow-brand-500/20">
-              Free Quote →
-            </a>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* ─── Hero ─── */}
       <section className="v2-hero-gradient relative overflow-hidden">
