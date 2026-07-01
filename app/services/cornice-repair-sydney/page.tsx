@@ -92,7 +92,7 @@ export default function Page() {
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
               Cornice Repair, Sydney
               <span className="block mt-3 text-brand-400">
-                Cracked cornices, sagging detail, heritage profile matching — restore your home's character.
+                Cracked cornices? — Restore your home&apos;s character.
               </span>
             </h1>
             <ul className="space-y-3 text-lg md:text-xl text-navy-100 mb-8">
