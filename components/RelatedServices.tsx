@@ -5,6 +5,7 @@ const ALL_SERVICES = [
   { slug: 'ceiling-repair-sydney',          title: 'Ceiling Repair Sydney',          blurb: 'Cracked, sagging or water-stained ceilings, repaired in one visit.' },
   { slug: 'water-damage-ceiling-repair',    title: 'Water Damage Ceiling Repair',    blurb: 'Brown stains, sagging plaster, insurance liaison included.' },
   { slug: 'plaster-hole-patch',             title: 'Plaster Hole Patch',             blurb: 'TV bracket holes, doorknob dents, DIY rescues from $290 fixed.' },
+  { slug: 'plaster-crack-repair-sydney',    title: 'Plaster Crack Repair',           blurb: 'Wall + ceiling cracks diagnosed and fixed for good, not just skimmed.' },
   { slug: 'cornice-repair-sydney',          title: 'Cornice Repair Sydney',          blurb: 'Modern and heritage Federation cornice repair and replacement.' },
   { slug: 'end-of-lease-plaster-repair',    title: 'End of Lease Plaster Repair',    blurb: 'Multi-hole bundle pricing. Paint-ready same day. GST invoice.' },
   { slug: 'storm-damage-ceiling-repair',    title: 'Storm Damage Ceiling Repair',    blurb: '1-hour emergency response across Sydney. Insurance handled.' },

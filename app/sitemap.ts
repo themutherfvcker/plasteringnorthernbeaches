@@ -49,6 +49,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    {
+      url: `${base}/services/plaster-crack-repair-sydney`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
     // Content hubs (informational, AI-extraction targets)
     {
       url: `${base}/plastering-cost-sydney`,
