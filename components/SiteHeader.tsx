@@ -24,7 +24,7 @@ export default function SiteHeader() {
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           <Link href="/plasterer-northern-beaches" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">Services</Link>
-          <a href="/#why-us" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">Why Us</a>
+          <Link href="/plastering-cost-sydney" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">Pricing</Link>
           <a href="/#reviews" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">Reviews</a>
           <a href="/#faq" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">FAQ</a>
         </nav>

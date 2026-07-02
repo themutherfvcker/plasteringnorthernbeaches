@@ -49,6 +49,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    // Content hubs (informational, AI-extraction targets)
+    {
+      url: `${base}/plastering-cost-sydney`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
     // Service × suburb sub-pages will be added here as they ship.
   ];
 }
