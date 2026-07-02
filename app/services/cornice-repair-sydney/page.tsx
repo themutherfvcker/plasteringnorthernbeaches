@@ -159,6 +159,67 @@ export default function Page() {
         </div>
       </section>
 
+      {/* NEW CORNICE INSTALLATION — captures 'cornice installation' (Med comp,
+          $7.28 top CPC from the competitor Keyword Planner export). Distinct
+          from cornice REPAIR — this section covers new-build and renovation
+          installs where there's no existing cornice to work with. */}
+      <section className="bg-navy-50 px-4 py-16 md:py-20 border-y border-navy-100">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">
+            New cornice installation — renovation or new build
+          </h2>
+          <p className="text-navy-600 text-center text-lg mb-10 max-w-3xl mx-auto">
+            Adding cornice to a room that never had it, or replacing straight-edge shadowline with a decorative profile? Jack installs modern and heritage profiles across Sydney.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-5 mb-10">
+            {[
+              {
+                title: 'Modern cove profiles',
+                sub: '55mm and 75mm cornice',
+                body: 'Standard-profile cove cornice — the default for most Sydney renovations. Fast install (single room in one visit), affordable, low-maintenance. Best value when the design brief is "clean and finished" rather than "detailed and decorative".',
+                price: 'From $28 per lineal metre + setup',
+              },
+              {
+                title: 'Heritage / Federation profiles',
+                sub: 'Matched to existing rooms',
+                body: 'Federation, Victorian and Edwardian profiles matched to your existing cornices. We carry the common pre-cast profiles and can source or hand-form specialist detail. Ideal for period cottages and heritage-restoration renovations.',
+                price: 'From $85 per lineal metre + setup',
+              },
+              {
+                title: 'Decorative rosettes + centre pieces',
+                sub: 'Ceiling-medallion install',
+                body: 'Statement ceiling roses and decorative centre pieces installed and blended with your existing plasterwork. Pre-cast options for modern homes; hand-formed for heritage matching.',
+                price: 'From $290 per piece installed',
+              },
+              {
+                title: 'Square-set / shadowline',
+                sub: 'The no-cornice alternative',
+                body: 'Modern shadowline finish — the alternative to cornice when the design brief is stark minimalism. Requires a P50 or similar shadow bead + tight tolerances. We do both, and can tell you honestly which works better for your ceiling type.',
+                price: 'From $22 per lineal metre',
+              },
+            ].map((option) => (
+              <article key={option.title} className="bg-white rounded-xl border border-navy-100 p-5 md:p-6">
+                <div className="text-brand-600 font-bold text-xs uppercase tracking-wider mb-1">{option.sub}</div>
+                <h3 className="font-bold text-navy-900 text-lg md:text-xl mb-2">{option.title}</h3>
+                <p className="text-navy-700 leading-relaxed text-sm md:text-base mb-3">{option.body}</p>
+                <p className="text-navy-900 font-bold text-sm border-t border-navy-100 pt-2">💵 {option.price}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <p className="text-navy-600 mb-4">
+              Doing a renovation? We coordinate cornice install between your carpenter and painter so nothing gets held up.
+            </p>
+            <p className="text-navy-500 text-sm">
+              See the full Sydney plastering price breakdown on the{' '}
+              <Link href="/plastering-cost-sydney" className="text-brand-600 font-semibold hover:underline">plastering cost guide</Link>.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-navy-900 text-white px-4 py-16 md:py-20">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-brand-400 font-bold text-sm uppercase tracking-wider mb-4">The after state</p>

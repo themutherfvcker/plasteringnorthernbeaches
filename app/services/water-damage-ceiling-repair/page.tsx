@@ -199,6 +199,72 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Sagging ceiling — informational section (captures 'sagging ceiling',
+          'sagging plasterboard ceiling', 'ceiling sagging repair cost', etc.
+          Water damage is the MOST common cause but not the only one — this
+          section covers the full diagnostic path. */}
+      <section className="bg-navy-50 px-4 py-16 md:py-20 border-y border-navy-100">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">
+            Sagging ceiling? Water damage is common — but not the only cause.
+          </h2>
+          <p className="text-navy-600 text-center text-lg mb-10 max-w-3xl mx-auto">
+            A ceiling that&apos;s bowing, dropping, or has soft spots is a safety issue regardless of cause.
+            Here&apos;s the diagnostic path Jack works through on-site — and why the fix depends on it.
+          </p>
+          <div className="grid md:grid-cols-2 gap-5 mb-10">
+            {[
+              {
+                title: 'Water damage',
+                sub: 'Most common cause',
+                body: 'A slow leak from a burst pipe, roof tile displacement, or an upstairs bathroom overflow saturates the plaster from above. Sagging + brown staining + soft-to-touch = water damage. Fixed with cut-out + replace + skim.',
+              },
+              {
+                title: 'Plasterboard failure',
+                sub: 'Age-related, ~30+ year homes',
+                body: 'Old plasterboard (pre-1990 Sydney builds) loses structural integrity from decades of thermal cycling. Sagging without staining, particularly in central ceiling areas away from moisture sources. Fixed with cut-out + replace with modern gyprock.',
+              },
+              {
+                title: 'Cornice detachment',
+                sub: 'Pulls adjacent plaster with it',
+                body: 'When old cornices lose their bond to the wall-ceiling junction, they pull the adjacent plaster down as they fall. Sagging along the cornice line but NOT in the room centre. Fixed by re-bonding or replacing the cornice + repairing the pulled plaster.',
+              },
+              {
+                title: 'Fixings failure',
+                sub: 'Undersized ceiling screws',
+                body: 'Cheap or undersized ceiling screws lose their grip over time, especially in older gyprock. Ceiling sags between screw lines but stays attached. Fixed by adding correct-gauge screws on 200mm centres + skimming the screw heads.',
+              },
+            ].map((cause) => (
+              <article key={cause.title} className="bg-white rounded-xl border border-navy-100 p-5 md:p-6">
+                <div className="text-brand-600 font-bold text-xs uppercase tracking-wider mb-1">{cause.sub}</div>
+                <h3 className="font-bold text-navy-900 text-lg md:text-xl mb-2">{cause.title}</h3>
+                <p className="text-navy-700 leading-relaxed text-sm md:text-base">{cause.body}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="bg-red-50 border-l-4 border-red-500 rounded-r-lg p-5 md:p-6 mb-8">
+            <h3 className="font-bold text-red-900 text-lg mb-2 flex items-center gap-2">
+              ⚠️ When to call urgently
+            </h3>
+            <p className="text-red-900 leading-relaxed">
+              Any of the following = 1-hour emergency response, not a next-day quote: <strong>visible plasterboard cracking around the sag</strong>, <strong>the sagging area is over 500mm across</strong>, <strong>active water leaking through</strong>, or <strong>the ceiling has already dropped more than 20mm below the surrounding surface</strong>. Call{' '}
+              <a href={`tel:${phoneTel}`} className="text-red-900 font-black underline hover:no-underline">{phoneDisplay}</a> immediately.
+            </p>
+          </div>
+
+          <div className="text-center">
+            <p className="text-navy-600 mb-4">
+              Not sure which cause you&apos;re dealing with? Send Jack a photo through the quote form or call for an on-site diagnosis.
+            </p>
+            <p className="text-navy-500 text-sm">
+              Costs: sagging ceiling repair typically runs <strong className="text-navy-900">$600 to $2,500</strong> depending on cause, sagging area size, and whether cut-out replacement or re-bonding is needed. See the full breakdown on the{' '}
+              <Link href="/plastering-cost-sydney" className="text-brand-600 font-semibold hover:underline">plastering cost guide</Link>.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* After-state */}
       <section className="bg-navy-900 text-white px-4 py-16 md:py-20">
         <div className="max-w-3xl mx-auto text-center">
