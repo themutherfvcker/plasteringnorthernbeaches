@@ -6,6 +6,12 @@ import { SITE } from '@/data/site';
 
 const GA_ID = 'G-8JJN2PZFY8';
 
+// Google Ads — shares the same gtag.js loader as GA4. Conversion events
+// fire against these labels via send_to.
+const GADS_ID = 'AW-18282553551';
+const GADS_PHONE_LABEL = 'TYRvCLvx8skcEM_B5o1E';   // 'Contact' — tel: click, $50
+const GADS_FORM_LABEL = 'jU-cCNu29MkcEM_B5o1E';    // 'Submit lead form' — Quote form submit, $80
+
 const sans = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
@@ -171,13 +177,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', '${GA_ID}');
+          gtag('config', '${GADS_ID}');
         `}</Script>
-        {/* GA4 conversion event tracking: phone clicks + form submits */}
+        {/* GA4 + Google Ads conversion event tracking. Every phone click
+            and form submit fires TWO events: the GA4 semantic event (for
+            analytics reporting) AND the Google Ads 'conversion' event (for
+            campaign-optimisation bidding). Piggybacking on one handler
+            keeps everything in sync. */}
         <Script id="ga4-conversions" strategy="afterInteractive">{`
           (function () {
             function fire(name, params) {
               if (typeof window.gtag === 'function') {
                 window.gtag('event', name, params || {});
+              }
+            }
+            function fireConversion(sendTo, value) {
+              if (typeof window.gtag === 'function') {
+                window.gtag('event', 'conversion', {
+                  send_to: '${GADS_ID}/' + sendTo,
+                  value: value,
+                  currency: 'AUD',
+                });
               }
             }
             document.addEventListener('click', function (e) {
@@ -189,6 +209,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     page_path: window.location.pathname,
                     link_text: (t.textContent || '').trim().slice(0, 100),
                   });
+                  fireConversion('${GADS_PHONE_LABEL}', 50);
                   break;
                 }
                 t = t.parentElement;
@@ -201,6 +222,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   page_path: window.location.pathname,
                   form_id: form.id || form.getAttribute('name') || 'unnamed',
                 });
+                fireConversion('${GADS_FORM_LABEL}', 80);
               }
             }, true);
           })();
