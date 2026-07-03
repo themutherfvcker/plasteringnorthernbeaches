@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { SITE } from '@/data/site';
-import QuoteForm from '@/components/QuoteForm';
+import LeanQuoteForm from '@/components/LeanQuoteForm';
 import TrustBar from '@/components/TrustBar';
 import MeetJack from '@/components/MeetJack';
 import SiteHeader from '@/components/SiteHeader';
@@ -245,7 +245,7 @@ export default function HomePage() {
             {/* Quote form in hero — same component as the dedicated /#quote section,
                  source='hero' tags the lead so we know which CTA it converted on. */}
             <div className="relative">
-              <QuoteForm source="hero" />
+              <LeanQuoteForm source="homepage-hero" problem="Plastering" />
             </div>
           </div>
         </div>
@@ -612,7 +612,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <QuoteForm source="main" />
+            <LeanQuoteForm source="homepage-main" problem="Plastering" />
           </div>
         </div>
       </section>
