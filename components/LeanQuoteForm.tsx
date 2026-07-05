@@ -23,28 +23,37 @@ export default function LeanQuoteForm({
     e.preventDefault();
     setSubmitting(true);
 
+    // Capture attribution params (Google Ads click ID, UTM, etc.) from URL
+    // — critical for closing the loop between paid clicks and booked jobs.
+    const url = typeof window !== 'undefined' ? new URL(window.location.href) : null;
+    const attribution = url
+      ? {
+          gclid: url.searchParams.get('gclid') || undefined,
+          fbclid: url.searchParams.get('fbclid') || undefined,
+          utm_source: url.searchParams.get('utm_source') || undefined,
+          utm_medium: url.searchParams.get('utm_medium') || undefined,
+          utm_campaign: url.searchParams.get('utm_campaign') || undefined,
+          utm_content: url.searchParams.get('utm_content') || undefined,
+          utm_term: url.searchParams.get('utm_term') || undefined,
+        }
+      : {};
+
     const payload = {
       ...form,
       service: problem,
       source,
       page_url: typeof window !== 'undefined' ? window.location.href : '',
+      page_path: typeof window !== 'undefined' ? window.location.pathname : '',
+      ...attribution,
     };
 
-    await fetch('/api/lead-notify', {
+    // Single unified handler — Supabase persistence + Resend email + Telegram
+    // notification all fire from the server, in parallel, with per-channel
+    // failure isolation.
+    await fetch('/api/lead-submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
-    }).catch(() => {});
-
-    await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        access_key: 'a1b3ff09-7019-4b9d-b28e-86d6e6cebf08',
-        subject: `New ${problem || 'plastering'} lead — ${form.suburb || 'NB'}`,
-        from_name: 'Plastering Northern Beaches',
-        ...payload,
-      }),
     }).catch(() => {});
 
     setSubmitting(false);
