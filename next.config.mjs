@@ -26,15 +26,23 @@ const nextConfig = {
             value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
           },
           {
-            // Conservative CSP — allow self + Google Tag Manager + GA4 + inline scripts (Next.js needs unsafe-inline for hydration)
+            // Conservative CSP — allow self + Google Tag Manager + GA4 + Google
+            // Ads conversion domains + inline scripts (Next.js needs unsafe-inline
+            // for hydration).
+            //
+            // 2026-07-09: expanded connect-src + img-src + script-src to include
+            // Google Ads conversion domains after Google Ads dashboard flagged
+            // conversions as "Unverified" — prior CSP whitelisted GA4 collect
+            // endpoints but blocked google.com/pagead/* and *.g.doubleclick.net
+            // conversion beacons, dropping every attributed conversion silently.
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://*.google.com https://*.g.doubleclick.net",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
-              "img-src 'self' data: https:",
-              "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com",
+              "img-src 'self' data: https: https://*.google.com https://*.g.doubleclick.net https://www.googletagmanager.com https://*.google-analytics.com",
+              "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.google.com https://*.g.doubleclick.net https://www.googletagmanager.com",
               "frame-ancestors 'self'",
               "base-uri 'self'",
               "form-action 'self'",
