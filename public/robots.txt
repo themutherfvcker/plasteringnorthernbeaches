@@ -1,47 +1,21 @@
-# Jack's Plastering Northern Beaches — robots policy
-# Updated 2026-06-30
+# Jack's Plastering Northern Beaches — Robots access policy
+# Updated 2026-07-22
+#
+# This site opts IN to AI-crawler indexing and to being cited by
+# answer-engine surfaces (ChatGPT, Claude, Perplexity, Gemini, Bing Copilot,
+# Google AI Overviews, Apple Intelligence). Structured site summary + link
+# graph for AI systems lives at /llms.txt.
 
-# Default: all crawlers welcome
 User-agent: *
 Allow: /
-
-# Test/staging routes
 Disallow: /test/
 
-# ── AI / LLM crawlers — explicit allowlist ──
-# We want our content surfaced in AI Overviews, ChatGPT, Perplexity,
-# Gemini, Bing Copilot etc. Each crawler must be named explicitly —
-# the wildcard above doesn't authorise AI training/citation use under
-# most policies.
+# ── Explicit welcomes for major AI crawlers ─────────────────────────────
+# Redundant with User-agent: * above but signals affirmative intent — some
+# operators check for named-agent rules before falling back to wildcards.
 
+# Traditional search
 User-agent: Googlebot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Perplexity-User
 Allow: /
 
 User-agent: Bingbot
@@ -56,7 +30,63 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google (AI Overviews / Gemini training)
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence
 User-agent: Applebot-Extended
 Allow: /
 
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Common Crawl (feeds many downstream LLM training pipelines)
+User-agent: CCBot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# ── Discovery ───────────────────────────────────────────────────────────
 Sitemap: https://www.plasteringnorthernbeaches.com.au/sitemap.xml
