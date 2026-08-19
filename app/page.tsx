@@ -453,7 +453,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {[
                   {
                     image: 'decorative-dome-ceiling-detail-sydney.webp',
@@ -474,6 +474,11 @@ export default function HomePage() {
                     image: 'kitchen-ceiling-plastering-northern-beaches.webp',
                     alt: 'Kitchen suspended ceiling with recessed downlights, Brookvale — backed by 2-year guarantee',
                     suburb: 'Brookvale',
+                  },
+                  {
+                    image: 'luxury-bathroom-agate-feature-wall-northern-beaches.webp',
+                    alt: 'Luxury bathroom with book-matched agate feature wall and polished plaster ceiling, Northern Beaches — Jack\'s Plastering finish backed by 2-year guarantee',
+                    suburb: 'Northern Beaches',
                   },
                 ].map((item, i) => (
                   <div key={i} className="rounded-xl overflow-hidden shadow-lg relative aspect-[4/5]">
