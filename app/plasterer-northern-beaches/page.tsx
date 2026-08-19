@@ -240,22 +240,34 @@ export default function Page() {
 
       {/* After-state */}
       <section className="bg-navy-900 text-white px-4 py-16 md:py-20">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-brand-400 font-bold text-sm uppercase tracking-wider mb-4">The after state</p>
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-8 leading-tight">
-            Picture your home, two weeks from now.
-          </h2>
-          <div className="text-navy-100 text-lg md:text-xl leading-relaxed space-y-3 mb-8">
-            <p>The plaster job — <span className="text-brand-400 font-semibold">finished</span>.</p>
-            <p>The tradie chase — <span className="text-brand-400 font-semibold">over</span>.</p>
-            <p>The thing you&apos;ve been putting off — <span className="text-brand-400 font-semibold">gone</span>.</p>
-            <p className="font-extrabold text-white text-xl md:text-2xl pt-3 leading-snug">
-              Your walls and ceilings looking right again. One less thing on your list.
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+          <div className="text-center md:text-left">
+            <p className="text-brand-400 font-bold text-sm uppercase tracking-wider mb-4">The after state</p>
+            <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-8 leading-tight">
+              Picture your home, two weeks from now.
+            </h2>
+            <div className="text-navy-100 text-lg md:text-xl leading-relaxed space-y-3 mb-8">
+              <p>The plaster job — <span className="text-brand-400 font-semibold">finished</span>.</p>
+              <p>The tradie chase — <span className="text-brand-400 font-semibold">over</span>.</p>
+              <p>The thing you&apos;ve been putting off — <span className="text-brand-400 font-semibold">gone</span>.</p>
+              <p className="font-extrabold text-white text-xl md:text-2xl pt-3 leading-snug">
+                Your walls and ceilings looking right again. One less thing on your list.
+              </p>
+            </div>
+            <p className="text-navy-300 text-base">
+              One call. Fixed-price. One visit. 2-year written guarantee.
             </p>
           </div>
-          <p className="text-navy-300 text-base max-w-xl mx-auto">
-            One call. Fixed-price. One visit. 2-year written guarantee.
-          </p>
+          <div className="relative aspect-[3/4] w-full max-w-md mx-auto md:mx-0 md:ml-auto rounded-2xl overflow-hidden shadow-2xl ring-1 ring-navy-700">
+            <Image
+              src="/gallery/luxury-bathroom-agate-feature-wall-northern-beaches.webp"
+              alt="Luxury bathroom with book-matched agate feature wall and polished plaster ceiling, Northern Beaches — Jack's Plastering finish backed by 2-year guarantee"
+              fill
+              sizes="(max-width: 768px) 100vw, 512px"
+              className="object-cover"
+              priority={false}
+            />
+          </div>
         </div>
       </section>
 
