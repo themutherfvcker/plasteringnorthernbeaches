@@ -53,14 +53,27 @@ export default function QuoteForm({ source = 'main' }: { source?: string }) {
       ...attribution,
     };
 
-    // Single unified handler — Supabase persistence + Resend email + Telegram
-    // notification all fire from the server, in parallel, with per-channel
-    // failure isolation.
-    await fetch('/api/lead-submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    }).catch(() => {});
+    // Two-channel delivery — Telegram real-time alert to Jack via /api/lead-notify
+    // + email backup direct to Web3Forms. Both fire in parallel and independent
+    // failures are tolerated. See app/api/lead-notify/route.ts for the reverted
+    // pipeline rationale.
+    await Promise.all([
+      fetch('/api/lead-notify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      }).catch(() => {}),
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: 'a1b3ff09-7019-4b9d-b28e-86d6e6cebf08',
+          subject: `New ${form.service || 'plastering'} lead — ${form.suburb || 'NB'}`,
+          from_name: 'Plastering Northern Beaches',
+          ...payload,
+        }),
+      }).catch(() => {}),
+    ]);
 
     setSubmitting(false);
     setSubmitted(true);
