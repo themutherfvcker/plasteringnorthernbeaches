@@ -1,6 +1,7 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { SUBURBS_FULL } from '@/data/suburbs';
+import { submitLead } from '../lib/lead-client';
 
 // Lean 3-field form for paid-traffic service landing pages.
 // Strips submission down to first name + mobile + suburb. Anything else
@@ -17,14 +18,17 @@ export default function LeanQuoteForm({
 }) {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState({ name: '', phone: '', suburb: '' });
+  const [website, setWebsite] = useState('');
+  const mountedAt = useRef<number>(0);
+  useEffect(() => { mountedAt.current = performance.now(); }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setError(null);
     setSubmitting(true);
 
-    // Capture attribution params (Google Ads click ID, UTM, etc.) from URL
-    // — critical for closing the loop between paid clicks and booked jobs.
     const url = typeof window !== 'undefined' ? new URL(window.location.href) : null;
     const attribution = url
       ? {
@@ -38,25 +42,23 @@ export default function LeanQuoteForm({
         }
       : {};
 
-    const payload = {
-      ...form,
-      service: problem,
-      source,
-      page_url: typeof window !== 'undefined' ? window.location.href : '',
-      page_path: typeof window !== 'undefined' ? window.location.pathname : '',
-      ...attribution,
-    };
+    // Send the REAL monotonic elapsed value so the server's <1000ms spam-check
+    // still works. If mountedAt is unavailable (SSR/no useEffect yet) send 0
+    // — server rejects <1000ms, so we fail closed on submit-before-mount
+    // rather than manufacturing a passing 1000ms value.
+    const elapsed_ms = mountedAt.current > 0 ? Math.round(performance.now() - mountedAt.current) : 0;
 
-    // Two-channel delivery — Telegram real-time alert to Jack via /api/lead-notify
-    // + email backup direct to Web3Forms. Both fire in parallel and independent
-    // failures are tolerated. See app/api/lead-notify/route.ts for the reverted
-    // pipeline rationale.
-    await Promise.all([
-      fetch('/api/lead-notify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      }).catch(() => {}),
+    // LEADS-002 durable capture path — /api/leads reaches the central Supabase
+    // Edge Function. Web3Forms remains an independent browser-direct email
+    // backup and its result never influences success UI.
+    const [durable] = await Promise.all([
+      submitLead({
+        name: form.name, phone: form.phone,
+        suburb: form.suburb || undefined,
+        service: problem || undefined,
+        source, ...attribution,
+        website, elapsed_ms,
+      }),
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -64,13 +66,19 @@ export default function LeanQuoteForm({
           access_key: 'a1b3ff09-7019-4b9d-b28e-86d6e6cebf08',
           subject: `New ${problem || 'plastering'} lead — ${form.suburb || 'NB'}`,
           from_name: 'Plastering Northern Beaches',
-          ...payload,
+          ...form, service: problem, source, ...attribution,
+          page_url: typeof window !== 'undefined' ? window.location.href : '',
+          page_path: typeof window !== 'undefined' ? window.location.pathname : '',
         }),
       }).catch(() => {}),
     ]);
 
     setSubmitting(false);
-    setSubmitted(true);
+    if (durable.ok) {
+      setSubmitted(true);
+    } else {
+      setError('Sorry, we couldn’t send that. Please call us on 0403 476 869 and we’ll take your details.');
+    }
   }
 
   if (submitted) {
@@ -98,6 +106,9 @@ export default function LeanQuoteForm({
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', width: 1, height: 1, overflow: 'hidden' }}>
+          <label>Do not fill<input tabIndex={-1} autoComplete="off" name="website" value={website} onChange={(e) => setWebsite(e.target.value)} /></label>
+        </div>
         <div>
           <label className="block text-navy-800 font-semibold text-sm mb-1.5">First name *</label>
           <input
@@ -137,6 +148,9 @@ export default function LeanQuoteForm({
         >
           {submitting ? 'Sending…' : submitLabel}
         </button>
+        {error ? (
+          <p role="alert" className="text-red-600 text-sm text-center">{error}</p>
+        ) : null}
         <p className="text-navy-400 text-xs text-center">
           🔒 Your details are private. Jack calls you — no spam, no email list.
         </p>
