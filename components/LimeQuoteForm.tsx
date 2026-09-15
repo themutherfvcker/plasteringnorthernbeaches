@@ -1,6 +1,7 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { SUBURBS_FULL } from '@/data/suburbs';
+import { submitLead } from '../lib/lead-client';
 
 // Lime-palette version of the 3-field form. Identical logic to
 // LeanQuoteForm; just recoloured for the palette A/B test.
@@ -16,38 +17,61 @@ export default function LimeQuoteForm({
 }) {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState({ name: '', phone: '', suburb: '' });
+  const [website, setWebsite] = useState('');
+  const mountedAt = useRef<number>(0);
+  useEffect(() => { mountedAt.current = performance.now(); }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setError(null);
     setSubmitting(true);
 
-    const payload = {
-      ...form,
-      service: problem,
-      source,
-      page_url: typeof window !== 'undefined' ? window.location.href : '',
-    };
+    const url = typeof window !== 'undefined' ? new URL(window.location.href) : null;
+    const attribution = url
+      ? {
+          gclid: url.searchParams.get('gclid') || undefined,
+          fbclid: url.searchParams.get('fbclid') || undefined,
+          utm_source: url.searchParams.get('utm_source') || undefined,
+          utm_medium: url.searchParams.get('utm_medium') || undefined,
+          utm_campaign: url.searchParams.get('utm_campaign') || undefined,
+          utm_content: url.searchParams.get('utm_content') || undefined,
+          utm_term: url.searchParams.get('utm_term') || undefined,
+        }
+      : {};
+    const elapsed_ms = mountedAt.current > 0 ? Math.max(1000, Math.round(performance.now() - mountedAt.current)) : 1000;
 
-    await fetch('/api/lead-notify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    }).catch(() => {});
-
-    await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        access_key: 'a1b3ff09-7019-4b9d-b28e-86d6e6cebf08',
-        subject: `New ${problem || 'plastering'} lead — ${form.suburb || 'NB'}`,
-        from_name: 'Plastering Northern Beaches',
-        ...payload,
+    // LEADS-002 durable capture path — /api/leads reaches the central Supabase
+    // Edge Function. Web3Forms remains an independent browser-direct email
+    // backup and its result never influences success UI.
+    const [durable] = await Promise.all([
+      submitLead({
+        name: form.name, phone: form.phone,
+        suburb: form.suburb || undefined,
+        service: problem || undefined,
+        source, ...attribution,
+        website, elapsed_ms,
       }),
-    }).catch(() => {});
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: 'a1b3ff09-7019-4b9d-b28e-86d6e6cebf08',
+          subject: `New ${problem || 'plastering'} lead — ${form.suburb || 'NB'}`,
+          from_name: 'Plastering Northern Beaches',
+          ...form, service: problem, source, ...attribution,
+          page_url: typeof window !== 'undefined' ? window.location.href : '',
+        }),
+      }).catch(() => {}),
+    ]);
 
     setSubmitting(false);
-    setSubmitted(true);
+    if (durable.ok) {
+      setSubmitted(true);
+    } else {
+      setError('Sorry, we couldn’t send that. Please call us on 0403 476 869 and we’ll take your details.');
+    }
   }
 
   if (submitted) {
@@ -73,6 +97,9 @@ export default function LimeQuoteForm({
       <p className="text-slate-500 text-sm mb-5">3 quick fields. Jack calls you back within 24 hours.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', width: 1, height: 1, overflow: 'hidden' }}>
+          <label>Do not fill<input tabIndex={-1} autoComplete="off" name="website" value={website} onChange={(e) => setWebsite(e.target.value)} /></label>
+        </div>
         <div>
           <label className="block text-slate-800 font-semibold text-sm mb-1.5">First name *</label>
           <input
@@ -112,6 +139,9 @@ export default function LimeQuoteForm({
         >
           {submitting ? 'Sending…' : submitLabel}
         </button>
+        {error ? (
+          <p role="alert" className="text-red-600 text-sm text-center">{error}</p>
+        ) : null}
         <p className="text-slate-400 text-xs text-center">
           🔒 Your details are private. Jack calls you — no spam, no email list.
         </p>

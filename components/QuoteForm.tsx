@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { submitLead } from '../lib/lead-client';
 
 export const SUBURBS = [
   'Manly', 'Dee Why', 'Freshwater', 'Curl Curl', 'Collaroy', 'Narrabeen',
@@ -22,16 +23,19 @@ export const SERVICE_OPTIONS = [
 export default function QuoteForm({ source = 'main' }: { source?: string }) {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState({
     name: '', phone: '', email: '', suburb: '', service: '', message: '',
   });
+  const [website, setWebsite] = useState('');
+  const mountedAt = useRef<number>(0);
+  useEffect(() => { mountedAt.current = performance.now(); }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setError(null);
     setSubmitting(true);
 
-    // Capture attribution params (Google Ads click ID, UTM, etc.) from URL
-    // — critical for closing the loop between paid clicks and booked jobs.
     const url = typeof window !== 'undefined' ? new URL(window.location.href) : null;
     const attribution = url
       ? {
@@ -45,24 +49,21 @@ export default function QuoteForm({ source = 'main' }: { source?: string }) {
         }
       : {};
 
-    const payload = {
-      ...form,
-      source,
-      page_url: typeof window !== 'undefined' ? window.location.href : '',
-      page_path: typeof window !== 'undefined' ? window.location.pathname : '',
-      ...attribution,
-    };
+    const elapsed_ms = mountedAt.current > 0 ? Math.max(1000, Math.round(performance.now() - mountedAt.current)) : 1000;
 
-    // Two-channel delivery — Telegram real-time alert to Jack via /api/lead-notify
-    // + email backup direct to Web3Forms. Both fire in parallel and independent
-    // failures are tolerated. See app/api/lead-notify/route.ts for the reverted
-    // pipeline rationale.
-    await Promise.all([
-      fetch('/api/lead-notify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      }).catch(() => {}),
+    // LEADS-002 durable capture path — /api/leads reaches the central
+    // Supabase Edge Function `lead-ingest`. Web3Forms remains a browser-direct
+    // best-effort email backup: its result never influences success UI.
+    // Only /api/leads durable success may show success or fire lead-success
+    // analytics.
+    const [durable] = await Promise.all([
+      submitLead({
+        name: form.name, phone: form.phone, email: form.email || undefined,
+        suburb: form.suburb || undefined, service: form.service || undefined,
+        message: form.message || undefined, source,
+        ...attribution,
+        website, elapsed_ms,
+      }),
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -70,13 +71,19 @@ export default function QuoteForm({ source = 'main' }: { source?: string }) {
           access_key: 'a1b3ff09-7019-4b9d-b28e-86d6e6cebf08',
           subject: `New ${form.service || 'plastering'} lead — ${form.suburb || 'NB'}`,
           from_name: 'Plastering Northern Beaches',
-          ...payload,
+          ...form, source, ...attribution,
+          page_url: typeof window !== 'undefined' ? window.location.href : '',
+          page_path: typeof window !== 'undefined' ? window.location.pathname : '',
         }),
       }).catch(() => {}),
     ]);
 
     setSubmitting(false);
-    setSubmitted(true);
+    if (durable.ok) {
+      setSubmitted(true);
+    } else {
+      setError('Sorry, we couldn’t send that. Please call us on 0403 476 869 and we’ll take your details.');
+    }
   }
 
   if (submitted) {
@@ -101,6 +108,10 @@ export default function QuoteForm({ source = 'main' }: { source?: string }) {
       <p className="text-navy-500 text-sm mb-6">Fill in the details and we&apos;ll be in touch fast.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Honeypot: visually hidden. Real humans never fill this. */}
+        <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', width: 1, height: 1, overflow: 'hidden' }}>
+          <label>Do not fill<input tabIndex={-1} autoComplete="off" name="website" value={website} onChange={(e) => setWebsite(e.target.value)} /></label>
+        </div>
         <div>
           <label className="block text-navy-800 font-semibold text-sm mb-1.5">Full name *</label>
           <input
@@ -171,6 +182,9 @@ export default function QuoteForm({ source = 'main' }: { source?: string }) {
         >
           {submitting ? 'Sending…' : 'Get my free quote →'}
         </button>
+        {error ? (
+          <p role="alert" className="text-red-600 text-sm text-center">{error}</p>
+        ) : null}
         <p className="text-navy-400 text-xs text-center">
           🔒 Your info is 100% secure. We never share your details.
         </p>
