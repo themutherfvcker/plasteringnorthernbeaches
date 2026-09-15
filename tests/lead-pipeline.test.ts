@@ -260,6 +260,26 @@ test('all three forms now call submitLead (durable capture path)', () => {
   }
 });
 
+test('REVISE #1 blocker 5: no elapsed clamp defeats the server <1s check', () => {
+  // The forms MUST send the real monotonic elapsed value. A `Math.max(1000, ...)`
+  // upward clamp converts an immediate <1s bot submit into an accepted 1000ms
+  // value and defeats the server's spam-check.
+  const files = [
+    'components/QuoteForm.tsx',
+    'components/LeanQuoteForm.tsx',
+    'components/LimeQuoteForm.tsx',
+  ];
+  for (const rel of files) {
+    const src = readFileSync(resolve(SOURCE_ROOT, rel), 'utf-8');
+    assert.equal(/Math\.max\s*\(\s*1000\s*,/.test(src), false,
+      `${rel}: must not clamp elapsed_ms upward to 1000`);
+    // Mount-unavailable fallback must fail closed (not manufacture a passing
+    // value). Sending 0 causes the server to reject `invalid_elapsed`.
+    assert.ok(/mountedAt\.current\s*>\s*0\s*\?[\s\S]{0,120}:\s*0\b/.test(src),
+      `${rel}: mount-unavailable fallback must be 0 (server-side reject) not 1000`);
+  }
+});
+
 test('/api/leads route delegates to captureLead', async () => {
   const req = new Request('https://www.plasteringnorthernbeaches.com.au/api/leads', {
     method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(INPUT),

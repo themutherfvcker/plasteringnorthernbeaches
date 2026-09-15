@@ -49,7 +49,11 @@ export default function QuoteForm({ source = 'main' }: { source?: string }) {
         }
       : {};
 
-    const elapsed_ms = mountedAt.current > 0 ? Math.max(1000, Math.round(performance.now() - mountedAt.current)) : 1000;
+    // Send the REAL monotonic elapsed value so the server's <1000ms spam-check
+    // still works. If mountedAt is unavailable (SSR/no useEffect yet) send 0
+    // — server rejects <1000ms, so we fail closed on submit-before-mount
+    // rather than manufacturing a passing 1000ms value.
+    const elapsed_ms = mountedAt.current > 0 ? Math.round(performance.now() - mountedAt.current) : 0;
 
     // LEADS-002 durable capture path — /api/leads reaches the central
     // Supabase Edge Function `lead-ingest`. Web3Forms remains a browser-direct
