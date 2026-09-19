@@ -2,6 +2,8 @@
 
 > **Layer 0** — what every future Claude session reads first. Strategy + process live elsewhere and are referenced (not duplicated) below.
 
+> **Portfolio protocol reference.** This repository is governed by the portfolio AI Collaboration Operating Protocol at `themutherfvcker/ai-operating-system` v0.1.2. Read that protocol at the start of any cross-agent coordination work here. The canonical filled bootstrap for this project — coordinates, per-scope control channels (project-local Issue #3 + portfolio HSP Issue #8), governance-doc paths, protected surfaces, coordination rules, Joe shorthand semantics and GSC/GA4 evidence routing — lives in `AGENTS.md` (Portfolio protocol reference section). Do not duplicate that block here; refer to it and to the upstream protocol.
+
 ---
 
 ## What this project is
