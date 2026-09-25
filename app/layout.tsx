@@ -178,6 +178,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           gtag('js', new Date());
           gtag('config', '${GA_ID}');
           gtag('config', '${GADS_ID}');
+          // Google Ads Website Call Conversion — swaps the visible Twilio number
+          // (02) 5500 1608 with a Google forwarding number for Ads-attributable
+          // visitors only, and records the call as a Primary conversion under the
+          // "Phone call lead" goal. Non-Ads visitors keep seeing the Twilio number.
+          gtag('config', '${GADS_ID}/6oGsCLn20oQdEM_B5o1E', {
+            'phone_conversion_number': '(02) 5500 1608'
+          });
         `}</Script>
         {/* GA4 + Google Ads conversion event tracking. Every phone click
             and form submit fires TWO events: the GA4 semantic event (for
