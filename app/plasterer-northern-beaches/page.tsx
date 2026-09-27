@@ -28,6 +28,7 @@ const phoneTel = SITE.phoneTel;
 const phoneDisplay = SITE.phone;
 
 const services = [
+  { href: '/services/gyprock-plasterboard-northern-beaches', title: 'Gyprock & plasterboard', desc: 'Repair, replacement and installation for walls and ceilings.' },
   { href: '/services/ceiling-repair-sydney', title: 'Ceiling repair', desc: 'Cracks, sagging, water stains — quoted in 24 hours, mostly one visit.' },
   { href: '/services/water-damage-ceiling-repair', title: 'Water damage ceiling repair', desc: 'Brown stains, sagging plaster, insurance liaison included.' },
   { href: '/services/plaster-hole-patch', title: 'Plaster hole patch', desc: 'From $290 fixed. TV bracket damage, doorknob dents, DIY rescues.' },

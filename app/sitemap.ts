@@ -20,6 +20,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${base}/services/gyprock-plasterboard-northern-beaches`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${base}/services/water-damage-ceiling-repair`,
       lastModified: now,
       changeFrequency: 'weekly',
