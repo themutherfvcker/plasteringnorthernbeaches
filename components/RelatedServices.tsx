@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 // Order matches the homepage services grid for consistency.
 const ALL_SERVICES = [
+  { slug: 'gyprock-plasterboard-northern-beaches', title: 'Gyprock & Plasterboard', blurb: 'Repair, replacement and installation for walls and ceilings.' },
   { slug: 'ceiling-repair-sydney',          title: 'Ceiling Repair Sydney',          blurb: 'Cracked, sagging or water-stained ceilings, repaired in one visit.' },
   { slug: 'water-damage-ceiling-repair',    title: 'Water Damage Ceiling Repair',    blurb: 'Brown stains, sagging plaster, insurance liaison included.' },
   { slug: 'plaster-hole-patch',             title: 'Plaster Hole Patch',             blurb: 'TV bracket holes, doorknob dents, DIY rescues from $290 fixed.' },
@@ -25,7 +26,7 @@ export default function RelatedServices({ currentSlug }: Props) {
           Other Plastering Services in Sydney
         </h2>
         <p className="text-navy-600 text-center text-lg mb-10">
-          Whatever your plastering job — patch, ceiling, cornice or full home — Jack covers it across the Northern Beaches and Sydney-wide.
+          Whatever your plastering job — Gyprock, patch, ceiling, cornice or full home — Jack covers it across the Northern Beaches and Sydney-wide.
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 mb-10">
           {others.map((s) => (
