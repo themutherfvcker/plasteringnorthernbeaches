@@ -13,17 +13,17 @@ import RelatedServices from '@/components/RelatedServices';
 
 const slug = 'gyprock-plasterboard-northern-beaches';
 const pageUrl = `${SITE.url}/services/${slug}`;
-const dateModified = '2026-09-28';
+const dateModified = '2026-09-29';
 
 export const metadata: Metadata = {
-  title: "Gyprock Northern Beaches | Repair & Installation | Jack's",
+  title: "Gyprock Northern Beaches & North Shore | Repair & Installation",
   description:
-    'Gyprock and plasterboard repair, replacement and installation across the Northern Beaches. Walls, ceilings and damaged sheets. Fixed-price quote in 24 hours.',
+    'Gyprock and plasterboard repair, replacement and installation across the Northern Beaches and North Shore. Walls, ceilings and damaged sheets. Fixed-price quote in 24 hours.',
   alternates: { canonical: pageUrl },
   openGraph: {
-    title: "Gyprock Northern Beaches | Repair & Installation | Jack's",
+    title: "Gyprock Northern Beaches & North Shore | Repair & Installation",
     description:
-      'Gyprock and plasterboard repair, replacement and installation across the Northern Beaches. Walls, ceilings and damaged sheets. Fixed-price quote in 24 hours.',
+      'Gyprock and plasterboard repair, replacement and installation across the Northern Beaches and North Shore. Walls, ceilings and damaged sheets. Fixed-price quote in 24 hours.',
     url: pageUrl,
   },
 };
@@ -73,7 +73,7 @@ const faqs = [
   },
   {
     q: 'Which areas do you cover?',
-    a: 'We cover the Northern Beaches, including Dee Why, Manly, Brookvale, Collaroy, Narrabeen, Mona Vale, Avalon, Cromer, Belrose, Frenchs Forest, Allambie Heights and surrounding suburbs.',
+    a: 'We cover the Northern Beaches and North Shore, including Manly, Freshwater, Dee Why, Brookvale, Narrabeen, Mona Vale and Frenchs Forest, plus Mosman, North Sydney, Chatswood, Gordon, Pymble, St Ives, Turramurra, Wahroonga and surrounding suburbs.',
   },
 ];
 
@@ -95,7 +95,7 @@ const serviceSchema = {
   '@id': `${pageUrl}#service`,
   datePublished: dateModified,
   dateModified,
-  name: 'Gyprock and Plasterboard Northern Beaches',
+  name: 'Gyprock and Plasterboard Northern Beaches and North Shore',
   serviceType: 'Gyprock and plasterboard repair, replacement and installation',
   image: [
     `${SITE.url}/gallery/gyprock-ceiling-installation-northern-beaches.webp`,
@@ -108,7 +108,7 @@ const serviceSchema = {
     containedInPlace: { '@type': 'State', name: 'New South Wales' },
   })),
   description:
-    'Gyprock and plasterboard repair, replacement and installation for walls and ceilings across the Northern Beaches.',
+    'Gyprock and plasterboard repair, replacement and installation for walls and ceilings across the Northern Beaches and North Shore.',
   url: pageUrl,
 };
 
@@ -141,13 +141,13 @@ export default function Page() {
         <div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           <div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
-              Gyprock &amp; Plasterboard Northern Beaches
+              Gyprock &amp; Plasterboard Northern Beaches &amp; North Shore
               <span className="block mt-3 text-brand-400 text-2xl md:text-3xl lg:text-4xl">
                 Repair, replace or install it properly—then leave it paint-ready.
               </span>
             </h1>
             <p className="text-lg md:text-xl text-navy-100 leading-relaxed mb-7">
-              One local team for damaged Gyprock, new plasterboard walls and ceilings, sheet replacement and setting across the Northern Beaches.
+              One local team for Gyprock repairs, new plasterboard walls and ceilings, sheet replacement and setting across the Northern Beaches and North Shore.
             </p>
             <ul className="space-y-3 text-lg text-navy-100 mb-8">
               <li className="flex gap-3"><span className="text-brand-400">✓</span><span>Repairs, replacement and new installation</span></li>
@@ -233,9 +233,9 @@ export default function Page() {
       <section className="bg-white px-4 py-16 md:py-20">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">Gyprock and plasterboard questions</h2>
-          <p className="text-navy-600 text-center text-lg mb-3">What Northern Beaches homeowners ask before booking.</p>
+          <p className="text-navy-600 text-center text-lg mb-3">What Northern Beaches and North Shore homeowners ask before booking.</p>
           <p className="text-navy-500 text-sm mb-10 text-center">
-            <time dateTime={dateModified}>Last updated: 28 September 2026</time>
+            <time dateTime={dateModified}>Last updated: 29 September 2026</time>
           </p>
           <div className="space-y-4">
             {faqs.map((faq) => (
