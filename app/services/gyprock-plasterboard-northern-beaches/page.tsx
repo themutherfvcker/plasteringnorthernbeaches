@@ -143,7 +143,7 @@ export default function Page() {
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
               Gyprock &amp; Plasterboard Northern Beaches &amp; North Shore
               <span className="block mt-3 text-brand-400 text-2xl md:text-3xl lg:text-4xl">
-                Repair, replace or install it properly—then leave it paint-ready.
+                Repair, replace or install it properly.
               </span>
             </h1>
             <p className="text-lg md:text-xl text-navy-100 leading-relaxed mb-7">
