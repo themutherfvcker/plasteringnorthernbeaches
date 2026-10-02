@@ -42,7 +42,7 @@ export default function RelatedServices({ currentSlug }: Props) {
         </div>
         <div className="text-center">
           <Link
-            href="/plasterer-northern-beaches"
+            href="/#services"
             className="inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 font-bold text-base transition-colors border-b-2 border-brand-200 hover:border-brand-500 pb-1"
           >
             See all plastering services on the Northern Beaches →
