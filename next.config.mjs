@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/plasterer-northern-beaches',
+        destination: '/',
+        statusCode: 301,
+      },
+    ];
+  },
   async headers() {
     return [
       {

@@ -86,7 +86,7 @@ const priceTable = [
   },
   {
     service: 'Full home plastering — new build or full reno',
-    href: '/plasterer-northern-beaches',
+    href: '/',
     scope: 'Whole-house wall + ceiling plastering. Priced per square metre of wall/ceiling surface.',
     range: '$25 – $45 per m²',
     time: '5–12 working days depending on size',

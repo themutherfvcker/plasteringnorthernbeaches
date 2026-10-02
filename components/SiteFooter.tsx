@@ -24,7 +24,7 @@ export default function SiteFooter() {
             <h4 className="font-bold text-white mb-4">Quick Links</h4>
             <div className="space-y-2">
               <a href="/#services" className="block text-navy-300 hover:text-brand-400 transition-colors text-sm">Services</a>
-              <a href="/plasterer-northern-beaches" className="block text-navy-300 hover:text-brand-400 transition-colors text-sm">Plasterer Northern Beaches</a>
+              <a href="/" className="block text-navy-300 hover:text-brand-400 transition-colors text-sm">Plasterer Northern Beaches</a>
               <a href="/plastering-cost-sydney" className="block text-navy-300 hover:text-brand-400 transition-colors text-sm">Plastering Cost Guide</a>
               <a href="/#why-us" className="block text-navy-300 hover:text-brand-400 transition-colors text-sm">Why Choose Us</a>
               <a href="/#reviews" className="block text-navy-300 hover:text-brand-400 transition-colors text-sm">Reviews</a>

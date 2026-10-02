@@ -117,7 +117,7 @@ const breadcrumbSchema = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
-    { '@type': 'ListItem', position: 2, name: 'Plastering Services', item: `${SITE.url}/plasterer-northern-beaches` },
+    { '@type': 'ListItem', position: 2, name: 'Plastering Services', item: SITE.url },
     { '@type': 'ListItem', position: 3, name: 'Gyprock & Plasterboard Northern Beaches', item: pageUrl },
   ],
 };

@@ -5,10 +5,8 @@ import { SITE } from '@/data/site';
 // Sticky white header with logo, nav, phone + Free Quote CTA. Extracted
 // from the homepage so every page carries the same top-of-page density.
 //
-// Nav anchor strategy: `Services` links to the /plasterer-northern-beaches
-// hub (a real page — works from anywhere). The remaining nav items point
-// to homepage-only sections via absolute paths so they always resolve
-// correctly, whether the visitor is on the homepage or an internal page.
+// Nav anchor strategy: `Services` points to the homepage service grid.
+// Dedicated service pages remain the owners of their specific intents.
 export default function SiteHeader() {
   return (
     <header className="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-navy-100 shadow-sm">
@@ -23,7 +21,7 @@ export default function SiteHeader() {
           </div>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
-          <Link href="/plasterer-northern-beaches" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">Services</Link>
+          <Link href="/#services" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">Services</Link>
           <Link href="/plastering-cost-sydney" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">Pricing</Link>
           <a href="/#reviews" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">Reviews</a>
           <a href="/#faq" className="text-navy-600 hover:text-navy-900 font-medium text-sm transition-colors">FAQ</a>

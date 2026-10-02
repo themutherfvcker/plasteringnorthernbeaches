@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 };
 
 const services = [
-  { icon: '🎨', title: 'Drywall Plastering',     blurb: 'Perfect, smooth walls ready for painting. We handle new installs and replacements with precision.', href: '/plasterer-northern-beaches' },
+  { icon: '🎨', title: 'Drywall Plastering',     blurb: 'Perfect, smooth walls ready for painting. We handle new installs and replacements with precision.', href: '/services/gyprock-plasterboard-northern-beaches' },
   { icon: '🔨', title: 'Plaster Hole Repairs',   blurb: 'Cracks, holes, doorknob dents, TV bracket damage — fixed-price patch repairs from $290, paint-ready in one visit.', href: '/services/plaster-hole-patch' },
   { icon: '✨', title: 'Cornice Repair',          blurb: 'Cracked, sagging or missing cornice restored. Federation and heritage profile matching available.', href: '/services/cornice-repair-sydney' },
   { icon: '💧', title: 'Water Damage Ceiling',    blurb: 'Brown stains, sagging plaster, ceiling collapse risk? Fixed-price repair quote in 24 hours. We deal with your insurer.', href: '/services/water-damage-ceiling-repair' },
@@ -314,9 +314,9 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Hub link to head-term page — exposes the head-term to crawlers + visitors */}
+          {/* Keep the general plastering intent consolidated on the homepage. */}
           <div className="text-center mt-10">
-            <Link href="/plasterer-northern-beaches" className="inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 font-bold text-base transition-colors border-b-2 border-brand-200 hover:border-brand-500 pb-1">
+            <Link href="/#services" className="inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 font-bold text-base transition-colors border-b-2 border-brand-200 hover:border-brand-500 pb-1">
               See all plastering services on the Northern Beaches →
             </Link>
           </div>
