@@ -24,7 +24,7 @@ Base location: Dee Why, NSW 2099, Australia.
 
 ## Hub Pages
 
-- [Plasterer Northern Beaches](https://www.plasteringnorthernbeaches.com.au/plasterer-northern-beaches) — Head-term service hub linking to every plastering service.
+- [Homepage — Plasterer Northern Beaches](https://www.plasteringnorthernbeaches.com.au/) — Canonical owner of the general Northern Beaches plasterer/plastering intent and service overview.
 - [Plastering Cost Sydney](https://www.plasteringnorthernbeaches.com.au/plastering-cost-sydney) — Full 2026 Sydney plastering price guide by job type.
 - [Homepage](https://www.plasteringnorthernbeaches.com.au/) — Brand overview, services grid, recent work gallery, testimonials, FAQ.
 
