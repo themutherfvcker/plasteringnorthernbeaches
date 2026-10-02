@@ -10,7 +10,7 @@ import SiteFooter from '@/components/SiteFooter';
 import StickyCallCTA from '@/components/StickyCallCTA';
 
 export const metadata: Metadata = {
-  title: "Plastering Cost Sydney — 2026 Price Guide | Jack's Plastering",
+  title: "Plastering Cost Sydney 2026 | Repairs from $290 + m² Rates",
   description:
     "How much does a plasterer cost in Sydney? Real 2026 prices per job type — ceiling repair, cornice, hole patches, water damage. Fixed-price quotes in 24hrs.",
   alternates: { canonical: `${SITE.url}/plastering-cost-sydney` },
