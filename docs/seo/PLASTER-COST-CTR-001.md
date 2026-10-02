@@ -39,6 +39,13 @@ Hypothesis: preserving the exact query while adding concrete, supportable pricin
 
 The page supports both claims: small repair pricing starts at $290 and full-home plastering includes per-square-metre rates.
 
+## Validation
+
+- Local production build: PASS on Next.js 15.5.19.
+- Rendered HTML title: `Plastering Cost Sydney 2026 | Repairs from $290 + m² Rates` (58 characters).
+- Four Stars after title change: 63.6 / grade C; title element 25/25.
+- First Vercel preview attempt failed inside `next/font` Google Manrope loading, unrelated to the page/title diff; preview was retriggered after local validation.
+
 ## Success / rollback
 
 Primary metric: page-level organic CTR.
