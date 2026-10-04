@@ -4,7 +4,7 @@ import Link from 'next/link';
 const ALL_SERVICES = [
   { slug: 'gyprock-plasterboard-northern-beaches', title: 'Gyprock & Plasterboard', blurb: 'Repair, replacement and installation for walls and ceilings.' },
   { slug: 'ceiling-repair-sydney',          title: 'Ceiling Repair Sydney',          blurb: 'Cracked, sagging or water-stained ceilings, repaired in one visit.' },
-  { slug: 'water-damage-ceiling-repair',    title: 'Water Damage Ceiling Repair',    blurb: 'Brown stains, sagging plaster, insurance liaison included.' },
+  { slug: 'water-damage-ceiling-repair',    title: 'Water Damage Ceiling Repair',    blurb: 'Leak or storm water damage, brown stains and insurance repair scopes.' },
   { slug: 'plaster-hole-patch',             title: 'Plaster Hole Patch',             blurb: 'TV bracket holes, doorknob dents, DIY rescues from $290 fixed.' },
   { slug: 'plaster-crack-repair-sydney',    title: 'Plaster Crack Repair',           blurb: 'Wall + ceiling cracks diagnosed and fixed for good, not just skimmed.' },
   { slug: 'cornice-repair-sydney',          title: 'Cornice Repair Sydney',          blurb: 'Modern and heritage Federation cornice repair and replacement.' },
