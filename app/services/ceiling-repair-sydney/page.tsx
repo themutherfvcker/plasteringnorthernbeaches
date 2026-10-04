@@ -199,7 +199,7 @@ export default function CeilingRepairSydneyPage() {
       <section className="bg-navy-50 px-4 py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">
-            How it works
+            How our Sydney ceiling repair service works
           </h2>
           <p className="text-navy-600 text-center text-lg mb-12">
             Three steps. No back-and-forth. No mystery pricing.
