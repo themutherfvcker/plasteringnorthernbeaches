@@ -15,12 +15,12 @@ const pageUrl = `${SITE.url}/services/${slug}`;
 const dateModified = '2026-10-13';
 
 export const metadata: Metadata = {
-  title: "Gyprocker Northern Beaches & North Shore | Gyprock Repair & Installation",
+  title: "Gyprocker Northern Beaches | Gyprock Repair & Installation",
   description:
     "Gyprocker Northern Beaches: gyprock repair, replace or install plasterboard walls and ceilings. NSW Fair Trading licensed, 2-year written guarantee. Fixed-price quote in 24 hours.",
   alternates: { canonical: pageUrl },
   openGraph: {
-    title: "Gyprocker Northern Beaches & North Shore | Gyprock Repair & Installation",
+    title: "Gyprocker Northern Beaches | Gyprock Repair & Installation",
     description:
       "Gyprocker Northern Beaches: gyprock repair, replace or install plasterboard walls and ceilings. NSW licensed, 2-year written guarantee. Fixed-price quote in 24 hours.",
     url: pageUrl,
