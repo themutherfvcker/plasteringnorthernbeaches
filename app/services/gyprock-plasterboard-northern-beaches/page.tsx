@@ -15,21 +15,21 @@ const pageUrl = `${SITE.url}/services/${slug}`;
 const dateModified = '2026-10-13';
 
 export const metadata: Metadata = {
-  title: "Gyprock Northern Beaches & North Shore | Repair & Installation",
+  title: "Gyprocker Northern Beaches & North Shore | Gyprock Repair & Installation",
   description:
-    "Gyprock Northern Beaches: repair, replace or install plasterboard walls and ceilings. NSW Fair Trading licensed, 2-year written guarantee. Fixed-price quote in 24 hours.",
+    "Gyprocker Northern Beaches: gyprock repair, replace or install plasterboard walls and ceilings. NSW Fair Trading licensed, 2-year written guarantee. Fixed-price quote in 24 hours.",
   alternates: { canonical: pageUrl },
   openGraph: {
-    title: "Gyprock Northern Beaches & North Shore | Repair & Installation",
+    title: "Gyprocker Northern Beaches & North Shore | Gyprock Repair & Installation",
     description:
-      "Gyprock Northern Beaches: repair, replace or install plasterboard walls and ceilings. NSW licensed, 2-year written guarantee. Fixed-price quote in 24 hours.",
+      "Gyprocker Northern Beaches: gyprock repair, replace or install plasterboard walls and ceilings. NSW licensed, 2-year written guarantee. Fixed-price quote in 24 hours.",
     url: pageUrl,
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Gyprock Northern Beaches — Jack's Plastering",
+    title: "Gyprocker Northern Beaches | Gyprock Repair & Installation",
     description:
-      "Gyprock Northern Beaches: repair, replace or install. NSW licensed, 2-year guarantee. Fixed-price quote in 24 hours.",
+      "Gyprocker Northern Beaches: gyprock repair, replace or install. NSW licensed, 2-year guarantee. Fixed-price quote in 24 hours.",
   },
 };
 
