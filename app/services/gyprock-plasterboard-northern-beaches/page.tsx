@@ -198,19 +198,19 @@ export default function Page() {
 
       <SiteHeader />
 
-      {/* ─── Hero — H1 preserved per owner direction. Gyprock-ceiling image
-          stays as the hero background because it is more topical for this
-          page than the generic Jack portrait used on the homepage. ─── */}
+      {/* ─── Hero — H1 preserved per owner direction. Background image and
+          shading mirror the homepage: Jack on the right, object-right
+          opacity-95 with the navy-900/85 → transparent gradient. ─── */}
       <section className="v2-hero-gradient relative overflow-hidden">
         <Image
-          src="/gallery/gyprock-ceiling-installation-northern-beaches.webp"
-          alt="Gyprock plasterboard ceiling installation on the Northern Beaches — Jack's Plastering at work"
+          src="/jack.webp"
+          alt="Jack — NSW Fair Trading licensed plasterer and Gyprocker on the Northern Beaches"
           fill
           priority
           sizes="100vw"
-          className="hidden md:block object-cover object-right opacity-50 z-0"
+          className="hidden md:block object-cover object-right opacity-95 z-0"
         />
-        <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-r from-navy-900/85 via-navy-900/55 to-navy-900/30" aria-hidden="true" />
+        <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-r from-navy-900/85 via-navy-900/55 to-transparent" aria-hidden="true" />
         <div className="absolute inset-0 opacity-10 z-[2]">
           <div className="absolute top-20 left-10 w-64 h-64 bg-brand-400 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-brand-500 rounded-full blur-3xl"></div>
@@ -223,26 +223,25 @@ export default function Page() {
                 <span className="text-white/80 text-sm font-medium">Local Gyprocker · Licensed · 15+ years on the tools</span>
               </div>
 
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6 text-white">
-                Gyprock &amp; Plasterboard Northern Beaches &amp; North Shore
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6">
+                <span className="text-brand-400">Gyprock</span> &amp; Plasterboard Northern Beaches &amp; North Shore
                 <span className="block mt-3 text-brand-400 text-2xl md:text-3xl lg:text-4xl">
                   Repair, replace or install it properly.
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-navy-200 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                One local Gyprocker for gyprock repair, new plasterboard walls and ceilings, wet-area and fire-rated sheet work, cornice and finish across the Northern Beaches and North Shore. Backed by a{' '}
+              <p className="text-lg sm:text-xl text-white mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                Flawless gyprock, perfect finishes &amp; zero hassle. From single-sheet repairs to full-home plasterboard — we do it all with a{' '}
                 <strong className="text-brand-300">2-year written guarantee</strong>.
               </p>
 
               <ul className="space-y-3 mb-8 max-w-md mx-auto lg:mx-0 text-left">
                 {[
-                  'Gyprock repair, replacement and new installation',
-                  'Walls and ceilings finished paint-ready',
+                  'Free fixed-price quotes',
                   'NSW Fair Trading licensed & insured',
-                  'Fixed-price written quote in 24 hours',
+                  '2-year written guarantee',
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-white/90 text-base">
+                  <li key={item} className="flex items-start gap-2 text-white text-base">
                     <span className="text-brand-400 font-extrabold text-lg leading-tight">✓</span>
                     <span>{item}</span>
                   </li>
