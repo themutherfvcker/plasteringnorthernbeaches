@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Image from 'next/image';
 import { SITE } from '@/data/site';
 import LeanQuoteForm from '@/components/LeanQuoteForm';
 import TrustBar from '@/components/TrustBar';
-import TrustBadges from '@/components/TrustBadges';
-import TrustStrip from '@/components/TrustStrip';
 import MeetJack from '@/components/MeetJack';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
@@ -13,68 +12,125 @@ import RelatedServices from '@/components/RelatedServices';
 
 const slug = 'gyprock-plasterboard-northern-beaches';
 const pageUrl = `${SITE.url}/services/${slug}`;
-const dateModified = '2026-09-29';
+const dateModified = '2026-10-13';
 
 export const metadata: Metadata = {
   title: "Gyprock Northern Beaches & North Shore | Repair & Installation",
   description:
-    'Gyprock and plasterboard repair, replacement and installation across the Northern Beaches and North Shore. Walls, ceilings and damaged sheets. Fixed-price quote in 24 hours.',
+    "Local Gyprocker on the Northern Beaches. Gyprock repair, plasterboard installation, wet-area and fire-rated sheet work, cornice and Level 5 finish. Fixed-price quote in 24 hours.",
   alternates: { canonical: pageUrl },
   openGraph: {
     title: "Gyprock Northern Beaches & North Shore | Repair & Installation",
     description:
-      'Gyprock and plasterboard repair, replacement and installation across the Northern Beaches and North Shore. Walls, ceilings and damaged sheets. Fixed-price quote in 24 hours.',
+      "Local Gyprocker on the Northern Beaches. Gyprock repair and installation, plasterboard walls and ceilings, wet-area and fire-rated sheets. Fixed-price quote in 24 hours.",
     url: pageUrl,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Gyprock Northern Beaches — Jack's Plastering",
+    description:
+      "Fixed-price Gyprock quote in 24 hours. Repair, replace or install. 2-year written guarantee. Northern Beaches & North Shore.",
   },
 };
 
-const phoneTel = SITE.phoneTel;
-const phoneDisplay = SITE.phone;
-
 const services = [
-  {
-    title: 'Gyprock repairs',
-    body: 'Repair holes, cracked joints, damaged sections and failed previous patches without replacing more sheet than necessary.',
-  },
-  {
-    title: 'Plasterboard installation',
-    body: 'Install and set new plasterboard for renovations, room changes, new walls and ceiling upgrades.',
-  },
-  {
-    title: 'Sheet replacement',
-    body: 'Remove and replace sections that are too wet, weak, sagging or damaged to repair reliably.',
-  },
-  {
-    title: 'Walls and ceilings',
-    body: 'Match the board and finish to the location, then set, sand and leave the surface ready for painting.',
-  },
+  { icon: '🩹', title: 'Gyprock repairs',               blurb: 'Holes, cracked joints, failed patches and damaged sections repaired without replacing more sheet than needed.',                                        href: '/services/gyprock-plasterboard-northern-beaches#services' },
+  { icon: '🧱', title: 'New plasterboard walls',        blurb: 'Install and set new plasterboard for renovations, room changes, extensions and new internal walls, finished paint-ready.',                              href: '/services/gyprock-plasterboard-northern-beaches#services' },
+  { icon: '🏠', title: 'Ceiling plasterboard',          blurb: 'New ceiling install, sagging-sheet replacement and ceiling repair across the Northern Beaches and North Shore.',                                          href: '/services/ceiling-repair-sydney' },
+  { icon: '🚿', title: 'Wet-area moisture-resistant',   blurb: 'Install the right green or blue water-resistant plasterboard for bathrooms, laundries and ensuites — the sheet that belongs behind tiles.',               href: '/services/gyprock-plasterboard-northern-beaches#services' },
+  { icon: '🔥', title: 'Fire-rated & soundproof',       blurb: 'Fire-rated and soundproof plasterboard upgrades for shared walls, boundary walls, media rooms and home offices — double-sheet and acoustic systems.',     href: '/services/gyprock-plasterboard-northern-beaches#services' },
+  { icon: '✨', title: 'Cornice & Level 5 finish',       blurb: 'Re-run cornice after sheet replacement and apply the full Level 5 flush finish for walls under low-angle lighting or gloss paint.',                       href: '/services/cornice-repair-sydney', popular: true },
 ];
 
+const whyUs = [
+  { icon: '🛡️', title: '2-year written guarantee',  body: "We stand behind every gyprock and plasterboard job. If a joint cracks, a sheet lifts or a finish fails, we come back and fix it. No argument." },
+  { icon: '✅', title: 'Fully licensed & insured',   body: 'NSW Fair Trading licensed contractor with full public liability insurance. Licence number on every written quote.' },
+  { icon: '🧹', title: 'Dust-free & clean',          body: "Drop sheets, plastic masking, HEPA-filter dust extractors on every sand. You will not find plaster dust across the house when we leave." },
+  { icon: '⏰', title: 'On time, every time',        body: 'We show up when we said we would. Daily text updates once the job starts so you know where it stands.' },
+];
+
+const process = [
+  { n: 1, title: 'Request your free quote',  body: "Call Jack or send the short form. We confirm the suburb, the job and arrange the on-site assessment." },
+  { n: 2, title: 'We assess & quote',         body: 'We inspect the gyprock condition, framing, moisture and finish you need, then email a fixed-price written quote within 24 hours.' },
+  { n: 3, title: 'Repair, install & finish',  body: 'Repair or install the plasterboard, tape and set the joints, sand and leave the surface ready for the painter.' },
+];
+
+const testimonials = [
+  { stars: 5, quote: "We had three rooms that needed complete replastering after a renovation. The team was punctual, incredibly tidy, and the finish is absolutely flawless. Can't recommend them enough!", name: 'Mark T.', image: '/avatars/customer-mark-t.webp', suburb: 'Manly Vale' },
+  { stars: 5, quote: 'Had a massive water damage issue in the kitchen ceiling. They came out fast, quoted the next morning, and had it fixed within 48 hours. Amazing service and quality.', name: 'Mei L.', image: '/avatars/customer-mei-l.webp', suburb: 'Dee Why' },
+  { stars: 5, quote: 'Best plasterers on the Beaches, hands down. They did our entire new build — walls, ceilings, cornices — and every single surface is perfect. The 2-year guarantee gave us total confidence.', name: 'James W.', image: '/avatars/customer-james-w.webp', suburb: 'Freshwater' },
+];
+
+// FAQ — gyprock-focused. Informational first (PAA-mined, written for LLM
+// extraction with specific product names + numbers + direct opening sentences),
+// then transactional for visitors close to converting. Flat DOM + Schema.org
+// Question/Answer microdata so Google and LLMs read every answer at page load.
 const faqs = [
   {
     q: 'Is Gyprock the same as plasterboard?',
-    a: 'Gyprock is a widely used Australian brand name for plasterboard. Homeowners often use the two words interchangeably. We repair, replace and install internal plasterboard wall and ceiling systems.',
+    a: "Yes — Gyprock is a widely used Australian brand of plasterboard, made by CSR. Homeowners and tradies use the two words interchangeably. We repair, replace and install internal plasterboard wall and ceiling systems, whether the existing sheet is Gyprock, Boral, USG Boral or an older unbranded board.",
   },
   {
     q: 'Can damaged Gyprock be repaired, or does it need replacing?',
-    a: 'Small holes, cracked joints and local damage can often be repaired. Soft, badly water-damaged, sagging or structurally weakened sheets may need partial or full replacement. We inspect the damage before recommending the most reliable option.',
+    a: "Most clean holes, cracked joints and local damage can be repaired without replacing the whole sheet. Soft water-damaged plasterboard, badly sagging sheets, extensive cracking and sheets no longer secured to the framing usually need a partial or full replacement. We assess the board condition, the moisture reading and the framing before recommending repair vs replace, so you only pay for the work the job actually needs.",
   },
   {
-    q: 'Do you install Gyprock for renovations?',
-    a: 'Yes. We install and set plasterboard for room alterations, new internal walls, ceilings and renovation work, then leave it ready for the painter.',
+    q: 'Do you install Gyprock for renovations and new rooms?',
+    a: "Yes. We install and set plasterboard for room alterations, new internal walls, ceiling upgrades, extensions and full renovations across the Northern Beaches and North Shore. Each job includes measuring and ordering the sheet, screw-fixing to timber or metal framing, tape and set the joints, and sand to a paint-ready finish before the painter arrives.",
   },
   {
     q: 'Do you repair both Gyprock walls and ceilings?',
-    a: 'Yes. The right method depends on the location, board condition, framing, moisture and the cause of the damage. If a leak caused the problem, the leak needs to be fixed and the area dry before the plasterboard is closed and finished.',
+    a: "Yes. The right method depends on the location, the board condition, the framing and the cause of the damage. Ceiling repairs are often more involved than wall repairs because sagging sheets have to be re-secured and any upstream water source has to be fixed first. If a leak caused the damage, the leak needs to be stopped and the area dry before the plasterboard is closed and finished.",
   },
   {
-    q: 'How quickly can I get a quote?',
-    a: 'Call or send the short form with your suburb and job details. We provide a fixed-price written quote after assessing the work, with the quote visit arranged within 24 hours in the normal service area.',
+    q: 'What thickness of plasterboard do you install?',
+    a: "The two standard thicknesses are 10mm (standard walls) and 13mm (ceilings, fire-rated and acoustic applications). We install 10mm for most interior walls on 450mm or 600mm stud spacings, 13mm for ceilings on standard 450mm joist spacings, and 16mm or multi-layer builds where the job calls for extra fire or acoustic rating. The right thickness is set by the Australian Building Code and the stud/joist spacing — not by preference — so we confirm it on the site visit before quoting.",
+  },
+  {
+    q: 'Can you install moisture-resistant plasterboard for bathrooms?',
+    a: "Yes — bathrooms, laundries, ensuites and anywhere a sheet sits behind tiles get moisture-resistant plasterboard (CSR Gyprock Aquachek, Boral Wet Area or USG Boral Wet Area). It is the green or blue coloured sheet designed to resist moisture penetration behind tiles and in high-humidity rooms. We install the right wet-area sheet per the room, flashband the sheet-to-floor junction, and leave the surface ready for the waterproofer and tiler.",
+  },
+  {
+    q: 'Do you install fire-rated plasterboard?',
+    a: "Yes. Fire-rated plasterboard (CSR Gyprock Fyrchek, Boral Firestop or USG Boral Firestop) is required under the National Construction Code on shared walls between dwellings, boundary walls close to the lot line, walls between a garage and a habitable room, and some ceiling applications. It is identified by the pink paper facing and comes in 13mm and 16mm thicknesses. We install the sheet to the manufacturer's fire-rated system — screw spacing, joint treatment and penetrations all have to meet the certified detail or the rating is void.",
+  },
+  {
+    q: 'Can you install soundproof plasterboard upgrades?',
+    a: "Yes — acoustic plasterboard upgrades suit media rooms, home offices, bedrooms backing onto living rooms and shared walls between townhouses. The common approaches are double-layer standard plasterboard with staggered joints, a single layer of acoustic-rated sheet (CSR Gyprock Soundchek or Boral SoundStop), and resilient-mount channels that decouple the sheet from the framing. We advise which system fits the room and the budget on the site visit, and quote the Rw value the finished wall is designed to hit.",
+  },
+  {
+    q: 'What is a Level 5 flush finish and when do I need it?',
+    a: "Level 5 is the highest Australian Standard finish for plasterboard — the whole wall gets a skim coat of jointing compound so the paper, the joints and the fastener points all read the same under paint. You need Level 5 for walls that take gloss or semi-gloss paint, walls under low-angle or raking light (feature walls near a window, hallways with downlights washing the surface) and feature walls where any variation in sheen will be obvious. We quote Level 4 as standard and Level 5 where the lighting or finish calls for it.",
+  },
+  {
+    q: 'Do you re-run cornice after a Gyprock replacement?',
+    a: "Yes. When we replace a ceiling sheet or a damaged section near the wall-ceiling junction, the old cornice usually has to come off and a new run has to go up. We match the cornice profile to the room — modern cove, 55mm or 90mm cove, or a Federation / Art Deco profile on older homes — so the new run reads continuous with the rest of the house. Where we can save the existing cornice we save it, but a cornice that has lost its bond or crumbled at the edge is faster and more reliable to re-run than to patch.",
+  },
+  {
+    q: 'How quickly can I get a Gyprock quote?',
+    a: "Call Jack or send the short quote form with your suburb and job details. We provide a fixed-price written quote after an on-site assessment, with the quote visit arranged within 24 hours across the Northern Beaches and North Shore in the normal service area. Urgent jobs — ceiling with collapse risk, sagging plaster from an active leak — get prioritised and we aim for same-day or next-business-day attendance.",
   },
   {
     q: 'Which areas do you cover?',
-    a: 'We cover the Northern Beaches and North Shore, including Manly, Freshwater, Dee Why, Brookvale, Narrabeen, Mona Vale and Frenchs Forest, plus Mosman, North Sydney, Chatswood, Gordon, Pymble, St Ives, Turramurra, Wahroonga and surrounding suburbs.',
+    a: "We cover the Northern Beaches and the North Shore, including Manly, Freshwater, Dee Why, Brookvale, Narrabeen, Mona Vale, Avalon, Palm Beach and Frenchs Forest, plus Mosman, Neutral Bay, Chatswood, Gordon, Pymble, St Ives, Turramurra, Wahroonga, Hornsby and surrounding suburbs. Jobs further afield across Sydney are considered on request.",
   },
+];
+
+const heroAreasList = [
+  // Northern Beaches
+  'Manly', 'Dee Why', 'Freshwater', 'Curl Curl', 'Brookvale', 'Cromer',
+  'Beacon Hill', 'Collaroy', 'Narrabeen', 'Mona Vale', 'Warriewood',
+  'Newport', 'Bilgola', 'Avalon', 'Palm Beach', 'Bayview', 'Church Point',
+  'Frenchs Forest', 'Belrose', 'Forestville', 'Queenscliff',
+  'North Balgowlah', 'Seaforth',
+  // Lower North Shore
+  'Mosman', 'Neutral Bay', 'Cremorne', 'North Sydney', 'Lane Cove',
+  'Chatswood', 'Crows Nest',
+  // Upper North Shore
+  'Roseville', 'Lindfield', 'Killara', 'Gordon', 'Pymble', 'Turramurra',
+  'St Ives', 'Wahroonga', 'Hornsby',
+  // Hills / Northern districts
+  'Pennant Hills', 'Cherrybrook', 'Epping', 'Eastwood', 'Castle Hill',
 ];
 
 const faqSchema = {
@@ -95,20 +151,28 @@ const serviceSchema = {
   '@id': `${pageUrl}#service`,
   datePublished: dateModified,
   dateModified,
-  name: 'Gyprock and Plasterboard Northern Beaches and North Shore',
+  name: 'Gyprock & Plasterboard — Northern Beaches and North Shore',
   serviceType: 'Gyprock and plasterboard repair, replacement and installation',
   image: [
     `${SITE.url}/gallery/gyprock-ceiling-installation-northern-beaches.webp`,
     `${SITE.url}/gallery/full-home-plastering-northern-beaches.webp`,
   ],
   provider: { '@id': `${SITE.url}/#business` },
-  areaServed: SITE.primarySuburbs.map((suburb) => ({
+  areaServed: heroAreasList.map((suburb) => ({
     '@type': 'City',
     name: suburb,
     containedInPlace: { '@type': 'State', name: 'New South Wales' },
   })),
   description:
-    'Gyprock and plasterboard repair, replacement and installation for walls and ceilings across the Northern Beaches and North Shore.',
+    'NSW Fair Trading licensed Gyprocker on the Northern Beaches. Gyprock repair, new plasterboard installation, ceiling sheet replacement, wet-area and fire-rated sheet work, soundproof upgrades, cornice re-run and Level 5 flush finish across the Northern Beaches and North Shore.',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Gyprock and plasterboard services',
+    itemListElement: services.map((s) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: s.title, description: s.blurb },
+    })),
+  },
   url: pageUrl,
 };
 
@@ -125,124 +189,482 @@ const breadcrumbSchema = {
 export default function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
+      {/* ─── Trust bar (Vista-pattern, very top) ─── */}
       <TrustBar />
+
       <SiteHeader />
 
-      <section className="relative v2-hero-gradient text-white pt-12 md:pt-20 pb-12 md:pb-20 px-4 overflow-hidden">
+      {/* ─── Hero — H1 preserved per owner direction. Gyprock-ceiling image
+          stays as the hero background because it is more topical for this
+          page than the generic Jack portrait used on the homepage. ─── */}
+      <section className="v2-hero-gradient relative overflow-hidden">
         <Image
           src="/gallery/gyprock-ceiling-installation-northern-beaches.webp"
-          alt="Gyprock plasterboard ceiling installation on the Northern Beaches"
+          alt="Gyprock plasterboard ceiling installation on the Northern Beaches — Jack's Plastering at work"
           fill
           priority
           sizes="100vw"
           className="hidden md:block object-cover object-right opacity-50 z-0"
         />
-        <div className="hidden md:block absolute inset-0 z-10 bg-gradient-to-r from-navy-900 via-navy-900/80 to-navy-900/30" aria-hidden="true" />
-        <div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-start">
-          <div>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
-              Gyprock &amp; Plasterboard Northern Beaches &amp; North Shore
-              <span className="block mt-3 text-brand-400 text-2xl md:text-3xl lg:text-4xl">
-                Repair, replace or install it properly.
-              </span>
-            </h1>
-            <p className="text-lg md:text-xl text-navy-100 leading-relaxed mb-7">
-              One local team for Gyprock repairs, new plasterboard walls and ceilings, sheet replacement and setting across the Northern Beaches and North Shore.
-            </p>
-            <ul className="space-y-3 text-lg text-navy-100 mb-8">
-              <li className="flex gap-3"><span className="text-brand-400">✓</span><span>Repairs, replacement and new installation</span></li>
-              <li className="flex gap-3"><span className="text-brand-400">✓</span><span>Walls and ceilings finished paint-ready</span></li>
-              <li className="flex gap-3"><span className="text-brand-400">✓</span><span>Clear fixed-price written quote</span></li>
-              <li className="flex gap-3"><span className="text-brand-400">✓</span><span>Small repairs and renovation work welcome</span></li>
-            </ul>
-            <a href={`tel:${phoneTel}`} className="inline-flex items-center justify-center gap-2 v2-cta-gradient text-navy-900 font-extrabold text-lg px-6 py-4 rounded-xl shadow-xl shadow-brand-500/30 hover:scale-[1.02] transition-transform">
-              📞 Call Jack — {phoneDisplay}
-            </a>
+        <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-r from-navy-900/85 via-navy-900/55 to-navy-900/30" aria-hidden="true" />
+        <div className="absolute inset-0 opacity-10 z-[2]">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-brand-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-brand-500 rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 lg:py-28 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+                <span className="text-amber-300 text-lg">★★★★★</span>
+                <span className="text-white/80 text-sm font-medium">Local Gyprocker · Licensed · 15+ years on the tools</span>
+              </div>
+
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6 text-white">
+                Gyprock &amp; Plasterboard Northern Beaches &amp; North Shore
+                <span className="block mt-3 text-brand-400 text-2xl md:text-3xl lg:text-4xl">
+                  Repair, replace or install it properly.
+                </span>
+              </h1>
+
+              <p className="text-lg sm:text-xl text-navy-200 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                One local Gyprocker for gyprock repair, new plasterboard walls and ceilings, wet-area and fire-rated sheet work, cornice and finish across the Northern Beaches and North Shore. Backed by a{' '}
+                <strong className="text-brand-300">2-year written guarantee</strong>.
+              </p>
+
+              <ul className="space-y-3 mb-8 max-w-md mx-auto lg:mx-0 text-left">
+                {[
+                  'Gyprock repair, replacement and new installation',
+                  'Walls and ceilings finished paint-ready',
+                  'NSW Fair Trading licensed & insured',
+                  'Fixed-price written quote in 24 hours',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-white/90 text-base">
+                    <span className="text-brand-400 font-extrabold text-lg leading-tight">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6">
+                <a href="#quote" className="v2-cta-gradient animate-pulse-glow text-navy-900 font-extrabold text-lg px-8 py-4 rounded-xl hover:scale-105 active:scale-95 transition-all duration-150 shadow-2xl shadow-brand-500/30 text-center">
+                  Get Your Free Quote →
+                </a>
+                <a href={`tel:${SITE.phoneTel}`} className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-white/20 transition-all duration-150 text-center flex items-center justify-center gap-2">
+                  📞 {SITE.phone}
+                </a>
+              </div>
+
+              <p className="text-navy-300 text-sm flex items-center justify-center lg:justify-start gap-2">
+                🛡️ No obligation. No spam. Just an honest Gyprock quote.
+              </p>
+            </div>
+
+            {/* Hero quote form. source=gyprock-plasterboard-northern-beaches tags
+                 the lead so LEADS-002 can attribute it to this page's hero CTA. */}
+            <div className="relative">
+              <LeanQuoteForm source="gyprock-plasterboard-northern-beaches" problem="Gyprock & Plasterboard" />
+            </div>
           </div>
-          <div className="md:sticky md:top-6">
-            <LeanQuoteForm source="gyprock-plasterboard-northern-beaches" problem="Gyprock & Plasterboard" />
-            <TrustBadges />
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 leading-[0]">
+          <svg viewBox="0 0 1440 60" preserveAspectRatio="none" className="w-full h-[60px]">
+            <path d="M0 60V30C240 0 480 0 720 30C960 60 1200 60 1440 30V60H0Z" fill="white"/>
+          </svg>
+        </div>
+      </section>
+
+      {/* ─── Trust Stats Bar ─── */}
+      <section className="bg-white py-8 border-b border-navy-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
+            <div>
+              <div className="v2-number-highlight text-4xl md:text-5xl font-black">15+</div>
+              <div className="text-navy-600 font-medium text-sm mt-1">Years on gyprock</div>
+            </div>
+            <div>
+              <div className="v2-number-highlight text-4xl md:text-5xl font-black">Local</div>
+              <div className="text-navy-600 font-medium text-sm mt-1">Northern Beaches based</div>
+            </div>
+            <div>
+              <div className="v2-number-highlight text-4xl md:text-5xl font-black">Licensed</div>
+              <div className="text-navy-600 font-medium text-sm mt-1">NSW Fair Trading</div>
+            </div>
+            <div>
+              <div className="v2-number-highlight text-4xl md:text-5xl font-black">2yr</div>
+              <div className="text-navy-600 font-medium text-sm mt-1">Written guarantee</div>
+            </div>
           </div>
         </div>
       </section>
 
-      <TrustStrip items={['Gyprock repairs', 'Plasterboard installation', 'Walls & ceilings', 'Paint-ready finish']} />
+      {/* ─── Meet Jack (same component as homepage) ─── */}
       <MeetJack />
 
-      <section className="bg-navy-50 px-4 py-16 md:py-20">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">Gyprock and plasterboard work we handle</h2>
-          <p className="text-navy-600 text-center text-lg mb-12 max-w-3xl mx-auto">
-            The right job may be a local repair, a section replacement or new sheeting. We assess the board and the cause before recommending the scope.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            {services.map((service) => (
-              <article key={service.title} className="bg-white rounded-2xl p-7 border border-navy-100 shadow-sm">
-                <h3 className="font-bold text-xl text-navy-900 mb-3">{service.title}</h3>
-                <p className="text-navy-600 leading-relaxed">{service.body}</p>
-              </article>
+      {/* ─── Gyprock services grid ─── */}
+      <section id="services" className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Gyprock & plasterboard</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-4">
+              Every Gyprock Job,<br/><span className="text-brand-600">Done Right</span>
+            </h2>
+            <p className="text-navy-600 text-lg max-w-2xl mx-auto">
+              Repair, replace or install — from a single damaged sheet to a whole-house gyprock fit-out. The right board, the right system, the right finish.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {services.map((s) => (
+              <Link key={s.title} href={s.href} className="bg-white border-2 border-navy-100 rounded-2xl p-6 md:p-8 hover:border-brand-500 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 relative overflow-hidden block">
+                {s.popular && (
+                  <div className="absolute top-4 right-4 bg-brand-500 text-navy-900 font-bold text-xs px-3 py-1 rounded-full">POPULAR</div>
+                )}
+                <div className="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center mb-5 text-2xl">{s.icon}</div>
+                <h3 className="font-bold text-xl text-navy-900 mb-2">{s.title}</h3>
+                <p className="text-navy-600 mb-4">{s.blurb}</p>
+                <span className="text-brand-600 font-semibold text-sm hover:text-brand-700 transition-colors inline-flex items-center gap-1">
+                  View {s.title.toLowerCase()} details →
+                </span>
+              </Link>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section className="bg-white px-4 py-16 md:py-20">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-14 items-center">
-          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
-            <Image
-              src="/gallery/full-home-plastering-northern-beaches.webp"
-              alt="New plasterboard walls set and finished ready for painting"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-5">Repair or replace? Start with the condition of the sheet.</h2>
-            <p className="text-navy-700 text-lg leading-relaxed mb-5">
-              A clean hole or failed joint can usually be repaired. Plasterboard that is soft from water, badly sagging, extensively cracked or no longer secure may need a section replaced.
-            </p>
-            <p className="text-navy-700 text-lg leading-relaxed">
-              We explain what can be saved, what should be replaced and what must be fixed first—such as an active leak—before closing and finishing the surface.
-            </p>
+          <div className="text-center mt-10">
+            <Link href="/#services" className="inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 font-bold text-base transition-colors border-b-2 border-brand-200 hover:border-brand-500 pb-1">
+              See all plastering services on the Northern Beaches →
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="bg-navy-900 text-white px-4 py-16 md:py-20">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-3 text-center">From bare sheet to a paint-ready finish</h2>
-          <p className="text-navy-200 text-center text-lg mb-12">A clear four-step process for repair and installation work.</p>
-          <div className="grid md:grid-cols-4 gap-6">
+      {/* ─── Recent gyprock work gallery ─── */}
+      <section className="py-16 md:py-24 bg-white border-t border-navy-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Recent Work</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-4">
+              Gyprock Jobs Across the Northern Beaches
+            </h2>
+            <p className="text-navy-600 text-lg max-w-2xl mx-auto">
+              Walls, ceilings and finishes — same Gyprocker, same 2-year written guarantee on every job.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              ['1', 'Assess', 'Check the damage, board type, framing, moisture and the finish you need.'],
-              ['2', 'Quote', 'Confirm the repair or installation scope in a fixed-price written quote.'],
-              ['3', 'Repair or install', 'Cut out failed material or install the new plasterboard and secure it correctly.'],
-              ['4', 'Set and finish', 'Tape, set, sand and leave the surface ready for the painter.'],
-            ].map(([number, title, body]) => (
-              <article key={number} className="bg-navy-800 border border-navy-700 rounded-2xl p-6">
-                <div className="w-11 h-11 rounded-full bg-brand-500 text-navy-900 font-extrabold flex items-center justify-center mb-4">{number}</div>
-                <h3 className="font-bold text-xl mb-2">{title}</h3>
-                <p className="text-navy-200 leading-relaxed">{body}</p>
-              </article>
+              { image: 'gyprock-ceiling-installation-northern-beaches.webp', alt: 'Gyprock plasterboard ceiling installation on the Northern Beaches', suburb: 'Northern Beaches', job: 'Gyprock ceiling install' },
+              { image: 'ceiling-repair-in-progress-northern-beaches.webp', alt: 'Ceiling plasterboard replacement in progress — large oval cut-out ready for new sheet and skim', suburb: 'Dee Why', job: 'Ceiling sheet replacement' },
+              { image: 'full-home-plastering-northern-beaches.webp', alt: 'Full-home plasterboard install — high-ceiling hallway finished paint-ready', suburb: 'Mona Vale', job: 'Full-home plasterboard' },
+              { image: 'kitchen-ceiling-plastering-northern-beaches.webp', alt: 'Kitchen suspended plasterboard ceiling with recessed downlights, Northern Beaches home', suburb: 'Brookvale', job: 'Kitchen plasterboard ceiling' },
+              { image: 'large-room-ceiling-plastering-northern-beaches.webp', alt: 'Large living-room plasterboard ceiling installation on the Northern Beaches', suburb: 'Collaroy', job: 'Large-room ceiling install' },
+              { image: 'built-in-tv-fireplace-plastering-northern-beaches.webp', alt: 'New plasterboard walls built out around a TV cabinet and electric fireplace, Northern Beaches', suburb: 'Avalon', job: 'New wall build-out' },
+            ].map((j, i) => (
+              <figure key={i} className="bg-navy-50 rounded-2xl overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                <div className="aspect-[4/3] relative">
+                  <Image
+                    src={`/gallery/${j.image}`}
+                    alt={j.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <figcaption className="p-5">
+                  <div className="font-bold text-navy-900 mb-1">{j.suburb}</div>
+                  <div className="text-navy-700 text-sm">{j.job}</div>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white px-4 py-16 md:py-20">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 text-center">Gyprock and plasterboard questions</h2>
-          <p className="text-navy-600 text-center text-lg mb-3">What Northern Beaches and North Shore homeowners ask before booking.</p>
-          <p className="text-navy-500 text-sm mb-10 text-center">
-            <time dateTime={dateModified}>Last updated: 29 September 2026</time>
+      {/* ─── Testimonials ─── */}
+      <section id="reviews" className="py-16 md:py-24 bg-navy-900 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-brand-500/20 text-brand-300 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Testimonials</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">
+              What Northern Beaches<br/><span className="text-brand-400">Homeowners Say</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            {testimonials.map((t, i) => (
+              <div key={i} className="bg-navy-800 border border-navy-700 rounded-2xl p-6 md:p-8 shadow-lg hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-5 shadow-md ring-2 ring-brand-500/30 relative">
+                  <Image src={t.image} alt={`${t.name} — verified Jack's Plastering customer`} fill sizes="80px" className="object-cover" />
+                </div>
+                <div className="text-brand-400 text-lg mb-4">{'★'.repeat(t.stars)}</div>
+                <p className="text-navy-100 mb-6 leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
+                <div>
+                  <div className="font-bold text-white">{t.name}</div>
+                  <div className="text-brand-400 text-sm font-semibold">{t.suburb} · Verified customer</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Why Choose Us ─── */}
+      <section id="why-us" className="py-16 md:py-24 bg-navy-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Why choose us</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-6">
+                Don&apos;t Risk Your Walls<br/><span className="text-brand-600">With Amateurs</span>
+              </h2>
+              <p className="text-navy-600 text-lg mb-8 leading-relaxed">
+                A bad gyprock install cracks at the joints, sags at the ceiling and the paint shows every fastener. We set the sheet right the first time so you are not calling someone back in six months.
+              </p>
+
+              <div className="space-y-6">
+                {whyUs.map((w) => (
+                  <div key={w.title} className="flex gap-4">
+                    <div className="w-12 h-12 bg-brand-500 rounded-xl flex items-center justify-center flex-shrink-0 text-xl">
+                      {w.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-navy-900 text-lg">{w.title}</h3>
+                      <p className="text-navy-600">{w.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="rounded-2xl overflow-hidden shadow-2xl relative aspect-[4/5] min-h-[360px]">
+                <Image
+                  src="/gallery/gyprock-ceiling-installation-northern-beaches.webp"
+                  alt="Jack installing Gyprock plasterboard ceiling on the Northern Beaches — NSW Fair Trading licensed Gyprocker at work"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-6 left-4 right-4 sm:-bottom-8 sm:left-8 sm:right-8 bg-white rounded-xl shadow-xl p-5 border border-navy-100">
+                <div className="flex items-center gap-4">
+                  <div className="flex -space-x-2">
+                    <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-300"></div>
+                    <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-400"></div>
+                    <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-500"></div>
+                  </div>
+                  <div>
+                    <div className="text-amber-500 text-sm">★★★★★</div>
+                    <div className="text-navy-600 text-sm font-medium">&ldquo;Absolutely brilliant work. Best tradies I&apos;ve ever hired.&rdquo;</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Guarantee section ─── */}
+      <section className="py-16 md:py-24 bg-brand-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {[
+                  {
+                    image: 'gyprock-ceiling-installation-northern-beaches.webp',
+                    alt: 'Gyprock ceiling installation — paint-ready finish backed by 2-year written guarantee',
+                    suburb: 'Northern Beaches',
+                  },
+                  {
+                    image: 'full-home-plastering-northern-beaches.webp',
+                    alt: 'Full-home plasterboard install, Mona Vale — backed by 2-year guarantee',
+                    suburb: 'Mona Vale',
+                  },
+                  {
+                    image: 'built-in-tv-fireplace-plastering-northern-beaches.webp',
+                    alt: 'Custom built-in TV wall and electric fireplace with new plasterboard, Avalon — backed by 2-year guarantee',
+                    suburb: 'Avalon',
+                  },
+                  {
+                    image: 'kitchen-ceiling-plastering-northern-beaches.webp',
+                    alt: 'Kitchen plasterboard ceiling with recessed downlights, Brookvale — backed by 2-year guarantee',
+                    suburb: 'Brookvale',
+                  },
+                  {
+                    image: 'ceiling-repair-in-progress-northern-beaches.webp',
+                    alt: 'Ceiling plasterboard replacement in progress on the Northern Beaches — large cut-out ready for new sheet',
+                    suburb: 'Dee Why',
+                  },
+                ].map((item, i) => (
+                  <div key={i} className="rounded-xl overflow-hidden shadow-lg relative aspect-[4/5]">
+                    <Image
+                      src={`/gallery/${item.image}`}
+                      alt={item.alt}
+                      fill
+                      sizes="(max-width: 1024px) 50vw, 25vw"
+                      className="object-cover"
+                    />
+                    <span className="absolute bottom-3 left-3 bg-navy-900/85 backdrop-blur-sm text-white font-bold text-xs px-3 py-1.5 rounded-full">
+                      {item.suburb}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="order-1 lg:order-2">
+              <span className="inline-block bg-brand-200 text-brand-900 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Our guarantee</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-6">
+                We Put Our Money<br/><span className="text-brand-600">Where Our Mouth Is</span>
+              </h2>
+              <p className="text-navy-600 text-lg mb-6 leading-relaxed">
+                Every gyprock and plasterboard job comes with a{' '}
+                <strong className="text-navy-900">2-year written workmanship guarantee</strong>. If a joint cracks, a sheet lifts or a finish fails, Jack returns and fixes it. Backed by {SITE.name} — if Jack cannot personally honour the callback we arrange another licensed plasterer at no cost to you.
+              </p>
+              <div className="bg-white rounded-2xl p-6 border-2 border-brand-200 shadow-sm mb-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 bg-brand-500 rounded-xl flex items-center justify-center flex-shrink-0 text-3xl">
+                    📜
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-navy-900 text-lg mb-1">2-year written workmanship guarantee</h3>
+                    <p className="text-navy-600 text-sm">
+                      Not verbal. Not wishy-washy. A proper, signed, written guarantee on every gyprock quote.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <a href="#quote" className="v2-cta-gradient inline-flex items-center gap-2 text-navy-900 font-extrabold text-lg px-8 py-4 rounded-xl hover:scale-105 active:scale-95 transition-all duration-150 shadow-lg shadow-brand-500/30">
+                Claim Your Free Quote →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Areas We Serve ─── */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-10">
+            <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Areas we serve</span>
+            <h2 className="text-3xl sm:text-4xl font-black text-navy-900 mb-4">
+              Local Gyprocker Across the <span className="text-brand-600">Northern Beaches &amp; North Shore</span>
+            </h2>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {heroAreasList.map((s) => (
+              <span key={s} className="bg-navy-50 text-navy-800 font-medium px-4 py-2 rounded-lg border border-navy-100 hover:bg-brand-50 hover:border-brand-200 transition-colors">
+                {s}
+              </span>
+            ))}
+            <span className="bg-brand-100 text-brand-800 font-bold px-4 py-2 rounded-lg border border-brand-300">
+              &amp; All Surrounding Suburbs
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Process ─── */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">How it works</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-4">
+              3 Simple Steps to a<br/><span className="text-brand-600">Paint-Ready Finish</span>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 relative">
+            <div className="hidden md:block absolute top-8 left-[16%] right-[16%] h-0.5 bg-brand-200"></div>
+            {process.map((step) => (
+              <div key={step.n} className="text-center relative">
+                <div className="w-16 h-16 bg-brand-500 rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10 shadow-lg shadow-brand-500/30">
+                  <span className="text-navy-900 font-black text-2xl">{step.n}</span>
+                </div>
+                <h3 className="font-bold text-xl text-navy-900 mb-2">{step.title}</h3>
+                <p className="text-navy-600">{step.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Related services (sibling-page internal linking) ─── */}
+      <RelatedServices currentSlug={slug} />
+
+      {/* ─── Quote Form (main) ─── */}
+      <section id="quote" className="py-16 md:py-24 bg-navy-900 relative overflow-hidden">
+        <Image
+          src="/jack.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="hidden md:block object-cover object-left opacity-70 z-0"
+          aria-hidden="true"
+        />
+        <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-r from-navy-900/40 via-navy-900/70 to-navy-900/95" aria-hidden="true" />
+        <div className="absolute inset-0 opacity-10 z-[2]">
+          <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-brand-500 rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block bg-brand-500/20 text-brand-300 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Free gyprock quote</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6">
+                Get Your <span className="text-brand-400">Gyprock Quote</span>
+              </h2>
+              <p className="text-navy-200 text-lg mb-8 leading-relaxed">
+                Tell Jack what the job is — gyprock repair, new plasterboard install, wet-area or fire-rated sheet, cornice re-run — and we send a fixed-price written quote within 24 hours.
+              </p>
+              <div className="space-y-4 mb-8">
+                {[
+                  'Free on-site assessment',
+                  'Fixed-price quote — no hidden fees',
+                  'NSW Fair Trading licensed contractor',
+                  '2-year written workmanship guarantee',
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3 text-white/90">
+                    <span className="text-brand-400 text-xl flex-shrink-0">✓</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <LeanQuoteForm source="gyprock-plasterboard-northern-beaches-bottom" problem="Gyprock & Plasterboard" />
+          </div>
+        </div>
+      </section>
+
+      {/* ─── FAQ — flat layout (every answer in the DOM at page load) with
+          Schema.org Question/Answer microdata so Google + LLMs can extract
+          all answers without an accordion expansion. ─── */}
+      <section id="faq" className="py-16 md:py-24 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">FAQ</span>
+            <h2 className="text-3xl sm:text-4xl font-black text-navy-900 mb-4">Gyprock & Plasterboard — Your Questions Answered</h2>
+            <p className="text-navy-600 text-lg">Sheet type, thickness, wet-area and fire-rated rules, finish levels and timing — everything Northern Beaches homeowners ask before booking a Gyprocker.</p>
+          </div>
+
+          <p className="text-navy-500 text-sm mt-2 text-center md:text-left">
+            <time dateTime={dateModified}>
+              {`Last updated: ${new Date(dateModified).toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" })}`}
+            </time>
           </p>
           <div className="space-y-4">
-            {faqs.map((faq) => (
-              <article key={faq.q} itemScope itemType="https://schema.org/Question" className="bg-navy-50 rounded-xl border border-navy-100 p-5 md:p-6">
-                <h3 itemProp="name" className="font-bold text-navy-900 text-base md:text-lg mb-3">{faq.q}</h3>
+            {faqs.map((f, i) => (
+              <article
+                key={i}
+                itemScope
+                itemType="https://schema.org/Question"
+                className="bg-navy-50 rounded-xl border border-navy-100 p-5 md:p-6"
+              >
+                <h3 itemProp="name" className="font-bold text-navy-900 text-base md:text-lg mb-3">{f.q}</h3>
                 <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                  <p itemProp="text" className="text-navy-700 leading-relaxed">{faq.a}</p>
+                  <p itemProp="text" className="text-navy-700 leading-relaxed">{f.a}</p>
                 </div>
               </article>
             ))}
@@ -250,28 +672,35 @@ export default function Page() {
         </div>
       </section>
 
-      <RelatedServices currentSlug={slug} />
-
-      <section id="quote" className="v2-hero-gradient text-white px-4 py-16 md:py-20">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-start">
-          <div>
-            <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-4">Need Gyprock repaired, replaced or installed?</h2>
-            <p className="text-navy-100 text-lg mb-6">Tell Jack what is happening, where the job is and whether it is a repair or renovation.</p>
-            <a href={`tel:${phoneTel}`} className="block bg-white/10 border-2 border-white/30 hover:bg-white/15 rounded-xl p-5 transition-colors">
-              <div className="font-bold text-lg">📞 Call Jack now</div>
-              <div className="text-navy-200 text-sm">{phoneDisplay} · Or use the short quote form</div>
+      {/* ─── Final CTA ─── */}
+      <section className="py-16 md:py-24 bg-brand-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-200 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-300 rounded-full blur-3xl opacity-30"></div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-6">
+            Need Gyprock Repaired,<br/><span className="text-brand-600">Replaced or Installed?</span>
+          </h2>
+          <p className="text-navy-600 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
+            Tell Jack what the job is and where it is. Fixed-price written quote in 24 hours, 2-year written guarantee on every finish.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <a href="#quote" className="v2-cta-gradient animate-pulse-glow text-navy-900 font-extrabold text-lg px-10 py-5 rounded-xl hover:scale-105 active:scale-95 transition-all duration-150 shadow-2xl shadow-brand-500/30">
+              Get Your Free Quote Now →
+            </a>
+            <a href={`tel:${SITE.phoneTel}`} className="bg-navy-900 text-white font-bold text-lg px-10 py-5 rounded-xl hover:bg-navy-800 transition-all duration-150 flex items-center justify-center gap-2">
+              📞 {SITE.phone}
             </a>
           </div>
-          <div><LeanQuoteForm source="gyprock-plasterboard-northern-beaches-bottom" problem="Gyprock & Plasterboard" /></div>
+          <div className="flex flex-wrap items-center justify-center gap-6 text-navy-600 text-sm font-medium">
+            <span className="flex items-center gap-2">🛡️ 2-year guarantee</span>
+            <span className="flex items-center gap-2">✅ Licensed &amp; insured</span>
+            <span className="flex items-center gap-2">⭐ NSW Fair Trading</span>
+          </div>
         </div>
       </section>
 
       <SiteFooter />
       <StickyCallCTA />
-
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
     </>
   );
 }
