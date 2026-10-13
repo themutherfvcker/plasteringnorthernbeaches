@@ -1,5 +1,8 @@
 # Plastering Northern Beaches — Agent Rules
 
+> **Mandatory SEO execution entry point (cross-chat):** Read [`themutherfvcker/seo-data-hub/docs/methodology/EXECUTION-CONTRACT.md`](https://github.com/themutherfvcker/seo-data-hub/blob/main/docs/methodology/EXECUTION-CONTRACT.md) before any SEO/GEO audit, proposal, or edit. Load the currently approved method and this site's existing page owners; record objective, approved scope, protected elements and gates. An audit or a generic “go ahead” never authorizes unrelated edits or deployment. This pointer adds execution gates; it does not replace site-specific rules.
+
+
 Before creating or materially modifying any indexable page, metadata, H1, hero copy, internal-link architecture, schema description, or SEO-targeted content, read:
 
 1. `docs/seo/README.md`
