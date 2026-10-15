@@ -31,7 +31,7 @@ export default function QuoteForm({ source = 'main' }: { source?: string }) {
   });
   const [website, setWebsite] = useState('');
   const mountedAt = useRef<number>(0);
-  useEffect(() => { mountedAt.current = performance.now(); }, []);
+  useEffect(() => { mountedAt.current = performance.now(); getLeadAttribution(); }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
