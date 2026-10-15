@@ -11,7 +11,8 @@ const DELIVERY_STATES: readonly DeliveryState[] = ['pending', 'accepted', 'faile
 
 const FIELD_LIMITS: Record<string, number> = {
   name: 120, phone: 40, email: 254, suburb: 120, service: 120, message: 4000,
-  source: 60, gclid: 200, fbclid: 200,
+  source: 60, gclid: 200, gbraid: 200, wbraid: 200, fbclid: 200,
+  landing_path: 300, referrer_host: 120,
   utm_source: 120, utm_medium: 120, utm_campaign: 240, utm_content: 240, utm_term: 240,
   website: 200,
 };
@@ -25,7 +26,8 @@ type Dependencies = { env?: Env; fetch?: typeof fetch; log?: (entry: LogEntry) =
 type Fields = {
   name: string; phone: string; email: string | null;
   suburb: string | null; service: string | null; message: string | null; source: string | null;
-  gclid: string | null; fbclid: string | null;
+  gclid: string | null; gbraid: string | null; wbraid: string | null; fbclid: string | null;
+  landing_path: string | null; referrer_host: string | null;
   utm_source: string | null; utm_medium: string | null; utm_campaign: string | null;
   utm_content: string | null; utm_term: string | null;
 };
@@ -118,6 +120,10 @@ function validate(body: unknown): Fields {
     service: coerceOptional(input, 'service'),
     message: coerceOptional(input, 'message'),
     source: coerceOptional(input, 'source'),
+    landing_path: coerceOptional(input, 'landing_path'),
+    referrer_host: coerceOptional(input, 'referrer_host'),
+    gbraid: coerceOptional(input, 'gbraid'),
+    wbraid: coerceOptional(input, 'wbraid'),
     gclid: coerceOptional(input, 'gclid'),
     fbclid: coerceOptional(input, 'fbclid'),
     utm_source: coerceOptional(input, 'utm_source'),
@@ -187,6 +193,13 @@ export async function captureLead(request: Request, dependencies: Dependencies =
     utm_campaign: fields.utm_campaign,
     utm_content: fields.utm_content,
     utm_term: fields.utm_term,
+    metadata: {
+      attribution_version: 1,
+      landing_path: fields.landing_path,
+      referrer_host: fields.referrer_host,
+      gbraid: fields.gbraid,
+      wbraid: fields.wbraid,
+    },
     page_url: pageUrl(request),
   };
 

@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { submitLead } from '../lib/lead-client';
+import { getLeadAttribution } from '../lib/lead-attribution';
 import { SITE } from '@/data/site';
 
 export const SUBURBS = [
@@ -30,25 +31,14 @@ export default function QuoteForm({ source = 'main' }: { source?: string }) {
   });
   const [website, setWebsite] = useState('');
   const mountedAt = useRef<number>(0);
-  useEffect(() => { mountedAt.current = performance.now(); }, []);
+  useEffect(() => { mountedAt.current = performance.now(); getLeadAttribution(); }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
     setSubmitting(true);
 
-    const url = typeof window !== 'undefined' ? new URL(window.location.href) : null;
-    const attribution = url
-      ? {
-          gclid: url.searchParams.get('gclid') || undefined,
-          fbclid: url.searchParams.get('fbclid') || undefined,
-          utm_source: url.searchParams.get('utm_source') || undefined,
-          utm_medium: url.searchParams.get('utm_medium') || undefined,
-          utm_campaign: url.searchParams.get('utm_campaign') || undefined,
-          utm_content: url.searchParams.get('utm_content') || undefined,
-          utm_term: url.searchParams.get('utm_term') || undefined,
-        }
-      : {};
+    const attribution = getLeadAttribution();
 
     // Send the REAL monotonic elapsed value so the server's <1000ms spam-check
     // still works. If mountedAt is unavailable (SSR/no useEffect yet) send 0
