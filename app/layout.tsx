@@ -4,6 +4,7 @@ import Script from 'next/script';
 import './globals.css';
 import { SITE } from '@/data/site';
 import HolidayBanner from '@/components/HolidayBanner';
+import AttributionBootstrap from '@/components/AttributionBootstrap';
 
 const GA_ID = 'G-8JJN2PZFY8';
 
@@ -229,6 +230,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             });
           })();
         `}</Script>
+        <AttributionBootstrap />
         <HolidayBanner />
         <main>{children}</main>
       </body>
