@@ -231,7 +231,7 @@ export default function Page() {
               </h1>
 
               <p className="text-lg sm:text-xl text-white mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Flawless gyprock, perfect finishes &amp; zero hassle. From single-sheet repairs to full-home plasterboard — we do it all with a{' '}
+                #1 Gyprocker in Northern Beaches for flawless gyprock, perfect finishes &amp; zero hassle. From small repairs to full-home gyprocking and plasterboard fit outs. Backed by a{' '}
                 <strong className="text-brand-300">2-year written guarantee</strong>.
               </p>
 
@@ -310,7 +310,7 @@ export default function Page() {
           <div className="text-center mb-12">
             <span className="inline-block bg-brand-100 text-brand-800 font-bold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Gyprock & plasterboard</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-900 mb-4">
-              Every Gyprock Job,<br/><span className="text-brand-600">Done Right</span>
+              Gyprock Repairs &amp; Installation,<br/><span className="text-brand-600">Northern Beaches</span>
             </h2>
             <p className="text-navy-600 text-lg max-w-2xl mx-auto">
               Repair, replace or install — from a single damaged sheet to a whole-house gyprock fit-out. The right board, the right system, the right finish.
