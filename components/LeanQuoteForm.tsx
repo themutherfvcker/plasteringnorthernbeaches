@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { SUBURBS_FULL } from '@/data/suburbs';
 import { submitLead } from '../lib/lead-client';
+import { SITE } from '@/data/site';
 
 // Lean 3-field form for paid-traffic service landing pages.
 // Strips submission down to first name + mobile + suburb. Anything else
@@ -81,7 +82,7 @@ export default function LeanQuoteForm({
       }));
       setSubmitted(true);
     } else {
-      setError('Sorry, we couldn’t send that. Please call us on 0403 476 869 and we’ll take your details.');
+      setError(`Sorry, we couldn’t send that. Please call us on ${SITE.phone} and we’ll take your details.`);
     }
   }
 

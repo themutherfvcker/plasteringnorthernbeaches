@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { SUBURBS_FULL } from '@/data/suburbs';
 import { submitLead } from '../lib/lead-client';
+import { SITE } from '@/data/site';
 
 // Lime-palette version of the 3-field form. Identical logic to
 // LeanQuoteForm; just recoloured for the palette A/B test.
@@ -74,7 +75,7 @@ export default function LimeQuoteForm({
     if (durable.ok) {
       setSubmitted(true);
     } else {
-      setError('Sorry, we couldn’t send that. Please call us on 0403 476 869 and we’ll take your details.');
+      setError(`Sorry, we couldn’t send that. Please call us on ${SITE.phone} and we’ll take your details.`);
     }
   }
 

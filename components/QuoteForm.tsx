@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { submitLead } from '../lib/lead-client';
+import { SITE } from '@/data/site';
 
 export const SUBURBS = [
   'Manly', 'Dee Why', 'Freshwater', 'Curl Curl', 'Collaroy', 'Narrabeen',
@@ -87,7 +88,7 @@ export default function QuoteForm({ source = 'main' }: { source?: string }) {
       document.dispatchEvent(new CustomEvent('plaster:lead-saved', { detail: { page_path: window.location.pathname, form_id: 'full-quote' } }));
       setSubmitted(true);
     } else {
-      setError('Sorry, we couldn’t send that. Please call us on 0403 476 869 and we’ll take your details.');
+      setError(`Sorry, we couldn’t send that. Please call us on ${SITE.phone} and we’ll take your details.`);
     }
   }
 
