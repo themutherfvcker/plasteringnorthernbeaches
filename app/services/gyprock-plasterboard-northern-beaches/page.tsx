@@ -224,7 +224,7 @@ export default function Page() {
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6">
-                <span className="text-brand-400">Gyprock</span> &amp; Plasterboard Northern Beaches &amp; North Shore
+                <span className="text-brand-400">Gyprocker Northern Beaches</span> &amp; North Shore
                 <span className="block mt-3 text-brand-400 text-2xl md:text-3xl lg:text-4xl">
                   Repair, replace or install it properly.
                 </span>

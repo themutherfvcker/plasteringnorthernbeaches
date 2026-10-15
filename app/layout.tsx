@@ -188,7 +188,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           });
         `}</Script>
         {/* GA4 + Google Ads conversion event tracking. Every phone click
-            and form submit fires TWO events: the GA4 semantic event (for
+            and confirmed form submit fires TWO events: the GA4 semantic event (for
             analytics reporting) AND the Google Ads 'conversion' event (for
             campaign-optimisation bidding). Piggybacking on one handler
             keeps everything in sync. */}
@@ -223,16 +223,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 t = t.parentElement;
               }
             }, true);
-            document.addEventListener('submit', function (e) {
-              var form = e.target;
-              if (form && form.tagName === 'FORM') {
-                fire('lead_form_submit', {
-                  page_path: window.location.pathname,
-                  form_id: form.id || form.getAttribute('name') || 'unnamed',
-                });
-                fireConversion('${GADS_FORM_LABEL}', 80);
-              }
-            }, true);
+            // Count only durable, confirmed lead submissions. Native submit
+            // fires before the network request and can count failed submissions.
+            document.addEventListener('plaster:lead-saved', function (e) {
+              var detail = e && e.detail || {};
+              fire('generate_lead', {
+                page_path: detail.page_path || window.location.pathname,
+                form_id: detail.form_id || 'lean-quote',
+              });
+              fireConversion('${GADS_FORM_LABEL}', 80);
+            });
           })();
         `}</Script>
         <HolidayBanner />

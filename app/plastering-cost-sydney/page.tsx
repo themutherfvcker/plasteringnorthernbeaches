@@ -10,9 +10,9 @@ import SiteFooter from '@/components/SiteFooter';
 import StickyCallCTA from '@/components/StickyCallCTA';
 
 export const metadata: Metadata = {
-  title: "Plastering Cost Sydney 2026 | Repairs from $290 + m² Rates",
+  title: "Plastering Cost Sydney 2026 | Prices Per Job & m²",
   description:
-    "How much does a plasterer cost in Sydney? Real 2026 prices per job type — ceiling repair, cornice, hole patches, water damage. Fixed-price quotes in 24hrs.",
+    "Plastering cost Sydney: see 2026 prices for wall repairs, cornices and ceiling repairs, with per-m² rates and job price ranges.",
   alternates: { canonical: `${SITE.url}/plastering-cost-sydney` },
   openGraph: {
     title: "Plastering Cost Sydney — 2026 Price Guide | Jack's Plastering",
@@ -261,6 +261,13 @@ export default function Page() {
           </p>
           <p className="text-navy-500 text-center text-sm mb-10 italic">
             <time dateTime={SITE.dateModified}>{`Last updated: ${new Date(SITE.dateModified).toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" })}`}</time>
+          </p>
+
+          <p className="text-center text-navy-600 mb-8 max-w-3xl mx-auto">
+            Planning new walls or ceiling sheets? See our{' '}
+            <Link href="/services/gyprock-plasterboard-northern-beaches" className="text-brand-600 font-bold underline underline-offset-2">
+              Gyprock installation and repair services on the Northern Beaches
+            </Link>{' '}before comparing quotes.
           </p>
 
           <div className="space-y-4">
