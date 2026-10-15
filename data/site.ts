@@ -34,8 +34,9 @@ export const SITE = {
   // Service hours — match GBP
   hours: {
     weekdays: '7am–5pm',
-    saturday: '8am–2pm',
-    sunday: 'Closed (emergencies by phone)',
+    saturday: '7am–5pm',
+    sunday: '7am–5pm',
+    phone: 'Calls answered 24/7',
   },
 
   // Last-updated stamps — referenced in JSON-LD schema + visible "Last updated"

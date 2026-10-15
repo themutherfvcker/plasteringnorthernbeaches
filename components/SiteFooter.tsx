@@ -51,7 +51,10 @@ export default function SiteFooter() {
                 <span>{SITE.address.street},<br/>{SITE.address.suburb} {SITE.address.state} {SITE.address.postcode}</span>
               </a>
               <div className="flex items-center gap-3 text-navy-300 text-sm">
-                🕐 Mon–Sat: 7am – 6pm
+                🕐 7 days: 7am – 5pm
+              </div>
+              <div className="flex items-center gap-3 text-navy-300 text-sm">
+                📞 Calls answered 24/7
               </div>
             </div>
           </div>
