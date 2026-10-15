@@ -186,10 +186,6 @@ export async function captureLead(request: Request, dependencies: Dependencies =
     service: fields.service,
     message: fields.message,
     source: fields.source ?? 'plastering-nb-web',
-    landing_path: fields.landing_path,
-    referrer_host: fields.referrer_host,
-    gbraid: fields.gbraid,
-    wbraid: fields.wbraid,
     gclid: fields.gclid,
     fbclid: fields.fbclid,
     utm_source: fields.utm_source,
@@ -197,6 +193,13 @@ export async function captureLead(request: Request, dependencies: Dependencies =
     utm_campaign: fields.utm_campaign,
     utm_content: fields.utm_content,
     utm_term: fields.utm_term,
+    metadata: {
+      attribution_version: 1,
+      landing_path: fields.landing_path,
+      referrer_host: fields.referrer_host,
+      gbraid: fields.gbraid,
+      wbraid: fields.wbraid,
+    },
     page_url: pageUrl(request),
   };
 
