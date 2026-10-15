@@ -11,6 +11,10 @@ export type LeadInput = {
   service?: string;
   message?: string;
   source?: string;
+  landing_path?: string;
+  referrer_host?: string;
+  gbraid?: string;
+  wbraid?: string;
   gclid?: string;
   fbclid?: string;
   utm_source?: string;
@@ -42,11 +46,11 @@ function isDeliveryState(v: unknown): v is DeliveryState {
 export async function submitLead(input: LeadInput): Promise<LeadResult> {
   const {
     name, phone, email, suburb, service, message, source,
-    gclid, fbclid, utm_source, utm_medium, utm_campaign, utm_content, utm_term,
+    landing_path, referrer_host, gbraid, wbraid, gclid, fbclid, utm_source, utm_medium, utm_campaign, utm_content, utm_term,
     website, elapsed_ms,
   } = input;
   const payload: Record<string, unknown> = { name, phone, website, elapsed_ms };
-  for (const [k, v] of Object.entries({ email, suburb, service, message, source, gclid, fbclid, utm_source, utm_medium, utm_campaign, utm_content, utm_term })) {
+  for (const [k, v] of Object.entries({ email, suburb, service, message, source, landing_path, referrer_host, gbraid, wbraid, gclid, fbclid, utm_source, utm_medium, utm_campaign, utm_content, utm_term })) {
     if (v !== undefined && v !== '') payload[k] = v;
   }
   try {
