@@ -60,14 +60,18 @@ const nextConfig = {
             // and this host was blocked — every ad-sourced call was going
             // uncounted. www.gstatic.com is distinct from fonts.gstatic.com
             // (fonts) which was already allowed in font-src.
+            // 2026-10-15: added *.google.com.au to script-src and connect-src.
+            // gtag sends Australian visitors' call-tracking (wcm) and audience
+            // requests to the regional host www.google.com.au, which was blocked.
+            // The "Call ((02) 5500 1608)" action had never recorded a call.
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://*.google.com https://*.g.doubleclick.net https://*.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://www.gstatic.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://*.google.com https://*.google.com.au https://*.g.doubleclick.net https://*.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://www.gstatic.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: https: https://*.google.com https://*.g.doubleclick.net https://*.doubleclick.net https://www.googletagmanager.com https://*.google-analytics.com",
-              "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.google.com https://*.g.doubleclick.net https://*.doubleclick.net https://www.googletagmanager.com https://www.googleadservices.com https://pagead2.googlesyndication.com https://www.gstatic.com",
+              "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.google.com https://*.google.com.au https://*.g.doubleclick.net https://*.doubleclick.net https://www.googletagmanager.com https://www.googleadservices.com https://pagead2.googlesyndication.com https://www.gstatic.com",
               "frame-src 'self' https://www.googletagmanager.com",
               "frame-ancestors 'self'",
               "base-uri 'self'",
