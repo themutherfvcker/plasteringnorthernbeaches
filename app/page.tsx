@@ -8,6 +8,7 @@ import MeetJack from '@/components/MeetJack';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import StickyCallCTA from '@/components/StickyCallCTA';
+import AdSuburbHeadline from '@/components/AdSuburbHeadline';
 
 export const metadata: Metadata = {
   title: "Plasterer Northern Beaches Sydney | Jack's Plastering",
@@ -204,11 +205,11 @@ export default function HomePage() {
                 <span className="text-white/80 text-sm font-medium">Local · Licensed · 15+ years on the tools</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6">
+              <AdSuburbHeadline className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6">
                 Sydney&apos;s Northern Beaches{' '}
                 <span className="text-brand-400 block mt-2">#1 Plasterer</span>{' '}
                 <span className="text-white/90 block mt-1">Sydney-Wide Service</span>
-              </h1>
+              </AdSuburbHeadline>
 
               <p className="text-lg sm:text-xl text-navy-200 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 Flawless walls, perfect finishes &amp; zero hassle. From tiny patch repairs to full home plastering — we do it all with a{' '}
