@@ -84,6 +84,7 @@ export default function QuoteForm({ source = 'main' }: { source?: string }) {
 
     setSubmitting(false);
     if (durable.ok) {
+      document.dispatchEvent(new CustomEvent('plaster:lead-saved', { detail: { page_path: window.location.pathname, form_id: 'full-quote' } }));
       setSubmitted(true);
     } else {
       setError('Sorry, we couldn’t send that. Please call us on 0403 476 869 and we’ll take your details.');
