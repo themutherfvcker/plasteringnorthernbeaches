@@ -231,7 +231,7 @@ export default function Page() {
               </h1>
 
               <p className="text-lg sm:text-xl text-white mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Gyprocker Northern Beaches for plasterboard repairs, new walls and ceiling installation. From a damaged sheet to a full-home plasterboard fit-out, we handle the job with a{' '}
+                #1 Gyprocker in Northern Beaches for flawless gyprock, perfect finishes &amp; zero hassle. From small repairs to full-home gyprocking and plasterboard fit outs. Backed by a{' '}
                 <strong className="text-brand-300">2-year written guarantee</strong>.
               </p>
 
