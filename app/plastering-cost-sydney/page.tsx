@@ -263,6 +263,13 @@ export default function Page() {
             <time dateTime={SITE.dateModified}>{`Last updated: ${new Date(SITE.dateModified).toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" })}`}</time>
           </p>
 
+          <p className="text-center text-navy-600 mb-8 max-w-3xl mx-auto">
+            Planning new walls or ceiling sheets? See our{' '}
+            <Link href="/services/gyprock-plasterboard-northern-beaches" className="text-brand-600 font-bold underline underline-offset-2">
+              Gyprock installation and repair services on the Northern Beaches
+            </Link>{' '}before comparing quotes.
+          </p>
+
           <div className="space-y-4">
             {priceTable.map((row, i) => (
               <article key={i} className="bg-navy-50 rounded-2xl border border-navy-100 p-6 md:p-8 hover:border-brand-400 transition-colors">
