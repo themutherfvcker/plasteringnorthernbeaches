@@ -75,6 +75,10 @@ export default function LeanQuoteForm({
 
     setSubmitting(false);
     if (durable.ok) {
+      // Only signal conversions after the central durable lead is saved.
+      document.dispatchEvent(new CustomEvent('plaster:lead-saved', {
+        detail: { page_path: window.location.pathname, form_id: 'lean-quote' },
+      }));
       setSubmitted(true);
     } else {
       setError('Sorry, we couldn’t send that. Please call us on 0403 476 869 and we’ll take your details.');
