@@ -24,7 +24,7 @@ export default function LeanQuoteForm({
   const [form, setForm] = useState({ name: '', phone: '', suburb: '' });
   const [website, setWebsite] = useState('');
   const mountedAt = useRef<number>(0);
-  useEffect(() => { mountedAt.current = performance.now(); }, []);
+  useEffect(() => { mountedAt.current = performance.now(); getLeadAttribution(); }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
